@@ -154,14 +154,17 @@ def main():
 
         if text.lower() == "publish":
             print("Publish signal found! Updating site...")
+            post_reply(token, thread_ts, "Publishing now -- give it a moment for the site to update.")
             write_data_js(pending["digest"])
             state["published"] = True
             save_state(state)
             git_commit(f"Publish digest {pending['digest']['id']}", include_data=True)
+            post_reply(token, thread_ts, "Done! The digest is live at https://patient-investor-digest.pages.dev/")
             print("Done.")
             sys.exit(0)
         else:
             print(f"Feedback received: {text[:80]}")
+            post_reply(token, thread_ts, "Got it -- sending this for rewriting now...")
             revised = revise_digest(pending["digest"], text)
             pending["digest"] = revised
             save_state(state)
@@ -169,7 +172,7 @@ def main():
             print("Posted revised preview to thread.")
 
     # Commit updated state (last_processed_ts + any revisions)
-    git_commit(f"Update digest state after feedback", include_data=False)
+    git_commit("Update digest state after feedback", include_data=False)
 
 
 if __name__ == "__main__":
