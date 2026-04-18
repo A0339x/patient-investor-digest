@@ -55,6 +55,15 @@ export default {
 
     const body = await request.text();
 
+    const payload = JSON.parse(body);
+
+    // Respond to Slack's URL verification challenge before checking signature
+    if (payload.type === "url_verification") {
+      return new Response(payload.challenge, {
+        headers: { "Content-Type": "text/plain" },
+      });
+    }
+
     const verified = await verifySlackSignature(
       request,
       body,
@@ -62,15 +71,6 @@ export default {
     );
     if (!verified) {
       return new Response("Unauthorized", { status: 401 });
-    }
-
-    const payload = JSON.parse(body);
-
-    // Respond to Slack's URL verification challenge
-    if (payload.type === "url_verification") {
-      return new Response(payload.challenge, {
-        headers: { "Content-Type": "text/plain" },
-      });
     }
 
     const event = payload.event;
