@@ -51,7 +51,7 @@ def post_reply(token, thread_ts, text):
 
 
 def revise_digest(digest, feedback):
-    prompt = f"""You are revising a digest for the Patient Investor LP Mastermind community -- experienced DeFi LPs managing concentrated liquidity on Uniswap V3/V4.
+    prompt = f"""You are making targeted edits to a digest for the Patient Investor LP Mastermind community -- experienced DeFi LPs managing concentrated liquidity on Uniswap V3/V4.
 
 Here is the current digest as JSON:
 {json.dumps(digest, indent=2)}
@@ -59,7 +59,12 @@ Here is the current digest as JSON:
 Here is the editor's feedback:
 {feedback}
 
-Apply the feedback and return the revised digest as a valid JSON object only -- no markdown fencing, no explanation, just the raw JSON. Keep the same id and date unless instructed to change them. Use -- instead of em dashes, straight quotes only, no markdown in any values."""
+IMPORTANT RULES:
+- Only change the specific fields or stories the feedback refers to. Leave everything else completely untouched -- same wording, same structure, same order.
+- If the feedback asks to modify a story, only edit that story's body and/or spark. Do not rename it, reorder it, or touch other stories.
+- Do not rewrite the intro, closing, snapshot, title, or subtitle unless the feedback explicitly asks you to.
+- Return the full digest as a valid JSON object only -- no markdown fencing, no explanation, just the raw JSON.
+- Keep the same id and date. Use -- instead of em dashes, straight quotes only, no markdown in any values."""
 
     result = subprocess.run(
         ["claude", "-p", prompt],
