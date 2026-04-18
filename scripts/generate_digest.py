@@ -128,7 +128,7 @@ def save_state(state):
         json.dump(state, f, indent=2)
 
 
-SLACK_CHANNEL_ID = "C085KR7NZK2"
+SLACK_CHANNEL_ID = "C0ATN065QQ3"
 
 
 def send_to_slack(digest, token):
