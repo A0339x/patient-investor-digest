@@ -1,0 +1,59 @@
+{
+  "pending": {
+    "digest": {
+      "id": "4-18-2026",
+      "date": "April 21, 2026",
+      "title": "LP Mastermind\nMarket Update",
+      "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+      "snapshot": [
+        {
+          "label": "BTC",
+          "value": "-2.1%"
+        },
+        {
+          "label": "ETH",
+          "value": "-3.2%"
+        },
+        {
+          "label": "Volatility",
+          "value": "Elevated, exploit-driven"
+        },
+        {
+          "label": "ETH Gas",
+          "value": "~$1.80"
+        }
+      ],
+      "intro": "BTC is digesting a breakout above its seven-month ceiling while ETH underperforms on a fresh bridge exploit -- a classic divergence that punishes symmetric ranges. For concentrated LPs, this week is less about direction and more about correlation breakdown and the tail risks now priced into wrapped-asset pools.",
+      "stories": [
+        {
+          "title": "Kelp rsETH bridge drained for ~$292M via LayerZero path",
+          "body": "An attacker exploited Kelp DAO's rsETH bridge for roughly $292 million before the emergency multisig paused core contracts about 46 minutes in. Any pool quoting rsETH, wrapped rsETH, or downstream LRT derivatives saw peg dislocations and toxic flow during that window. If you were providing liquidity in rsETH/ETH or rsETH/stable pairs, your ranges likely absorbed the depeg as inventory rotated into the weaker leg, with fees unlikely to compensate for the IL.",
+          "spark": "Did anyone's LRT-paired ranges get fully rotated during the 46-minute window, and how are you thinking about bridge-risk premia in your fee tier selection going forward?"
+        },
+        {
+          "title": "BTC breaks seven-month downtrend; $84K in view",
+          "body": "Bitcoin cracked a seven-month ceiling this week, with prediction markets and desk flow pointing to $84K as the next magnet despite the -2.1% daily print. For WBTC/ETH and cbBTC/ETH LPs, the regime shift matters: BTC-led rallies tend to widen the BTC/ETH ratio and push symmetric ranges out of position on the ETH side. Tight ranges centered on current ratio will likely need rebalancing if BTC continues to lead.",
+          "spark": "Are you skewing WBTC/ETH ranges asymmetrically to favor BTC strength here, or sticking with neutral ranges and eating the rebalance cost?"
+        },
+        {
+          "title": "wXRP goes live on Solana with $1.2M minted",
+          "body": "Over $1.2 million in wrapped XRP has been minted on Solana, opening a new venue for XRP-denominated DeFi liquidity. For V3/V4 LPs this is mostly a signal about where cross-chain wrapped assets are heading -- thin initial liquidity, wide spreads, and fee tiers that haven't settled. Early LPs in wXRP pairs on Solana DEXs will see outsized fees but carry the usual wrapped-asset bridge and oracle risks, which this week's Kelp incident makes more tangible.",
+          "spark": "Would you touch early wXRP liquidity on Solana, or is the bridge-risk tax too high after the rsETH exploit?"
+        },
+        {
+          "title": "Q-Day chatter resurfaces as quantum-signature risk",
+          "body": "Coverage of \"Q-Day\" -- the hypothetical point at which quantum computers can forge ECDSA signatures -- is back in the news cycle. It's not an immediate LP concern, but it's a reminder that long-dated out-of-range positions sitting in legacy P2PK-style addresses or old multisigs carry a tail risk most models ignore. For active LPs, the practical read is to keep treasury and idle LP collateral in modern address formats and avoid parking large sums in stale positions.",
+          "spark": "Does quantum risk change how you think about leaving capital in very wide, rarely-touched V3 ranges versus active V4 hook-managed positions?"
+        },
+        {
+          "title": "RaveDAO pump-and-dump probe hits Binance and Bitget",
+          "body": "ZachXBT has alleged a coordinated pump-and-dump on RAVE, with Binance and Bitget both opening investigations and a $25K whistleblower bounty posted. For LPs, the lesson is familiar but worth restating: providing liquidity to low-float, insider-heavy tokens during suspicious volume spikes means you're almost certainly the exit liquidity. V3 ranges on these pairs collect fees on the way up and inventory on the way down -- asymmetric in the worst direction.",
+          "spark": "What's your personal filter for deciding a long-tail token pool is uninvestable from an LP perspective -- float, holder concentration, or something else?"
+        }
+      ],
+      "closing": "Bridge risk is the story of the week, even for LPs who never touched rsETH directly. How are you repricing wrapped-asset exposure across your book?"
+    },
+    "slack_ts": null,
+    "generated_at": "2026-04-18T21:13:55.439165+00:00"
+  }
+}
