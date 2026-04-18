@@ -98,7 +98,13 @@
       display: flex; align-items: center; gap: var(--sp-2);
       text-decoration: none; color: var(--text-1); flex-shrink: 0;
     }
-    .brand-drop { font-size: 1.05rem; line-height: 1; }
+    .brand-drop {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      display: block;
+      flex-shrink: 0;
+    }
     .brand-text { font-size: .875rem; font-weight: 700; letter-spacing: -.02em; white-space: nowrap; }
     .brand-divider { width: 1px; height: 13px; background: var(--border-card); }
     .brand-sub {
@@ -369,7 +375,7 @@
 
   <div class="header-inner">
     <a class="brand" href="#top">
-      <span class="brand-drop">💧</span>
+      <img class="brand-drop" src="logo.png" alt="Patient Investor logo" />
       <span class="brand-text">Patient Investor Digest</span>
       <span class="brand-divider"></span>
       <span class="brand-sub">LP Intelligence</span>
@@ -409,7 +415,7 @@
     </g>
   </svg>
 
-  <strong>💧 Patient Investor Digest</strong><br>
+  <strong>Patient Investor Digest</strong><br>
   LP Mastermind Edition &nbsp;·&nbsp; Published every Monday &amp; Thursday<br>
   Concentrated liquidity intelligence for serious LPs.
 </footer>
