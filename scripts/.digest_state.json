@@ -1,1 +1,59 @@
-{}
+{
+  "pending": {
+    "digest": {
+      "id": "4-18-2026",
+      "date": "April 21, 2026",
+      "title": "LP Mastermind\nMarket Update",
+      "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+      "snapshot": [
+        {
+          "label": "BTC",
+          "value": "-2.2%"
+        },
+        {
+          "label": "ETH",
+          "value": "-3.2%"
+        },
+        {
+          "label": "Volatility",
+          "value": "Elevated, directional"
+        },
+        {
+          "label": "ETH Gas",
+          "value": "~$1.20"
+        }
+      ],
+      "intro": "BTC just cracked a 7-month downtrend ceiling even as spot pulled back 2% on the day, while ETH underperformed again on a relative basis. For concentrated LPs, that divergence plus a fresh $292M bridge exploit means range discipline and pair selection matter more than directional conviction this week.",
+      "stories": [
+        {
+          "title": "Kelp rsETH Bridge Drained for ~$292M",
+          "body": "A LayerZero-based exploit on Kelp DAO's rsETH bridge pulled roughly $292M before the emergency multisig paused core contracts 46 minutes later. rsETH and adjacent LRT pairs will see depeg volatility, thin books, and wide spreads across V3/V4 pools. Anyone running concentrated rsETH/ETH or rsETH/wstETH ranges should assume the peg anchor is temporarily unreliable and that JIT flow will dominate fee capture. Consider pulling liquidity or widening aggressively until redemption mechanics and backing are publicly reconciled.",
+          "spark": "Are you exiting LRT pairs entirely after this, or widening ranges and pricing in a permanent risk premium on the fee tier?"
+        },
+        {
+          "title": "BTC Breaks 7-Month Downtrend Despite Red Day",
+          "body": "Decrypt flags BTC clearing a seven-month ceiling with $84K cited as the next magnet, even as spot printed -2.2% on the session. That pattern -- breakout on the weekly, chop on the daily -- is classic for whipsawing tight ranges on WBTC/ETH and WBTC/USDC V3 positions. If you're running sub-5% bands you're likely getting picked off on both sides of the breakout retest. Wider asymmetric ranges skewed upside, or a move to V4 hooks with dynamic fees, earn their keep in exactly this regime.",
+          "spark": "Are you repositioning WBTC ranges for a $84K target, or staying neutral until the retest confirms?"
+        },
+        {
+          "title": "ETH Underperformance Continues as XRP Lands on Solana",
+          "body": "ETH fell 3.2% against a 2.2% BTC drop, and wXRP crossing $1.2M minted on Solana is another quiet signal that non-ETH L1 liquidity keeps fragmenting. For ETH-paired LPs, persistent relative weakness means ETH/USDC ranges need to account for continued grind lower on the numeraire, not mean reversion. Stablecoin-heavy allocations and tighter bands below spot are pulling more fees than symmetric ranges right now. V4 hooks that auto-rebalance toward the stable leg are worth a serious look if you're managing size.",
+          "spark": "What ETH/stable ratio are you targeting in your ranges given the persistent underperformance vs BTC?"
+        },
+        {
+          "title": "RaveDAO Pump Investigation Opens",
+          "body": "Binance and Bitget opened probes into the RAVE token after ZachXBT alleged a coordinated pump-and-dump and put up a $25K whistleblower bounty. Expect forced delistings or trading halts, which cascade into CEX/DEX arbitrage gaps and sudden LP drawdowns on any V3 pool holding RAVE. This is the recurring tax on providing liquidity to low-float, celebrity-adjacent tokens -- fees look great until the exit liquidity disappears. Worth auditing your long tail positions for anything with similar launch fingerprints.",
+          "spark": "What's your hard filter for avoiding pools like this -- float, insider concentration, listing venue, or something else?"
+        },
+        {
+          "title": "Q-Day and the Long-Tail Risk to LP Collateral",
+          "body": "Decrypt's Q-Day piece revisits the quantum threat to Bitcoin signatures, and while it's not a 2026 problem, it's a reminder that LP strategies sitting on multi-year WBTC exposure inherit the underlying cryptographic risk. Any bridge-wrapped BTC or long-dated LP NFT is effectively a bet that migration paths exist before the threat matures. Not actionable this quarter, but it belongs in the same mental bucket as bridge risk and oracle risk when you're sizing positions. The recent Kelp drain shows how fast a tail risk becomes a headline.",
+          "spark": "Does quantum risk change how you think about multi-year LP lockups, or is it still too far out to price?"
+        }
+      ],
+      "closing": "Bridge exploits and celebrity memecoin probes in the same week -- what's the one risk control you're tightening before next Monday's open?"
+    },
+    "slack_ts": "1776551320.978079",
+    "generated_at": "2026-04-18T22:28:41.058750+00:00"
+  }
+}
