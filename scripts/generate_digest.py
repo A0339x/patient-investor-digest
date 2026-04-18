@@ -156,9 +156,26 @@ def send_to_slack(digest, token):
     return data["ts"]
 
 
+def read_existing_digests():
+    if not os.path.exists(DATA_FILE):
+        return []
+    with open(DATA_FILE) as f:
+        content = f.read()
+    start = content.index("[")
+    end = content.rindex("]") + 1
+    return json.loads(content[start:end])
+
+
 def write_data_js(digest):
+    digests = read_existing_digests()
+    # Remove existing entry with same id if present, then prepend
+    digests = [d for d in digests if d.get("id") != digest["id"]]
+    digests.insert(0, digest)
     with open(DATA_FILE, "w") as f:
-        f.write(f"const digestData = {json.dumps(digest, indent=2)};\n")
+        f.write("// data.js — Patient Investor Digest\n")
+        f.write("// Scheduled task prepends new issues to the TOP of this array automatically.\n")
+        f.write("// Manual additions: follow the same object structure and add to the top.\n")
+        f.write(f"const DIGESTS = {json.dumps(digests, indent=2)};\n")
 
 
 def git_commit(message):
