@@ -23,37 +23,38 @@
           "value": "~$1.20"
         }
       ],
-      "intro": "BTC just cracked a 7-month downtrend ceiling even as spot pulled back 2% on the day, while ETH underperformed again on a relative basis. For concentrated LPs, that divergence plus a fresh $292M bridge exploit means range discipline and pair selection matter more than directional conviction this week.",
+      "intro": "BTC just cracked a 7-month downtrend ceiling even as spot pulled back 2% on the day, while ETH underperformed again on a relative basis. For concentrated LPs -- whether you run tight sub-5% bands or wider asymmetric ranges -- that divergence plus a fresh $292M bridge exploit means range discipline and pair selection matter more than directional conviction this week.",
       "stories": [
         {
           "title": "Kelp rsETH Bridge Drained for ~$292M",
-          "body": "A LayerZero-based exploit on Kelp DAO's rsETH bridge pulled roughly $292M before the emergency multisig paused core contracts 46 minutes later. rsETH and adjacent LRT pairs will see depeg volatility, thin books, and wide spreads across V3/V4 pools. Anyone running concentrated rsETH/ETH or rsETH/wstETH ranges should assume the peg anchor is temporarily unreliable and that JIT flow will dominate fee capture. Consider pulling liquidity or widening aggressively until redemption mechanics and backing are publicly reconciled.",
+          "body": "A LayerZero-based exploit on Kelp DAO's rsETH bridge pulled roughly $292M before the emergency multisig paused core contracts 46 minutes later. rsETH and adjacent LRT pairs will see depeg volatility, thin books, and wide spreads across V3/V4 pools. If you're running tight ranges on rsETH/ETH or rsETH/wstETH, you're the exit liquidity for every JIT bot front-running the depeg -- pull now or accept you're subsidizing arb flow at a loss. Wider-range LPs have more cushion but still need to mark down the peg anchor and price in a permanent risk premium until redemption mechanics and backing are publicly reconciled.",
           "spark": "Are you exiting LRT pairs entirely after this, or widening ranges and pricing in a permanent risk premium on the fee tier?"
         },
         {
           "title": "BTC Breaks 7-Month Downtrend Despite Red Day",
-          "body": "Decrypt flags BTC clearing a seven-month ceiling with $84K cited as the next magnet, even as spot printed -2.2% on the session. That pattern -- breakout on the weekly, chop on the daily -- is classic for whipsawing tight ranges on WBTC/ETH and WBTC/USDC V3 positions. If you're running sub-5% bands you're likely getting picked off on both sides of the breakout retest. Wider asymmetric ranges skewed upside, or a move to V4 hooks with dynamic fees, earn their keep in exactly this regime.",
+          "body": "Decrypt flags BTC clearing a seven-month ceiling with $84K cited as the next magnet, even as spot printed -2.2% on the session. That pattern -- breakout on the weekly, chop on the daily -- is brutal for sub-5% bands on WBTC/ETH and WBTC/USDC V3 positions: you're getting picked off on both sides of the breakout retest and paying gas to reposition into the next whipsaw. Tight-range LPs should either step aside through the retest or move to V4 hooks with dynamic fees that actually price the whipsaw. Wider-range LPs with asymmetric skew to the upside earn their keep in exactly this regime, though they give up fee density until price settles into a direction.",
           "spark": "Are you repositioning WBTC ranges for a $84K target, or staying neutral until the retest confirms?"
         },
         {
           "title": "ETH Underperformance Continues as XRP Lands on Solana",
-          "body": "ETH fell 3.2% against a 2.2% BTC drop, and wXRP crossing $1.2M minted on Solana is another quiet signal that non-ETH L1 liquidity keeps fragmenting. For ETH-paired LPs, persistent relative weakness means ETH/USDC ranges need to account for continued grind lower on the numeraire, not mean reversion. Stablecoin-heavy allocations and tighter bands below spot are pulling more fees than symmetric ranges right now. V4 hooks that auto-rebalance toward the stable leg are worth a serious look if you're managing size.",
+          "body": "ETH fell 3.2% against a 2.2% BTC drop, and wXRP crossing $1.2M minted on Solana is another quiet signal that non-ETH L1 liquidity keeps fragmenting. For tight-range LPs on ETH/USDC, persistent relative weakness means symmetric bands around spot will drift out-of-range downward and leave you holding 100% ETH at the worst time -- skew bands below spot or accept that you're accumulating on the way down. Wider-range LPs can hold symmetric positions but should shift ratios stable-heavy to reflect the grind lower on the numeraire. V4 hooks that auto-rebalance toward the stable leg are worth a serious look at size for either camp.",
           "spark": "What ETH/stable ratio are you targeting in your ranges given the persistent underperformance vs BTC?"
         },
         {
           "title": "RaveDAO Pump Investigation Opens",
-          "body": "Binance and Bitget opened probes into the RAVE token after ZachXBT alleged a coordinated pump-and-dump and put up a $25K whistleblower bounty. Expect forced delistings or trading halts, which cascade into CEX/DEX arbitrage gaps and sudden LP drawdowns on any V3 pool holding RAVE. This is the recurring tax on providing liquidity to low-float, celebrity-adjacent tokens -- fees look great until the exit liquidity disappears. Worth auditing your long tail positions for anything with similar launch fingerprints.",
+          "body": "Binance and Bitget opened probes into the RAVE token after ZachXBT alleged a coordinated pump-and-dump and put up a $25K whistleblower bounty. Expect forced delistings or trading halts, which cascade into CEX/DEX arbitrage gaps and sudden LP drawdowns on any V3 pool holding RAVE. Tight-range LPs on low-float names like this see catastrophic single-sided fills when a halt hits -- you wake up holding 100% of the worthless leg. Wider ranges soften the hit but don't eliminate it, because the liquidity underneath simply disappears on exit. This is the recurring tax on providing liquidity to low-float, celebrity-adjacent tokens -- worth auditing your long tail positions for anything with similar launch fingerprints.",
           "spark": "What's your hard filter for avoiding pools like this -- float, insider concentration, listing venue, or something else?"
         },
         {
           "title": "Q-Day and the Long-Tail Risk to LP Collateral",
-          "body": "Decrypt's Q-Day piece revisits the quantum threat to Bitcoin signatures, and while it's not a 2026 problem, it's a reminder that LP strategies sitting on multi-year WBTC exposure inherit the underlying cryptographic risk. Any bridge-wrapped BTC or long-dated LP NFT is effectively a bet that migration paths exist before the threat matures. Not actionable this quarter, but it belongs in the same mental bucket as bridge risk and oracle risk when you're sizing positions. The recent Kelp drain shows how fast a tail risk becomes a headline.",
+          "body": "Decrypt's Q-Day piece revisits the quantum threat to Bitcoin signatures, and while it's not a 2026 problem, it's a reminder that LP strategies sitting on multi-year WBTC exposure inherit the underlying cryptographic risk. Any bridge-wrapped BTC or long-dated LP NFT is effectively a bet that migration paths exist before the threat matures. Tight-range LPs rotate positions frequently enough that the exposure window is short, so the risk is mostly to the underlying collateral rather than the position itself. Wider-range LPs holding the same NFT for quarters at a time carry both the collateral risk and the inertia of not rebalancing -- worth factoring into position sizing. Not actionable this quarter, but it belongs in the same mental bucket as bridge risk and oracle risk.",
           "spark": "Does quantum risk change how you think about multi-year LP lockups, or is it still too far out to price?"
         }
       ],
       "closing": "Bridge exploits and celebrity memecoin probes in the same week -- what's the one risk control you're tightening before next Monday's open?"
     },
     "slack_ts": "1776551320.978079",
-    "generated_at": "2026-04-18T22:28:41.058750+00:00"
+    "generated_at": "2026-04-18T22:28:41.058750+00:00",
+    "last_processed_ts": "1776552075.076899"
   }
 }
