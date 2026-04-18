@@ -8,762 +8,566 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet" />
   <style>
-    /* ═══════════════════════════════════════════════════════════════════════
-       DESIGN TOKENS
-    ═══════════════════════════════════════════════════════════════════════ */
+    /* ═══════════════════════════════════════════════════════════════
+       BRAND TOKENS — The Patient Investor Mastermind
+    ═══════════════════════════════════════════════════════════════ */
     :root {
-      /* Color — background layers */
-      --bg-base:     #07090f;
-      --bg-surface:  #0d1220;
-      --bg-elevated: #131d2e;
-      --bg-overlay:  rgba(7,9,15,.82);
+      /* Backgrounds */
+      --bg-base:      #0D0B07;
+      --bg-hero-glow: #111009;
+      --bg-card:      #181510;
+      --bg-callout:   #1E1A10;
 
-      /* Color — brand */
-      --brand:       #00e5b8;
-      --brand-mid:   #00b894;
-      --brand-dark:  #006652;
-      --brand-glow:  rgba(0,229,184,.1);
-      --brand-glow2: rgba(0,229,184,.05);
+      /* Borders */
+      --border-card:  #2A2518;
+      --border-hi:    rgba(201,168,76,.18);
 
-      /* Color — text */
-      --text-1: #dde5f0;
-      --text-2: #7f93ac;
-      --text-3: #3e5068;
+      /* Gold */
+      --gold:         #C9A84C;
+      --gold-bright:  #D4A843;
+      --gold-dark:    #7A5C10;
+      --gold-circuit: #3D3520;
+      --gold-glow:    rgba(201,168,76,.1);
+      --gold-glow2:   rgba(201,168,76,.05);
 
-      /* Color — border */
-      --border:    rgba(255,255,255,.07);
-      --border-hi: rgba(255,255,255,.13);
-
-      /* Typography scale */
-      --size-xs:   0.625rem;
-      --size-sm:   0.75rem;
-      --size-base: 0.9rem;
-      --size-md:   1rem;
-      --size-lg:   1.125rem;
-      --size-xl:   1.375rem;
-      --size-2xl:  1.75rem;
-      --size-3xl:  2.25rem;
-      --size-4xl:  3rem;
+      /* Text */
+      --text-1:       #E8E8E4;
+      --text-2:       #888880;
+      --text-on-gold: #0D0B07;
 
       /* Spacing */
-      --space-1: 0.25rem;
-      --space-2: 0.5rem;
-      --space-3: 0.75rem;
-      --space-4: 1rem;
-      --space-6: 1.5rem;
-      --space-8: 2rem;
-      --space-12: 3rem;
-      --space-16: 4rem;
-
-      /* Radius */
-      --radius-sm: 6px;
-      --radius-md: 10px;
-      --radius-lg: 16px;
-      --radius-full: 100px;
+      --sp-2: .5rem;   --sp-3: .75rem;  --sp-4: 1rem;
+      --sp-6: 1.5rem;  --sp-8: 2rem;    --sp-12: 3rem;
+      --sp-16: 4rem;
 
       /* Motion */
-      --ease-out:  cubic-bezier(0.16, 1, 0.3, 1);
-      --ease-in:   cubic-bezier(0.4, 0, 1, 1);
-      --dur-fast:  150ms;
-      --dur-base:  250ms;
-      --dur-slow:  500ms;
+      --ease: cubic-bezier(.16,1,.3,1);
     }
 
-    /* ═══════════════════════════════════════════════════════════════════════
-       RESET
-    ═══════════════════════════════════════════════════════════════════════ */
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html {
-      scroll-behavior: smooth;
-      font-size: 16px;
-    }
+    /* ═══════════════════════════════════════════════════════════════
+       BASE
+    ═══════════════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
 
     body {
-      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      font-family: 'Inter', -apple-system, sans-serif;
       background: var(--bg-base);
       color: var(--text-1);
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
       overflow-x: hidden;
     }
 
-    /* ═══════════════════════════════════════════════════════════════════════
-       SCROLL PROGRESS BAR
-    ═══════════════════════════════════════════════════════════════════════ */
+    /* ═══════════════════════════════════════════════════════════════
+       PROGRESS BAR
+    ═══════════════════════════════════════════════════════════════ */
     #progress-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 2px;
-      width: 0%;
-      background: linear-gradient(90deg, var(--brand-dark), var(--brand));
-      z-index: 999;
-      transition: width 80ms linear;
-      pointer-events: none;
+      position: fixed; top: 0; left: 0; height: 2px; width: 0%;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-bright));
+      z-index: 999; pointer-events: none; transition: width 80ms linear;
     }
 
-    /* ═══════════════════════════════════════════════════════════════════════
-       STICKY HEADER
-    ═══════════════════════════════════════════════════════════════════════ */
+    /* ═══════════════════════════════════════════════════════════════
+       HEADER
+    ═══════════════════════════════════════════════════════════════ */
     .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: var(--bg-overlay);
-      backdrop-filter: blur(20px) saturate(160%);
-      -webkit-backdrop-filter: blur(20px) saturate(160%);
-      border-bottom: 1px solid var(--border);
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(13,11,7,.88);
+      backdrop-filter: blur(20px) saturate(140%);
+      -webkit-backdrop-filter: blur(20px) saturate(140%);
+      border-bottom: 1px solid var(--border-card);
+      overflow: hidden;
+    }
+
+    /* PCB traces — top right of header */
+    .pcb {
+      position: absolute; top: 0; right: 0;
+      width: 220px; height: 58px;
+      pointer-events: none; opacity: 1;
     }
 
     .header-inner {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 var(--space-6);
-      height: 58px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: var(--space-4);
+      max-width: 880px; margin: 0 auto;
+      padding: 0 var(--sp-6); height: 58px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: var(--sp-4); position: relative; z-index: 1;
     }
 
-    /* Brand */
     .brand {
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      text-decoration: none;
-      color: var(--text-1);
-      flex-shrink: 0;
+      display: flex; align-items: center; gap: var(--sp-2);
+      text-decoration: none; color: var(--text-1); flex-shrink: 0;
     }
-    .brand-drop {
-      font-size: 1.1rem;
-      line-height: 1;
-    }
-    .brand-text {
-      font-size: var(--size-base);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      white-space: nowrap;
-    }
-    .brand-divider {
-      width: 1px;
-      height: 14px;
-      background: var(--border-hi);
-    }
+    .brand-drop { font-size: 1.05rem; line-height: 1; }
+    .brand-text { font-size: .875rem; font-weight: 700; letter-spacing: -.02em; white-space: nowrap; }
+    .brand-divider { width: 1px; height: 13px; background: var(--border-card); }
     .brand-sub {
-      font-size: var(--size-xs);
-      font-weight: 500;
-      letter-spacing: 0.09em;
-      text-transform: uppercase;
-      color: var(--text-3);
-      white-space: nowrap;
+      font-size: .62rem; font-weight: 600; letter-spacing: .1em;
+      text-transform: uppercase; color: var(--text-2); white-space: nowrap;
     }
 
-    /* Issue navigation */
+    /* Issue nav chips */
     .issue-nav {
-      display: flex;
-      align-items: center;
-      gap: var(--space-2);
-      overflow-x: auto;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
+      display: flex; align-items: center; gap: 6px;
+      overflow-x: auto; scrollbar-width: none;
     }
     .issue-nav::-webkit-scrollbar { display: none; }
-
     .nav-label {
-      font-size: var(--size-xs);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--text-3);
-      white-space: nowrap;
-      margin-right: var(--space-1);
-      flex-shrink: 0;
+      font-size: .62rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .1em; color: var(--gold-circuit); white-space: nowrap;
+      margin-right: 2px; flex-shrink: 0;
     }
-
     .nav-chip {
-      display: inline-flex;
-      align-items: center;
-      gap: 5px;
-      padding: 5px 11px;
-      border-radius: var(--radius-full);
-      border: 1px solid var(--border-hi);
-      background: transparent;
-      color: var(--text-2);
-      font-family: inherit;
-      font-size: var(--size-sm);
-      font-weight: 500;
-      cursor: pointer;
-      text-decoration: none;
-      white-space: nowrap;
-      transition:
-        color var(--dur-base) var(--ease-out),
-        border-color var(--dur-base) var(--ease-out),
-        background var(--dur-base) var(--ease-out);
-      flex-shrink: 0;
+      display: inline-flex; align-items: center; gap: 5px;
+      padding: 4px 10px; border-radius: 100px;
+      border: 1px solid var(--border-card);
+      background: transparent; color: var(--text-2);
+      font-family: inherit; font-size: .7rem; font-weight: 500;
+      cursor: pointer; text-decoration: none; white-space: nowrap; flex-shrink: 0;
+      transition: color .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
     }
     .nav-chip::before {
-      content: '';
-      width: 5px;
-      height: 5px;
-      border-radius: 50%;
-      background: var(--text-3);
-      flex-shrink: 0;
-      transition: background var(--dur-base) var(--ease-out);
+      content: ''; width: 5px; height: 5px; border-radius: 50%;
+      background: var(--gold-circuit); flex-shrink: 0;
+      transition: background .2s var(--ease), box-shadow .2s var(--ease);
     }
-    .nav-chip:hover {
-      color: var(--text-1);
-      border-color: var(--brand-dark);
-    }
+    .nav-chip:hover { color: var(--text-1); border-color: var(--gold-dark); }
     .nav-chip.active {
-      color: var(--brand);
-      border-color: var(--brand-dark);
-      background: var(--brand-glow2);
+      color: var(--gold); border-color: var(--gold-dark); background: var(--gold-glow2);
     }
-    .nav-chip.active::before {
-      background: var(--brand);
-      box-shadow: 0 0 6px var(--brand);
-    }
+    .nav-chip.active::before { background: var(--gold); box-shadow: 0 0 6px var(--gold); }
 
-    /* ═══════════════════════════════════════════════════════════════════════
-       MAIN CONTENT AREA
-    ═══════════════════════════════════════════════════════════════════════ */
-    .content {
-      max-width: 860px;
-      margin: 0 auto;
-      padding: 0 var(--space-6);
-    }
+    /* ═══════════════════════════════════════════════════════════════
+       LAYOUT
+    ═══════════════════════════════════════════════════════════════ */
+    .content { max-width: 880px; margin: 0 auto; padding: 0 var(--sp-6); }
 
-    /* ═══════════════════════════════════════════════════════════════════════
+    /* ═══════════════════════════════════════════════════════════════
        ISSUE SECTION
-    ═══════════════════════════════════════════════════════════════════════ */
-    .issue {
-      padding: var(--space-16) 0;
-    }
+    ═══════════════════════════════════════════════════════════════ */
+    .issue { padding: var(--sp-16) 0; }
+    .issue + .issue { border-top: 1px solid var(--border-card); }
 
-    .issue + .issue {
-      border-top: 1px solid var(--border);
+    /* Hero radial glow behind the first issue */
+    .issue.latest { position: relative; }
+    .issue.latest::before {
+      content: '';
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 400px;
+      background: radial-gradient(ellipse at 50% 20%, var(--bg-hero-glow) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
     }
+    .issue.latest > * { position: relative; z-index: 1; }
 
-    /* Latest issue has larger hero treatment */
-    .issue.latest .issue-title {
-      font-size: clamp(var(--size-3xl), 5vw, var(--size-4xl));
-      letter-spacing: -0.04em;
-    }
-
-    /* Older issues slightly smaller */
-    .issue.older .issue-title {
-      font-size: clamp(var(--size-2xl), 4vw, var(--size-3xl));
-      letter-spacing: -0.03em;
-    }
-
+    /* Issue eyebrow */
     .issue-eyebrow {
-      display: flex;
-      align-items: center;
-      gap: var(--space-3);
-      margin-bottom: var(--space-3);
+      display: flex; align-items: center; gap: var(--sp-3);
+      margin-bottom: var(--sp-3);
     }
-
     .issue-date {
-      font-size: var(--size-sm);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      color: var(--brand);
+      font-size: .68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .12em; color: var(--gold);
     }
-
     .issue-tag {
-      font-size: var(--size-xs);
-      font-weight: 600;
-      padding: 3px 8px;
-      border-radius: var(--radius-sm);
-      border: 1px solid var(--border-hi);
-      color: var(--text-3);
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
+      font-size: .6rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px;
+      border-radius: 4px; border: 1px solid var(--border-card); color: var(--text-2);
     }
 
+    /* Issue title — gradient text */
     .issue-title {
-      font-weight: 900;
-      line-height: 1.08;
-      color: var(--text-1);
-      margin-bottom: var(--space-3);
+      font-weight: 900; line-height: 1.05; letter-spacing: -.04em;
+      background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-dark) 100%);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; margin-bottom: var(--sp-3);
     }
+    .issue.latest .issue-title { font-size: clamp(2.25rem, 5vw, 3.25rem); }
+    .issue.older  .issue-title { font-size: clamp(1.75rem, 4vw, 2.5rem); }
 
     .issue-subtitle {
-      font-size: var(--size-md);
-      font-weight: 300;
-      color: var(--text-2);
-      font-style: italic;
-      line-height: 1.55;
+      font-size: 1rem; font-weight: 300; color: var(--text-2);
+      font-style: italic; line-height: 1.6;
     }
 
-    /* ═══════════════════════════════════════════════════════════════════════
-       WEEK AT A GLANCE
-    ═══════════════════════════════════════════════════════════════════════ */
+    /* ═══════════════════════════════════════════════════════════════
+       WEEK AT A GLANCE — card
+    ═══════════════════════════════════════════════════════════════ */
     .glance {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      overflow: hidden;
-      margin: var(--space-8) 0;
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      background: var(--bg-card); border: 1px solid var(--border-card);
+      border-radius: 12px; overflow: hidden; margin: var(--sp-8) 0;
     }
-
     .glance-item {
-      padding: var(--space-4) var(--space-6);
-      border-right: 1px solid var(--border);
-      position: relative;
+      padding: var(--sp-4) var(--sp-6);
+      border-right: 1px solid var(--border-card);
     }
     .glance-item:last-child { border-right: none; }
-    .glance-item::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 50%; right: 0;
-      height: 1px;
-    }
-
     .glance-label {
-      font-size: var(--size-xs);
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.11em;
-      color: var(--text-3);
-      margin-bottom: 6px;
+      font-size: .6rem; font-weight: 600; text-transform: uppercase;
+      letter-spacing: .12em; color: var(--text-2); margin-bottom: 5px;
     }
-
     .glance-value {
-      font-size: var(--size-xl);
-      font-weight: 800;
-      color: var(--brand);
-      letter-spacing: -0.03em;
+      font-size: 1.25rem; font-weight: 800; letter-spacing: -.03em;
       line-height: 1.1;
+      background: linear-gradient(135deg, var(--gold-bright), var(--gold-dark));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    /* ═══════════════════════════════════════════════════════════════════════
-       ISSUE INTRO
-    ═══════════════════════════════════════════════════════════════════════ */
+    /* ═══════════════════════════════════════════════════════════════
+       INTRO
+    ═══════════════════════════════════════════════════════════════ */
     .issue-intro {
-      font-size: var(--size-lg);
-      font-weight: 400;
-      line-height: 1.8;
-      color: var(--text-2);
-      padding-bottom: var(--space-8);
-      border-bottom: 1px solid var(--border);
+      font-size: 1.05rem; font-weight: 400; line-height: 1.8; color: var(--text-2);
+      padding-bottom: var(--sp-8); border-bottom: 1px solid var(--border-card);
     }
 
-    /* ═══════════════════════════════════════════════════════════════════════
+    /* ═══════════════════════════════════════════════════════════════
        STORIES
-    ═══════════════════════════════════════════════════════════════════════ */
-    .stories {
-      display: flex;
-      flex-direction: column;
-    }
-
+    ═══════════════════════════════════════════════════════════════ */
     .story {
-      display: grid;
-      grid-template-columns: 56px 1fr;
-      gap: 0 var(--space-6);
-      padding: var(--space-8) 0;
-      border-bottom: 1px solid var(--border);
+      display: grid; grid-template-columns: 60px 1fr;
+      gap: 0 var(--sp-6); padding: var(--sp-8) 0;
+      border-bottom: 1px solid var(--border-card);
+      position: relative;
     }
     .story:last-child { border-bottom: none; }
 
+    /* Ghost number */
     .story-num {
-      font-size: 2.25rem;
-      font-weight: 900;
-      line-height: 1;
-      color: var(--brand-dark);
-      letter-spacing: -0.06em;
-      padding-top: 2px;
-      opacity: 0.7;
+      font-size: 2.5rem; font-weight: 900; letter-spacing: -.06em;
+      line-height: 1; padding-top: 3px;
+      color: var(--gold); opacity: .08;
       font-variant-numeric: tabular-nums;
     }
 
-    .story-body-wrap {}
-
     .story-title {
-      font-size: var(--size-xl);
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      line-height: 1.3;
-      color: var(--text-1);
-      margin-bottom: var(--space-4);
+      font-size: 1.15rem; font-weight: 700; letter-spacing: -.02em;
+      line-height: 1.3; color: var(--text-1); margin-bottom: var(--sp-4);
     }
-
     .story-body {
-      font-size: var(--size-base);
-      line-height: 1.85;
-      color: var(--text-2);
-      margin-bottom: var(--space-4);
+      font-size: .9rem; line-height: 1.85; color: var(--text-2);
+      margin-bottom: var(--sp-4);
     }
 
+    /* Callout / spark — left gold border on #1E1A10 */
     .story-spark {
-      background: var(--brand-glow);
-      border-left: 2px solid var(--brand);
-      border-radius: 0 var(--radius-md) var(--radius-md) 0;
-      padding: var(--space-4) var(--space-4) var(--space-4) var(--space-6);
+      background: var(--bg-callout);
+      border-left: 3px solid var(--gold);
+      border-radius: 0 10px 10px 0;
+      padding: var(--sp-4) var(--sp-4) var(--sp-4) var(--sp-6);
     }
-
     .spark-label {
-      font-size: var(--size-xs);
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
-      color: var(--brand-mid);
-      margin-bottom: 5px;
+      font-size: .6rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .12em; color: var(--gold); margin-bottom: 5px;
     }
+    .spark-text { font-size: .875rem; color: var(--text-1); line-height: 1.7; }
 
-    .spark-text {
-      font-size: var(--size-base);
-      color: var(--text-1);
-      line-height: 1.7;
-    }
-
-    /* ═══════════════════════════════════════════════════════════════════════
-       ISSUE CLOSING
-    ═══════════════════════════════════════════════════════════════════════ */
+    /* ═══════════════════════════════════════════════════════════════
+       CLOSING
+    ═══════════════════════════════════════════════════════════════ */
     .issue-closing {
-      margin-top: var(--space-8);
-      padding: var(--space-6);
-      background: var(--bg-surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      font-size: var(--size-base);
-      line-height: 1.75;
-      color: var(--text-2);
-      font-style: italic;
+      margin-top: var(--sp-8);
+      background: var(--bg-card); border: 1px solid var(--border-card);
+      border-radius: 12px; padding: var(--sp-6);
+      font-size: .9rem; line-height: 1.75; color: var(--text-2); font-style: italic;
     }
 
-    /* ═══════════════════════════════════════════════════════════════════════
+    /* ═══════════════════════════════════════════════════════════════
        SCROLL-TO-TOP
-    ═══════════════════════════════════════════════════════════════════════ */
+    ═══════════════════════════════════════════════════════════════ */
     #scroll-top {
-      position: fixed;
-      bottom: var(--space-8);
-      right: var(--space-8);
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background: var(--bg-elevated);
-      border: 1px solid var(--border-hi);
-      color: var(--text-2);
-      font-size: 1rem;
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      opacity: 0;
-      pointer-events: none;
-      transition:
-        opacity var(--dur-base) var(--ease-out),
-        color var(--dur-base) var(--ease-out),
-        border-color var(--dur-base) var(--ease-out),
-        transform var(--dur-base) var(--ease-out);
-      z-index: 50;
+      position: fixed; bottom: var(--sp-8); right: var(--sp-8);
+      width: 40px; height: 40px; border-radius: 50%;
+      background: var(--bg-card); border: 1px solid var(--border-card);
+      color: var(--text-2); font-size: 1rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; pointer-events: none; z-index: 50;
+      transition: opacity .25s var(--ease), color .2s, border-color .2s, transform .2s var(--ease);
     }
-    #scroll-top.show {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    #scroll-top:hover {
-      color: var(--brand);
-      border-color: var(--brand-dark);
-      transform: translateY(-2px);
-    }
+    #scroll-top.show { opacity: 1; pointer-events: auto; }
+    #scroll-top:hover { color: var(--gold); border-color: var(--gold-dark); transform: translateY(-2px); }
 
-    /* ═══════════════════════════════════════════════════════════════════════
+    /* ═══════════════════════════════════════════════════════════════
        FOOTER
-    ═══════════════════════════════════════════════════════════════════════ */
+    ═══════════════════════════════════════════════════════════════ */
     .site-footer {
-      border-top: 1px solid var(--border);
-      padding: var(--space-12) var(--space-6);
-      text-align: center;
-      color: var(--text-3);
-      font-size: var(--size-sm);
-      line-height: 2;
+      border-top: 1px solid var(--border-card);
+      padding: var(--sp-12) var(--sp-6);
+      text-align: center; font-size: .75rem; line-height: 2;
+      color: var(--text-2); position: relative; overflow: hidden;
     }
-    .site-footer strong {
-      color: var(--text-2);
-      font-weight: 600;
+    .site-footer strong { color: var(--gold); font-weight: 600; }
+
+    /* PCB traces — bottom left of footer */
+    .pcb-footer {
+      position: absolute; bottom: 0; left: 0;
+      width: 180px; height: 80px; pointer-events: none; opacity: 1;
     }
 
-    /* ═══════════════════════════════════════════════════════════════════════
-       FADE-IN ANIMATION
-    ═══════════════════════════════════════════════════════════════════════ */
+    /* ═══════════════════════════════════════════════════════════════
+       REVEAL ANIMATION
+    ═══════════════════════════════════════════════════════════════ */
     .reveal {
-      opacity: 0;
-      transform: translateY(16px);
-      transition:
-        opacity var(--dur-slow) var(--ease-out),
-        transform var(--dur-slow) var(--ease-out);
+      opacity: 0; transform: translateY(14px);
+      transition: opacity .55s var(--ease), transform .55s var(--ease);
     }
-    .reveal.in {
-      opacity: 1;
-      transform: none;
-    }
-    /* Stagger delay for children */
-    .reveal[data-delay="1"] { transition-delay: 60ms; }
-    .reveal[data-delay="2"] { transition-delay: 120ms; }
-    .reveal[data-delay="3"] { transition-delay: 180ms; }
-    .reveal[data-delay="4"] { transition-delay: 240ms; }
-    .reveal[data-delay="5"] { transition-delay: 300ms; }
+    .reveal.in { opacity: 1; transform: none; }
+    .reveal[data-d="1"] { transition-delay:  60ms; }
+    .reveal[data-d="2"] { transition-delay: 120ms; }
+    .reveal[data-d="3"] { transition-delay: 180ms; }
+    .reveal[data-d="4"] { transition-delay: 240ms; }
+    .reveal[data-d="5"] { transition-delay: 300ms; }
 
-    /* ═══════════════════════════════════════════════════════════════════════
+    /* ═══════════════════════════════════════════════════════════════
        RESPONSIVE
-    ═══════════════════════════════════════════════════════════════════════ */
-    @media (max-width: 700px) {
-      .brand-divider,
-      .brand-sub,
-      .nav-label { display: none; }
-
-      .story {
-        grid-template-columns: 1fr;
-      }
-      .story-num {
-        font-size: 1.25rem;
-        margin-bottom: var(--space-2);
-      }
-
-      .glance {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    ═══════════════════════════════════════════════════════════════ */
+    @media (max-width: 680px) {
+      .brand-divider, .brand-sub, .nav-label { display: none; }
+      .story { grid-template-columns: 1fr; }
+      .story-num { font-size: 1.1rem; margin-bottom: 6px; opacity: .12; }
+      .glance { grid-template-columns: repeat(2, 1fr); }
       .glance-item:nth-child(2) { border-right: none; }
       .glance-item:nth-child(1),
-      .glance-item:nth-child(2) {
-        border-bottom: 1px solid var(--border);
-      }
-
-      .issue { padding: var(--space-12) 0; }
-
-      #scroll-top { bottom: var(--space-4); right: var(--space-4); }
+      .glance-item:nth-child(2) { border-bottom: 1px solid var(--border-card); }
+      .issue { padding: 3rem 0; }
+      #scroll-top { bottom: 1rem; right: 1rem; }
     }
   </style>
 </head>
 <body>
 
-  <!-- Progress bar -->
-  <div id="progress-bar"></div>
+<div id="progress-bar"></div>
 
-  <!-- ── HEADER ────────────────────────────────────────────────── -->
-  <header class="site-header">
-    <div class="header-inner">
-      <a class="brand" href="#top">
-        <span class="brand-drop">💧</span>
-        <span class="brand-text">Patient Investor Digest</span>
-        <span class="brand-divider"></span>
-        <span class="brand-sub">LP Intelligence</span>
-      </a>
-      <nav class="issue-nav" id="issue-nav" aria-label="Jump to issue">
-        <span class="nav-label">Issues</span>
-        <!-- injected by JS -->
-      </nav>
-    </div>
-  </header>
+<!-- ── HEADER ──────────────────────────────────────────────────── -->
+<header class="site-header">
+  <!-- PCB circuit traces — top right -->
+  <svg class="pcb" viewBox="0 0 220 58" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#3D3520" stroke-width="1">
+      <line x1="220" y1="8"  x2="160" y2="8"/>
+      <line x1="160" y1="8"  x2="140" y2="28"/>
+      <line x1="140" y1="28" x2="100" y2="28"/>
+      <line x1="220" y1="22" x2="175" y2="22"/>
+      <line x1="175" y1="22" x2="155" y2="42"/>
+      <line x1="155" y1="42" x2="115" y2="42"/>
+      <line x1="220" y1="40" x2="195" y2="40"/>
+      <line x1="195" y1="40" x2="185" y2="50"/>
+      <line x1="185" y1="50" x2="150" y2="50"/>
+    </g>
+    <g fill="#3D3520">
+      <circle cx="160" cy="8"  r="2.5"/>
+      <circle cx="140" cy="28" r="2.5"/>
+      <circle cx="100" cy="28" r="2.5"/>
+      <circle cx="175" cy="22" r="2.5"/>
+      <circle cx="155" cy="42" r="2.5"/>
+      <circle cx="115" cy="42" r="2.5"/>
+      <circle cx="195" cy="40" r="2.5"/>
+      <circle cx="185" cy="50" r="2.5"/>
+      <circle cx="150" cy="50" r="2.5"/>
+    </g>
+  </svg>
 
-  <!-- ── CONTENT ───────────────────────────────────────────────── -->
-  <div class="content" id="top">
-    <!-- issues injected by JS -->
+  <div class="header-inner">
+    <a class="brand" href="#top">
+      <span class="brand-drop">💧</span>
+      <span class="brand-text">Patient Investor Digest</span>
+      <span class="brand-divider"></span>
+      <span class="brand-sub">LP Intelligence</span>
+    </a>
+    <nav class="issue-nav" id="issue-nav" aria-label="Jump to issue">
+      <span class="nav-label">Issues</span>
+    </nav>
   </div>
+</header>
 
-  <!-- ── FOOTER ────────────────────────────────────────────────── -->
-  <footer class="site-footer">
-    <strong>💧 Patient Investor Digest</strong><br>
-    LP Mastermind Edition &nbsp;·&nbsp; Published every Monday &amp; Thursday<br>
-    Concentrated liquidity intelligence for serious LPs.
-  </footer>
+<!-- ── CONTENT ─────────────────────────────────────────────────── -->
+<div class="content" id="top"></div>
 
-  <!-- Scroll-to-top -->
-  <button id="scroll-top" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<!-- ── FOOTER ──────────────────────────────────────────────────── -->
+<footer class="site-footer">
+  <!-- PCB circuit traces — bottom left -->
+  <svg class="pcb-footer" viewBox="0 0 180 80" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <g stroke="#3D3520" stroke-width="1">
+      <line x1="0" y1="72" x2="60"  y2="72"/>
+      <line x1="60"  y1="72" x2="80"  y2="52"/>
+      <line x1="80"  y1="52" x2="120" y2="52"/>
+      <line x1="0" y1="58" x2="45"  y2="58"/>
+      <line x1="45"  y1="58" x2="65"  y2="38"/>
+      <line x1="65"  y1="38" x2="100" y2="38"/>
+      <line x1="0" y1="40" x2="30"  y2="40"/>
+      <line x1="30"  y1="40" x2="50"  y2="20"/>
+    </g>
+    <g fill="#3D3520">
+      <circle cx="60"  cy="72" r="2.5"/>
+      <circle cx="80"  cy="52" r="2.5"/>
+      <circle cx="120" cy="52" r="2.5"/>
+      <circle cx="45"  cy="58" r="2.5"/>
+      <circle cx="65"  cy="38" r="2.5"/>
+      <circle cx="100" cy="38" r="2.5"/>
+      <circle cx="30"  cy="40" r="2.5"/>
+      <circle cx="50"  cy="20" r="2.5"/>
+    </g>
+  </svg>
 
-  <!-- ════════════════════════════════════════════════════════════════
-       DATA — add new issues to the TOP of this array (newest first)
-  ════════════════════════════════════════════════════════════════ -->
-  <script>
-  const DIGESTS = [
-    {
-      id: "april-16-2026",
-      date: "April 16, 2026",
-      title: "LP Mastermind\nMarket Update",
-      subtitle: "What moved this week, what it means for your ranges, and what's worth talking about.",
-      snapshot: [
-        { label: "BTC",        value: "+2.9%" },
-        { label: "ETH",        value: "+5.6%" },
-        { label: "Volatility", value: "Spike → compress" },
-        { label: "ETH Gas",    value: "~$0.01" }
-      ],
-      intro: "A geopolitical shock mid-week (Strait of Hormuz closure → ceasefire) created a classic volatility burst followed by a sharp directional move. For LPs, that's the week in a nutshell: wide swings, then a reset.",
-      stories: [
-        {
-          title: "Volatility Spike, Then Whipsaw — How Did Your Ranges Hold?",
-          body:  "The Middle East ceasefire on April 7–8 triggered a fast 5–6% move up in ETH almost overnight, following a week of macro-driven suppression from energy price spikes and CPI coming in hot at 3.3%. If you were running tight ranges through the spike, you likely went out of range and missed the fee window. If you were running wider ranges anticipating macro uncertainty, this was a solid fee-generating week.",
-          spark: "What range widths are you running right now given the macro backdrop — tighter for fees, or wider for resilience? Did anyone get caught out of range during the April 7 move?"
-        },
-        {
-          title: "Aave V4 Live + Gas at Record Lows — Rebalancing Just Got Cheaper",
-          body:  "Aave V4 launched on Ethereum Mainnet this week, and Ethereum gas fees are sitting at an all-time low of ~$0.01. For V3/V4 LPs, this matters practically: rebalancing positions, collecting fees, and adjusting ranges is effectively free right now compared to even 12 months ago. If you've been avoiding frequent range adjustments because of gas costs, that friction is largely gone.",
-          spark: "Has cheap gas changed how often you're adjusting ranges? Or are you still managing positions the same way regardless?"
-        },
-        {
-          title: "Apollo Global Enters DeFi Lending — What Institutional Liquidity Means for Pools",
-          body:  "Apollo Global Management partnered with Morpho to provide on-chain lending liquidity, with rights to acquire 90 million MORPHO tokens. Separately, the $12.5 trillion global repo market is beginning to settle on Ethereum. As institutional capital flows into DeFi, it changes the liquidity landscape — deeper pools, tighter spreads, and potentially lower fee yields in the most competitive pairs as more LPs compete for the same volume.",
-          spark: "Are you already seeing yield compression on major pairs like ETH/USDC? Is institutional liquidity pushing you toward niche pools or longer-tail pairs to find better returns?"
-        },
-        {
-          title: "SEC Unlocks DeFi Front-Ends — More On-Chain Volume Coming",
-          body:  "The SEC ruled on April 13 that DeFi user interface providers don't need to register as broker-dealers — a major legal unlock that removes a key barrier for compliant DeFi products to go mainstream. More on-chain users and volume is ultimately good for LPs: more swaps = more fees. This follows the March SEC/CFTC joint framework that gave crypto assets a formal legal taxonomy for the first time.",
-          spark: "Do you factor regulatory clarity into which chains or protocols you LP on? Does this change your confidence in Ethereum-based pools specifically?"
-        },
-        {
-          title: "V4 Hooks Are Live — The Next Frontier for LP Strategy",
-          body:  "With Aave V4's launch reinforcing the Ethereum ecosystem, Uniswap V4's hook architecture is increasingly where LP strategy innovation is happening. Hooks allow pool creators to build custom logic — dynamic fee tiers, auto-rebalancing, TWAP-based range adjustments — directly into the pool. Early hook-enabled pools are beginning to emerge with meaningfully different risk/return profiles than standard V3 positions.",
-          spark: "Is anyone experimenting with V4 hook pools yet? What custom logic would actually change how you LP — dynamic fees, auto-range shifting, something else?"
-        }
-      ],
-      closing: "What are you watching going into next week? Drop your current setups, pairs, and range thoughts in the group."
-    }
-  ];
+  <strong>💧 Patient Investor Digest</strong><br>
+  LP Mastermind Edition &nbsp;·&nbsp; Published every Monday &amp; Thursday<br>
+  Concentrated liquidity intelligence for serious LPs.
+</footer>
 
-  /* ── BUILD NAV CHIPS ──────────────────────────────────────────────── */
-  function buildNav() {
-    const nav = document.getElementById('issue-nav');
-    DIGESTS.forEach((d, i) => {
-      const a = document.createElement('a');
-      a.href = '#' + d.id;
-      a.className = 'nav-chip' + (i === 0 ? ' active' : '');
-      a.dataset.id = d.id;
-      a.textContent = d.date;
-      a.addEventListener('click', e => {
-        e.preventDefault();
-        document.getElementById(d.id)?.scrollIntoView({ behavior: 'smooth' });
-      });
-      nav.appendChild(a);
-    });
+<button id="scroll-top" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- ════════════════════════════════════════════════════════════════
+     DATA — add new issues to the TOP of this array (newest first)
+════════════════════════════════════════════════════════════════ -->
+<script>
+const DIGESTS = [
+  {
+    id: "april-16-2026",
+    date: "April 16, 2026",
+    title: "LP Mastermind\nMarket Update",
+    subtitle: "What moved this week, what it means for your ranges, and what's worth talking about.",
+    snapshot: [
+      { label: "BTC",        value: "+2.9%" },
+      { label: "ETH",        value: "+5.6%" },
+      { label: "Volatility", value: "Spike → compress" },
+      { label: "ETH Gas",    value: "~$0.01" }
+    ],
+    intro: "A geopolitical shock mid-week (Strait of Hormuz closure → ceasefire) created a classic volatility burst followed by a sharp directional move. For LPs, that's the week in a nutshell: wide swings, then a reset.",
+    stories: [
+      {
+        title: "Volatility Spike, Then Whipsaw — How Did Your Ranges Hold?",
+        body:  "The Middle East ceasefire on April 7–8 triggered a fast 5–6% move up in ETH almost overnight, following a week of macro-driven suppression from energy price spikes and CPI coming in hot at 3.3%. If you were running tight ranges through the spike, you likely went out of range and missed the fee window. If you were running wider ranges anticipating macro uncertainty, this was a solid fee-generating week.",
+        spark: "What range widths are you running right now given the macro backdrop — tighter for fees, or wider for resilience? Did anyone get caught out of range during the April 7 move?"
+      },
+      {
+        title: "Aave V4 Live + Gas at Record Lows — Rebalancing Just Got Cheaper",
+        body:  "Aave V4 launched on Ethereum Mainnet this week, and Ethereum gas fees are sitting at an all-time low of ~$0.01. For V3/V4 LPs, this matters practically: rebalancing positions, collecting fees, and adjusting ranges is effectively free right now compared to even 12 months ago. If you've been avoiding frequent range adjustments because of gas costs, that friction is largely gone.",
+        spark: "Has cheap gas changed how often you're adjusting ranges? Or are you still managing positions the same way regardless?"
+      },
+      {
+        title: "Apollo Global Enters DeFi Lending — What Institutional Liquidity Means for Pools",
+        body:  "Apollo Global Management partnered with Morpho to provide on-chain lending liquidity, with rights to acquire 90 million MORPHO tokens. Separately, the $12.5 trillion global repo market is beginning to settle on Ethereum. As institutional capital flows into DeFi, it changes the liquidity landscape — deeper pools, tighter spreads, and potentially lower fee yields in the most competitive pairs as more LPs compete for the same volume.",
+        spark: "Are you already seeing yield compression on major pairs like ETH/USDC? Is institutional liquidity pushing you toward niche pools or longer-tail pairs to find better returns?"
+      },
+      {
+        title: "SEC Unlocks DeFi Front-Ends — More On-Chain Volume Coming",
+        body:  "The SEC ruled on April 13 that DeFi user interface providers don't need to register as broker-dealers — a major legal unlock that removes a key barrier for compliant DeFi products to go mainstream. More on-chain users and volume is ultimately good for LPs: more swaps = more fees. This follows the March SEC/CFTC joint framework that gave crypto assets a formal legal taxonomy for the first time.",
+        spark: "Do you factor regulatory clarity into which chains or protocols you LP on? Does this change your confidence in Ethereum-based pools specifically?"
+      },
+      {
+        title: "V4 Hooks Are Live — The Next Frontier for LP Strategy",
+        body:  "With Aave V4's launch reinforcing the Ethereum ecosystem, Uniswap V4's hook architecture is increasingly where LP strategy innovation is happening. Hooks allow pool creators to build custom logic — dynamic fee tiers, auto-rebalancing, TWAP-based range adjustments — directly into the pool. Early hook-enabled pools are beginning to emerge with meaningfully different risk/return profiles than standard V3 positions.",
+        spark: "Is anyone experimenting with V4 hook pools yet? What custom logic would actually change how you LP — dynamic fees, auto-range shifting, something else?"
+      }
+    ],
+    closing: "What are you watching going into next week? Drop your current setups, pairs, and range thoughts in the group."
   }
+];
 
-  /* ── BUILD ISSUE SECTIONS ─────────────────────────────────────────── */
-  function buildIssues() {
-    const container = document.getElementById('top');
+/* ── BUILD NAV ─────────────────────────────────────────────────── */
+function buildNav() {
+  const nav = document.getElementById('issue-nav');
+  DIGESTS.forEach((d, i) => {
+    const a = document.createElement('a');
+    a.href = '#' + d.id;
+    a.className = 'nav-chip' + (i === 0 ? ' active' : '');
+    a.dataset.id = d.id;
+    a.textContent = d.date;
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById(d.id)?.scrollIntoView({ behavior: 'smooth' });
+    });
+    nav.appendChild(a);
+  });
+}
 
-    DIGESTS.forEach((d, idx) => {
-      const section = document.createElement('section');
-      section.className = 'issue ' + (idx === 0 ? 'latest' : 'older');
-      section.id = d.id;
+/* ── BUILD ISSUES ──────────────────────────────────────────────── */
+function buildIssues() {
+  const container = document.getElementById('top');
+  DIGESTS.forEach((d, idx) => {
+    const sec = document.createElement('section');
+    sec.className = 'issue ' + (idx === 0 ? 'latest' : 'older');
+    sec.id = d.id;
 
-      const titleLines = d.title.split('\n').join('<br>');
+    const titleHTML = d.title.split('\n').join('<br>');
 
-      const glanceHTML = d.snapshot.map(s => `
-        <div class="glance-item reveal" data-delay="${d.snapshot.indexOf(s) + 1}">
-          <div class="glance-label">${s.label}</div>
-          <div class="glance-value">${s.value}</div>
-        </div>
-      `).join('');
+    const glanceHTML = d.snapshot.map(s => `
+      <div class="glance-item">
+        <div class="glance-label">${s.label}</div>
+        <div class="glance-value">${s.value}</div>
+      </div>`).join('');
 
-      const storiesHTML = d.stories.map((s, i) => `
-        <div class="story reveal" data-delay="${Math.min(i + 1, 5)}">
-          <div class="story-num">0${i + 1}</div>
-          <div class="story-body-wrap">
-            <div class="story-title">${s.title}</div>
-            <div class="story-body">${s.body}</div>
-            <div class="story-spark">
-              <div class="spark-label">💬 For the group</div>
-              <div class="spark-text">${s.spark}</div>
-            </div>
+    const storiesHTML = d.stories.map((s, i) => `
+      <div class="story reveal" data-d="${Math.min(i+1,5)}">
+        <div class="story-num">0${i+1}</div>
+        <div>
+          <div class="story-title">${s.title}</div>
+          <div class="story-body">${s.body}</div>
+          <div class="story-spark">
+            <div class="spark-label">◆ For the group</div>
+            <div class="spark-text">${s.spark}</div>
           </div>
         </div>
-      `).join('');
+      </div>`).join('');
 
-      section.innerHTML = `
-        <div class="issue-eyebrow reveal">
-          <span class="issue-date">${d.date}</span>
-          <span class="issue-tag">LP Mastermind Edition</span>
-        </div>
-        <h1 class="issue-title reveal" data-delay="1">${titleLines}</h1>
-        <p class="issue-subtitle reveal" data-delay="2">${d.subtitle}</p>
-        <div class="glance reveal" data-delay="3">
-          ${d.snapshot.map(s => `
-            <div class="glance-item">
-              <div class="glance-label">${s.label}</div>
-              <div class="glance-value">${s.value}</div>
-            </div>
-          `).join('')}
-        </div>
-        <p class="issue-intro reveal" data-delay="4">${d.intro}</p>
-        <div class="stories">${storiesHTML}</div>
-        <div class="issue-closing reveal">${d.closing}</div>
-      `;
+    sec.innerHTML = `
+      <div class="issue-eyebrow reveal">
+        <span class="issue-date">${d.date}</span>
+        <span class="issue-tag">LP Mastermind Edition</span>
+      </div>
+      <h1 class="issue-title reveal" data-d="1">${titleHTML}</h1>
+      <p class="issue-subtitle reveal" data-d="2">${d.subtitle}</p>
+      <div class="glance reveal" data-d="3">${glanceHTML}</div>
+      <p class="issue-intro reveal" data-d="4">${d.intro}</p>
+      <div class="stories">${storiesHTML}</div>
+      <div class="issue-closing reveal">${d.closing}</div>`;
 
-      container.appendChild(section);
-    });
-  }
-
-  /* ── INTERSECTION OBSERVER: FADE-IN ──────────────────────────────── */
-  function initReveal() {
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('in');
-          io.unobserve(e.target);
-        }
-      });
-    }, { threshold: 0.07 });
-
-    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-  }
-
-  /* ── INTERSECTION OBSERVER: ACTIVE NAV ───────────────────────────── */
-  function initActiveNav() {
-    const chips = () => document.querySelectorAll('.nav-chip');
-
-    const io = new IntersectionObserver(entries => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          chips().forEach(c => c.classList.remove('active'));
-          const chip = document.querySelector(`.nav-chip[data-id="${e.target.id}"]`);
-          if (chip) chip.classList.add('active');
-        }
-      });
-    }, { rootMargin: '-25% 0px -65% 0px' });
-
-    document.querySelectorAll('.issue').forEach(s => io.observe(s));
-  }
-
-  /* ── SCROLL: PROGRESS BAR + SCROLL-TO-TOP ─────────────────────────── */
-  function initScroll() {
-    const bar = document.getElementById('progress-bar');
-    const btn = document.getElementById('scroll-top');
-    let ticking = false;
-
-    window.addEventListener('scroll', () => {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-          bar.style.width = Math.min(pct, 100) + '%';
-          btn.classList.toggle('show', window.scrollY > 500);
-          ticking = false;
-        });
-        ticking = true;
-      }
-    }, { passive: true });
-  }
-
-  /* ── INIT ─────────────────────────────────────────────────────────── */
-  buildNav();
-  buildIssues();
-  // Small delay so elements are in DOM before observing
-  requestAnimationFrame(() => {
-    initReveal();
-    initActiveNav();
-    initScroll();
+    container.appendChild(sec);
   });
-  </script>
+}
 
+/* ── OBSERVERS ─────────────────────────────────────────────────── */
+function initObservers() {
+  // Fade-in
+  const fadeIO = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); fadeIO.unobserve(e.target); } });
+  }, { threshold: 0.07 });
+  document.querySelectorAll('.reveal').forEach(el => fadeIO.observe(el));
+
+  // Active nav chip
+  const navIO = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        document.querySelectorAll('.nav-chip').forEach(c => c.classList.remove('active'));
+        document.querySelector(`.nav-chip[data-id="${e.target.id}"]`)?.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-25% 0px -65% 0px' });
+  document.querySelectorAll('.issue').forEach(s => navIO.observe(s));
+}
+
+/* ── SCROLL ────────────────────────────────────────────────────── */
+function initScroll() {
+  const bar = document.getElementById('progress-bar');
+  const btn = document.getElementById('scroll-top');
+  let t = false;
+  window.addEventListener('scroll', () => {
+    if (!t) {
+      requestAnimationFrame(() => {
+        const pct = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
+        bar.style.width = Math.min(pct, 100) + '%';
+        btn.classList.toggle('show', window.scrollY > 500);
+        t = false;
+      });
+      t = true;
+    }
+  }, { passive: true });
+}
+
+/* ── INIT ──────────────────────────────────────────────────────── */
+buildNav();
+buildIssues();
+requestAnimationFrame(() => { initObservers(); initScroll(); });
+</script>
 </body>
 </html>
