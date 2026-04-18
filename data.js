@@ -1,16 +1,16 @@
 const digestData = {
   "id": "4-18-2026",
-  "date": "April 21, 2026",
+  "date": "April 18, 2026",
   "title": "LP Mastermind\nMarket Update",
   "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
   "snapshot": [
     {
       "label": "BTC",
-      "value": "-2.1%"
+      "value": "-2.2%"
     },
     {
       "label": "ETH",
-      "value": "-3.2%"
+      "value": "-3.1%"
     },
     {
       "label": "Volatility",
@@ -21,33 +21,33 @@ const digestData = {
       "value": "~$1.80"
     }
   ],
-  "intro": "BTC is digesting a breakout above its seven-month ceiling while ETH underperforms on a fresh bridge exploit -- a classic divergence that punishes symmetric ranges. For concentrated LPs, this week is less about direction and more about correlation breakdown and the tail risks now priced into wrapped-asset pools.",
+  "intro": "Majors sold off together this week as a nine-figure bridge exploit reminded everyone that smart contract risk still prices into LP returns. BTC is trying to hold its seven-month breakout while ETH drifts lower, which is widening realized vol in the pair and rewarding tighter ranges -- if you can stomach the rebalance cadence.",
   "stories": [
     {
-      "title": "Kelp rsETH bridge drained for ~$292M via LayerZero path",
-      "body": "An attacker exploited Kelp DAO's rsETH bridge for roughly $292 million before the emergency multisig paused core contracts about 46 minutes in. Any pool quoting rsETH, wrapped rsETH, or downstream LRT derivatives saw peg dislocations and toxic flow during that window. If you were providing liquidity in rsETH/ETH or rsETH/stable pairs, your ranges likely absorbed the depeg as inventory rotated into the weaker leg, with fees unlikely to compensate for the IL.",
-      "spark": "Did anyone's LRT-paired ranges get fully rotated during the 46-minute window, and how are you thinking about bridge-risk premia in your fee tier selection going forward?"
+      "title": "Kelp DAO rsETH bridge drained for ~$292M",
+      "body": "A LayerZero-based bridge exploit drained roughly $292M in rsETH before Kelp's emergency multisig paused core contracts 46 minutes later. LSTs and LRTs typically trade as correlated-pair LPs (rsETH/ETH, wstETH/ETH), and a depeg cascade will blow through narrow ranges before you can react. Anyone running tight LRT ranges should check oracle assumptions and consider wider buffers until the peg re-anchors.",
+      "spark": "Are you pulling LRT liquidity on headline risk, or widening ranges and pricing the tail into your fee expectations?"
     },
     {
-      "title": "BTC breaks seven-month downtrend; $84K in view",
-      "body": "Bitcoin cracked a seven-month ceiling this week, with prediction markets and desk flow pointing to $84K as the next magnet despite the -2.1% daily print. For WBTC/ETH and cbBTC/ETH LPs, the regime shift matters: BTC-led rallies tend to widen the BTC/ETH ratio and push symmetric ranges out of position on the ETH side. Tight ranges centered on current ratio will likely need rebalancing if BTC continues to lead.",
-      "spark": "Are you skewing WBTC/ETH ranges asymmetrically to favor BTC strength here, or sticking with neutral ranges and eating the rebalance cost?"
+      "title": "BTC cracks a seven-month downtrend",
+      "body": "Bitcoin broke a seven-month ceiling this week with analysts pointing to $84K as the next target, even as today's tape shows a -2.2% pullback. For WBTC/ETH and WBTC/USDC LPs, a directional BTC regime after months of chop changes the calculus -- single-sided drift risk outweighs fee capture in narrow ranges. Expect more divergence trades between BTC and ETH pairs until ETH catches a bid of its own.",
+      "spark": "Has the breakout changed how you're skewing WBTC/ETH ranges -- wider on the upside, or are you just sitting out the trend?"
     },
     {
-      "title": "wXRP goes live on Solana with $1.2M minted",
-      "body": "Over $1.2 million in wrapped XRP has been minted on Solana, opening a new venue for XRP-denominated DeFi liquidity. For V3/V4 LPs this is mostly a signal about where cross-chain wrapped assets are heading -- thin initial liquidity, wide spreads, and fee tiers that haven't settled. Early LPs in wXRP pairs on Solana DEXs will see outsized fees but carry the usual wrapped-asset bridge and oracle risks, which this week's Kelp incident makes more tangible.",
-      "spark": "Would you touch early wXRP liquidity on Solana, or is the bridge-risk tax too high after the rsETH exploit?"
+      "title": "XRP goes live on Solana via wrapped wXRP",
+      "body": "Over $1.2M of wrapped XRP has been minted on Solana, opening a new venue for XRP DeFi liquidity outside the XRPL and EVM wrappers. Early wrapped-asset pools tend to see fat spreads and thin depth, which means wide-range LPs can earn while the market finds price, but bridge risk is the hidden leg. Worth watching whether V4 hook-enabled pools on other chains try to capture this flow with custom fee curves.",
+      "spark": "Would you seed a wXRP/SOL pool at launch pricing, or wait for a deeper book and tighter spreads before committing range?"
     },
     {
-      "title": "Q-Day chatter resurfaces as quantum-signature risk",
-      "body": "Coverage of \"Q-Day\" -- the hypothetical point at which quantum computers can forge ECDSA signatures -- is back in the news cycle. It's not an immediate LP concern, but it's a reminder that long-dated out-of-range positions sitting in legacy P2PK-style addresses or old multisigs carry a tail risk most models ignore. For active LPs, the practical read is to keep treasury and idle LP collateral in modern address formats and avoid parking large sums in stale positions.",
-      "spark": "Does quantum risk change how you think about leaving capital in very wide, rarely-touched V3 ranges versus active V4 hook-managed positions?"
+      "title": "RaveDAO pump-and-dump allegations hit CEX listings",
+      "body": "ZachXBT flagged RAVE as a coordinated pump, prompting Binance and Bitget investigations and a $25K whistleblower bounty. Memecoin and low-float token pools are where concentrated LPs get adverse-selected hardest -- informed flow drains one side of the range before the headline breaks. If you're running V3 ranges on recently listed tokens, tighter JIT-style execution or hooks with dynamic fees are increasingly the only defensible setup.",
+      "spark": "Do you still LP on fresh listings, and if so, what's your framework for sizing the rug/dump tail vs. the fee opportunity?"
     },
     {
-      "title": "RaveDAO pump-and-dump probe hits Binance and Bitget",
-      "body": "ZachXBT has alleged a coordinated pump-and-dump on RAVE, with Binance and Bitget both opening investigations and a $25K whistleblower bounty posted. For LPs, the lesson is familiar but worth restating: providing liquidity to low-float, insider-heavy tokens during suspicious volume spikes means you're almost certainly the exit liquidity. V3 ranges on these pairs collect fees on the way up and inventory on the way down -- asymmetric in the worst direction.",
-      "spark": "What's your personal filter for deciding a long-tail token pool is uninvestable from an LP perspective -- float, holder concentration, or something else?"
+      "title": "Q-Day chatter resurfaces the quantum risk to BTC",
+      "body": "Decrypt's Q-Day explainer is recycling the long-tail thesis that quantum computers could eventually forge Bitcoin signatures. It's not a this-cycle risk, but it is a reminder that WBTC and bridged BTC wrappers depend on signature assumptions that may migrate, and any future post-quantum fork could fracture LP liquidity across variants. Worth filing under slow-moving structural risk rather than actionable today.",
+      "spark": "How do you think about multi-year protocol risk when setting LP horizons -- is it in your model at all, or strictly a price-only game?"
     }
   ],
-  "closing": "Bridge risk is the story of the week, even for LPs who never touched rsETH directly. How are you repricing wrapped-asset exposure across your book?"
+  "closing": "A quieter week on price, a louder week on risk -- which of these stories actually changes your positioning, and which are you ignoring?"
 };
