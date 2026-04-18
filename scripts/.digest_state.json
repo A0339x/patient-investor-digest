@@ -32,7 +32,7 @@
         },
         {
           "title": "BTC Breaks 7-Month Downtrend Despite Red Day",
-          "body": "Decrypt flags BTC clearing a seven-month ceiling with $84K cited as the next magnet, even as spot printed -2.2% on the session. That pattern -- breakout on the weekly, chop on the daily -- is brutal for sub-5% bands on WBTC/ETH and WBTC/USDC V3 positions: you're getting picked off on both sides of the breakout retest and paying gas to reposition into the next whipsaw. Tight-range LPs should either step aside through the retest or move to V4 hooks with dynamic fees that actually price the whipsaw. Wider-range LPs with asymmetric skew to the upside earn their keep in exactly this regime, though they give up fee density until price settles into a direction.",
+          "body": "Decrypt flags BTC clearing a seven-month ceiling with $84K cited as the next magnet, even as spot printed -2.2% on the session. Tight-range LPs on WBTC/ETH and WBTC/USDC V3 positions, watch out: breakout-on-weekly, chop-on-daily is the worst regime for sub-5% bands -- you get picked off on both sides of the retest, bleed gas on every reposition, and end up on the wrong side of each whipsaw into the $84K magnet. Either step aside through the retest or move to V4 hooks with dynamic fees that actually price the churn. Wider-range LPs with asymmetric skew to the upside earn their keep in exactly this regime -- you give up fee density until price settles into a direction, but you avoid the reposition tax and capture the trend when it resolves.",
           "spark": "Are you repositioning WBTC ranges for a $84K target, or staying neutral until the retest confirms?"
         },
         {
@@ -55,6 +55,6 @@
     },
     "slack_ts": "1776551320.978079",
     "generated_at": "2026-04-18T22:28:41.058750+00:00",
-    "last_processed_ts": "1776552075.076899"
+    "last_processed_ts": "1776553040.308499"
   }
 }
