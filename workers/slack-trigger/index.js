@@ -77,15 +77,11 @@ export default {
     if (
       event &&
       event.type === "message" &&
-      !event.subtype &&
       !event.bot_id &&
-      event.channel === DIGEST_CHANNEL_ID &&
-      event.thread_ts &&
-      event.thread_ts !== event.ts
+      event.subtype !== "bot_message" &&
+      event.channel === DIGEST_CHANNEL_ID
     ) {
-      // Fire and forget — respond to Slack immediately
-      env.ctx?.waitUntil(triggerDispatch(env.GITHUB_TOKEN));
-      triggerDispatch(env.GITHUB_TOKEN);
+      await triggerDispatch(env.GITHUB_TOKEN);
     }
 
     return new Response("OK", { status: 200 });
