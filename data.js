@@ -25,7 +25,7 @@ const DIGESTS = [
         "value": "~$1.80"
       }
     ],
-    "intro": "Majors sold off together this week as a nine-figure bridge exploit reminded everyone that smart contract risk still prices into LP returns. BTC is trying to hold its seven-month breakout while ETH drifts lower, which is widening realized vol in the pair and rewarding tighter ranges -- if you can stomach the rebalance cadence.",
+    "intro": "Majors sold off together on a nine-figure bridge exploit. BTC is holding its breakout while ETH drifts, widening realized vol and rewarding tighter ranges.",
     "stories": [
       {
         "title": "Kelp DAO rsETH bridge drained for ~$292M",
