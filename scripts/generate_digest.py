@@ -128,22 +128,10 @@ def save_state(state):
         json.dump(state, f, indent=2)
 
 
-def open_dm_channel(token, user_id):
-    resp = requests.post(
-        "https://slack.com/api/conversations.open",
-        headers={"Authorization": f"Bearer {token}", "Content-Type": "application/json"},
-        json={"users": user_id},
-        timeout=10,
-    )
-    resp.raise_for_status()
-    data = resp.json()
-    if not data.get("ok"):
-        raise RuntimeError(f"Slack conversations.open error: {data.get('error')}")
-    return data["channel"]["id"]
+SLACK_CHANNEL_ID = "C085KR7NZK2"
 
 
-def send_to_slack(digest, token, user_id):
-    channel_id = open_dm_channel(token, user_id)
+def send_to_slack(digest, token):
     text = (
         f"*{digest['title'].replace(chr(10), ' ')}* -- {digest['date']}\n"
         f"{digest['subtitle']}\n\n"
@@ -158,14 +146,14 @@ def send_to_slack(digest, token, user_id):
     resp = requests.post(
         "https://slack.com/api/chat.postMessage",
         headers={"Authorization": f"Bearer {token}"},
-        json={"channel": channel_id, "text": text},
+        json={"channel": SLACK_CHANNEL_ID, "text": text},
         timeout=10,
     )
     resp.raise_for_status()
     data = resp.json()
     if not data.get("ok"):
         raise RuntimeError(f"Slack error: {data.get('error')}")
-    return data["ts"], channel_id
+    return data["ts"]
 
 
 def write_data_js(digest):
@@ -195,20 +183,17 @@ def main():
     print(f"Generated digest: {digest['id']}")
 
     slack_token = os.environ.get("SLACK_BOT_TOKEN", "")
-    slack_user_id = os.environ.get("SLACK_USER_ID", "")
     ts = None
-    slack_channel = None
-    if slack_token and slack_user_id:
-        ts, slack_channel = send_to_slack(digest, slack_token, slack_user_id)
-        print(f"Sent to Slack channel {slack_channel}, ts={ts}")
+    if slack_token:
+        ts = send_to_slack(digest, slack_token)
+        print(f"Sent to Slack, ts={ts}")
     else:
-        print("Warning: SLACK_BOT_TOKEN or SLACK_USER_ID not set, skipping Slack send", file=sys.stderr)
+        print("Warning: SLACK_BOT_TOKEN not set, skipping Slack send", file=sys.stderr)
 
     state = load_state()
     state["pending"] = {
         "digest": digest,
         "slack_ts": ts,
-        "slack_channel": slack_channel,
         "generated_at": datetime.now(timezone.utc).isoformat(),
     }
     save_state(state)
