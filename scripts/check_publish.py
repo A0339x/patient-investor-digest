@@ -141,6 +141,8 @@ def main():
     new_replies = [
         m for m in messages[1:]
         if float(m["ts"]) > float(last_processed_ts)
+        and not m.get("bot_id")
+        and m.get("subtype") is None
     ]
 
     if not new_replies:
