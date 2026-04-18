@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patient Investor Digest — LP Intelligence</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --brand: #00c9a7;
+      --brand-dark: #009e84;
+      --navy: #0d1b2a;
+      --navy-mid: #152538;
+      --text: #1a202c;
+      --text-muted: #4a5568;
+      --text-light: #718096;
+      --border: #e2e8f0;
+      --bg: #f5f7fa;
+      --card: #ffffff;
+      --spark-bg: #f0fdf9;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ─────────────────────────────────────────────────────────── */
+    header {
+      background: var(--navy);
+      padding: 0 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.1rem 0;
+    }
+    .brand {
+      display: flex;
+      flex-direction: column;
+      cursor: pointer;
+      text-decoration: none;
+      color: white;
+    }
+    .brand-name {
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+    .brand-drop { color: var(--brand); }
+    .brand-tagline {
+      font-size: 0.68rem;
+      color: #64748b;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 0.1rem;
+    }
+    nav { display: flex; gap: 1.75rem; }
+    nav a {
+      color: #94a3b8;
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.15s;
+    }
+    nav a:hover { color: white; }
+
+    /* ── TICKER BAR ──────────────────────────────────────────────────────── */
+    .ticker {
+      background: var(--brand);
+      color: var(--navy);
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-align: center;
+      padding: 0.45rem 1rem;
+    }
+
+    /* ── MAIN ────────────────────────────────────────────────────────────── */
+    main {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* ── HOME VIEW ───────────────────────────────────────────────────────── */
+    .home-hero {
+      margin-bottom: 2.25rem;
+      padding-bottom: 1.75rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .home-hero h1 {
+      font-size: 1.75rem;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+    .home-hero p {
+      color: var(--text-muted);
+      font-size: 0.975rem;
+      max-width: 560px;
+    }
+
+    .issues-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+      gap: 1.25rem;
+    }
+
+    .issue-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.4rem;
+      cursor: pointer;
+      text-decoration: none;
+      color: inherit;
+      display: block;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .issue-card:hover {
+      box-shadow: 0 6px 28px rgba(0,0,0,0.09);
+      transform: translateY(-3px);
+    }
+    .card-edition {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--brand-dark);
+      margin-bottom: 0.35rem;
+    }
+    .card-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.35;
+      margin-bottom: 0.9rem;
+    }
+    .card-pills {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-bottom: 1rem;
+    }
+    .pill {
+      background: #edfdf8;
+      color: var(--brand-dark);
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.2rem 0.55rem;
+      border-radius: 100px;
+      border: 1px solid #c6f6ed;
+    }
+    .pill.neg {
+      background: #fff5f5;
+      color: #c53030;
+      border-color: #fed7d7;
+    }
+    .card-stories {
+      list-style: none;
+      border-top: 1px solid var(--border);
+      padding-top: 0.85rem;
+    }
+    .card-stories li {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      padding: 0.28rem 0 0.28rem 1.1rem;
+      position: relative;
+      line-height: 1.4;
+    }
+    .card-stories li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--brand);
+      font-size: 0.65rem;
+      top: 0.38rem;
+    }
+
+    /* ── ARTICLE VIEW ────────────────────────────────────────────────────── */
+    .back-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--brand-dark);
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      margin-bottom: 2rem;
+      transition: opacity 0.15s;
+    }
+    .back-btn:hover { opacity: 0.75; }
+
+    .article-wrap { max-width: 720px; }
+
+    .article-edition {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--brand-dark);
+      margin-bottom: 0.4rem;
+    }
+    .article-title {
+      font-size: 2.1rem;
+      font-weight: 800;
+      color: var(--navy);
+      line-height: 1.2;
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.02em;
+    }
+    .article-subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-bottom: 1.75rem;
+    }
+
+    .glance-box {
+      background: var(--navy);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      margin-bottom: 1.75rem;
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+    .glance-item { min-width: 70px; }
+    .glance-label {
+      font-size: 0.63rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #64748b;
+      margin-bottom: 0.2rem;
+    }
+    .glance-value {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--brand);
+    }
+
+    .article-intro {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .story-block {
+      margin-bottom: 2.5rem;
+      padding-bottom: 2.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .story-block:last-of-type { border-bottom: none; }
+
+    .story-num {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--brand);
+      margin-bottom: 0.35rem;
+    }
+    .story-title {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.35;
+      margin-bottom: 0.9rem;
+    }
+    .story-body {
+      font-size: 0.975rem;
+      line-height: 1.8;
+      color: var(--text);
+      margin-bottom: 1.25rem;
+    }
+    .story-spark {
+      background: var(--spark-bg);
+      border-left: 3px solid var(--brand);
+      border-radius: 0 10px 10px 0;
+      padding: 1rem 1.25rem;
+    }
+    .spark-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--brand-dark);
+      margin-bottom: 0.3rem;
+    }
+    .spark-text {
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.65;
+    }
+
+    .article-closing {
+      margin-top: 2.5rem;
+      background: var(--navy);
+      color: #cbd5e0;
+      border-radius: 10px;
+      padding: 1.25rem 1.5rem;
+      font-size: 0.925rem;
+      line-height: 1.65;
+      font-style: italic;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────────────────────── */
+    footer {
+      background: var(--navy);
+      color: #4a5568;
+      text-align: center;
+      padding: 2.25rem 1.5rem;
+      font-size: 0.78rem;
+      line-height: 1.8;
+      margin-top: 5rem;
+    }
+    footer strong { color: #94a3b8; }
+
+    /* ── RESPONSIVE ──────────────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .article-title { font-size: 1.55rem; }
+      .glance-box { gap: 1.25rem; }
+      nav { display: none; }
+      .home-hero h1 { font-size: 1.4rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <a class="brand" href="#" onclick="showHome(event)">
+      <span class="brand-name"><span class="brand-drop">💧</span> Patient Investor Digest</span>
+      <span class="brand-tagline">Concentrated Liquidity Intelligence</span>
+    </a>
+    <nav>
+      <a href="#" onclick="showHome(event)">All Issues</a>
+      <a href="#about" onclick="showAbout(event)">About</a>
+    </nav>
+  </div>
+</header>
+
+<div class="ticker">LP Mastermind Edition &nbsp;·&nbsp; Published Every Monday &amp; Thursday</div>
+
+<main id="app"></main>
+
+<footer>
+  <strong>Patient Investor Digest</strong> — LP Mastermind Edition<br>
+  Concentrated liquidity intelligence for serious LPs.<br>
+  Published every Monday &amp; Thursday.
+</footer>
+
+<script>
+// ─────────────────────────────────────────────────────────────────────────────
+// DATA — add new digests to the top of this array
+// ─────────────────────────────────────────────────────────────────────────────
+const DIGESTS = [
+  {
+    id: "april-16-2026",
+    date: "April 16, 2026",
+    title: "LP Mastermind Market Update",
+    subtitle: "What moved this week, what it means for your ranges, and what's worth talking about.",
+    snapshot: [
+      { label: "BTC",        value: "+2.9%" },
+      { label: "ETH",        value: "+5.6%" },
+      { label: "Volatility", value: "Spike then compress" },
+      { label: "ETH Gas",    value: "~$0.01" }
+    ],
+    intro: "A geopolitical shock mid-week (Strait of Hormuz closure → ceasefire) created a classic volatility burst followed by a sharp directional move. For LPs, that's the week in a nutshell: wide swings, then a reset.",
+    stories: [
+      {
+        title: "Volatility Spike, Then Whipsaw — How Did Your Ranges Hold?",
+        body: "The Middle East ceasefire on April 7–8 triggered a fast 5–6% move up in ETH almost overnight, following a week of macro-driven suppression from energy price spikes and CPI coming in hot at 3.3%. If you were running tight ranges through the spike, you likely went out of range and missed the fee window. If you were running wider ranges anticipating macro uncertainty, this was a solid fee-generating week.",
+        spark: "What range widths are you running right now given the macro backdrop — tighter for fees, or wider for resilience? Did anyone get caught out of range during the April 7 move?"
+      },
+      {
+        title: "Aave V4 Live + Gas at Record Lows — Rebalancing Just Got Cheaper",
+        body: "Aave V4 launched on Ethereum Mainnet this week, and Ethereum gas fees are sitting at an all-time low of ~$0.01. For V3/V4 LPs, this matters practically: rebalancing positions, collecting fees, and adjusting ranges is effectively free right now compared to even 12 months ago. If you've been avoiding frequent range adjustments because of gas costs, that friction is largely gone.",
+        spark: "Has cheap gas changed how often you're adjusting ranges? Or are you still managing positions the same way regardless?"
+      },
+      {
+        title: "Apollo Global Enters DeFi Lending — What Institutional Liquidity Means for Pools",
+        body: "Apollo Global Management partnered with Morpho to provide on-chain lending liquidity, with rights to acquire 90 million MORPHO tokens. Separately, the $12.5 trillion global repo market is beginning to settle on Ethereum. As institutional capital flows into DeFi, it changes the liquidity landscape — deeper pools, tighter spreads, and potentially lower fee yields in the most competitive pairs as more LPs compete for the same volume.",
+        spark: "Are you already seeing yield compression on major pairs like ETH/USDC? Is institutional liquidity pushing you toward niche pools or longer-tail pairs to find better returns?"
+      },
+      {
+        title: "SEC Unlocks DeFi Front-Ends — More On-Chain Volume Coming",
+        body: "The SEC ruled on April 13 that DeFi user interface providers don't need to register as broker-dealers — a major legal unlock that removes a key barrier for compliant DeFi products to go mainstream. More on-chain users and volume is ultimately good for LPs: more swaps = more fees. This follows the March SEC/CFTC joint framework that gave crypto assets a formal legal taxonomy for the first time.",
+        spark: "Do you factor regulatory clarity into which chains or protocols you LP on? Does this change your confidence in Ethereum-based pools specifically?"
+      },
+      {
+        title: "V4 Hooks Are Live — The Next Frontier for LP Strategy",
+        body: "With Aave V4's launch reinforcing the Ethereum ecosystem, Uniswap V4's hook architecture is increasingly where LP strategy innovation is happening. Hooks allow pool creators to build custom logic — dynamic fee tiers, auto-rebalancing, TWAP-based range adjustments — directly into the pool. Early hook-enabled pools are beginning to emerge with meaningfully different risk/return profiles than standard V3 positions.",
+        spark: "Is anyone experimenting with V4 hook pools yet? What custom logic would actually change how you LP — dynamic fees, auto-range shifting, something else?"
+      }
+    ],
+    closing: "What are you watching going into next week? Drop your current setups, pairs, and range thoughts in the group."
+  }
+];
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ROUTER
+// ─────────────────────────────────────────────────────────────────────────────
+function router() {
+  const hash = window.location.hash.slice(1);
+  if (!hash || hash === '/') { renderHome(); return; }
+  if (hash === 'about') { renderAbout(); return; }
+  const digest = DIGESTS.find(d => d.id === hash);
+  if (digest) { renderArticle(digest); return; }
+  renderHome();
+}
+
+window.addEventListener('hashchange', router);
+window.addEventListener('DOMContentLoaded', router);
+
+function showHome(e) {
+  if (e) e.preventDefault();
+  window.location.hash = '';
+  renderHome();
+}
+function showAbout(e) {
+  if (e) e.preventDefault();
+  window.location.hash = 'about';
+  renderAbout();
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// HOME
+// ─────────────────────────────────────────────────────────────────────────────
+function renderHome() {
+  const app = document.getElementById('app');
+  const cards = DIGESTS.map(renderCard).join('');
+  app.innerHTML = `
+    <div class="home-hero">
+      <h1>💧 All Issues</h1>
+      <p>Weekly LP market intelligence for the Patient Investor Mastermind community. Published every Monday and Thursday.</p>
+    </div>
+    <div class="issues-grid">${cards}</div>
+  `;
+  window.scrollTo(0, 0);
+}
+
+function renderCard(d) {
+  const pills = d.snapshot.map(s => `<span class="pill">${s.label} ${s.value}</span>`).join('');
+  const stories = d.stories.map(s => `<li>${s.title}</li>`).join('');
+  return `
+    <a class="issue-card" href="#${d.id}">
+      <div class="card-edition">${d.date}</div>
+      <div class="card-title">${d.title}</div>
+      <div class="card-pills">${pills}</div>
+      <ul class="card-stories">${stories}</ul>
+    </a>
+  `;
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ARTICLE
+// ─────────────────────────────────────────────────────────────────────────────
+function renderArticle(d) {
+  const app = document.getElementById('app');
+
+  const glance = d.snapshot.map(s => `
+    <div class="glance-item">
+      <div class="glance-label">${s.label}</div>
+      <div class="glance-value">${s.value}</div>
+    </div>
+  `).join('');
+
+  const stories = d.stories.map((s, i) => `
+    <div class="story-block">
+      <div class="story-num">Story ${i + 1} of ${d.stories.length}</div>
+      <div class="story-title">${s.title}</div>
+      <div class="story-body">${s.body}</div>
+      <div class="story-spark">
+        <div class="spark-label">💬 For the group</div>
+        <div class="spark-text">${s.spark}</div>
+      </div>
+    </div>
+  `).join('');
+
+  app.innerHTML = `
+    <a class="back-btn" href="#" onclick="showHome(event)">← All Issues</a>
+    <div class="article-wrap">
+      <div class="article-edition">${d.date} &nbsp;·&nbsp; LP Mastermind Edition</div>
+      <h1 class="article-title">${d.title}</h1>
+      <p class="article-subtitle">${d.subtitle}</p>
+      <div class="glance-box">${glance}</div>
+      <p class="article-intro">${d.intro}</p>
+      ${stories}
+      <div class="article-closing">${d.closing}</div>
+    </div>
+  `;
+  window.scrollTo(0, 0);
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// ABOUT
+// ─────────────────────────────────────────────────────────────────────────────
+function renderAbout() {
+  const app = document.getElementById('app');
+  app.innerHTML = `
+    <a class="back-btn" href="#" onclick="showHome(event)">← All Issues</a>
+    <div class="article-wrap">
+      <div class="article-edition">About</div>
+      <h1 class="article-title">Patient Investor Digest</h1>
+      <p class="article-subtitle">Concentrated liquidity intelligence for serious LPs.</p>
+      <div class="story-body" style="margin-top:1.5rem">
+        <p style="margin-bottom:1rem">The Patient Investor Digest is published twice weekly — every Monday and Thursday — for members of the LP Mastermind community.</p>
+        <p style="margin-bottom:1rem">Each issue covers the week's most LP-relevant market moves: price action and volatility, protocol updates, gas dynamics, regulatory signals, and emerging strategy opportunities in concentrated liquidity.</p>
+        <p>The goal is simple: give serious LPs the context they need to make better range decisions, manage rebalancing costs, and stay ahead of structural shifts in the DeFi liquidity landscape.</p>
+      </div>
+    </div>
+  `;
+  window.scrollTo(0, 0);
+}
+</script>
+
+</body>
+</html>
