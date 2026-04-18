@@ -21,6 +21,14 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
+      - name: Install Claude Code CLI
+        run: npm install -g @anthropic-ai/claude-code
+
+      - name: Restore Claude credentials
+        run: |
+          mkdir -p ~/.claude
+          echo '${{ secrets.CLAUDE_CREDENTIALS }}' > ~/.claude/.credentials.json
+
       - name: Check for publish signal
         run: python scripts/check_publish.py
         env:
