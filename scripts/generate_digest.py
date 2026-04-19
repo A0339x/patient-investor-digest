@@ -165,9 +165,15 @@ def _post_slack(token, text, thread_ts=None):
 
 def send_to_slack(digest, token):
     # Thread root: short, always under the size limit, contains the publish prompt.
+    snapshot_lines = "\n".join(
+        f"• *{item.get('label', '')}*: {item.get('value', '')}"
+        for item in digest.get("snapshot", [])
+    )
+    snapshot_block = f"*Snapshot*\n{snapshot_lines}\n\n" if snapshot_lines else ""
     root_text = (
         f"*{digest['title'].replace(chr(10), ' ')}* -- {digest['date']}\n"
         f"_{digest['subtitle']}_\n\n"
+        f"{snapshot_block}"
         f"{digest['intro']}\n\n"
         f"_Full article is in the thread below. Reply in the thread with *publish* when you're ready to ship, or ask me anything there._"
     )
