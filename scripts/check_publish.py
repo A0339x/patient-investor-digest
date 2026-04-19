@@ -9,6 +9,7 @@ import requests
 SLACK_CHANNEL_ID = "C0ATN065QQ3"
 STATE_FILE = "scripts/.digest_state.json"
 DATA_FILE = "data.js"
+THREAD_CONTEXT_LIMIT = 12  # number of prior thread messages to include as context
 
 
 def load_state():
@@ -50,46 +51,27 @@ def post_reply(token, thread_ts, text):
         raise RuntimeError(f"Slack error: {data.get('error')}")
 
 
-def revise_digest(digest, feedback):
-    prompt = f"""You are making targeted edits to a digest for the Patient Investor LP Mastermind community -- experienced DeFi LPs managing concentrated liquidity on Uniswap V3/V4.
-
-Here is the current digest as JSON:
-{json.dumps(digest, indent=2)}
-
-Here is the editor's feedback:
-{feedback}
-
-IMPORTANT RULES:
-- Only change the specific fields or stories the feedback refers to. Leave everything else completely untouched -- same wording, same structure, same order.
-- If the feedback asks to modify a story, only edit that story's body and/or spark. Do not rename it, reorder it, or touch other stories.
-- Do not rewrite the intro, closing, snapshot, title, or subtitle unless the feedback explicitly asks you to.
-- Return the full digest as a valid JSON object only -- no markdown fencing, no explanation, just the raw JSON.
-- Keep the same id and date. Use -- instead of em dashes, straight quotes only, no markdown in any values."""
-
-    result = subprocess.run(
-        ["claude", "-p", prompt],
-        capture_output=True,
-        text=True,
-        timeout=180,
-    )
-    print(f"Claude returncode: {result.returncode}")
-    print(f"Claude stdout length: {len(result.stdout)}")
-    if result.stderr:
-        print(f"Claude stderr: {result.stderr[:500]}")
-    if result.returncode != 0:
-        detail = result.stderr.strip() or result.stdout.strip() or f"exit code {result.returncode}"
-        raise RuntimeError(f"Claude CLI exit {result.returncode}: {detail[:300]}")
-    raw = result.stdout.strip()
-    if not raw:
-        raise RuntimeError("Claude returned empty output")
-    # Strip possible markdown fencing just in case
-    if raw.startswith("```"):
-        lines = raw.split("\n")
-        raw = "\n".join(lines[1:-1] if lines[-1].startswith("```") else lines[1:])
-    return json.loads(raw)
+def format_full_digest(digest):
+    title = digest.get("title", "").replace("\n", " ")
+    parts = [
+        f"*{title}* -- {digest.get('date', '')}",
+        f"_{digest.get('subtitle', '')}_",
+        "",
+        "*Snapshot:*",
+    ]
+    for item in digest.get("snapshot", []):
+        parts.append(f"• {item['label']}: {item['value']}")
+    parts += ["", "*Intro:*", digest.get("intro", ""), "", "*Stories:*", ""]
+    for i, s in enumerate(digest.get("stories", []), 1):
+        parts.append(f"*{i}. {s.get('title', '')}*")
+        parts.append(s.get("body", ""))
+        parts.append(f"_Spark: {s.get('spark', '')}_")
+        parts.append("")
+    parts += ["*Closing:*", digest.get("closing", "")]
+    return "\n".join(parts)
 
 
-def format_preview(digest):
+def format_revised_summary(digest):
     stories = "\n".join(f"  {i+1}. {s['title']}" for i, s in enumerate(digest["stories"]))
     return (
         f"*Revised digest -- {digest['date']}*\n\n"
@@ -98,6 +80,82 @@ def format_preview(digest):
         f"*Closing:* {digest['closing']}\n\n"
         f"Reply *publish* to push to the site, or send more feedback."
     )
+
+
+def build_thread_context(messages, latest_ts):
+    """Return recent thread messages (excluding the message we're responding to and prior app echoes)."""
+    context = []
+    for m in messages:
+        if m.get("ts") == latest_ts:
+            continue
+        role = "Assistant" if m.get("bot_id") else "Gregory"
+        text = (m.get("text") or "").strip()
+        if not text:
+            continue
+        context.append(f"{role}: {text}")
+    return context[-THREAD_CONTEXT_LIMIT:]
+
+
+def process_message(digest, thread_context, latest_message):
+    prompt = f"""You are the editor-assistant for the Patient Investor LP Mastermind digest, working with Gregory inside a Slack thread. Your job is to help him review, discuss, and refine the digest before it goes to the group.
+
+The Mastermind audience is experienced DeFi LPs running concentrated liquidity on Uniswap V3/V4 -- they understand impermanent loss, tick ranges, fee tiers, rebalancing, and on-chain mechanics. Some run tight ranges (high fee capture, frequent rebalance) and some run wider asymmetric ranges (more passive, resilient to vol).
+
+Current digest (JSON):
+{json.dumps(digest, indent=2)}
+
+Recent thread conversation:
+{chr(10).join(thread_context) if thread_context else "(no prior messages)"}
+
+Gregory's latest message:
+{latest_message}
+
+Decide what he wants and return ONLY a JSON object with this exact shape (no markdown fencing, no extra text):
+
+{{
+  "action": "chat" | "show_full" | "revise" | "publish",
+  "reply": "your Slack-formatted reply text",
+  "revised_digest": null OR the full revised digest as a JSON object
+}}
+
+Action guide:
+- "chat": He's asking a question, discussing, brainstorming, or making small talk. Respond naturally in "reply". revised_digest should be null.
+- "show_full": He wants to see the full article content (e.g. "send me the full article", "show me everything", "what does the whole thing look like"). Put a short acknowledgement in "reply" like "Here's the full article:" -- the system will append the formatted full digest automatically. revised_digest should be null.
+- "revise": He's asking for a specific edit to the digest. Apply ONLY the change he asked for, leave everything else untouched (same wording, order, structure). Put the complete updated digest in "revised_digest". In "reply", tell him briefly what you changed (e.g. "Updated story 2 to address both tight and wide range LPs.").
+- "publish": He's clearly saying to publish now (e.g. "publish", "ship it", "looks good, push it"). Put a short confirmation in "reply" like "Publishing now." revised_digest should be null.
+
+Formatting rules for "reply" and all digest text:
+- Slack formatting: *bold*, _italic_, bullets with •. No markdown headers (#).
+- Use -- instead of em dashes. Straight quotes only. No markdown in any digest field.
+- Keep replies concise and conversational. You are a teammate, not a formal report.
+
+If revising: keep the same id and date, change only what was asked for."""
+
+    result = subprocess.run(
+        ["claude", "-p", prompt],
+        capture_output=True,
+        text=True,
+        timeout=180,
+    )
+    print(f"Claude returncode: {result.returncode}, stdout_len: {len(result.stdout)}")
+    if result.stderr:
+        print(f"Claude stderr: {result.stderr[:500]}")
+    if result.returncode != 0:
+        detail = result.stderr.strip() or result.stdout.strip() or f"exit {result.returncode}"
+        raise RuntimeError(f"Claude CLI exit {result.returncode}: {detail[:300]}")
+
+    raw = result.stdout.strip()
+    if not raw:
+        raise RuntimeError("Claude returned empty output")
+    if raw.startswith("```"):
+        lines = raw.split("\n")
+        raw = "\n".join(lines[1:-1] if lines[-1].startswith("```") else lines[1:])
+
+    parsed = json.loads(raw)
+    action = parsed.get("action")
+    if action not in ("chat", "show_full", "revise", "publish"):
+        raise RuntimeError(f"Claude returned invalid action: {action!r}")
+    return parsed
 
 
 def read_existing_digests():
@@ -131,11 +189,20 @@ def git_commit(message, include_data=False):
     os.system("git push")
 
 
+def do_publish(token, thread_ts, state, pending, reply_text=None):
+    post_reply(token, thread_ts, reply_text or "Publishing now -- give it a moment for the site to update.")
+    write_data_js(pending["digest"])
+    state["published"] = True
+    save_state(state)
+    git_commit(f"Publish digest {pending['digest']['id']}", include_data=True)
+    post_reply(token, thread_ts, "Done! The digest is live at https://patient-investor-digest.pages.dev/")
+
+
 def get_new_replies(token, state):
     pending = state.get("pending") or {}
     thread_ts = pending.get("slack_ts")
     if not thread_ts:
-        return None, []
+        return None, [], []
     last_processed_ts = pending.get("last_processed_ts", thread_ts)
     messages = get_replies(token, SLACK_CHANNEL_ID, thread_ts)
     new_replies = [
@@ -144,16 +211,7 @@ def get_new_replies(token, state):
         and not m.get("bot_id")
         and m.get("subtype") not in ("bot_message", "bot_add", "channel_join")
     ]
-    return thread_ts, new_replies
-
-
-def determine_status(new_replies):
-    if not new_replies:
-        return "nothing"
-    for r in new_replies:
-        if r.get("text", "").strip().lower() != "publish":
-            return "feedback"
-    return "publish"
+    return thread_ts, new_replies, messages
 
 
 def mode_check():
@@ -166,11 +224,15 @@ def mode_check():
         print("nothing")
         return
     try:
-        _, new_replies = get_new_replies(token, state)
+        _, new_replies, _ = get_new_replies(token, state)
     except Exception:
         print("nothing")
         return
-    print(determine_status(new_replies))
+    if not new_replies:
+        print("nothing")
+        return
+    # Any non-empty reply now requires Claude to classify intent.
+    print("feedback")
 
 
 def mode_run():
@@ -180,61 +242,48 @@ def mode_run():
         sys.exit(1)
 
     state = load_state()
-    if not state:
-        print("No state file, nothing to do.")
+    if not state or not state.get("pending") or state.get("published"):
+        print("Nothing pending.")
         return
 
-    pending = state.get("pending")
-    if not pending:
-        print("No pending digest.")
-        return
-
-    if state.get("published"):
-        print("Already published.")
-        return
-
-    thread_ts, new_replies = get_new_replies(token, state)
-    if not thread_ts:
-        print("No slack_ts in state.")
-        return
-
-    if not new_replies:
+    pending = state["pending"]
+    thread_ts, new_replies, all_messages = get_new_replies(token, state)
+    if not thread_ts or not new_replies:
         print("No new replies.")
         return
 
     state_dirty = False
 
     for reply in new_replies:
-        text = reply.get("text", "").strip()
+        text = (reply.get("text") or "").strip()
         ts = reply["ts"]
         pending["last_processed_ts"] = ts
         state_dirty = True
 
+        # Quick-path publish (skip Claude round-trip on exact match)
         if text.lower() == "publish":
-            print("Publish signal found.")
-            post_reply(token, thread_ts, "Publishing now -- give it a moment for the site to update.")
-            write_data_js(pending["digest"])
-            state["published"] = True
-            save_state(state)
-            git_commit(f"Publish digest {pending['digest']['id']}", include_data=True)
-            post_reply(token, thread_ts, "Done! The digest is live at https://patient-investor-digest.pages.dev/")
+            print("Publish quick-path.")
+            do_publish(token, thread_ts, state, pending)
             return
 
-        print(f"Feedback received: {text[:80]}")
-        post_reply(token, thread_ts, "Got it -- sending this for rewriting now...")
+        if not text:
+            continue
+
+        thread_context = build_thread_context(all_messages, ts)
+        print(f"Processing message: {text[:100]}")
 
         try:
-            revised = revise_digest(pending["digest"], text)
+            decision = process_message(pending["digest"], thread_context, text)
         except subprocess.TimeoutExpired:
-            post_reply(token, thread_ts, "Claude timed out (>3 min). Try again or break the feedback into smaller pieces.")
+            post_reply(token, thread_ts, "Claude timed out (>3 min). Try again or break the request into smaller pieces.")
             save_state(state)
             continue
         except json.JSONDecodeError as e:
-            post_reply(token, thread_ts, f"Claude returned something that wasn't valid JSON ({str(e)[:100]}). Try rewording the feedback.")
+            post_reply(token, thread_ts, f"Claude returned invalid JSON ({str(e)[:100]}). Try rewording.")
             save_state(state)
             continue
         except RuntimeError as e:
-            post_reply(token, thread_ts, f"Revision failed: {str(e)[:300]}")
+            post_reply(token, thread_ts, f"Error: {str(e)[:300]}")
             save_state(state)
             continue
         except Exception as e:
@@ -242,12 +291,38 @@ def mode_run():
             save_state(state)
             continue
 
-        pending["digest"] = revised
+        action = decision["action"]
+        reply_text = decision.get("reply") or ""
+
+        if action == "chat":
+            if reply_text:
+                post_reply(token, thread_ts, reply_text)
+
+        elif action == "show_full":
+            ack = reply_text or "Here's the full article:"
+            post_reply(token, thread_ts, ack)
+            post_reply(token, thread_ts, format_full_digest(pending["digest"]))
+
+        elif action == "revise":
+            revised = decision.get("revised_digest")
+            if not isinstance(revised, dict) or "stories" not in revised:
+                post_reply(token, thread_ts, "I tried to revise but didn't get back a valid digest. Try rewording the request.")
+                save_state(state)
+                continue
+            pending["digest"] = revised
+            save_state(state)
+            if reply_text:
+                post_reply(token, thread_ts, reply_text)
+            post_reply(token, thread_ts, format_revised_summary(revised))
+
+        elif action == "publish":
+            do_publish(token, thread_ts, state, pending, reply_text or None)
+            return
+
         save_state(state)
-        post_reply(token, thread_ts, format_preview(revised))
 
     if state_dirty:
-        git_commit("Update digest state after feedback", include_data=False)
+        git_commit("Update digest state after thread activity", include_data=False)
 
 
 def main():
