@@ -23,7 +23,7 @@
           "value": "~$1.20"
         }
       ],
-      "intro": "BTC just cracked a 7-month downtrend ceiling even as spot pulled back 2% on the day, while ETH underperformed again on a relative basis. For concentrated LPs -- whether you run tight sub-5% bands or wider asymmetric ranges -- that divergence plus a fresh $292M bridge exploit means range discipline and pair selection matter more than directional conviction this week.",
+      "intro": "BTC just cracked a 7-month downtrend ceiling even as spot pulled back 2% on the day, while ETH underperformed again on a relative basis. That kind of divergent, choppy action has very different implications depending on how wide your range is -- if you're running a wide range, you'll likely stay in range through the noise and keep collecting fees; if you're running a tight sub-5% band, there's a real chance price moves outside your range entirely, leaving you fully single-sided and earning nothing until you reposition. Add a fresh $292M bridge exploit into the mix, and range discipline and pair selection matter more than directional conviction this week.",
       "stories": [
         {
           "title": "Kelp rsETH Bridge Drained for ~$292M",
@@ -55,6 +55,6 @@
     },
     "slack_ts": "1776551320.978079",
     "generated_at": "2026-04-18T22:28:41.058750+00:00",
-    "last_processed_ts": "1776597876.939349"
+    "last_processed_ts": "1776598088.463759"
   }
 }
