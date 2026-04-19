@@ -3,6 +3,54 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "04-21-2026",
+    "date": "April 21, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "-0.2%"
+      },
+      {
+        "label": "ETH",
+        "value": "-1.4%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Low-moderate, BTC at key level"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$1.50"
+      }
+    ],
+    "intro": "Bitcoin is testing a seven-month resistance ceiling while ETH drifts slightly lower -- a split that puts BTC/ETH and ETH/stablecoin LPs in meaningfully different positions this week. When one asset in your pair moves and the other doesn't, your range shifts from balanced to skewed quickly, changing both your fee capture and your asset mix. The exploit news this week adds another reminder: not all liquidity risk comes from price movement -- some comes from the tokens themselves.",
+    "stories": [
+      {
+        "title": "A $292 Million LRT Exploit Froze Kelp DAO -- and Every LP Inside It",
+        "body": "Kelp DAO's rsETH -- a liquid restaking token, meaning a token that represents staked ETH earning additional yield on top of base staking rewards -- was drained of roughly $292 million through a bridge attack. The protocol's emergency multisig froze all core contracts about 46 minutes after the exploit, halting withdrawals and blocking further damage. If you had provided liquidity in an rsETH/ETH pool at that moment, your position would have been locked -- no rebalancing, no exit, no adjusting your range. This is the dimension of LP risk that price charts don't capture: when a token's underlying protocol freezes, your position freezes with it regardless of where price goes.",
+        "spark": "If you were in an rsETH/ETH range when the contracts froze, what would matter more in that moment -- how wide your range was set, or which token made up the larger share of your current position?"
+      },
+      {
+        "title": "Bitcoin Cracks a Seven-Month Ceiling -- What That Means for Your Range",
+        "body": "Bitcoin broke above a downtrend resistance line that had capped its price since September, with prediction markets now pointing toward $84,000 as a next target. For LPs in BTC/USDC pools, a sustained move from $75,000 toward $84,000 is exactly the scenario where a centered range stops earning fees -- price travels out the top and sits there, idle. A range skewed high (upper boundary set further from center than the lower one) would let you stay in range longer on the way up, but as price climbs through your range, your position gradually converts from BTC toward USDC. That asset composition shift is the tradeoff at the heart of directional range decisions.",
+        "spark": "If you believed BTC was likely to climb toward $84,000 from $75,000, would you set a wider range, a skewed-high range, or close and reopen a new centered range -- and what does each choice cost you in fees earned versus price exposure kept?"
+      },
+      {
+        "title": "The RAVE Pump Shows Why Thin-Liquidity Pairs Play by Different Rules",
+        "body": "The RAVE token spiked sharply in what onchain investigator ZachXBT called a pump-and-dump scheme -- where a token's price is artificially inflated then rapidly sold off -- triggering investigations by Binance and Bitget. For LPs in low-liquidity pairs, this kind of move is punishing: your range can be swept through in seconds, leaving your position almost entirely in the declining token before price crashes back. The fees earned during the spike rarely compensate for the resulting shift in asset composition. Thin-liquidity pairs amplify every mechanic that makes range management difficult, and compress the time you have to react.",
+        "spark": "Before providing liquidity in a newer or lower-volume token pair, what signals would you look for to decide whether the higher fee rates justify the risk of a sudden, manipulated price move?"
+      },
+      {
+        "title": "NYDIG Buying a Dormant Smelter for Bitcoin Mining -- A Signal Worth Noting for Range Anchoring",
+        "body": "Bitcoin miner NYDIG is near a deal to acquire a dormant New York aluminum smelter from Alcoa, adding to its domestic mining capacity. More mining infrastructure means more hash rate -- the total computing power securing the Bitcoin network -- which tends to support Bitcoin's long-run price floor narrative over time. For BTC/stablecoin LPs thinking about where to anchor a range over the next several months, infrastructure signals like this don't predict price precisely, but they do inform how much downside buffer you want to build into your lower boundary. A growing domestic mining base is a slow, structural input -- not a trade signal, but context for range width decisions.",
+        "spark": "When setting a range on a slower-moving, infrastructure-supported asset like BTC versus a sentiment-driven newer token, what changes in how you think about the gap between your center price and your lower boundary?"
+      }
+    ],
+    "closing": "This week offered three different stress tests -- an exploit, a breakout, and a manipulation event -- each one probing a different part of how LP ranges hold up under pressure. Bring your thinking on which scenario would have hit your current setup hardest, and why."
+  },
+  {
     "id": "04-19-2026",
     "date": "April 19, 2026",
     "title": "LP Mastermind\nMarket Update",
