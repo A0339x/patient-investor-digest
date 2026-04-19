@@ -40,10 +40,13 @@ async function triggerDispatch(githubToken) {
         Authorization: `token ${githubToken}`,
         Accept: "application/vnd.github.v3+json",
         "Content-Type": "application/json",
+        "User-Agent": "patient-investor-slack-trigger",
       },
       body: JSON.stringify({ event_type: "slack-reply" }),
     }
   );
+  const text = await resp.text();
+  console.log("GitHub dispatch status:", resp.status, "body:", text);
   return resp.ok;
 }
 
@@ -54,11 +57,13 @@ export default {
     }
 
     const body = await request.text();
+    console.log("Received POST body:", body.slice(0, 200));
 
     const payload = JSON.parse(body);
 
     // Respond to Slack's URL verification challenge before checking signature
     if (payload.type === "url_verification") {
+      console.log("Handling URL verification challenge");
       return new Response(payload.challenge, {
         headers: { "Content-Type": "text/plain" },
       });
@@ -69,11 +74,14 @@ export default {
       body,
       env.SLACK_SIGNING_SECRET
     );
+    console.log("Signature verified:", verified);
     if (!verified) {
       return new Response("Unauthorized", { status: 401 });
     }
 
     const event = payload.event;
+    console.log("Event type:", event?.type, "channel:", event?.channel, "bot_id:", event?.bot_id, "subtype:", event?.subtype);
+
     if (
       event &&
       event.type === "message" &&
@@ -81,7 +89,9 @@ export default {
       event.subtype !== "bot_message" &&
       event.channel === DIGEST_CHANNEL_ID
     ) {
-      await triggerDispatch(env.GITHUB_TOKEN);
+      console.log("Triggering GitHub dispatch...");
+      const ok = await triggerDispatch(env.GITHUB_TOKEN);
+      console.log("Dispatch result:", ok);
     }
 
     return new Response("OK", { status: 200 });
