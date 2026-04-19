@@ -7,6 +7,10 @@ on:
   repository_dispatch:
     types: [slack-reply]
 
+concurrency:
+  group: publish-poller
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
@@ -23,15 +27,27 @@ jobs:
       - name: Install dependencies
         run: pip install requests
 
+      - name: Check for work
+        id: check
+        run: |
+          STATUS=$(python scripts/check_publish.py --mode check)
+          echo "status=$STATUS" >> $GITHUB_OUTPUT
+          echo "Work status: $STATUS"
+        env:
+          SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
+
       - name: Install Claude Code CLI
+        if: steps.check.outputs.status == 'feedback'
         run: npm install -g @anthropic-ai/claude-code
 
       - name: Restore Claude credentials
+        if: steps.check.outputs.status == 'feedback'
         run: |
           mkdir -p ~/.claude
           echo '${{ secrets.CLAUDE_CREDENTIALS }}' > ~/.claude/.credentials.json
 
-      - name: Check for publish signal
+      - name: Process replies
+        if: steps.check.outputs.status != 'nothing'
         run: python scripts/check_publish.py
         env:
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
