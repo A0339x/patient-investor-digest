@@ -1,3 +1,4 @@
+import argparse
 import json
 import os
 import subprocess
@@ -12,7 +13,6 @@ DATA_FILE = "data.js"
 
 def load_state():
     if not os.path.exists(STATE_FILE):
-        print("No state file found, nothing to check.")
         return None
     with open(STATE_FILE) as f:
         return json.load(f)
@@ -71,6 +71,7 @@ IMPORTANT RULES:
         capture_output=True,
         text=True,
         check=True,
+        timeout=120,
     )
     return json.loads(result.stdout.strip())
 
@@ -117,7 +118,49 @@ def git_commit(message, include_data=False):
     os.system("git push")
 
 
-def main():
+def get_new_replies(token, state):
+    pending = state.get("pending") or {}
+    thread_ts = pending.get("slack_ts")
+    if not thread_ts:
+        return None, []
+    last_processed_ts = pending.get("last_processed_ts", thread_ts)
+    messages = get_replies(token, SLACK_CHANNEL_ID, thread_ts)
+    new_replies = [
+        m for m in messages[1:]
+        if float(m["ts"]) > float(last_processed_ts)
+        and not m.get("bot_id")
+        and m.get("subtype") not in ("bot_message", "bot_add", "channel_join")
+    ]
+    return thread_ts, new_replies
+
+
+def determine_status(new_replies):
+    if not new_replies:
+        return "nothing"
+    for r in new_replies:
+        if r.get("text", "").strip().lower() != "publish":
+            return "feedback"
+    return "publish"
+
+
+def mode_check():
+    token = os.environ.get("SLACK_BOT_TOKEN", "")
+    if not token:
+        print("nothing")
+        return
+    state = load_state()
+    if not state or not state.get("pending") or state.get("published"):
+        print("nothing")
+        return
+    try:
+        _, new_replies = get_new_replies(token, state)
+    except Exception:
+        print("nothing")
+        return
+    print(determine_status(new_replies))
+
+
+def mode_run():
     token = os.environ.get("SLACK_BOT_TOKEN", "")
     if not token:
         print("SLACK_BOT_TOKEN not set, exiting.")
@@ -125,62 +168,85 @@ def main():
 
     state = load_state()
     if not state:
-        sys.exit(0)
+        print("No state file, nothing to do.")
+        return
 
     pending = state.get("pending")
     if not pending:
-        print("No pending digest, nothing to check.")
-        sys.exit(0)
+        print("No pending digest.")
+        return
 
     if state.get("published"):
-        print("Already published, nothing to do.")
-        sys.exit(0)
+        print("Already published.")
+        return
 
-    thread_ts = pending.get("slack_ts")
+    thread_ts, new_replies = get_new_replies(token, state)
     if not thread_ts:
-        print("No slack_ts in state, cannot check replies.")
-        sys.exit(0)
-
-    messages = get_replies(token, SLACK_CHANNEL_ID, thread_ts)
-    last_processed_ts = pending.get("last_processed_ts", thread_ts)
-
-    new_replies = [
-        m for m in messages[1:]
-        if float(m["ts"]) > float(last_processed_ts)
-        and not m.get("bot_id")
-        and m.get("subtype") not in ("bot_message", "bot_add", "channel_join")
-    ]
+        print("No slack_ts in state.")
+        return
 
     if not new_replies:
         print("No new replies.")
-        sys.exit(0)
+        return
+
+    state_dirty = False
 
     for reply in new_replies:
         text = reply.get("text", "").strip()
         ts = reply["ts"]
         pending["last_processed_ts"] = ts
+        state_dirty = True
 
         if text.lower() == "publish":
-            print("Publish signal found! Updating site...")
+            print("Publish signal found.")
             post_reply(token, thread_ts, "Publishing now -- give it a moment for the site to update.")
             write_data_js(pending["digest"])
             state["published"] = True
             save_state(state)
             git_commit(f"Publish digest {pending['digest']['id']}", include_data=True)
             post_reply(token, thread_ts, "Done! The digest is live at https://patient-investor-digest.pages.dev/")
-            print("Done.")
-            sys.exit(0)
-        else:
-            print(f"Feedback received: {text[:80]}")
-            post_reply(token, thread_ts, "Got it -- sending this for rewriting now...")
-            revised = revise_digest(pending["digest"], text)
-            pending["digest"] = revised
-            save_state(state)
-            post_reply(token, thread_ts, format_preview(revised))
-            print("Posted revised preview to thread.")
+            return
 
-    # Commit updated state (last_processed_ts + any revisions)
-    git_commit("Update digest state after feedback", include_data=False)
+        print(f"Feedback received: {text[:80]}")
+        post_reply(token, thread_ts, "Got it -- sending this for rewriting now...")
+
+        try:
+            revised = revise_digest(pending["digest"], text)
+        except subprocess.TimeoutExpired:
+            post_reply(token, thread_ts, "Claude timed out (>2 min). Try again or break the feedback into smaller pieces.")
+            save_state(state)
+            continue
+        except subprocess.CalledProcessError as e:
+            err = (e.stderr or "")[:300]
+            post_reply(token, thread_ts, f"Claude CLI errored: {err or 'unknown'}")
+            save_state(state)
+            continue
+        except json.JSONDecodeError:
+            post_reply(token, thread_ts, "Claude returned something that wasn't valid JSON. Try rewording the feedback.")
+            save_state(state)
+            continue
+        except Exception as e:
+            post_reply(token, thread_ts, f"Unexpected error during revision: {str(e)[:200]}")
+            save_state(state)
+            continue
+
+        pending["digest"] = revised
+        save_state(state)
+        post_reply(token, thread_ts, format_preview(revised))
+
+    if state_dirty:
+        git_commit("Update digest state after feedback", include_data=False)
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--mode", choices=["check", "run"], default="run")
+    args = parser.parse_args()
+
+    if args.mode == "check":
+        mode_check()
+    else:
+        mode_run()
 
 
 if __name__ == "__main__":
