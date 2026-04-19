@@ -10,50 +10,50 @@ const DIGESTS = [
     "snapshot": [
       {
         "label": "BTC",
-        "value": "-0.3%"
+        "value": "-0.6%"
       },
       {
         "label": "ETH",
-        "value": "-1.3%"
+        "value": "-1.6%"
       },
       {
         "label": "Volatility",
-        "value": "Elevated, breakout watch"
+        "value": "Low, breakout watch"
       },
       {
         "label": "ETH Gas",
-        "value": "~$1.20"
+        "value": "~$1.50"
       }
     ],
-    "intro": "Bitcoin just cracked a seven-month resistance ceiling while ETH is lagging behind -- a split that widens bid-ask spreads and makes ranges harder to hold. For LPs, choppy breakout conditions are a stress test for how well your range is positioned relative to where price might go next. The stories below each carry a concrete lesson about what market structure does to your position.",
+    "intro": "BTC slipped just 0.6% today while ETH dropped 1.6% -- a widening gap between the two that quietly shifts the asset mix in any range holding both. A $292 million bridge exploit and an alleged token manipulation scheme this week are good reminders that range management is not just about where price is, but about what happens to your position when price moves fast and without warning.",
     "stories": [
       {
-        "title": "A $292M Bridge Exploit Shows What a Depeg Looks Like Inside Your Range",
-        "body": "Kelp DAO's rsETH -- a liquid restaking token (LRT), meaning a token representing ETH staked across multiple restaking protocols simultaneously -- was drained of roughly $292 million through a LayerZero bridge exploit, with the protocol freezing contracts about 46 minutes after the drain. For LPs in an rsETH/ETH pool, those 46 minutes illustrated exactly how a depeg (when an asset loses its expected 1:1 peg to ETH) interacts with a concentrated range. If your range was set for rsETH between $0.98 and $1.02 ETH and rsETH dropped to $0.70, price would have blown through your lower bound instantly, leaving your position holding nearly all rsETH -- the asset losing value -- while collecting zero fees. Tight ranges earn more fees in stable conditions but offer almost no buffer when the peg breaks.",
-        "spark": "If you were providing liquidity in an LRT/ETH pair, how wide would your range need to be to stay active during a sudden 30% depeg event -- and is that width still worth the reduced fee capture during the calm stretches in between?"
+        "title": "A $292M Exploit Shows What a Depeg Looks Like Inside Your Range",
+        "body": "Kelp DAO's rsETH -- a liquid restaking token (LRT), meaning a token representing ETH deposited into multiple restaking protocols to earn extra yield on top of base staking rewards -- was drained of roughly $292 million through a LayerZero bridge attack, with the protocol freezing core contracts 46 minutes after the drain. For LPs in an rsETH/ETH pool, that 46-minute window illustrates exactly what a depeg (when an asset falls sharply below its expected 1:1 ratio with ETH) does to a concentrated range: arbitrage bots sweep the cheap rsETH out of the pool immediately, leaving your position holding nearly all rsETH -- the damaged asset -- while earning zero fees because price has blown past your lower bound. Tight ranges earn more fees when the peg holds, but give you almost no buffer when it breaks. This is why LRT pairs carry a different risk profile than plain ETH/USDC -- the downside is not gradual, it is a single event.",
+        "spark": "If you were providing liquidity in an LRT/ETH pair, how wide would your range need to be to stay active through a sudden 30% depeg -- and is that wider range still worth the reduced fee capture during the long calm stretches in between?"
       },
       {
-        "title": "Bitcoin Breaks a Seven-Month Ceiling -- What Do You Do With Your Range Now?",
-        "body": "Bitcoin crossed above a resistance level it had failed to break for seven months, with prediction markets now pricing a move toward $84,000. That kind of breakout creates a classic LP dilemma: if your range was centered at $75,000 and BTC pushes to $80,000, your position goes out of range on the upside and you stop earning fees -- but you also now hold mostly your stablecoin pair, meaning you missed the price appreciation above your upper bound. Shifting your range upward to chase the move captures more fees but risks a reversal. Widening the range keeps you earning fees through a bigger price swing but dilutes your fee-per-dollar because your liquidity is spread thinner across the range.",
-        "spark": "When price breaks a key resistance level with momentum behind it, is it generally better to recenter your range and chase the move, or to let the position sit out of range and wait for a pullback before resetting -- and what would make you answer differently depending on the pair?"
+        "title": "Bitcoin Cracks a Seven-Month Ceiling -- Where Do You Aim Your Range Now?",
+        "body": "Bitcoin pushed through a resistance level it had failed to clear for seven months, with prediction markets now pointing toward $84,000 as the next target. For LPs in BTC pairs, this tests a core setup decision: if your range is centered around $75,000 and BTC runs to $84,000, your position drifts toward the upper edge, shifts to holding mostly your paired stablecoin, and eventually exits the range entirely -- earning zero fees above your upper bound while also missing the price appreciation. A range skewed upward, say $77,000 to $92,000, earns fewer fees while price is still near the bottom but stays active through more of the move and lets you hold more BTC at the start. The tradeoff is real -- there is no setup that wins everywhere.",
+        "spark": "When price pushes through a major resistance level with momentum behind it, is it better to recenter your range and chase the move, widen it to stay active longer, or let the position go out of range and reset on a pullback -- and what would make your answer different depending on the pair?"
       },
       {
-        "title": "The RAVE Pump-and-Dump Is a Case Study in Fee Capture vs. Price Exposure",
-        "body": "Onchain investigator ZachXBT alleged the RAVE token team orchestrated a pump-and-dump -- artificially inflating price and then selling into retail buyers -- while Binance and Bitget opened investigations and ZachXBT offered a $25,000 bounty for whistleblowers. Tokens experiencing artificial pumps generate enormous trading volume, and LPs in those pools can collect significant fees during the pump phase. But the dump that follows is fast and severe: if price drops 60% in minutes, a concentrated range exits immediately and you are left holding nearly all of the token that just collapsed in value. The fees collected during the pump rarely offset the drop in the asset you end up holding when price blows through your lower bound.",
-        "spark": "High-volatility tokens generate high fees for LPs, but the same price swings that create fee opportunities also create rapid moves out of range. How would you think about evaluating whether the fee upside in a volatile token is worth the price exposure risk on the downside?"
+        "title": "The RAVE Pump-and-Dump: A Frame-by-Frame Look at Range Mechanics",
+        "body": "Onchain investigator ZachXBT alleged that the RaveDAO team orchestrated a pump-and-dump on RAVE token -- artificially inflating price and selling into retail buyers -- while Binance and Bitget opened investigations and ZachXBT offered a $25,000 whistleblower bounty. For LPs in a RAVE/USDC pool during a pump, the mechanics are important to understand: as price rockets upward through your range, your position continuously sells RAVE and accumulates USDC, so by the time the pump peaks you are holding mostly USDC. When the dump crashes price back down through your range, your position buys RAVE back at lower prices with that USDC -- you end up with more RAVE at a lower average price than you started with, and the fees collected during the pump rarely cover that round-trip loss on the asset side.",
+        "spark": "High-volatility tokens generate high fees but also create the fastest exits from your range. How would you evaluate whether the fee upside in a volatile or lower-cap token is actually worth the price exposure risk on the downside?"
       },
       {
-        "title": "ETH Is Lagging BTC -- and That Gap Matters for Your Ranges",
-        "body": "BTC is down 0.3% today while ETH is down 1.3% -- a small but meaningful divergence between two assets that usually move together. For LPs in ETH/USDC or ETH/BTC pools, this kind of drift is exactly what moves price across your range even when the broader market feels quiet. When ETH falls relative to BTC, your ETH/USDC pool price drops, your position shifts toward holding more ETH, and if the gap keeps widening you drift further from center. This is different from both assets falling together, which leaves your pair ratio roughly stable and your range position less affected.",
-        "spark": "If ETH continues to underperform BTC over the next week, how would that change how you think about centering or widening your ETH/USDC range compared to a week where the two assets move in lockstep?"
+        "title": "A Judge Rules a Memecoin Is Not a Security -- What That Signals for LP Pool Depth",
+        "body": "A federal judge ruled that Caitlyn Jenner's JENNER memecoin is not a security in a class action lawsuit, a legal distinction that matters for how these tokens can be traded and listed. For LPs, the more practical takeaway is about pool depth: memecoin pools tend to be thin, meaning the total dollar value of assets deposited is small. In a thin pool, even a medium-sized trade moves price significantly -- which means a single large swap can push price through your entire range in one transaction. Thin pools are also where JIT liquidity (just-in-time liquidity, where bots add funds right before a large trade and remove them immediately after to capture most of the fee) leaves passive LPs earning far less than the raw trading volume would suggest.",
+        "spark": "How does total pool depth -- the combined dollar value of all LPs in a pool -- affect how quickly one large trade can move price through your range, and does that factor into which pools you choose to provide liquidity in?"
       },
       {
-        "title": "Strategy Moves to Semi-Monthly Bitcoin Yield Payments -- A Frame for Comparing LP Returns",
-        "body": "Strategy (formerly MicroStrategy) is moving to semi-monthly dividend payments on its STRC preferred stock, which pays an 11.5% annualized yield backed by the company's Bitcoin treasury. This is a useful comparison point for LP thinking: STRC generates yield by leveraging a large BTC position and passing income to shareholders, while LP fees are generated by providing liquidity that other traders need to execute swaps. Both produce yield, but the risk profiles are very different -- STRC holders carry Strategy's corporate risk plus BTC price exposure, while LPs carry price movement within their range plus the risk of volume drying up in their pool.",
-        "spark": "When you compare LP fee yield to other crypto yield products like yield-bearing preferred stock or lending protocols, what specific risks are you actually trading against each other -- and which of those risks feels hardest to predict?"
+        "title": "What Quantum Threat Headlines Actually Teach LPs About Tail Risk",
+        "body": "Decrypt's Q-Day explainer revisited the concern that future quantum computers could eventually forge Bitcoin's digital signatures, allowing unauthorized transactions. This is not a near-term risk, but it is a useful frame for a broader LP principle: narrow ranges earn more fees per dollar when price stays put, but that fee math only works if nothing dramatic happens. A sudden shock -- a major security disclosure, a regulatory shift, a macro event -- can gap price well outside a tight range instantly. The practical implication is that running a narrow range is an implicit bet that conditions stay stable, and the longer your position sits open, the more opportunities there are for something unexpected to move price far outside your bounds.",
+        "spark": "How do you weigh the higher fee capture of a narrow range against the risk that an unexpected news event gaps price outside it -- and does your answer change depending on how long you plan to leave the position open?"
       }
     ],
-    "closing": "This week's mix -- a tentative BTC breakout, ETH lagging, and a major exploit in the LRT space -- is a reminder that range management is not just about fee capture, it is about understanding what your position turns into when markets move fast. Bring your biggest open question to the group this week."
+    "closing": "BTC cracking a seven-month ceiling while ETH lags and an LRT exploit plays out in the same week is a good moment to ask whether your ranges are built for the market you expect or the one that could actually show up. Bring your current setup to the group and let's see how it holds up."
   },
   {
     "id": "4-19-2026",
