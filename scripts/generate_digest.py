@@ -68,7 +68,7 @@ ETH: ${prices['eth_price']:,} ({eth_sign}{prices['eth_change']:.1f}% 24h)
 Recent crypto news headlines:
 {articles_text}
 
-You are writing a digest for the Patient Investor LP Mastermind community -- experienced DeFi liquidity providers managing concentrated liquidity positions on Uniswap V3 and V4. This audience understands impermanent loss, tick ranges, fee tiers, rebalancing strategy, and on-chain mechanics deeply.
+You are writing a digest for the Patient Investor LP Mastermind. Members are early in their LP journey -- they know how to rebalance positions on Uniswap V3/V4 and understand the basics, but they're still learning the cause-and-effect: why a skewed range captures more appreciation than a centered one, when widening beats rebalancing, how impermanent loss compounds in volatile pairs. This digest is a teaching tool, not a power-user newsletter. Each story should be a small learning moment -- explain what happened in plain language, then unpack what it means for how they set up and manage their ranges. If you use a technical term (IL, tick spacing, JIT, MEV, LRT, oracle depeg, etc.), briefly define it the first time it appears in that issue. Prefer concrete examples ("if your range is $3,000-$3,500 and ETH drops to $2,800...") over abstractions. The spark question should open a door to deeper understanding a thoughtful beginner can reflect on -- not a debate topic for veterans.
 
 Return ONLY a valid JSON object with no markdown fencing, no explanation, no commentary -- just the raw JSON.
 
