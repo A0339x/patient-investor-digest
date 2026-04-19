@@ -100,7 +100,7 @@ Digest field rules (when revising): use -- instead of em dashes, straight quotes
         ["claude", "-p", prompt],
         capture_output=True,
         text=True,
-        timeout=180,
+        timeout=420,
     )
     print(f"Claude returncode: {result.returncode}, stdout_len: {len(result.stdout)}")
     if result.stderr:
@@ -240,7 +240,7 @@ def mode_run():
         try:
             decision = process_message(pending["digest"], thread_context, text)
         except subprocess.TimeoutExpired:
-            post_reply(token, thread_ts, "Claude timed out (>3 min). Try again or break the request into smaller pieces.")
+            post_reply(token, thread_ts, "Claude timed out (>7 min). Try breaking the request into smaller pieces -- e.g. rewrite one story at a time.")
             save_state(state)
             continue
         except json.JSONDecodeError as e:
