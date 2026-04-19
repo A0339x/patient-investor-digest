@@ -54,6 +54,7 @@
       "closing": "Range management is one layer of LP risk -- but protocol risk, manipulation risk, and the absence of legal protection all live beneath the price chart. Take a few minutes this week to look at your open positions and ask whether the assets inside them still deserve your trust."
     },
     "slack_ts": "1776600828.351919",
-    "generated_at": "2026-04-19T12:13:48.381705+00:00"
+    "generated_at": "2026-04-19T12:13:48.381705+00:00",
+    "last_processed_ts": "1776601363.433909"
   }
 }
