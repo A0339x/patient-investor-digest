@@ -109,9 +109,22 @@ def call_claude(prompt):
         ["claude", "-p", prompt],
         capture_output=True,
         text=True,
-        check=True,
+        timeout=420,
     )
+    print(f"Claude returncode: {result.returncode}, stdout_len: {len(result.stdout)}")
+    if result.stderr:
+        print(f"Claude stderr: {result.stderr[:500]}")
+    if result.returncode != 0:
+        detail = result.stderr.strip() or result.stdout.strip() or f"exit {result.returncode}"
+        raise RuntimeError(f"Claude CLI exit {result.returncode}: {detail[:500]}")
+
     raw = result.stdout.strip()
+    if not raw:
+        print(f"Claude returned empty output. stderr: {result.stderr[:500]}")
+        raise RuntimeError("Claude returned empty output")
+    if raw.startswith("```"):
+        lines = raw.split("\n")
+        raw = "\n".join(lines[1:-1] if lines[-1].startswith("```") else lines[1:])
     return json.loads(raw)
 
 
