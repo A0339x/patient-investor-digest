@@ -183,6 +183,7 @@ def git_commit(message):
     os.system(f'git config user.name "GitHub Actions"')
     os.system(f"git add {DATA_FILE} {STATE_FILE}")
     os.system(f'git commit -m "{message}"')
+    os.system("git pull --rebase")
     os.system("git push")
 
 

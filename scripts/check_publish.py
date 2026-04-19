@@ -113,6 +113,7 @@ def git_commit(message, include_data=False):
     files = f"{STATE_FILE} {DATA_FILE}" if include_data else STATE_FILE
     os.system(f"git add {files}")
     os.system(f'git commit -m "{message}"')
+    os.system("git pull --rebase")
     os.system("git push")
 
 
@@ -147,7 +148,7 @@ def main():
         m for m in messages[1:]
         if float(m["ts"]) > float(last_processed_ts)
         and not m.get("bot_id")
-        and m.get("subtype") is None
+        and m.get("subtype") not in ("bot_message", "bot_add", "channel_join")
     ]
 
     if not new_replies:
