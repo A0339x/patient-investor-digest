@@ -51,39 +51,8 @@ def post_reply(token, thread_ts, text):
         raise RuntimeError(f"Slack error: {data.get('error')}")
 
 
-def format_full_digest(digest):
-    title = digest.get("title", "").replace("\n", " ")
-    parts = [
-        f"*{title}* -- {digest.get('date', '')}",
-        f"_{digest.get('subtitle', '')}_",
-        "",
-        "*Snapshot:*",
-    ]
-    for item in digest.get("snapshot", []):
-        parts.append(f"• {item['label']}: {item['value']}")
-    parts += ["", "*Intro:*", digest.get("intro", ""), "", "*Stories:*", ""]
-    for i, s in enumerate(digest.get("stories", []), 1):
-        parts.append(f"*{i}. {s.get('title', '')}*")
-        parts.append(s.get("body", ""))
-        parts.append(f"_Spark: {s.get('spark', '')}_")
-        parts.append("")
-    parts += ["*Closing:*", digest.get("closing", "")]
-    return "\n".join(parts)
-
-
-def format_revised_summary(digest):
-    stories = "\n".join(f"  {i+1}. {s['title']}" for i, s in enumerate(digest["stories"]))
-    return (
-        f"*Revised digest -- {digest['date']}*\n\n"
-        f"*Intro:* {digest['intro']}\n\n"
-        f"*Stories:*\n{stories}\n\n"
-        f"*Closing:* {digest['closing']}\n\n"
-        f"Reply *publish* to push to the site, or send more feedback."
-    )
-
-
 def build_thread_context(messages, latest_ts):
-    """Return recent thread messages (excluding the message we're responding to and prior app echoes)."""
+    """Return recent thread messages (excluding the message we're responding to)."""
     context = []
     for m in messages:
         if m.get("ts") == latest_ts:
@@ -97,9 +66,9 @@ def build_thread_context(messages, latest_ts):
 
 
 def process_message(digest, thread_context, latest_message):
-    prompt = f"""You are the editor-assistant for the Patient Investor LP Mastermind digest, working with Gregory inside a Slack thread. Your job is to help him review, discuss, and refine the digest before it goes to the group.
+    prompt = f"""You are Gregory's editorial collaborator for the Patient Investor LP Mastermind digest, working with him inside a Slack thread. You have full creative and analytical latitude -- discuss, brainstorm, explain, critique, rewrite, or just chat. Respond like a sharp colleague, not a form-filling bot.
 
-The Mastermind audience is experienced DeFi LPs running concentrated liquidity on Uniswap V3/V4 -- they understand impermanent loss, tick ranges, fee tiers, rebalancing, and on-chain mechanics. Some run tight ranges (high fee capture, frequent rebalance) and some run wider asymmetric ranges (more passive, resilient to vol).
+The Mastermind audience is experienced DeFi LPs running concentrated liquidity on Uniswap V3/V4 -- they understand impermanent loss, tick ranges, fee tiers, rebalancing, and on-chain mechanics. Some run tight ranges (high fee capture, frequent rebalance), others run wider asymmetric ranges (more passive, vol-resilient).
 
 Current digest (JSON):
 {json.dumps(digest, indent=2)}
@@ -110,26 +79,22 @@ Recent thread conversation:
 Gregory's latest message:
 {latest_message}
 
-Decide what he wants and return ONLY a JSON object with this exact shape (no markdown fencing, no extra text):
+Respond by returning ONLY a JSON object with this shape (no markdown fencing, no surrounding text):
 
 {{
-  "action": "chat" | "show_full" | "revise" | "publish",
-  "reply": "your Slack-formatted reply text",
-  "revised_digest": null OR the full revised digest as a JSON object
+  "reply": "your Slack message to Gregory",
+  "revised_digest": null OR the full updated digest as a JSON object,
+  "publish": false OR true
 }}
 
-Action guide:
-- "chat": He's asking a question, discussing, brainstorming, or making small talk. Respond naturally in "reply". revised_digest should be null.
-- "show_full": He wants to see the full article content (e.g. "send me the full article", "show me everything", "what does the whole thing look like"). Put a short acknowledgement in "reply" like "Here's the full article:" -- the system will append the formatted full digest automatically. revised_digest should be null.
-- "revise": He's asking for a specific edit to the digest. Apply ONLY the change he asked for, leave everything else untouched (same wording, order, structure). Put the complete updated digest in "revised_digest". In "reply", tell him briefly what you changed (e.g. "Updated story 2 to address both tight and wide range LPs.").
-- "publish": He's clearly saying to publish now (e.g. "publish", "ship it", "looks good, push it"). Put a short confirmation in "reply" like "Publishing now." revised_digest should be null.
+Field guidance:
+- "reply" is always required. Put anything you want to say to Gregory here. This could be: answering a question, the complete digest formatted for readability, a critique, a suggestion, small talk, a single sentence -- whatever fits the request.
+- "revised_digest" is ONLY populated when you're making an actual edit to the digest. When you do revise, apply only the change Gregory asked for (same id and date; leave other fields untouched unless he asked otherwise). Return the complete digest object. When no edit is intended, set this to null.
+- "publish" is true ONLY when Gregory has clearly indicated he wants the current digest pushed to the site now (e.g. "publish", "ship it", "push to the site", "looks good let's go live"). Otherwise false.
 
-Formatting rules for "reply" and all digest text:
-- Slack formatting: *bold*, _italic_, bullets with •. No markdown headers (#).
-- Use -- instead of em dashes. Straight quotes only. No markdown in any digest field.
-- Keep replies concise and conversational. You are a teammate, not a formal report.
+Slack formatting for "reply": use *bold*, _italic_, and bullets with •. No markdown headers (#). Use -- instead of em dashes. Straight quotes only. Readable, conversational, no boilerplate. When Gregory asks to see the full article, format it nicely with the title, date, snapshot, intro, every story (title/body/spark), and closing -- make it pleasant to read in Slack.
 
-If revising: keep the same id and date, change only what was asked for."""
+Digest field rules (when revising): use -- instead of em dashes, straight quotes only, no markdown inside values."""
 
     result = subprocess.run(
         ["claude", "-p", prompt],
@@ -152,9 +117,8 @@ If revising: keep the same id and date, change only what was asked for."""
         raw = "\n".join(lines[1:-1] if lines[-1].startswith("```") else lines[1:])
 
     parsed = json.loads(raw)
-    action = parsed.get("action")
-    if action not in ("chat", "show_full", "revise", "publish"):
-        raise RuntimeError(f"Claude returned invalid action: {action!r}")
+    if not isinstance(parsed, dict) or "reply" not in parsed:
+        raise RuntimeError("Claude response missing required 'reply' field")
     return parsed
 
 
@@ -189,8 +153,9 @@ def git_commit(message, include_data=False):
     os.system("git push")
 
 
-def do_publish(token, thread_ts, state, pending, reply_text=None):
-    post_reply(token, thread_ts, reply_text or "Publishing now -- give it a moment for the site to update.")
+def do_publish(token, thread_ts, state, pending, intro_message=None):
+    if intro_message:
+        post_reply(token, thread_ts, intro_message)
     write_data_js(pending["digest"])
     state["published"] = True
     save_state(state)
@@ -263,7 +228,7 @@ def mode_run():
         # Quick-path publish (skip Claude round-trip on exact match)
         if text.lower() == "publish":
             print("Publish quick-path.")
-            do_publish(token, thread_ts, state, pending)
+            do_publish(token, thread_ts, state, pending, intro_message="Publishing now -- give it a moment for the site to update.")
             return
 
         if not text:
@@ -291,32 +256,21 @@ def mode_run():
             save_state(state)
             continue
 
-        action = decision["action"]
-        reply_text = decision.get("reply") or ""
+        reply_text = (decision.get("reply") or "").strip()
+        revised = decision.get("revised_digest")
+        should_publish = bool(decision.get("publish"))
 
-        if action == "chat":
-            if reply_text:
-                post_reply(token, thread_ts, reply_text)
+        if reply_text:
+            post_reply(token, thread_ts, reply_text)
 
-        elif action == "show_full":
-            ack = reply_text or "Here's the full article:"
-            post_reply(token, thread_ts, ack)
-            post_reply(token, thread_ts, format_full_digest(pending["digest"]))
-
-        elif action == "revise":
-            revised = decision.get("revised_digest")
-            if not isinstance(revised, dict) or "stories" not in revised:
-                post_reply(token, thread_ts, "I tried to revise but didn't get back a valid digest. Try rewording the request.")
-                save_state(state)
-                continue
+        if isinstance(revised, dict) and "stories" in revised:
             pending["digest"] = revised
             save_state(state)
-            if reply_text:
-                post_reply(token, thread_ts, reply_text)
-            post_reply(token, thread_ts, format_revised_summary(revised))
+            post_reply(token, thread_ts, "_Digest updated. Reply *publish* when you're ready to ship it._")
 
-        elif action == "publish":
-            do_publish(token, thread_ts, state, pending, reply_text or None)
+        if should_publish:
+            # reply_text already posted above; don't duplicate it
+            do_publish(token, thread_ts, state, pending)
             return
 
         save_state(state)
