@@ -144,22 +144,14 @@ def save_state(state):
 SLACK_CHANNEL_ID = "C0ATN065QQ3"
 
 
-def send_to_slack(digest, token):
-    text = (
-        f"*{digest['title'].replace(chr(10), ' ')}* -- {digest['date']}\n"
-        f"{digest['subtitle']}\n\n"
-        f"{digest['intro']}\n\n"
-        + "\n\n".join(
-            f"*{s['title']}*\n{s['body']}\n_Spark: {s['spark']}_"
-            for s in digest["stories"]
-        )
-        + f"\n\n{digest['closing']}\n\nReply *publish* to push this to the site."
-    )
-
+def _post_slack(token, text, thread_ts=None):
+    payload = {"channel": SLACK_CHANNEL_ID, "text": text}
+    if thread_ts:
+        payload["thread_ts"] = thread_ts
     resp = requests.post(
         "https://slack.com/api/chat.postMessage",
         headers={"Authorization": f"Bearer {token}"},
-        json={"channel": SLACK_CHANNEL_ID, "text": text},
+        json=payload,
         timeout=10,
     )
     resp.raise_for_status()
@@ -167,6 +159,28 @@ def send_to_slack(digest, token):
     if not data.get("ok"):
         raise RuntimeError(f"Slack error: {data.get('error')}")
     return data["ts"]
+
+
+def send_to_slack(digest, token):
+    # Thread root: short, always under the size limit, contains the publish prompt.
+    root_text = (
+        f"*{digest['title'].replace(chr(10), ' ')}* -- {digest['date']}\n"
+        f"_{digest['subtitle']}_\n\n"
+        f"{digest['intro']}\n\n"
+        f"_Full article is in the thread below. Reply in the thread with *publish* when you're ready to ship, or ask me anything there._"
+    )
+    thread_ts = _post_slack(token, root_text)
+
+    # Each story as its own threaded reply for clean scanning.
+    for s in digest.get("stories", []):
+        story_text = f"*{s['title']}*\n{s['body']}\n_Spark: {s['spark']}_"
+        _post_slack(token, story_text, thread_ts=thread_ts)
+
+    # Closing as the final threaded reply.
+    if digest.get("closing"):
+        _post_slack(token, f"*Closing:* {digest['closing']}", thread_ts=thread_ts)
+
+    return thread_ts
 
 
 def read_existing_digests():
