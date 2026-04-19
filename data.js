@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "04-19-2026",
+    "date": "April 19, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "-0.4%"
+      },
+      {
+        "label": "ETH",
+        "value": "-1.4%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Low, muted drift"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$1.20"
+      }
+    ],
+    "intro": "Both BTC and ETH dipped modestly over the last 24 hours, with ETH underperforming BTC -- a pattern that often signals risk-off sentiment among crypto traders. For LPs, quiet price action like this tends to mean steady fee collection inside active ranges, but it also means less urgency to rebalance. The more interesting story this week is what happened at the edges: a major exploit, a token pump, and BTC quietly pushing through a level it has not cleared in seven months.",
+    "stories": [
+      {
+        "title": "BTC Breaks a Seven-Month Ceiling -- What That Means for Your Range Setup",
+        "body": "Bitcoin just cleared a price level it had been stuck below since last September, with prediction markets now pointing toward $84,000 as a near-term target. When an asset breaks through a multi-month resistance level -- a price ceiling where sellers have repeatedly shown up -- it often signals a shift in momentum that can sustain a directional move. For LPs in BTC-paired pools, a centered range (equal distance above and below current price) captures fees well in choppy markets, but a skewed range -- one set asymmetrically higher, say $76,000 to $90,000 instead of $68,000 to $84,000 -- lets you capture more appreciation if the breakout holds. The tradeoff is that a skewed-high range goes inactive faster if price reverses, so you stop earning fees until you rebalance.",
+        "spark": "If you believed BTC had a 60% chance of reaching $84,000 and a 40% chance of falling back to $68,000, how would you think about where to place the boundaries of your range -- and how wide would you make it?"
+      },
+      {
+        "title": "The Kelp DAO Exploit: What 'Oracle Depeg' Risk Looks Like in Practice",
+        "body": "Kelp DAO's rsETH -- a liquid restaking token (LRT), meaning a token that represents staked ETH earning additional yield -- was drained of roughly $292 million through a bridge exploit before the protocol could freeze its contracts. An oracle is the price feed a DEX uses to value an asset; when a token is exploited or manipulated, its oracle price can briefly detach from its real value, a situation called an oracle depeg. If you were providing liquidity in an rsETH/ETH pool at the time, your range would have been pricing rsETH as if it were still worth close to 1 ETH -- meaning you could have been selling 'real' ETH for an increasingly worthless token. This is a category of risk separate from normal price movement: it is protocol failure, not just volatility.",
+        "spark": "How would you evaluate whether the extra yield from an LRT pair -- compared to a plain ETH/USDC pool -- is worth the additional layer of smart contract and peg risk you are taking on?"
+      },
+      {
+        "title": "RaveDAO Pump-and-Dump Allegations: How Price Spikes Change Your Position Composition",
+        "body": "Onchain investigator ZachXBT alleged that the RaveDAO team orchestrated a pump-and-dump in the RAVE token, a scheme where insiders drive the price up sharply before selling into the spike, leaving buyers holding a rapidly falling asset. For LPs in a pool containing RAVE, that price spike would have changed the composition of their position in a specific way: as RAVE's price shot up, the pool's automated math would have sold your RAVE and bought the paired asset (say, ETH or USDC) to keep the ratio balanced -- so when the price collapsed, you would have been left holding mostly the paired asset with very little RAVE remaining. In manipulated markets, this means LPs can end up on the wrong side of a coordinated move without any individual bad decision on their part.",
+        "spark": "What signals -- in a token's trading history, liquidity depth, or team transparency -- might prompt you to avoid providing liquidity in a pool before you have enough data to assess manipulation risk?"
+      },
+      {
+        "title": "Wrapped XRP Arrives on Solana: Bridged Assets Carry a Hidden Peg Risk",
+        "body": "Over $1.2 million in wrapped XRP (wXRP) has been minted on Solana, expanding XRP's availability in DeFi pools on that chain. A wrapped token is a representation of an asset from one blockchain issued on another -- it is only as reliable as the bridge that created it. For LPs, providing liquidity in a wXRP pool means you are not just exposed to XRP's price moves; you are also exposed to the risk that the bridge holding the underlying XRP is exploited or paused, causing wXRP to trade below its 1:1 peg with real XRP. This week's Kelp DAO exploit is a live example of what that looks like. When evaluating wrapped-asset pairs, the bridge's security track record and the size of its insurance or backstop fund are worth researching before you commit capital.",
+        "spark": "If a wrapped token briefly trades at a 5% discount to the asset it represents, how does that affect the value of your LP position -- and does a wider range help or hurt you in that scenario?"
+      },
+      {
+        "title": "Staking vs. Active Range Management: A Frame for Thinking About Your Time",
+        "body": "Zac Prince of Galaxy's retail platform made the case this week that retail investors are better served by staking than by prediction markets, arguing that long-term compounding beats short-term speculation for most people. The same tension applies to LP range management: a very tight range captures the most fees per dollar when price stays inside it, but it requires frequent rebalancing -- repositioning your range when price moves out of it -- to stay active. A wider range captures fewer fees per dollar but stays active longer with less attention. Neither approach is universally better; the right choice depends on how much time you can actually dedicate to monitoring your positions and how much you trust your read on near-term price direction.",
+        "spark": "Given the hours per week you currently spend on your LP positions, what range width feels like the right fit -- and how would you know if you were rebalancing too often or not often enough?"
+      }
+    ],
+    "closing": "This week had a bit of everything: a clean breakout in BTC, a major exploit, and a reminder that not all yield is created equal. As you review your own ranges, the key question is whether the assets you are providing liquidity in have the depth, transparency, and stability that match the attention you are able to give them."
+  },
+  {
     "id": "4-19-2026",
     "date": "April 19, 2026",
     "title": "LP Mastermind\nMarket Update",
@@ -54,59 +107,6 @@ const DIGESTS = [
       }
     ],
     "closing": "This week handed us a breakout, an exploit, and a pump-and-dump all at once -- three very different flavors of LP risk. Pick the story that hit closest to home and share how it would have changed your last range decision."
-  },
-  {
-    "id": "04-19-2026",
-    "date": "April 19, 2026",
-    "title": "LP Mastermind\nMarket Update",
-    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
-    "snapshot": [
-      {
-        "label": "BTC",
-        "value": "-0.8%"
-      },
-      {
-        "label": "ETH",
-        "value": "-1.1%"
-      },
-      {
-        "label": "Volatility",
-        "value": "Low, soft drift down"
-      },
-      {
-        "label": "ETH Gas",
-        "value": "~$1.20"
-      }
-    ],
-    "intro": "Both BTC and ETH drifted slightly lower this week with no strong conviction in either direction -- the kind of quiet market that can make it tempting to skip your routine range checks. A major DeFi exploit and a high-profile token manipulation scheme are reminders that a calm price chart does not mean calm markets. This week is a good time to ask not just whether your range is still valid, but whether you still trust the assets inside it.",
-    "stories": [
-      {
-        "title": "A $292M LRT Exploit Shows What 'Depeg' Really Costs an LP",
-        "body": "Kelp DAO's rsETH -- an LRT, or liquid restaking token (a token representing ETH staked across multiple protocols simultaneously) -- was apparently drained of roughly $292 million through a bridge exploit. When an LRT depegs (meaning its price falls away from the ETH it is supposed to track at a near 1:1 ratio), any LP position holding that asset can suffer losses far beyond normal impermanent loss (IL). IL is the loss you experience when the price ratio of your two assets shifts away from where it was when you entered the pool -- and a sudden depeg can make that shift extreme and nearly instant. If your range was set assuming rsETH trades close to ETH and it suddenly trades at a steep discount, you could find your entire position converted into the depreciating asset with your range completely out of bounds.",
-        "spark": "Knowing that LRTs carry this kind of bridge and protocol risk, what questions would you ask before using any yield-bearing or wrapped asset as one side of a liquidity position?"
-      },
-      {
-        "title": "Bitcoin Breaks a Seven-Month Ceiling -- When Is a Skewed Range Worth It?",
-        "body": "Bitcoin pushed above a resistance line it had respected for seven months, with prediction markets pointing toward $84,000 as a near-term target. A trend break like this is exactly the scenario where a skewed range -- one shifted toward the upside rather than centered on the current price -- starts to earn more fees than a centered one. A centered range captures movement equally above and below the current price; a skewed range bets that price will travel more in one direction, concentrating your liquidity where you expect fees to be earned. The tradeoff is real: a skewed range goes out-of-range much faster if price moves the wrong way, so it rewards conviction but punishes passive neglect.",
-        "spark": "If you believed BTC was likely to reach $84,000 over the next two months, how would you adjust the upper and lower bounds of a BTC/USDC position right now -- and what price action or news would make you recenter the range?"
-      },
-      {
-        "title": "The RaveDAO Pump-and-Dump Explains Why Low-Liquidity Tokens Are LP Traps",
-        "body": "Onchain investigator ZachXBT alleged that the RAVE token experienced a coordinated pump-and-dump -- a scheme where insiders inflate a token's price, sell at the peak, and leave other holders with losses. For LPs, providing liquidity during a pump is particularly dangerous because of how IL works: as the token price spikes, the pool automatically sells the token and buys more of the other asset. When the price crashes back down, you are left holding mostly the less-valuable asset, and the IL can easily exceed any fees you collected during the chaos. Binance and Bitget have opened investigations, a signal that exchange scrutiny on manipulated tokens is intensifying -- but that scrutiny comes after the damage, not before.",
-        "spark": "What on-chain or off-chain signals might warn you that a token you are providing liquidity for could be subject to price manipulation before a pump begins?"
-      },
-      {
-        "title": "Wrapped XRP Launches on Solana -- What Early-Pool Opportunities Really Look Like",
-        "body": "Over $1.2 million in wrapped XRP (wXRP) has been minted on Solana, opening new liquidity pool opportunities on Solana-based DEXes. A wrapped asset is a token that represents another asset on a different blockchain -- wXRP is XRP locked somewhere, with an IOU token issued on Solana. New wrapped-asset pools often offer above-average fee rates early on because liquidity is thin and traders pay a wider spread to get in and out. The flip side is that thin liquidity also means wider price swings, a higher chance of your range going out-of-range quickly, and less certainty about how the price will behave once larger players enter the pool.",
-        "spark": "When evaluating a brand-new liquidity pool like wXRP/SOL, what three pieces of information would you want before committing capital -- and which of those would be hardest to find?"
-      },
-      {
-        "title": "A Court Rules Memecoins Are Not Securities -- What That Means for LP Downside",
-        "body": "A judge ruled that Caitlyn Jenner's JENNER memecoin is not a security, meaning buyers cannot sue under the investor-protection laws that apply to stocks. For LPs, this matters because it confirms that memecoin pools operate with very limited legal recourse if things go wrong. If you provide liquidity on a memecoin and it collapses in a rug pull -- where developers drain the project and disappear -- you have almost no path to recovery through the courts. Your only real protection is due diligence before you enter: checking whether the pool's liquidity is locked, whether the token contract has admin keys that could be misused, and whether the project has any track record worth trusting.",
-        "spark": "What is your personal minimum threshold for providing liquidity on a memecoin -- and does that threshold change depending on whether the other side of the pair is ETH or a stablecoin like USDC?"
-      }
-    ],
-    "closing": "Range management is one layer of LP risk -- but protocol risk, manipulation risk, and the absence of legal protection all live beneath the price chart. Take a few minutes this week to look at your open positions and ask whether the assets inside them still deserve your trust."
   },
   {
     "id": "4-18-2026",
