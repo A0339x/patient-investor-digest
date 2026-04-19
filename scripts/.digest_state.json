@@ -54,6 +54,8 @@
       "closing": "This week handed us a breakout, an exploit, and a pump-and-dump all at once -- three very different flavors of LP risk. Pick the story that hit closest to home and share how it would have changed your last range decision."
     },
     "slack_ts": "1776605234.525069",
-    "generated_at": "2026-04-19T13:27:15.633954+00:00"
-  }
+    "generated_at": "2026-04-19T13:27:15.633954+00:00",
+    "last_processed_ts": "1776613284.006939"
+  },
+  "published": true
 }
