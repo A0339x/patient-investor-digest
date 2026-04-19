@@ -25,13 +25,9 @@ jobs:
       - name: Install Claude Code CLI
         run: npm install -g @anthropic-ai/claude-code
 
-      - name: Restore Claude credentials
-        run: |
-          mkdir -p ~/.claude
-          echo '${{ secrets.CLAUDE_CREDENTIALS }}' > ~/.claude/.credentials.json
-
       - name: Generate digest
         run: python scripts/generate_digest.py
         env:
+          CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
