@@ -10,45 +10,45 @@ const DIGESTS = [
     "snapshot": [
       {
         "label": "BTC",
-        "value": "-0.2%"
+        "value": "-0.6%"
       },
       {
         "label": "ETH",
-        "value": "-1.4%"
+        "value": "-2.0%"
       },
       {
         "label": "Volatility",
-        "value": "Low-moderate, BTC at key level"
+        "value": "Moderate -- ETH lagging BTC"
       },
       {
         "label": "ETH Gas",
-        "value": "~$1.50"
+        "value": "~$1.20"
       }
     ],
-    "intro": "Bitcoin is testing a seven-month resistance ceiling while ETH drifts slightly lower -- a split that puts BTC/ETH and ETH/stablecoin LPs in meaningfully different positions this week. When one asset in your pair moves and the other doesn't, your range shifts from balanced to skewed quickly, changing both your fee capture and your asset mix. The exploit news this week adds another reminder: not all liquidity risk comes from price movement -- some comes from the tokens themselves.",
+    "intro": "Bitcoin broke above a seven-month resistance level this week while ETH drifted lower, widening the gap between the two largest assets. That divergence means LPs are having very different experiences depending on which pairs they hold -- some BTC-paired ranges are running out of bounds to the upside while ETH-paired ranges are testing their lower edges. A major exploit in a liquid restaking token pool this week was also a sharp reminder that not all near-peg pairs carry the same risk profile.",
     "stories": [
       {
-        "title": "A $292 Million LRT Exploit Froze Kelp DAO -- and Every LP Inside It",
-        "body": "Kelp DAO's rsETH -- a liquid restaking token, meaning a token that represents staked ETH earning additional yield on top of base staking rewards -- was drained of roughly $292 million through a bridge attack. The protocol's emergency multisig froze all core contracts about 46 minutes after the exploit, halting withdrawals and blocking further damage. If you had provided liquidity in an rsETH/ETH pool at that moment, your position would have been locked -- no rebalancing, no exit, no adjusting your range. This is the dimension of LP risk that price charts don't capture: when a token's underlying protocol freezes, your position freezes with it regardless of where price goes.",
-        "spark": "If you were in an rsETH/ETH range when the contracts froze, what would matter more in that moment -- how wide your range was set, or which token made up the larger share of your current position?"
+        "title": "A $292 Million Lesson in LRT Pool Risk",
+        "body": "Kelp DAO's rsETH -- a liquid restaking token (LRT), meaning an asset that represents ETH deposited into restaking protocols and is designed to trade near 1:1 with ETH -- was drained of roughly $292 million via a cross-chain bridge exploit before emergency contracts were frozen. For LPs in rsETH/ETH pools, this triggered a rapid oracle depeg: the price feed the pool relies on showed rsETH trading far below its expected ETH parity, and the pool's automated math rebalanced positions toward the cheaper, falling asset. This is the hidden asymmetry in LRT pairs -- a tight range can look safe and fee-efficient for months, then a single exploit event pushes price out of range instantly while also degrading the value of the asset you now hold more of. Providing liquidity in any paired asset that depends on a separate protocol's security means you are taking on layered risk beyond ordinary price movement.",
+        "spark": "If you were providing liquidity in an rsETH/ETH pool with a tight range around the 1:1 peg, what signals could you monitor to detect a depeg early -- and at what point would you want to exit before the pool's rebalancing leaves you holding mostly the falling asset?"
       },
       {
-        "title": "Bitcoin Cracks a Seven-Month Ceiling -- What That Means for Your Range",
-        "body": "Bitcoin broke above a downtrend resistance line that had capped its price since September, with prediction markets now pointing toward $84,000 as a next target. For LPs in BTC/USDC pools, a sustained move from $75,000 toward $84,000 is exactly the scenario where a centered range stops earning fees -- price travels out the top and sits there, idle. A range skewed high (upper boundary set further from center than the lower one) would let you stay in range longer on the way up, but as price climbs through your range, your position gradually converts from BTC toward USDC. That asset composition shift is the tradeoff at the heart of directional range decisions.",
-        "spark": "If you believed BTC was likely to climb toward $84,000 from $75,000, would you set a wider range, a skewed-high range, or close and reopen a new centered range -- and what does each choice cost you in fees earned versus price exposure kept?"
+        "title": "BTC Breaks a Seven-Month Ceiling -- Now What?",
+        "body": "Bitcoin cracked above a major resistance level this week, with prediction markets pointing toward $84,000 as the next target. For LPs in BTC-paired pools, a sharp breakout creates an immediate problem: if BTC moves above your upper range boundary, you are fully converted into the weaker asset (like USDC) and earning zero fees while price continues higher. If you had set a skewed range -- meaning your range extends further above the current price than below it -- you would have kept earning fees through more of this move. The decision now is whether to reset your range higher and pay gas to rebalance, or hold and wait for a pullback that brings price back into your existing range.",
+        "spark": "If BTC is at $75,668 and your range was $68,000 to $74,000 -- now fully out of range -- what information would you want before deciding to chase the range higher versus waiting for a pullback, and how does the cost of rebalancing factor into that math?"
       },
       {
-        "title": "The RAVE Pump Shows Why Thin-Liquidity Pairs Play by Different Rules",
-        "body": "The RAVE token spiked sharply in what onchain investigator ZachXBT called a pump-and-dump scheme -- where a token's price is artificially inflated then rapidly sold off -- triggering investigations by Binance and Bitget. For LPs in low-liquidity pairs, this kind of move is punishing: your range can be swept through in seconds, leaving your position almost entirely in the declining token before price crashes back. The fees earned during the spike rarely compensate for the resulting shift in asset composition. Thin-liquidity pairs amplify every mechanic that makes range management difficult, and compress the time you have to react.",
-        "spark": "Before providing liquidity in a newer or lower-volume token pair, what signals would you look for to decide whether the higher fee rates justify the risk of a sudden, manipulated price move?"
+        "title": "The RAVE Pump-and-Dump: What LP Mechanics Look Like During Manipulation",
+        "body": "ZachXBT alleged a coordinated pump-and-dump in the RAVE token this week, prompting investigations from major exchanges. From an LP perspective, the mechanics are instructive: as RAVE price spiked, the pool's automated rebalancing sold RAVE into the rally and accumulated the paired asset, generating meaningful fees in the process. Then as price collapsed, the pool automatically bought RAVE back at lower prices, leaving LPs holding more of the manipulated token than they started with -- at a lower average value. Whether the fees collected during the spike outweigh the shift in asset composition depends heavily on how wide your range was and how long the spike lasted before reversing.",
+        "spark": "Knowing that an LP position tends to accumulate more of whichever asset falls in price, how would you weigh the higher fee potential of a newer, lower-cap token pool against the risk of ending up overexposed to a token that dumps -- compared to a deep, established pool like ETH/USDC?"
       },
       {
-        "title": "NYDIG Buying a Dormant Smelter for Bitcoin Mining -- A Signal Worth Noting for Range Anchoring",
-        "body": "Bitcoin miner NYDIG is near a deal to acquire a dormant New York aluminum smelter from Alcoa, adding to its domestic mining capacity. More mining infrastructure means more hash rate -- the total computing power securing the Bitcoin network -- which tends to support Bitcoin's long-run price floor narrative over time. For BTC/stablecoin LPs thinking about where to anchor a range over the next several months, infrastructure signals like this don't predict price precisely, but they do inform how much downside buffer you want to build into your lower boundary. A growing domestic mining base is a slow, structural input -- not a trade signal, but context for range width decisions.",
-        "spark": "When setting a range on a slower-moving, infrastructure-supported asset like BTC versus a sentiment-driven newer token, what changes in how you think about the gap between your center price and your lower boundary?"
+        "title": "ETH Drops 2% While BTC Holds -- What Your Pairing Has to Do With It",
+        "body": "ETH fell about 2% over the past 24 hours while BTC slipped only 0.6%, a meaningful divergence between the two. For LPs in ETH/USDC pools, this move is felt as a straightforward downward price shift -- if ETH falls below your lower range boundary (say, $2,300 if that is where your range starts), you are fully converted into USDC and earning nothing until price recovers. For LPs in ETH/BTC pools, the same ETH weakness shows up differently: your position shifts toward ETH as it underperforms BTC, but both assets are still moving, making range management more complex. Your choice of pairing determines your baseline exposure -- ETH/USDC shifts between a volatile and a stable asset, while ETH/BTC shifts between two volatile assets that can diverge significantly.",
+        "spark": "If you are long-term bullish on ETH but want to earn fees while you hold, would you prefer an ETH/USDC pool or an ETH/BTC pool right now -- and how does your view on whether ETH will outperform or underperform BTC factor into that choice?"
       }
     ],
-    "closing": "This week offered three different stress tests -- an exploit, a breakout, and a manipulation event -- each one probing a different part of how LP ranges hold up under pressure. Bring your thinking on which scenario would have hit your current setup hardest, and why."
+    "closing": "The week raised a common thread across very different stories -- whether it is a depegging LRT, a BTC breakout, or a manipulated altcoin, each event tests whether your range was sized for the world you expected or the world that actually showed up. Bring your current positions to the next session and let's map out where your edges are."
   },
   {
     "id": "04-19-2026",
