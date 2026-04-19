@@ -27,7 +27,7 @@
       "stories": [
         {
           "title": "Kelp rsETH Bridge Drained for ~$292M",
-          "body": "A LayerZero-based exploit on Kelp DAO's rsETH bridge pulled roughly $292M before the emergency multisig paused core contracts 46 minutes later. rsETH and adjacent LRT pairs will see depeg volatility, thin books, and wide spreads across V3/V4 pools. If you're running tight ranges on rsETH/ETH or rsETH/wstETH, you're the exit liquidity for every JIT bot front-running the depeg -- pull now or accept you're subsidizing arb flow at a loss. Wider-range LPs have more cushion but still need to mark down the peg anchor and price in a permanent risk premium until redemption mechanics and backing are publicly reconciled.",
+          "body": "A LayerZero-based exploit on Kelp DAO's rsETH bridge pulled roughly $292M before the emergency multisig paused core contracts 46 minutes later. rsETH and adjacent LRT pairs will see depeg volatility, thin books, and wide spreads across V3/V4 pools. If you're running tight ranges on rsETH/ETH or rsETH/wstETH, you're the exit liquidity for every JIT bot front-running the depeg -- pull now or accept you're subsidizing arb flow at a loss. Wider-range LPs have more cushion but still need to mark down the peg anchor and price in a permanent risk premium until redemption mechanics and backing are publicly reconciled. One side effect worth noting: the surge in on-chain activity -- bots arbitraging the depeg, users racing to exit, the emergency multisig firing transactions -- is a primary driver behind Ethereum mainnet gas spiking to ~$1.20 this week, up from the few cents we flagged last issue. This is how exploits translate into costs for everyone on L1, even LPs with no rsETH exposure. If you're running positions on Arbitrum or Base, you're largely insulated -- L2 execution fees stay extremely low regardless of L1 congestion, which is one of the structural advantages of operating there.",
           "spark": "Are you exiting LRT pairs entirely after this, or widening ranges and pricing in a permanent risk premium on the fee tier?"
         },
         {
@@ -55,6 +55,6 @@
     },
     "slack_ts": "1776551320.978079",
     "generated_at": "2026-04-18T22:28:41.058750+00:00",
-    "last_processed_ts": "1776597248.578979"
+    "last_processed_ts": "1776597514.668159"
   }
 }
