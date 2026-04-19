@@ -70,10 +70,23 @@ IMPORTANT RULES:
         ["claude", "-p", prompt],
         capture_output=True,
         text=True,
-        check=True,
-        timeout=120,
+        timeout=180,
     )
-    return json.loads(result.stdout.strip())
+    print(f"Claude returncode: {result.returncode}")
+    print(f"Claude stdout length: {len(result.stdout)}")
+    if result.stderr:
+        print(f"Claude stderr: {result.stderr[:500]}")
+    if result.returncode != 0:
+        detail = result.stderr.strip() or result.stdout.strip() or f"exit code {result.returncode}"
+        raise RuntimeError(f"Claude CLI exit {result.returncode}: {detail[:300]}")
+    raw = result.stdout.strip()
+    if not raw:
+        raise RuntimeError("Claude returned empty output")
+    # Strip possible markdown fencing just in case
+    if raw.startswith("```"):
+        lines = raw.split("\n")
+        raw = "\n".join(lines[1:-1] if lines[-1].startswith("```") else lines[1:])
+    return json.loads(raw)
 
 
 def format_preview(digest):
@@ -213,20 +226,19 @@ def mode_run():
         try:
             revised = revise_digest(pending["digest"], text)
         except subprocess.TimeoutExpired:
-            post_reply(token, thread_ts, "Claude timed out (>2 min). Try again or break the feedback into smaller pieces.")
+            post_reply(token, thread_ts, "Claude timed out (>3 min). Try again or break the feedback into smaller pieces.")
             save_state(state)
             continue
-        except subprocess.CalledProcessError as e:
-            err = (e.stderr or "")[:300]
-            post_reply(token, thread_ts, f"Claude CLI errored: {err or 'unknown'}")
+        except json.JSONDecodeError as e:
+            post_reply(token, thread_ts, f"Claude returned something that wasn't valid JSON ({str(e)[:100]}). Try rewording the feedback.")
             save_state(state)
             continue
-        except json.JSONDecodeError:
-            post_reply(token, thread_ts, "Claude returned something that wasn't valid JSON. Try rewording the feedback.")
+        except RuntimeError as e:
+            post_reply(token, thread_ts, f"Revision failed: {str(e)[:300]}")
             save_state(state)
             continue
         except Exception as e:
-            post_reply(token, thread_ts, f"Unexpected error during revision: {str(e)[:200]}")
+            post_reply(token, thread_ts, f"Unexpected error: {type(e).__name__}: {str(e)[:200]}")
             save_state(state)
             continue
 
