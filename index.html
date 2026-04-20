@@ -196,6 +196,19 @@
     .onboarding-body p:last-of-type { margin-bottom: 0; }
     .onboarding-body strong { color: var(--text-1); font-weight: 600; }
     .onboarding-body em { color: var(--gold); font-style: normal; font-weight: 500; }
+    .onboarding-modes {
+      list-style: none; padding: 0;
+      margin: var(--sp-4) 0 var(--sp-6);
+      display: flex; flex-direction: column; gap: var(--sp-3);
+    }
+    .onboarding-modes li {
+      position: relative; padding-left: var(--sp-6);
+      font-size: 1.05rem; line-height: 1.7; color: var(--text-2);
+    }
+    .onboarding-modes li::before {
+      content: '◆'; position: absolute; left: 0; top: .15em;
+      color: var(--gold); font-size: .75rem;
+    }
 
     .onboarding-source {
       font-size: .8rem; color: var(--text-2); font-style: italic;
@@ -448,7 +461,12 @@
     <h2 class="onboarding-title">Information, not instruction.</h2>
     <div class="onboarding-body">
       <p>This digest exists to keep you informed -- not to prompt you to act. Most weeks, the right move is no move at all. A market that's choppy, rallying, or selling off does not oblige you to change your ranges. Reading is enough.</p>
-      <p><em>The sole purpose of data is to inform behavior.</em> Before you open an issue, ask one question: am I actually going to change something based on what I read? If the answer is no, reading becomes pure entertainment -- or worse, a dopamine loop that trains you to overreact to every wiggle in the market.</p>
+      <p><em>The sole purpose of data is to inform behavior.</em> Before you open an issue, decide why you're reading. Two good reasons:</p>
+      <ul class="onboarding-modes">
+        <li><strong>To learn.</strong> Building your mental model -- how an exploit reshapes LRT risk, how skewed ranges behave in a trend break, how seasoned LPs think through a new chain. This is what Mastermind discussions sharpen, and it compounds into better decisions later.</li>
+        <li><strong>To decide.</strong> A position is on the line and this week's news genuinely changes your thesis. The test: would you act any differently after seeing the data?</li>
+      </ul>
+      <p>If the honest answer is neither -- you're checking for a hit of novelty, to see what's moving, to fill idle minutes -- the reading isn't harmless entertainment. It's a dopamine loop that creates emotional damage with no upside, training you to overreact to every wiggle in the market.</p>
       <p>The math bears it out. A portfolio returning 15% a year with normal volatility looks positive about <strong>93% of the time when you check it once a year, ~54% of the time when you check it once a month, and barely 50% of the time when you check it once a day</strong>. The more often you check, the more the noise swamps the signal. You start seeing losses where there is only variance -- and loss aversion does the rest, making each bad print hurt more than each good print helps. Rebalancing out of emotion instead of thesis is how LPs underperform a simple hold.</p>
       <p>So read for understanding, not for action. If a week's news genuinely shifts your thesis on a pair, adjust. Otherwise, the best move is usually the one you don't make.</p>
     </div>
