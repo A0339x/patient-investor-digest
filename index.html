@@ -152,35 +152,54 @@
        ONBOARDING PANEL
     ═══════════════════════════════════════════════════════════════ */
     .onboarding {
-      max-width: 760px; margin: var(--sp-12) auto 0;
-      padding: var(--sp-8);
-      background: var(--bg-card); border: 1px solid var(--border-card);
-      border-radius: 14px;
+      padding: var(--sp-16) 0 var(--sp-12);
+      border-bottom: 1px solid var(--border-card);
+      position: relative;
     }
+    /* Subtle radial glow, quieter than the latest-issue hero */
+    .onboarding::before {
+      content: '';
+      position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+      width: 700px; height: 320px;
+      background: radial-gradient(ellipse at 50% 20%, var(--gold-glow2) 0%, transparent 70%);
+      pointer-events: none; z-index: 0;
+    }
+    .onboarding > * { position: relative; z-index: 1; }
+
     .onboarding-eyebrow {
-      font-size: .65rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: .14em; color: var(--gold);
+      display: flex; align-items: center; gap: var(--sp-3);
       margin-bottom: var(--sp-3);
     }
+    .onboarding-label {
+      font-size: .68rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .12em; color: var(--gold);
+    }
+    .onboarding-tag {
+      font-size: .6rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase; padding: 2px 8px;
+      border-radius: 4px; border: 1px solid var(--border-card); color: var(--text-2);
+    }
+
     .onboarding-title {
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      font-weight: 800; letter-spacing: -.02em; line-height: 1.15;
-      background: linear-gradient(135deg, var(--gold-bright), var(--gold-dark));
+      font-size: clamp(2rem, 4.5vw, 2.75rem);
+      font-weight: 900; line-height: 1.05; letter-spacing: -.04em;
+      background: linear-gradient(135deg, var(--gold-bright) 0%, var(--gold-dark) 100%);
       -webkit-background-clip: text; -webkit-text-fill-color: transparent;
       background-clip: text;
       margin-bottom: var(--sp-6);
     }
+
     .onboarding-body p {
-      font-size: 1rem; color: var(--text-2); line-height: 1.75;
-      margin-bottom: var(--sp-4);
+      font-size: 1.05rem; font-weight: 400; line-height: 1.8;
+      color: var(--text-2); margin-bottom: var(--sp-4);
     }
     .onboarding-body p:last-of-type { margin-bottom: 0; }
     .onboarding-body strong { color: var(--text-1); font-weight: 600; }
     .onboarding-body em { color: var(--gold); font-style: normal; font-weight: 500; }
+
     .onboarding-source {
       font-size: .8rem; color: var(--text-2); font-style: italic;
-      margin-top: var(--sp-6); padding-top: var(--sp-4);
-      border-top: 1px solid var(--border-card);
+      margin-top: var(--sp-8);
     }
     .onboarding-source a { color: var(--gold); text-decoration: none; }
     .onboarding-source a:hover { text-decoration: underline; }
@@ -426,7 +445,10 @@
 <!-- ── CONTENT ─────────────────────────────────────────────────── -->
 <div class="content" id="top">
   <section class="onboarding reveal">
-    <div class="onboarding-eyebrow">◆ How to use this</div>
+    <div class="onboarding-eyebrow">
+      <span class="onboarding-label">◆ Primer</span>
+      <span class="onboarding-tag">How to use this</span>
+    </div>
     <h2 class="onboarding-title">Information, not instruction.</h2>
     <div class="onboarding-body">
       <p>This digest exists to keep you informed -- not to prompt you to act. Most weeks, the right move is no move at all. A market that's choppy, rallying, or selling off does not oblige you to change your ranges. Reading is enough.</p>
