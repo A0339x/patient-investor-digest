@@ -8,7 +8,7 @@
       "snapshot": [
         {
           "label": "BTC",
-          "value": "-0.6%"
+          "value": "-1.4%"
         },
         {
           "label": "ETH",
@@ -16,40 +16,45 @@
         },
         {
           "label": "Volatility",
-          "value": "Moderate -- ETH lagging BTC"
+          "value": "Cautious, sideways"
         },
         {
           "label": "ETH Gas",
-          "value": "~$1.20"
+          "value": "~$2.50"
         }
       ],
-      "intro": "Bitcoin broke above a seven-month resistance level this week while ETH drifted lower, widening the gap between the two largest assets. That divergence means LPs are having very different experiences depending on which pairs they hold -- some BTC-paired ranges are running out of bounds to the upside while ETH-paired ranges are testing their lower edges. A major exploit in a liquid restaking token pool this week was also a sharp reminder that not all near-peg pairs carry the same risk profile.",
+      "intro": "Bitcoin is treading water near $75,000 and ETH is sitting around $2,291 -- both down slightly and neither breaking out nor breaking down. Macro tensions and a wave of crypto headlines are pulling in different directions, keeping traders cautious. For LPs, this kind of indecisive price action is a useful moment to review range placement: not so volatile that acting feels reckless, but uncertain enough that how wide you set your range deserves real thought.",
       "stories": [
         {
-          "title": "A $292 Million Lesson in LRT Pool Risk",
-          "body": "Kelp DAO's rsETH -- a liquid restaking token (LRT), meaning an asset that represents ETH deposited into restaking protocols and is designed to trade near 1:1 with ETH -- was drained of roughly $292 million via a cross-chain bridge exploit before emergency contracts were frozen. For LPs in rsETH/ETH pools, this triggered a rapid oracle depeg: the price feed the pool relies on showed rsETH trading far below its expected ETH parity, and the pool's automated math rebalanced positions toward the cheaper, falling asset. This is the hidden asymmetry in LRT pairs -- a tight range can look safe and fee-efficient for months, then a single exploit event pushes price out of range instantly while also degrading the value of the asset you now hold more of. Providing liquidity in any paired asset that depends on a separate protocol's security means you are taking on layered risk beyond ordinary price movement.",
-          "spark": "If you were providing liquidity in an rsETH/ETH pool with a tight range around the 1:1 peg, what signals could you monitor to detect a depeg early -- and at what point would you want to exit before the pool's rebalancing leaves you holding mostly the falling asset?"
+          "title": "Bitcoin's Fragile Hold Near $75K",
+          "body": "Analysts describe BTC as sitting in a 'fragile equilibrium' near $75,000, propped up by nearly $1 billion in spot Bitcoin ETF inflows despite geopolitical tensions. The price is neither breaking out nor collapsing -- just hovering. For LPs, a range-bound market like this rewards tighter ranges: when price stays in a narrow band, concentrating your liquidity close to the current price means more of your capital is active and earning fees on every trade. The catch is that 'fragile' equilibriums break -- if BTC dropped to, say, $68,000, a tight range set at $73,000-$77,000 would go out of bounds entirely and earn nothing until price returned. The tradeoff is always fee capture now versus staying in range if the balance tips.",
+          "spark": "If you were providing liquidity on a BTC/USDC pair right now, would you set a tight range near $75,000 to maximize fees, or widen it to stay in range through a potential breakdown -- and what single piece of information would change your mind?"
         },
         {
-          "title": "BTC Breaks a Seven-Month Ceiling -- Now What?",
-          "body": "Bitcoin cracked above a major resistance level this week, with prediction markets pointing toward $84,000 as the next target. For LPs in BTC-paired pools, a sharp breakout creates an immediate problem: if BTC moves above your upper range boundary, you are fully converted into the weaker asset (like USDC) and earning zero fees while price continues higher. If you had set a skewed range -- meaning your range extends further above the current price than below it -- you would have kept earning fees through more of this move. The decision now is whether to reset your range higher and pay gas to rebalance, or hold and wait for a pullback that brings price back into your existing range.",
-          "spark": "If BTC is at $75,668 and your range was $68,000 to $74,000 -- now fully out of range -- what information would you want before deciding to chase the range higher versus waiting for a pullback, and how does the cost of rebalancing factor into that math?"
+          "title": "The KelpDAO Exploit: Why Token Selection Is a Risk Decision",
+          "body": "Attackers drained $292 million from KelpDAO by forging a cross-chain message -- a fake instruction sent across blockchain networks to trick a bridge into releasing funds. KelpDAO issues LRTs, or Liquid Restaking Tokens, which are tokens representing staked ETH earning multiple layers of yield. When the exploit hit, DeFi TVL (Total Value Locked, the total amount deposited across DeFi protocols) fell by $13 billion. If you hold an LRT or any yield-bearing token in an LP pair, a sudden exploit can cause that token to depeg -- meaning its price drifts sharply away from its expected value -- in minutes. Your range does not move with it; you end up holding almost entirely the crashed token at a fraction of the price you expected. Token selection is not just about yield potential; it is about what happens to your position if that token breaks.",
+          "spark": "What signals would make you uncomfortable pairing a yield-bearing or restaking token with ETH in an LP position -- and is there a yield premium that would ever make that risk feel worth taking?"
         },
         {
-          "title": "The RAVE Pump-and-Dump: What LP Mechanics Look Like During Manipulation",
-          "body": "ZachXBT alleged a coordinated pump-and-dump in the RAVE token this week, prompting investigations from major exchanges. From an LP perspective, the mechanics are instructive: as RAVE price spiked, the pool's automated rebalancing sold RAVE into the rally and accumulated the paired asset, generating meaningful fees in the process. Then as price collapsed, the pool automatically bought RAVE back at lower prices, leaving LPs holding more of the manipulated token than they started with -- at a lower average value. Whether the fees collected during the spike outweigh the shift in asset composition depends heavily on how wide your range was and how long the spike lasted before reversing.",
-          "spark": "Knowing that an LP position tends to accumulate more of whichever asset falls in price, how would you weigh the higher fee potential of a newer, lower-cap token pool against the risk of ending up overexposed to a token that dumps -- compared to a deep, established pool like ETH/USDC?"
+          "title": "BitMine Owns 4% of All ETH -- What Concentrated Accumulation Means for Ranges",
+          "body": "BitMine Immersion Technologies bought 101,627 ETH last week (roughly $235 million), pushing its total treasury to about 4.12% of ETH's entire circulating supply. Chairman Tom Lee says crypto winter is near its end. When a single entity controls a large fraction of a token's supply, it reduces how much is available for trading -- which can make price more reactive to even modest buy or sell pressure over time. For ETH LPs this is worth watching: higher volatility means price crosses your range more often, which creates more fee opportunities, but it also means you may need to rebalance more frequently. If Lee is right that ETH is heading higher, a range skewed above today's price -- for example, $2,400 to $3,000 rather than $2,000 to $2,600 -- would capture more fees during the climb.",
+          "spark": "If you believed ETH was likely to drift upward over the next few weeks, how would you adjust your range -- would you shift it higher, widen it asymmetrically above current price, or leave it centered on today's level?"
         },
         {
-          "title": "ETH Drops 2% While BTC Holds -- What Your Pairing Has to Do With It",
-          "body": "ETH fell about 2% over the past 24 hours while BTC slipped only 0.6%, a meaningful divergence between the two. For LPs in ETH/USDC pools, this move is felt as a straightforward downward price shift -- if ETH falls below your lower range boundary (say, $2,300 if that is where your range starts), you are fully converted into USDC and earning nothing until price recovers. For LPs in ETH/BTC pools, the same ETH weakness shows up differently: your position shifts toward ETH as it underperforms BTC, but both assets are still moving, making range management more complex. Your choice of pairing determines your baseline exposure -- ETH/USDC shifts between a volatile and a stable asset, while ETH/BTC shifts between two volatile assets that can diverge significantly.",
-          "spark": "If you are long-term bullish on ETH but want to earn fees while you hold, would you prefer an ETH/USDC pool or an ETH/BTC pool right now -- and how does your view on whether ETH will outperform or underperform BTC factor into that choice?"
+          "title": "BIS Says Stablecoins Act Like ETFs -- Not Like Cash",
+          "body": "The Bank for International Settlements (BIS) -- essentially the central bank for central banks -- published a report arguing that stablecoins behave more like exchange-traded funds than actual money, meaning their value can shift and they carry redemption risk under stress. Many LPs treat stablecoin pairs as low-risk because one side is expected to stay fixed at $1. But if a stablecoin loses its peg -- even briefly dropping to $0.97 -- your range was set with the assumption of one stable asset, and suddenly both sides are moving. Your position's asset composition shifts quickly, and if price exits your range you stop earning fees entirely while holding full exposure to the depegged token. The BIS warning is a reminder that 'stablecoin pair' does not mean 'no price risk.'",
+          "spark": "If you are providing liquidity in a stablecoin pair like USDC/USDT, how wide would your range need to be to stay active through a minor depeg event -- and is there a width at which fees become too thin to justify the position?"
+        },
+        {
+          "title": "Strategy Buys $2.5 Billion in Bitcoin -- What Institutional Blocks Do to Price",
+          "body": "Strategy made its largest Bitcoin purchase in over 16 months, buying $2.54 billion worth of BTC last week alongside the ex-dividend date for its STRC preferred stock. Purchases this large do not just move price -- they temporarily thin out the order book (the list of open buy and sell orders sitting at various prices), which can cause short, sharp price spikes as the buy works through available supply. For BTC LPs, that kind of spike can push price through a narrow range quickly: you earn a burst of fees as trades cross your liquidity, then find yourself out of range on the other side before you can react. A wider range would have captured the entire move; a narrower one might have earned more per unit of liquidity but gone inactive immediately after.",
+          "spark": "Has a sudden price spike ever pushed your LP position out of range faster than you could respond -- looking back, what range width would have kept you active through that move while still earning meaningful fees?"
         }
       ],
-      "closing": "The week raised a common thread across very different stories -- whether it is a depegging LRT, a BTC breakout, or a manipulated altcoin, each event tests whether your range was sized for the world you expected or the world that actually showed up. Bring your current positions to the next session and let's map out where your edges are."
+      "closing": "This week is a good reminder that managing LP ranges is not just about picking a price band -- it is about understanding the risks baked into every token you hold and every macro current pulling at prices. Bring your hardest range-setting question to the group this week."
     },
-    "slack_ts": "1776615944.976249",
-    "generated_at": "2026-04-19T16:25:46.581998+00:00"
+    "slack_ts": "1776698111.056949",
+    "generated_at": "2026-04-20T15:15:13.180760+00:00"
   },
   "published": true
 }
