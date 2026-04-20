@@ -3,8 +3,8 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
-    "id": "04-21-2026",
-    "date": "April 21, 2026",
+    "id": "04-20-2026",
+    "date": "April 20, 2026",
     "title": "LP Mastermind\nMarket Update",
     "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
     "snapshot": [
