@@ -54,7 +54,7 @@ def fetch_rss_headlines():
     return articles
 
 
-def build_prompt(today, prices, articles):
+def build_prompt(today, today_id, prices, articles):
     articles_text = "\n".join(
         f"- [{a['source']}] {a['title']}: {a['summary']}" for a in articles
     )
@@ -74,10 +74,10 @@ Do NOT mention "impermanent loss" or the abbreviation "IL" anywhere in the diges
 
 Return ONLY a valid JSON object with no markdown fencing, no explanation, no commentary -- just the raw JSON.
 
-Required structure:
+Required structure (use the exact id and date values shown below -- do not change them to any other day):
 {{
-  "id": "month-day-year",
-  "date": "April 21, 2026",
+  "id": "{today_id}",
+  "date": "{today}",
   "title": "LP Mastermind\\nMarket Update",
   "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
   "snapshot": [
@@ -223,14 +223,16 @@ def git_commit(message):
 
 
 def main():
-    today = datetime.now(timezone.utc).strftime("%B %d, %Y")
-    print(f"Generating digest for {today}...")
+    now = datetime.now(timezone.utc)
+    today = now.strftime("%B %d, %Y")
+    today_id = now.strftime("%m-%d-%Y")
+    print(f"Generating digest for {today} (id: {today_id})...")
 
     prices = fetch_prices()
     articles = fetch_rss_headlines()
     print(f"Fetched {len(articles)} headlines")
 
-    prompt = build_prompt(today, prices, articles)
+    prompt = build_prompt(today, today_id, prices, articles)
     print("Calling Claude...")
     digest = call_claude(prompt)
     print(f"Generated digest: {digest['id']}")
