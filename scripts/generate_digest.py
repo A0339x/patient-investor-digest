@@ -245,12 +245,13 @@ def main():
     else:
         print("Warning: SLACK_BOT_TOKEN not set, skipping Slack send", file=sys.stderr)
 
-    state = load_state()
+    state = load_state() or {}
     state["pending"] = {
         "digest": digest,
         "slack_ts": ts,
         "generated_at": datetime.now(timezone.utc).isoformat(),
     }
+    state.pop("published", None)
     save_state(state)
 
     write_data_js(digest)
