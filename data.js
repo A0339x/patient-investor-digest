@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "04-21-2026",
+    "date": "April 21, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "+2.4%"
+      },
+      {
+        "label": "ETH",
+        "value": "+1.8%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Low -- gentle uptrend"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$1.50"
+      }
+    ],
+    "intro": "Both BTC and ETH logged modest gains today in a week that felt more like a slow drift upward than a decisive breakout -- the kind of market that rewards patience but quietly tests LP ranges set for sideways chop. A $600M wave of DeFi exploit losses is a sharp reminder that not every pool carries the same risk, even when the headline numbers look calm. For LPs, this is a good week to ask whether your ranges reflect the actual behavior of the pairs you're in, not just the general mood of the market.",
+    "stories": [
+      {
+        "title": "The Kelp DAO Exploit -- What Happens to Your Range When One Token Breaks",
+        "body": "Over $600 million in DeFi losses piled up in recent weeks, with Kelp DAO at the center -- a protocol that issues liquid restaking tokens, or LRTs, which are tokens that represent staked ETH while still earning additional yield elsewhere. When an LRT drifts from its expected peg to ETH (called an oracle depeg -- 'oracle' being the price feed that tells a pool what an asset is worth), any LP pool holding that token can reprice violently and instantly. If your range was set expecting the LRT to trade between $2,200 and $2,500, a depeg could push price to $1,800 in minutes, leaving your position entirely composed of the now-devalued token with no fees coming in. Kelp, Aave, and LayerZero are still pointing fingers at each other over who bears the losses, which itself is a lesson: always understand what protocol backs the assets in your pool, not just the price chart.",
+        "spark": "If you hold a liquidity position where one side is a wrapped or restaked asset rather than a base token, how would you monitor for signs of a depeg -- and at what point would you exit rather than wait for recovery?"
+      },
+      {
+        "title": "Slow Drift Up -- Why a Gentle Trend Is Harder on Ranges Than a Spike",
+        "body": "BTC at $75,933 and ETH at $2,316 both ticked up modestly -- 2.4% and 1.8% respectively -- which sounds harmless, but a slow, sustained drift in one direction is actually one of the harder conditions for LP ranges to handle. A symmetric range (set equal distance above and below the current price, say $2,100 to $2,500 for ETH) performs well when price oscillates back and forth, because it captures fees on both up and down moves. But in a slow uptrend, price walks steadily toward the top of your range -- and once it crosses out, you stop earning fees entirely and hold only the non-ETH side of your pair. Skewing your range upward (for example, $2,200 to $2,700 instead of $2,100 to $2,500) gives more runway above the current price, keeping you in range longer during a trend while still concentrating liquidity enough to capture meaningful fees.",
+        "spark": "How would you decide when a price move is strong enough to justify re-skewing your range in that direction versus just widening it symmetrically to cover more ground?"
+      },
+      {
+        "title": "Institutional Money Keeps Arriving -- What Calmer Markets Mean for Fee Capture",
+        "body": "Bitwise's new Avalanche ETP filing and comments from Matt Hougan about institutional capital 'reshaping crypto' are part of a bigger pattern: regulated products like ETFs bring in buyers who tend to accumulate steadily rather than trade frantically, which gradually smooths out the volatile swings that retail markets are known for. For LPs, this is a double-edged shift -- fees on a Uniswap V3 pool (where liquidity is concentrated rather than spread across all prices) are generated only when trades actually happen inside your range, so calmer markets mean fewer swaps and lower fee income per day. A narrow range earns more per trade when it stays in range but falls out quickly during a price spike; a wider range earns less per trade but stays active through longer, quieter trending periods. If institutional flows really are making ETH price behavior more gradual and less spiky, that argues for slightly wider ranges that stay in play longer rather than razor-thin ranges optimized for chop.",
+        "spark": "If you believe ETH is becoming more like a traditional asset -- slower moves, longer trends, fewer spikes -- how would that change how you think about range width for an ETH/USDC pool?"
+      },
+      {
+        "title": "A Year of SEC Clarity -- Why Regulatory Backdrop Matters for Long-Term LP Commitment",
+        "body": "SEC Chair Paul Atkins has spent a year working to clarify crypto's regulatory framework, and the direction appears to be toward structure rather than crackdowns -- a shift that matters to LPs more as a background condition than a day-to-day input. When rules are uncertain, the risk that a protocol gets shut down or a token gets delisted on short notice argues for keeping ranges shorter-duration and wider, so you can exit quickly without being caught out of range with a one-sided position. As clarity increases and that tail risk shrinks, it becomes more reasonable to commit to longer rebalancing cycles and narrower ranges -- more precision, fewer emergency adjustments. Think of regulatory stability as similar to market stability: more of it lets you act with more deliberateness instead of always keeping one hand on the exit.",
+        "spark": "Has a regulatory headline ever actually changed how you structured or timed a liquidity position -- or do you treat regulation as background noise separate from your range decisions?"
+      },
+      {
+        "title": "Tokenized Collectibles and Niche Pools -- Why Thin Liquidity Punishes Beginners Hardest",
+        "body": "Tokenized Pok\u00e9mon card trading platforms are approaching record volumes, and while that is an interesting signal for the tokenization space broadly, it also points toward a category of pools -- niche or newly tokenized assets paired with ETH or a stablecoin -- where LP range management works very differently than on deep pairs. In a thin pool (one without much total liquidity), a single large trade can move price dramatically inside your range: your concentrated position is a larger fraction of the total liquidity, so you absorb more of the price impact per swap. That means your asset composition can shift from 50/50 to heavily one-sided much faster than it would in an ETH/USDC pool with millions in liquidity, often before you notice. The mechanics of range management are the same, but the feedback loop is compressed and less forgiving -- which is why learning on well-established, high-volume pairs first gives you time to understand the cause and effect before the stakes get higher.",
+        "spark": "What signals would you use to evaluate whether a pool has enough liquidity depth to be worth entering as an LP -- and what would make you walk away from an otherwise attractive yield?"
+      }
+    ],
+    "closing": "A calm week with modest gains is a good moment to audit your ranges while the market is not forcing your hand -- check whether your current positions are still centered where you intended, or whether the slow drift has already pushed you closer to one boundary than you realized. Bring your current pair and range setup to the group this week and let's talk through what the trend is doing to your composition."
+  },
+  {
     "id": "04-20-2026",
     "date": "April 20, 2026",
     "title": "LP Mastermind\nMarket Update",
