@@ -49,6 +49,8 @@
       "closing": "This week's price action is a useful reminder that quiet markets still have moving parts -- resistance levels, TVL shifts, and stablecoin assumptions all affect your ranges even when nothing feels dramatic. Come ready to share where your current ranges sit relative to these price levels and whether the last week tested them at all."
     },
     "slack_ts": "1776958242.059079",
-    "generated_at": "2026-04-23T15:30:43.192249+00:00"
-  }
+    "generated_at": "2026-04-23T15:30:43.192249+00:00",
+    "last_processed_ts": "1776958399.858159"
+  },
+  "published": true
 }
