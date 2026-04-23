@@ -3,6 +3,54 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "04-23-2026",
+    "date": "April 23, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "-0.6%"
+      },
+      {
+        "label": "ETH",
+        "value": "-2.4%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Elevated, resistance overhead"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$2.40"
+      }
+    ],
+    "intro": "Both BTC and ETH are drifting lower this week, with ETH taking the harder hit at -2.4% in 24 hours. For LPs, a slow slide like this is often more disruptive than a sharp move -- price creeps toward the edge of your range without triggering the kind of fee volume that would reward you for staying put. The macro backdrop remains uncertain, which means ranges set during calmer conditions may need a second look.",
+    "stories": [
+      {
+        "title": "Bitcoin Stalls Below $80K -- What Resistance Means for Your Range",
+        "body": "BTC is sitting at $78,516 and analysts are flagging $80,000 as a heavily contested resistance zone -- a price level where a lot of sellers are expected to show up and push back against further gains. Whales (large holders) and ETF investors are buying into the dip, but profit-taking pressure is real. For LPs in a BTC/USDC or WBTC/ETH pool, a reversal at $80K would push price back down through whatever range you've set, flipping your asset mix back toward the stable side. If you've been holding a range centered above current price hoping to capture upside, that skewed positioning now carries more risk of being left fully in the appreciating asset if BTC stalls and retreats.",
+        "spark": "If BTC tests $80K and bounces back to $76K, how does that round trip change the asset composition inside a range set between $76,000 and $82,000 -- and would you rather be narrower or wider going into a known resistance zone like this?"
+      },
+      {
+        "title": "JPMorgan Flags DeFi Exploits and Shrinking Pool Liquidity",
+        "body": "JPMorgan published a note this week warning that persistent hacks in DeFi (decentralized finance -- on-chain protocols for trading, lending, and providing liquidity) are pushing investors toward USDT and out of liquidity pools during stress events. TVL, or Total Value Locked, is the total dollar amount deposited across DeFi protocols -- when it stagnates or falls, it means LPs are pulling capital. For you as an LP, a drop in TVL in your pool matters in two ways: thinner liquidity means price moves more sharply on each trade (which can knock you out of range faster), and fewer LPs competing means fees are split fewer ways, but also that the pool becomes less attractive to traders who rely on tight spreads.",
+        "spark": "If an exploit in a nearby pool causes a wave of LP withdrawals, and your pool's TVL drops by 40% while you stay put, what happens to your share of fees -- and does that change how you think about which pools carry hidden concentration risk?"
+      },
+      {
+        "title": "Tether Freezes $344 Million in USDT -- What a Stablecoin Wobble Costs LPs",
+        "body": "Tether coordinated with US law enforcement to freeze $344 million in USDT on the Tron blockchain, one of the largest freezes on record. While USDT itself held its $1 peg during this event, news like this can briefly cause USDT to trade at $0.998 or $0.997 -- what's called a depeg, when a stablecoin's price drifts away from its intended $1 value. If you're providing liquidity in an ETH/USDT pool and USDT depegs even slightly, the price ratio inside your pool shifts as if ETH moved -- which can push you out of range without ETH itself going anywhere. This is a reminder that in stablecoin-paired pools, your range isn't just exposed to the volatile asset; it's also exposed to the stability assumptions baked into the other side.",
+        "spark": "If USDT briefly trades at $0.997 while ETH holds steady at $2,300, what happens to the price ratio in your ETH/USDT pool -- and does knowing this change how you compare USDT-paired pools against USDC-paired ones?"
+      },
+      {
+        "title": "Microsoft-Backed Project Builds on Base -- More Volume Could Mean More Fees",
+        "body": "Space and Time, a blockchain data infrastructure company backed by Microsoft, is rolling out tools for developers building applications on Base -- Coinbase's Layer 2 network (a faster, cheaper blockchain that settles transactions on Ethereum). More developer tooling on Base typically attracts more apps, more users, and more swap volume flowing through Base's liquidity pools. Higher swap volume is generally good for LPs: more trades mean more fees collected. But a surge in activity also tends to come with price volatility, and a narrow range that captures more fees per dollar deployed can go out of range quickly when new activity drives bigger price swings.",
+        "spark": "If swap volume in a pool you're in doubles over the next month due to new Base app activity, would you rather hold a narrower range to maximize fee capture or widen your range to stay in play through the volatility -- and what would help you decide which tradeoff is worth it for your situation?"
+      }
+    ],
+    "closing": "This week's price action is a useful reminder that quiet markets still have moving parts -- resistance levels, TVL shifts, and stablecoin assumptions all affect your ranges even when nothing feels dramatic. Come ready to share where your current ranges sit relative to these price levels and whether the last week tested them at all."
+  },
+  {
     "id": "04-21-2026",
     "date": "April 21, 2026",
     "title": "LP Mastermind\nMarket Update",
