@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "04-27-2026",
+    "date": "April 27, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "-1.3%"
+      },
+      {
+        "label": "ETH",
+        "value": "-2.7%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Mild pullback, ETH lagging BTC"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$1.20"
+      }
+    ],
+    "intro": "Both BTC and ETH slid into the weekend, but ETH fell roughly twice as hard as BTC -- a reminder that the two assets do not always move in lockstep. For LPs holding ETH-paired positions, that gap reshapes your asset composition: your pool now holds more ETH and less of the paired asset. Institutional signals are mixed -- some big buyers are pausing while others are just getting started -- so it is worth checking where your ranges sit before making aggressive adjustments.",
+    "stories": [
+      {
+        "title": "ETH Drops Faster Than BTC -- What That Gap Means for Your Ranges",
+        "body": "ETH fell -2.7% today versus BTC's -1.3%, meaning ETH underperformed by more than a full percentage point in a single session. For an LP holding an ETH/USDC range centered around, say, $2,300-$2,600, price pressing toward the lower boundary means your pool is now holding proportionally more ETH and less USDC -- this tilt is called range skew, and it happens whenever price drifts toward one edge of your active range. A tighter range like $2,250-$2,350 may already be fully out of range and earning zero fees, while a wider range like $2,000-$2,800 would still be active and capturing every swap. Whether tighter or wider is better depends on your fee goals and how much you want to monitor the position.",
+        "spark": "If ETH continued sliding to $2,100 and your range bottom was $2,200, you would be out of range and holding 100% ETH with no fee income. What would be your next move -- wait for a bounce back inside your range, reset the range lower, or widen it to recapture active fee earning?"
+      },
+      {
+        "title": "Bernstein Calls a 'Structurally Longer Bull Cycle' -- Should You Skew Your Range Higher?",
+        "body": "Bernstein published a note arguing that new institutional on-ramps and sustained capital flows point to asymmetric upside for crypto broadly. For LPs, a directional call like this raises a real positioning question: a centered range earns fees symmetrically above and below current price, while a skewed range -- set mostly above the current price -- captures more appreciation if the bullish forecast plays out but earns fewer fees if price stays flat or dips. A skewed range is essentially a directional bet layered on top of your fee income. The trade-off is that skewing upward costs you fee revenue during sideways or down markets, so the bet needs to be right often enough to make up the difference.",
+        "spark": "How much conviction would you need in a bull case before you would shift your range from centered to skewed upward -- and how would you track whether that choice actually outperformed just staying centered?"
+      },
+      {
+        "title": "BitMine Crosses 5 Million ETH -- Big Buyers and What They Mean for Your Range Floor",
+        "body": "BitMine Immersion Technologies, which runs a corporate ETH treasury strategy, crossed 5 million ETH with its largest single purchase so far in 2026. Large, persistent buyers create what traders call a price floor -- a level where consistent demand tends to absorb selling pressure. For LPs on ETH pairs, a credible price floor can inform where you place your range's lower boundary: if you believe $2,000 is heavily supported by institutional buying, placing your range bottom near $2,100 rather than $1,700 lets you concentrate your liquidity over a narrower band, which earns proportionally more fees per dollar deployed while price stays inside that band. Concentrated liquidity is the core trade-off in Uniswap V3-style pools -- a narrower range earns more when price stays inside it, but goes inactive faster if price moves outside it.",
+        "spark": "If a single corporate buyer holds 5 million ETH and is still accumulating, does that change where you feel comfortable setting your lower range boundary on an ETH/USDC pair -- or does the uncertainty around when they might stop buying make you keep the range wider anyway?"
+      },
+      {
+        "title": "Gemini Launches AI Trading Bots -- What Automated Participants Mean for LP Fee Capture",
+        "body": "Gemini announced 'Agentic Trading,' letting AI bots directly manage exchange accounts, billing it as the first such tool on a regulated US exchange. For liquidity providers, automated participants matter because of a practice called JIT liquidity -- short for just-in-time liquidity -- where bots detect a large incoming trade, instantly deposit a very narrow range to capture most of its fees, then withdraw immediately after the trade clears. JIT bots effectively jump ahead of passive LPs on high-value swaps. This is most pronounced in deep, high-volume pools; newer or lower-liquidity pools are less attractive to bots and may offer passive LPs a larger share of fees on each trade.",
+        "spark": "If JIT bots are skimming fee revenue from large trades in the most popular pools, does that shift which pools you want to provide liquidity in -- or does the sheer volume in those pools still make them worthwhile for passive LPs?"
+      },
+      {
+        "title": "Strategy's BTC Buying Pace Falls 91% -- What a Pause in a Major Buyer Means for Range Positioning",
+        "body": "Strategy dramatically slowed its bitcoin purchases -- down 91% from its recent pace -- after leaning heavily on its STRC preferred stock vehicle to fund prior buys. Strategy's consistent accumulation has been a steady source of upward price pressure on BTC, so any pause in that buying engine matters for range positioning. Reduced buying pressure does not mean price drops, but it does mean one reliable driver of directional momentum is quieter for now. For LPs in BTC pairs, a sideways market is actually a decent environment for a well-placed active range -- price stays inside the range longer and accumulates more fees -- but only if the range is wide enough to survive the drifting without going out of range and earning nothing.",
+        "spark": "If a key buyer steps back and BTC trades sideways for several weeks, would you prefer a wide range that earns modest fees continuously, or a tighter range you plan to actively rebalance -- and what does your answer reveal about how much time you actually want to spend managing positions?"
+      }
+    ],
+    "closing": "This week is a useful reminder that macro narratives -- institutional buyers, AI bots, analyst forecasts -- all eventually show up as price and volatility, which is the environment your ranges live in. Take a few minutes to check where your current positions sit relative to today's prices and ask yourself: is my range still earning, and does its shape still match my outlook for the week ahead?"
+  },
+  {
     "id": "04-23-2026",
     "date": "April 23, 2026",
     "title": "LP Mastermind\nMarket Update",
