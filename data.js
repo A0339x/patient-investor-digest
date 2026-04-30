@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "04-30-2026",
+    "date": "April 30, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "+0.5%"
+      },
+      {
+        "label": "ETH",
+        "value": "-0.5%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Low, rangebound"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$1.50"
+      }
+    ],
+    "intro": "The Fed held rates steady this week but with an unusually deep internal split -- neither a confident hold nor a pivot signal -- leaving markets in a wait-and-see mood. BTC and ETH moved less than 1% in opposite directions, making it one of the quieter weeks in recent memory. For LPs, low-volatility stretches like this are when your original range setup does most of the work, and the discipline to do nothing is often the right call.",
+    "stories": [
+      {
+        "title": "BTC Trapped Below Resistance -- What a Rangebound Market Means for Your Setup",
+        "body": "Analysts described Bitcoin as 'trapped below' a key resistance level this week, with ETF outflows continuing for a third straight day as the Fed's mixed signals kept buyers cautious. In LP terms, a rangebound market is one where price bounces inside a band rather than trending in one direction. That environment rewards wider ranges that capture the back-and-forth movement -- if your BTC-paired range is too narrow and BTC finally breaks out to, say, $83,000, you go out of range instantly and earn nothing while price runs. When a market looks stuck, widening your range slightly reduces out-of-range risk even if it dilutes how concentrated your fees are. The tradeoff is always fee intensity versus staying power, and quiet, choppy markets tend to favor staying power.",
+        "spark": "If you believed BTC would stay between $72,000 and $80,000 for the next two weeks, how would you set your range differently than if you thought a breakout was coming? What specifically changes, and why?"
+      },
+      {
+        "title": "ETH and BTC Drift Apart -- How Divergence Shifts Your Asset Mix",
+        "body": "BTC gained 0.5% this week while ETH fell 0.5% -- a small but real divergence between the two largest crypto assets. For LPs in any pool pairing these two assets, divergence matters because your position's composition shifts automatically as prices move. When ETH falls relative to BTC, the pool rebalances mechanically -- selling ETH as it gets cheaper and accumulating BTC as it gets more expensive. This is not a bug; it is the core mechanic of how a Uniswap V3 range position works: the pool always prices at the live market rate, so your mix of the two assets drifts with price. The key question is not whether that drift happens -- it always will -- but whether the fees you earn over time compensate for the shift in your holdings.",
+        "spark": "If ETH kept falling relative to BTC over the next month, what would happen to the ratio of ETH to BTC inside your pool position? At what point might it make sense to close or rebalance the position?"
+      },
+      {
+        "title": "A New Yield Exchange on Solana -- Knowing What You Are Competing Against",
+        "body": "Exponent, a Solana-based yield exchange (a protocol that lets users trade or lock in future yield at a fixed rate rather than accepting variable returns), raised a $5 million seed round this week led by Multicoin Capital. This matters for LPs because fee income from a Uniswap position is always variable -- some weeks the pool is busy and fees are high, other weeks it is quiet and fees are low. Fixed-yield products are an alternative to LP positions, and understanding the rates they offer helps you benchmark whether your range is actually earning a competitive return. If a fixed-yield product offers 8% annually and your LP fees have been running at 4% annualized, that gap is worth knowing -- even if LP positions carry upside that fixed products do not.",
+        "spark": "How do you currently estimate whether the fees your range is earning are good enough? What would you compare them against to decide if a different strategy might perform better?"
+      },
+      {
+        "title": "AI Agents Getting Their Own Payment Cards -- What That Could Mean for Stablecoin Pools",
+        "body": "A Tether-backed startup called Oobit announced 'Agent Cards' this week -- Visa-supported corporate expense cards that let AI agents spend USDT autonomously without a human approving each transaction. If AI agent spending scales up on-chain, it creates a new source of transaction volume in stablecoin pairs like USDC/USDT, and volume is the direct driver of fees in those pools. Stablecoin-to-stablecoin pools (sometimes called stable pairs) operate in very tight price ranges -- typically between $0.999 and $1.001 -- and earn fees almost entirely from volume rather than from price swings. More autonomous agent activity flowing through these pools could meaningfully lift fee income for LPs sitting in those tight, capital-efficient ranges.",
+        "spark": "Stable pairs earn fees almost entirely from volume rather than price movement. How does that change the way you would think about setting and maintaining a range in a USDC/USDT pool compared to an ETH/USDC pool?"
+      },
+      {
+        "title": "Big Tech AI Earnings Beat -- When Risk-On Sentiment Reaches Crypto",
+        "body": "Google and Microsoft both crushed Q1 earnings this week, with Google Cloud revenue up 63% and Microsoft's AI business hitting a $37 billion annual run rate. Strong results from tech giants tend to shift market sentiment toward 'risk on' -- investors grow more willing to hold volatile assets, which historically pulls crypto markets higher. For LPs, a sentiment shift toward risk-on can mean sharper price moves in ETH and altcoin pools as capital flows in. If you have been sitting in a narrow range during a quiet week and sentiment turns quickly, it is worth checking whether your range still fits -- a rapid move from, say, ETH at $2,260 to $2,600 could push you out of a tight range, leaving your position heavily concentrated in USDC while ETH keeps running.",
+        "spark": "If positive tech sentiment drove ETH from $2,260 to $2,600 over the next two weeks, what would happen to a position with a range of $2,100 to $2,500? Walk through what your asset composition looks like at $2,400 versus $2,501."
+      }
+    ],
+    "closing": "Quiet weeks are a good time to review whether your ranges still reflect your actual outlook -- not just your outlook from when you set them. What are you watching heading into next week?"
+  },
+  {
     "id": "04-27-2026",
     "date": "April 27, 2026",
     "title": "LP Mastermind\nMarket Update",
