@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "05-04-2026",
+    "date": "May 04, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "+1.6%"
+      },
+      {
+        "label": "ETH",
+        "value": "+0.9%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Calm, mild uptrend"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$2.50"
+      }
+    ],
+    "intro": "Both BTC and ETH posted modest gains this week -- BTC crossed $80,000 for the first time since January while ETH climbed past $2,348. The broader market feels like it is catching its breath after a turbulent stretch, and for LPs that means fee conditions are steady but your range positioning from a month ago may no longer be centered where the action is. Calm stretches are the best time to audit your positions before the next move forces your hand.",
+    "stories": [
+      {
+        "title": "BTC Hits $80K -- and Strategy Took the Week Off",
+        "body": "Bitcoin crossed $80,000 this week for the first time since January. What made it notable was that Strategy -- the $65 billion treasury firm that has been one of the most consistent large BTC buyers -- took a rare week off from accumulating. For LPs in BTC-paired pools, this price move illustrates a core range mechanic: if your range was centered below current price and BTC ran up through it, you are now holding mostly the other side of the pair (say, a stablecoin) rather than BTC -- you collected fees on the way up, but your BTC exposure has wound down. A range skewed higher, like $78,000 to $92,000 instead of $68,000 to $82,000, would have kept you in the action longer. Whether Strategy stays on the sidelines or resumes buying this week is worth watching as a signal of whether this move has more room.",
+        "spark": "If your BTC range was centered at $74,000 when you set it and BTC is now trading at $80,000, what does your asset mix in that position look like today -- and does that composition still match how you feel about BTC's direction from here?"
+      },
+      {
+        "title": "BitMine Keeps Stacking ETH -- What Sustained Directional Buying Means for Your Range",
+        "body": "BitMine Immersion Technologies, backed by strategist Tom Lee, made its third consecutive weekly ETH purchase above 100,000 ETH, adding roughly $240 million in Ethereum this week alone. Sustained, institutional-scale buying creates a slow upward price drift -- and that pattern behaves differently for LPs than a sudden spike. A fast pump can push price out of your range before you collect much in fees; a slow drift lets you earn fees at each tick (a tick is the smallest unit of price increment in a Uniswap V3 or V4 pool) as price moves through your range. If you believe ETH has a directional tailwind from this kind of buying, centering your range above the current price rather than symmetrically around it means you stay in range -- and keep earning fees -- further into the upside move.",
+        "spark": "When a large institution is buying the same asset week after week with no sign of stopping, how would you adjust where you center your range compared to a week when there is no clear directional catalyst?"
+      },
+      {
+        "title": "Western Union Launches a Stablecoin on Solana -- New Pairs, New LP Dynamics",
+        "body": "Western Union launched USDPT, a dollar-pegged stablecoin (a token designed to hold a stable $1 value) on Solana for cross-border settlement across more than 200 countries. Every new stablecoin that gains traction creates new trading pairs, and new pairs often generate high volume in their early weeks as traders acquire or offload the new asset. Stablecoin-to-stablecoin pools like USDPT/USDC tend to use very tight ranges -- sometimes just a handful of ticks wide -- because price barely moves, and concentrating liquidity in a narrow band maximizes fee capture per dollar deposited. The risk is that even a brief de-peg -- when a stablecoin temporarily loses its $1 anchor -- can push price outside a tight range quickly, so positions on brand-new stablecoins require closer monitoring than positions on battle-tested ones.",
+        "spark": "Stablecoin pairs look attractive because price hardly moves -- but what information would you want to research about a brand-new stablecoin before committing capital to a tight-range position on it?"
+      },
+      {
+        "title": "DTCC Plans to Tokenize Stocks and Treasuries -- Why It Matters for LPs Long Term",
+        "body": "The DTCC -- the institution that clears and settles nearly all U.S. stock and bond trades, managing $114 trillion in securities -- announced plans to tokenize (convert into blockchain-based tokens that can move on-chain) Russell 1000 stocks and U.S. Treasuries, with major Wall Street firms already participating. This will unfold over years, not weeks, but the direction matters for LPs: more institutional infrastructure entering DeFi (decentralized finance, the category of open financial protocols where Uniswap operates) tends to bring more trading volume, and volume is what drives fee revenue for LPs. There is also a longer-term range implication -- assets with deep, liquid traditional markets tend to have lower sustained volatility than crypto-native tokens, which over time may allow LPs to use narrower, more capital-efficient ranges on tokenized asset pairs.",
+        "spark": "If tokenized U.S. Treasury bonds eventually trade in AMM pools -- AMMs, or automated market makers, are the type of exchange Uniswap is -- how do you think fee dynamics on a tokenized-Treasury/USDC pair would differ from what you see on an ETH/USDC pair today?"
+      },
+      {
+        "title": "Haun Ventures Raises $1 Billion for Crypto and AI -- Reading Venture Flows as an LP",
+        "body": "Haun Ventures closed a $1 billion raise across two new funds focused on blockchain and AI, one of the largest crypto-focused venture rounds in recent memory. That capital does not hit your pools today, but it is a leading indicator -- it will fund protocols, new tokens, and new trading pairs over the next one to two years. More protocols mean more pools and more fee opportunities; more institutional conviction in the space has historically preceded periods of rising on-chain trading volume. For LPs, watching where large venture dollars are flowing can help you get ahead of which ecosystems are likely to see liquidity demand -- and higher volume pools pay more in fees -- before the crowd catches on.",
+        "spark": "If you heard that a major VC fund had just committed hundreds of millions to a new Layer 2 network, what would you want to research before deciding whether to provide liquidity on that network's early pools?"
+      }
+    ],
+    "closing": "Quiet weeks like this one are worth taking seriously as a planning window -- audit your ranges, check how your asset compositions have shifted with recent price action, and ask whether your positioning still reflects where you think things are headed. Bring your most interesting observation to the group this week."
+  },
+  {
     "id": "04-30-2026",
     "date": "April 30, 2026",
     "title": "LP Mastermind\nMarket Update",
