@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "05-07-2026",
+    "date": "May 07, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "-2.1%"
+      },
+      {
+        "label": "ETH",
+        "value": "-2.7%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Mild risk-off, both assets pulling back"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$1.50"
+      }
+    ],
+    "intro": "Both BTC and ETH are down on the day -- BTC at $79,986 and ETH at $2,295 -- as a mild risk-off move trims recent gains. Longer-term, institutional demand signals remain constructive: ETF inflows have run positive for five straight weeks and corporate BTC buying is accelerating. For LPs, a pullback day like today is a useful gut check -- are your ranges still active, or has price drifted below your lower bound and stopped earning fees?",
+    "stories": [
+      {
+        "title": "Five Weeks of Bitcoin ETF Inflows Signal Steady Institutional Demand",
+        "body": "Spot Bitcoin ETFs now hold $108.76 billion in net assets after five consecutive weeks of net inflows, the longest buying streak of the year. Fading 'put skew' -- a measure of how much traders are paying to hedge against downside -- suggests institutions are adding plain long exposure rather than cautious hedged bets. For BTC-paired LPs, sustained one-directional demand means prices tend to drift in one direction over time rather than oscillating around a center point. When that happens, a range skewed in the direction of the trend -- placing more of your band above today's price if you expect continued upside -- spends more time in-range and captures more fees than a perfectly centered range.",
+        "spark": "If you believed institutional demand would keep pushing BTC higher over the next few months, would you set your BTC/USDC range symmetrically around today's price or shift it upward -- and what would change your mind?"
+      },
+      {
+        "title": "Strategy Is on Pace to Buy $30 Billion in BTC This Year",
+        "body": "JPMorgan analysts noted that Michael Saylor's Strategy has accumulated roughly $11 billion in BTC so far in 2026 and at the current pace could add $30 billion more by year end. A single large, consistent buyer changes a key assumption that most LP range tools bake in -- that prices are equally likely to go up or down from where they sit today. For BTC liquidity providers, that structural buying pressure is an argument for skewing your range upward: the center of your band reflects where you expect price to spend the most time, so shifting it higher keeps you earning fees as price drifts up. The tradeoff is that a skewed range can fall out of range faster than a centered one if the buying slows or reverses unexpectedly.",
+        "spark": "How would you weigh the benefit of capturing more upside with a skewed range against the risk of going out of range sooner if the trend reverses -- and is there a range width that lets you do both?"
+      },
+      {
+        "title": "AWS Partners With Coinbase and Stripe to Let AI Agents Pay With USDC",
+        "body": "Amazon Web Services announced it is integrating USDC payments -- powered by Coinbase and Stripe -- so AI agents can make autonomous micropayments directly on-chain. USDC is a stablecoin, meaning its value is pegged to $1, and it is the base asset in some of the most actively traded LP pairs including USDC/ETH and USDC/WBTC. When a platform like AWS routes real transaction volume through a stablecoin, it can meaningfully increase swap activity in pairs containing that stablecoin -- and more swaps generally means more fee income for LPs whose ranges are active at the time. This is an early signal of what the 'agentic economy' -- a world where AI programs transact autonomously and at high frequency -- could mean for on-chain liquidity demand over the next few years.",
+        "spark": "If AI-driven payment volume in USDC pairs grew significantly, how might that change the range width you'd set for a USDC/ETH position -- would you go narrower to concentrate fees where most swaps happen, or wider to stay in range longer?"
+      },
+      {
+        "title": "Bitwise Takes Over a $267 Million Carry Fund -- What That Means for LP Yield",
+        "body": "Bitwise is acquiring Superstate's $267 million Crypto Carry Fund, a tokenized product that earns yield by capturing the gap between spot crypto prices and futures prices -- a strategy known as 'carry.' Carry strategies and LP positions both offer ways to earn yield in crypto beyond simply holding and hoping prices rise, so they compete for the same yield-seeking capital. When futures prices trade at a large premium to spot (a market condition called 'contango'), carry funds often outperform LP fee income, drawing capital away from liquidity pools and potentially thinning available liquidity. When that premium compresses, LP fees become comparatively attractive -- which is one reason experienced LPs track the futures basis alongside their own fee and volume data.",
+        "spark": "If you had capital to allocate to a crypto yield strategy, what factors would push you toward an LP position rather than a carry fund -- and how would today's market conditions affect that choice?"
+      },
+      {
+        "title": "Kraken Acquires Asian Stablecoin Firm for $600 Million -- More Stablecoin Volume Ahead",
+        "body": "Kraken's parent company acquired Reap, an Asian stablecoin infrastructure firm, for $600 million, extending its reach into cross-border payment flows across Asia. More stablecoin infrastructure means more potential on-chain activity -- payments that settle in stablecoins often route through decentralized exchanges and liquidity pools along the way. For LPs in stablecoin-to-stablecoin pairs like USDC/USDT, increased institutional stablecoin volume can translate into steadier, more predictable fee income because these swaps tend to occur within a very tight price band. The catch is that fee rates in these pairs are very low -- often 0.01% to 0.05% -- so volume must be large and consistent for the fees to add up, which is why setting your range width carefully matters even more here than in volatile pairs.",
+        "spark": "For a stablecoin-to-stablecoin LP position like USDC/USDT, how tightly would you set your price range -- and why does range width have an outsized effect on returns in a pair where price barely moves?"
+      }
+    ],
+    "closing": "As both assets pull back today, it is a good moment to check whether your open ranges are still active and whether the assumptions you made when you set them -- about direction, volatility, and fee tier -- still reflect what the market is telling you. What is one thing you would adjust in your most active position right now, and what would need to happen in the market for you to make that change?"
+  },
+  {
     "id": "05-04-2026",
     "date": "May 04, 2026",
     "title": "LP Mastermind\nMarket Update",
