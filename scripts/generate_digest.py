@@ -17,6 +17,32 @@ RSS_FEEDS = [
 STATE_FILE = "scripts/.digest_state.json"
 DATA_FILE = "data.js"
 
+CONTEXT_DIR = "digest_context"
+CONTEXT_FILES = {
+    "variables_reference": "Patient Investor Digest - Variables Reference.md",
+    "variable_pairings": "Patient Investor Digest - Variable Pairings.md",
+    "style_guide": "LP_DIGEST_STYLE_GUIDE.md",
+}
+
+
+def load_editorial_context():
+    """Read the editorial context files staged into digest_context/.
+
+    These files are synced from the parent folder via scripts/sync_digest_context.sh.
+    If any file is missing, return an empty string for it and log a warning --
+    the prompt will still build, just without that piece of guidance.
+    """
+    out = {}
+    for key, filename in CONTEXT_FILES.items():
+        path = os.path.join(CONTEXT_DIR, filename)
+        try:
+            with open(path, encoding="utf-8") as f:
+                out[key] = f.read().strip()
+        except FileNotFoundError:
+            print(f"Warning: editorial context file missing: {path}", file=sys.stderr)
+            out[key] = ""
+    return out
+
 
 def fetch_prices():
     try:
@@ -54,12 +80,41 @@ def fetch_rss_headlines():
     return articles
 
 
-def build_prompt(today, today_id, prices, articles):
+def build_prompt(today, today_id, prices, articles, context):
     articles_text = "\n".join(
         f"- [{a['source']}] {a['title']}: {a['summary']}" for a in articles
     )
     btc_sign = "+" if prices["btc_change"] >= 0 else ""
     eth_sign = "+" if prices["eth_change"] >= 0 else ""
+
+    editorial_block = f"""=== EDITORIAL CONTEXT (treat as authoritative) ===
+
+The three documents below are the editorial system for this digest. They
+define the vocabulary you must reinforce, the audience you're writing for,
+and the prose patterns and anti-patterns the editor has built up over time.
+Read them carefully before drafting. They override anything else in this
+prompt if there is a conflict.
+
+--- VARIABLES REFERENCE (the six variables we teach) ---
+The digest exists to compound members' knowledge of these six variables.
+When a story relates to one of them, name the variable explicitly in the
+prose and use it as the teaching hook. Don't gesture at it -- name it.
+
+{context.get('variables_reference', '(missing)')}
+
+--- STYLE GUIDE (audience, structure, tone) ---
+{context.get('style_guide', '(missing)')}
+
+--- VARIABLE PAIRINGS (the learning loop -- house voice + anti-patterns) ---
+This is the most important file. It documents which variable belongs with
+which kind of news, the prose patterns that have worked, and the voice /
+framing notes that apply to every article. Match the voice in the examples.
+
+{context.get('variable_pairings', '(missing)')}
+
+=== END EDITORIAL CONTEXT ===
+"""
+
     return f"""Today is {today}.
 
 BTC: ${prices['btc_price']:,} ({btc_sign}{prices['btc_change']:.1f}% 24h)
@@ -68,7 +123,11 @@ ETH: ${prices['eth_price']:,} ({eth_sign}{prices['eth_change']:.1f}% 24h)
 Recent crypto news headlines:
 {articles_text}
 
-You are writing a digest for the Patient Investor LP Mastermind. Members are early in their LP journey -- they know how to rebalance positions on Uniswap V3/V4 and understand the basics, but they're still learning the cause-and-effect: why a skewed range captures more appreciation than a centered one, when widening beats rebalancing, how range width affects fee capture in volatile pairs. This digest is a teaching tool, not a power-user newsletter. Each story should be a small learning moment -- explain what happened in plain language, then unpack what it means for how they set up and manage their ranges. If you use a technical term (tick spacing, JIT, MEV, LRT, oracle depeg, etc.), briefly define it the first time it appears in that issue. Prefer concrete examples ("if your range is $3,000-$3,500 and ETH drops to $2,800...") over abstractions. The spark question should open a door to deeper understanding a thoughtful beginner can reflect on -- not a debate topic for veterans.
+{editorial_block}
+
+You are writing a digest for the Patient Investor LP Mastermind. Members are early in their LP journey -- they know how to rebalance positions on Uniswap V3/V4 and understand the basics, but they're still learning the cause-and-effect: why a skewed range captures more appreciation than a centered one, when widening beats rebalancing, how range width affects fee capture in volatile pairs. This digest is a teaching tool, not a power-user newsletter. Each story should be a small learning moment -- explain what happened in plain language, then unpack what it means for how they set up and manage their ranges. If you use a technical term (tick spacing, JIT, MEV, LRT, oracle depeg, etc.), briefly define it inline the first time it appears in that issue (em-dash-flanked parenthetical is the house pattern, see Variable Pairings). Prefer concrete examples ("if your range is $3,000-$3,500 and ETH drops to $2,800...") over abstractions. The spark question should open a door to deeper understanding a thoughtful beginner can reflect on -- not a debate topic for veterans.
+
+The verb posture for every article is *implement or modify* -- push the reader toward a concrete tweak they could make to their range Monday morning, not just an explanation of what happened. When a story matches one of the six variables, name the variable explicitly. Look for the non-obvious second variable too (see the KelpDAO entry in Variable Pairings for the pattern).
 
 Do NOT mention "impermanent loss" or the abbreviation "IL" anywhere in the digest. Talk about range mechanics, fee capture, price exposure, or asset composition directly -- never by that label.
 
@@ -232,7 +291,11 @@ def main():
     articles = fetch_rss_headlines()
     print(f"Fetched {len(articles)} headlines")
 
-    prompt = build_prompt(today, today_id, prices, articles)
+    context = load_editorial_context()
+    loaded = [k for k, v in context.items() if v]
+    print(f"Editorial context loaded: {loaded}")
+
+    prompt = build_prompt(today, today_id, prices, articles, context)
     print("Calling Claude...")
     digest = call_claude(prompt)
     print(f"Generated digest: {digest['id']}")
