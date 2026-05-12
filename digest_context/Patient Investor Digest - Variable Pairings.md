@@ -135,14 +135,18 @@ Things to NOT do, with the article that triggered the lesson.
   | a clean breakout through $X | price pushing cleanly through $X |
   | positioning for a breakout | positioning for a move higher |
   | ahead of a potential breakdown | ahead of a potential drop |
-  | crypto winter | the long crypto downturn |
-  | crypto spring (when used as a label) | the case for prices going up (or paraphrase the underlying claim) |
 
   **Why:** This audience is early in their LP journey. Trader shorthand makes them translate before they can absorb the actual mechanic. The variables compound through plain mechanics; jargon adds friction without adding teaching.
 
   **How to apply:** When drafting, scan for any phrase from the left column or its cousins. The substitution isn't word-for-word — it's "what is this *actually* saying about price, sentiment, or market state?" State that in plain English. The phrasing on the right is one option; any plain restatement that names the actual situation works.
 
-  **Exception — direct quotes.** If a named person used a trader phrase (e.g., Tom Lee calling the moment a "crypto spring"), keeping the phrase *as a quoted attribution* is OK: *"Tom Lee publicly called this the start of a 'crypto spring,'"*. The quote marks signal it's their term, not the digest's voice. Don't then *use* the phrase yourself in subsequent sentences — paraphrase.
+  **Special case — keep but gloss inline: "crypto spring" and "crypto winter".** These two terms are deliberately kept (not replaced) but require an inline plain-English gloss on first use per issue, in the house em-dash-flanked style:
+  - *crypto spring* — *"the period when crypto starts going up again after going down for a while, like the temperatures in spring"*
+  - *crypto winter* — *"the period when crypto has gone down and stayed down for a long time, like the temperatures in winter"*
+
+  Pattern in practice: *"Chairman Tom Lee says 'crypto winter' -- meaning the period when crypto has gone down and stayed down for a long time, like the temperatures in winter -- is near its end."* The metaphor is intuitive enough (temperatures map to price action over a long timeframe) that one gloss carries the meaning for the rest of the issue.
+
+  **Exception — direct quotes.** If a named person used a trader phrase, keeping the phrase *as a quoted attribution* is OK. The quote marks signal it's their term, not the digest's voice. Even with the quoted attribution, gloss inline on first use per issue per the house jargon-gloss rule.
 
 ---
 
