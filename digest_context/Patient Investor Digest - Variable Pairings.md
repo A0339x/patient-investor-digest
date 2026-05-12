@@ -148,6 +148,15 @@ Things to NOT do, with the article that triggered the lesson.
 
   **Exception — direct quotes.** If a named person used a trader phrase, keeping the phrase *as a quoted attribution* is OK. The quote marks signal it's their term, not the digest's voice. Even with the quoted attribution, gloss inline on first use per issue per the house jargon-gloss rule.
 
+- **Category shorthand that hides the concrete thing.** Phrases like *"Ethereum yield ecosystem,"* *"the DeFi landscape,"* *"crypto market structure,"* and *"the Ethereum staking economy"* are abstract aggregate nouns. They sound informative but leave the reader uncertain about what the digest is actually pointing at. From Gregory's 2026-05-12 markup on the Sharplink story: *"Does it mean Pools with ETH as one of the assets?"* — exactly the kind of question the prose should have answered before the reader had to ask. Replacement model:
+  - *"the same Ethereum yield ecosystem"* → *"the same kinds of pools the fund is targeting -- pools where ETH is one of the assets"*
+  - *"the DeFi landscape"* → name the specific protocols, pool types, or chains being discussed
+  - *"crypto market structure"* → name the specific market dynamic (e.g., spot vs. derivatives volume, exchange concentration, on-chain vs. off-chain settlement)
+
+  **Why:** Beginner readers can plausibly hear an aggregate term as several different things. A reader hearing "Ethereum yield" might think pools running on Ethereum, pools containing ETH, or ETH-denominated yield products like LSTs — three meaningfully different categories. The prose has to do the disambiguation work upfront, in the same sentence, or the variable lesson lands fuzzy.
+
+  **How to apply:** When you draft a sentence with a phrase like "X ecosystem" or "Y landscape" or "Z market," stop and ask: "what is the specific thing I'm pointing at?" Replace the aggregate with the concrete thing — usually a specific pool type, pair, protocol, or mechanic. Often it takes a few more words; the trade is worth it.
+
 ---
 
 ## Voice / framing notes
