@@ -4,12 +4,24 @@
   "title": "LP Mastermind\nMarket Update",
   "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
   "snapshot": [
-    {"label": "BTC", "value": "+2.4%"},
-    {"label": "ETH", "value": "+1.8%"},
-    {"label": "Volatility", "value": "Low -- gentle uptrend"},
-    {"label": "ETH Gas", "value": "~$1.50"}
+    {
+      "label": "BTC",
+      "value": "+2.4%"
+    },
+    {
+      "label": "ETH",
+      "value": "+1.8%"
+    },
+    {
+      "label": "Volatility",
+      "value": "Low -- gentle uptrend"
+    },
+    {
+      "label": "ETH Gas",
+      "value": "~$1.50"
+    }
   ],
-  "intro": "Both BTC and ETH logged modest gains today in a week that felt more like a slow drift upward than a decisive breakout -- the kind of market that rewards patience but quietly tests ranges set for sideways chop. A $600M wave of DeFi exploit losses, with KelpDAO at the center, is a sharp reminder that not every pool carries the same risk even when headline numbers look calm. Today's stories explore Asset Selection, Volume, Range, Market Sentiment, TVL, and Average Volume (45-day) -- and what each one looks like in a week that pulls in two emotional directions at once.",
+  "intro": "Both BTC and ETH logged modest gains today in a week that felt more like a slow drift upward than a decisive move higher -- the kind of market that rewards patience but quietly tests ranges set for sideways chop. A $600M wave of DeFi exploit losses, with KelpDAO at the center, is a sharp reminder that not every pool carries the same risk even when headline numbers look calm. Today's stories explore Asset Selection, Volume, Range, Market Sentiment, TVL, and Average Volume (45-day) -- and what each one looks like in a week that pulls in two emotional directions at once.",
   "stories": [
     {
       "title": "The KelpDAO Exploit -- Asset Selection Is the Risk, Volume Is the Opportunity",
@@ -32,8 +44,8 @@
       "spark": "If you imagined two LPs both holding positions in the rank-30-to-100 band -- one who set them when the regulatory backdrop was uncertain, one setting them today -- how differently would each frame the same trade? What does that gap suggest about how Asset Selection thresholds move with regime, not just with rank?"
     },
     {
-      "title": "Tokenized Pokémon Cards Hit Record Volumes -- A TVL Lesson and an Average Volume Lesson",
-      "body": "Tokenized Pokémon card trading platforms are approaching record volumes, an interesting signal for the tokenization space broadly. It also points at a category of pools -- niche or newly tokenized assets paired with ETH or a stablecoin -- where LP range management works very differently than on deep pairs. The primary variable here is TVL. In a thin pool (one without much total liquidity), a single large trade moves price dramatically inside the range, because your position is a much larger fraction of total liquidity. The pool composition can shift from 50/50 to heavily one-sided much faster than it would in a deep ETH/USDC pool, often before anyone notices. The non-obvious second variable is Average Volume (45-day). The Variables Reference says today's volume is a noisy signal and the 45-day average is the outlier detector. On a niche pool the noise is amplified: a single $50K trade can be most of the day's volume, making today's APR look exceptional when it's actually a coin flip. So when a niche or newly-tokenized pool catches your eye, keep in mind there are two distinct measurements telling you whether the opportunity is real. One is the pool's TVL -- a meaningful number means the pool is deep enough that a typical position isn't the entire liquidity pool. And two is the 45-day average volume compared to today's volume -- if they sit close to each other, the headline APR is built on consistent activity; if today's volume is far above the average, the APR is sitting on a single lucky trade. The early window on a niche pool can be lucrative, but only when both numbers agree the activity is real and not noise.",
+      "title": "Tokenized Pok\u00e9mon Cards Hit Record Volumes -- A TVL Lesson and an Average Volume Lesson",
+      "body": "Tokenized Pok\u00e9mon card trading platforms are approaching record volumes, an interesting signal for the tokenization space broadly. It also points at a category of pools -- niche or newly tokenized assets paired with ETH or a stablecoin -- where LP range management works very differently than on deep pairs. The primary variable here is TVL. In a thin pool (one without much total liquidity), a single large trade moves price dramatically inside the range, because your position is a much larger fraction of total liquidity. The pool composition can shift from 50/50 to heavily one-sided much faster than it would in a deep ETH/USDC pool, often before anyone notices. The non-obvious second variable is Average Volume (45-day). The Variables Reference says today's volume is a noisy signal and the 45-day average is the outlier detector. On a niche pool the noise is amplified: a single $50K trade can be most of the day's volume, making today's APR look exceptional when it's actually a coin flip. So when a niche or newly-tokenized pool catches your eye, keep in mind there are two distinct measurements telling you whether the opportunity is real. One is the pool's TVL -- a meaningful number means the pool is deep enough that a typical position isn't the entire liquidity pool. And two is the 45-day average volume compared to today's volume -- if they sit close to each other, the headline APR is built on consistent activity; if today's volume is far above the average, the APR is sitting on a single lucky trade. The early window on a niche pool can be lucrative, but only when both numbers agree the activity is real and not noise.",
       "spark": "What signals would you use to evaluate whether a niche pool has enough depth to be worth entering as an LP? Name two specific numbers you would check on Krystal, and what threshold on each would make you walk away?"
     }
   ],

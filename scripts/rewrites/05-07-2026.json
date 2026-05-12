@@ -4,12 +4,24 @@
   "title": "LP Mastermind\nMarket Update",
   "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
   "snapshot": [
-    {"label": "BTC", "value": "-2.1%"},
-    {"label": "ETH", "value": "-2.7%"},
-    {"label": "Volatility", "value": "Mild risk-off, both assets pulling back"},
-    {"label": "ETH Gas", "value": "~$1.50"}
+    {
+      "label": "BTC",
+      "value": "-2.1%"
+    },
+    {
+      "label": "ETH",
+      "value": "-2.7%"
+    },
+    {
+      "label": "Volatility",
+      "value": "Mild risk-off, both assets pulling back"
+    },
+    {
+      "label": "ETH Gas",
+      "value": "~$1.50"
+    }
   ],
-  "intro": "Both BTC and ETH are down on the day -- BTC at $79,986 (-2.1%) and ETH at $2,295 (-2.7%) -- as a mild risk-off move trims recent gains. Underneath the pullback, the longer-term picture runs the other way: five straight weeks of net ETF inflows and accelerating corporate BTC buying. That split -- short-term down, long-term up -- is the kind of regime where a Range set during a calmer week can quietly stop matching the market it was set against. Today's stories explore Range, TVL, Volume, Correlation, and Asset Selection, and how each one changes the way you think about a week like this.",
+  "intro": "Both BTC and ETH are down on the day -- BTC at $79,986 (-2.1%) and ETH at $2,295 (-2.7%) -- as cautious selling trims recent gains. Underneath the pullback, the longer-term picture runs the other way: five straight weeks of net ETF inflows and accelerating corporate BTC buying. That split -- short-term down, long-term up -- is the kind of regime where a Range set during a calmer week can quietly stop matching the market it was set against. Today's stories explore Range, TVL, Volume, Correlation, and Asset Selection, and how each one changes the way you think about a week like this.",
   "stories": [
     {
       "title": "Five Straight Weeks of ETF Inflows -- A Range Lesson and a Correlation Lesson",
