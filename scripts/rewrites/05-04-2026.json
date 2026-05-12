@@ -4,10 +4,22 @@
   "title": "LP Mastermind\nMarket Update",
   "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
   "snapshot": [
-    {"label": "BTC", "value": "+1.6%"},
-    {"label": "ETH", "value": "+0.9%"},
-    {"label": "Volatility", "value": "Calm, mild uptrend"},
-    {"label": "ETH Gas", "value": "~$2.50"}
+    {
+      "label": "BTC",
+      "value": "+1.6%"
+    },
+    {
+      "label": "ETH",
+      "value": "+0.9%"
+    },
+    {
+      "label": "Volatility",
+      "value": "Calm, mild uptrend"
+    },
+    {
+      "label": "ETH Gas",
+      "value": "~$2.50"
+    }
   ],
   "intro": "Both BTC and ETH posted modest gains this week -- BTC crossed $80,000 for the first time since January while ETH climbed past $2,348. The broader market feels like it is catching its breath after a turbulent stretch. For LPs, calm stretches are the regime where the variables get their clearest reading: fee conditions are steady, the price action is not screaming, and the question of whether your positioning still matches your conviction becomes a quiet one rather than an urgent one. Today's stories explore Range, The Chart, Correlation, TVL, Volume, and Asset Selection -- and how each shows up differently when the market gives you space to think.",
   "stories": [
@@ -33,7 +45,7 @@
     },
     {
       "title": "Haun Ventures Raises $1B for Crypto and AI -- Where VC Dollars Go, Asset Selection Risk Follows",
-      "body": "Haun Ventures closed a $1 billion raise across two new funds focused on blockchain and AI, one of the largest crypto-focused venture rounds in recent memory. That capital will fund protocols, new tokens, and new trading pairs over the next one to two years. The headline reads bullish -- more capital, more on-chain activity. But the harder lesson for an LP sits in Asset Selection. VC-backed tokens almost never launch inside the top-30 market-cap safety band; they launch at rank 100 or worse, where the Variables Reference flags real recovery risk after a drawdown. Providing liquidity in a VC-funded protocol's first pool means accepting full exposure to whichever side price moves toward, on an asset whose chart has no history yet. The non-obvious second variable is The Chart -- in the long-horizon sense, not the short-term sense. The healthy chart, by the Variables Reference, is the one with years of two-way action: real highs, real lows, the shape of something alive over time. The unhealthy chart is the one that has only gone in one direction for years. Arbitrum (ARB) is the canonical example of the unhealthy pattern -- the asset has trended down for roughly three years, and The Chart variable would steer an LP away from it until something visibly changes. New VC-funded tokens have a related but distinct problem: they do not have years of chart yet. The first six to twelve months do not reveal whether the multi-year shape will be healthy or one-directional. When a major VC announcement lands, what The Chart variable is really asking is patient: has this asset accumulated enough price history to show its character?",
+      "body": "Haun Ventures closed a $1 billion raise across two new funds focused on blockchain and AI, one of the largest crypto-focused venture rounds in recent memory. That capital will fund protocols, new tokens, and new trading pairs over the next one to two years. The headline reads positive -- more capital, more on-chain activity. But the harder lesson for an LP sits in Asset Selection. VC-backed tokens almost never launch inside the top-30 market-cap safety band; they launch at rank 100 or worse, where the Variables Reference flags real recovery risk after a drawdown. Providing liquidity in a VC-funded protocol's first pool means accepting full exposure to whichever side price moves toward, on an asset whose chart has no history yet. The non-obvious second variable is The Chart -- in the long-horizon sense, not the short-term sense. The healthy chart, by the Variables Reference, is the one with years of two-way action: real highs, real lows, the shape of something alive over time. The unhealthy chart is the one that has only gone in one direction for years. Arbitrum (ARB) is the canonical example of the unhealthy pattern -- the asset has trended down for roughly three years, and The Chart variable would steer an LP away from it until something visibly changes. New VC-funded tokens have a related but distinct problem: they do not have years of chart yet. The first six to twelve months do not reveal whether the multi-year shape will be healthy or one-directional. When a major VC announcement lands, what The Chart variable is really asking is patient: has this asset accumulated enough price history to show its character?",
       "spark": "If a brand-new VC-funded protocol launches a token tomorrow and an LP pool with it the following week, how much chart history would you want to see before the question of LPing in it even became live? What would two-way action need to look like for that asset to start clearing The Chart's bar?"
     }
   ],

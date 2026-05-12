@@ -4,12 +4,24 @@
   "title": "LP Mastermind\nMarket Update",
   "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
   "snapshot": [
-    {"label": "BTC", "value": "+2.9%"},
-    {"label": "ETH", "value": "+5.6%"},
-    {"label": "Volatility", "value": "Spike then compress"},
-    {"label": "ETH Gas", "value": "~$0.01"}
+    {
+      "label": "BTC",
+      "value": "+2.9%"
+    },
+    {
+      "label": "ETH",
+      "value": "+5.6%"
+    },
+    {
+      "label": "Volatility",
+      "value": "Spike then compress"
+    },
+    {
+      "label": "ETH Gas",
+      "value": "~$0.01"
+    }
   ],
-  "intro": "A geopolitical shock mid-week -- Strait of Hormuz closure to ceasefire -- created a classic volatility burst followed by a sharp directional move. ETH jumped 5-6% almost overnight while BTC climbed 2.9%. For LPs, the week was a stress test of two things: the Range width set before the shock, and the process underlying decisions during sentiment-driven moves. Today's stories explore Range, Market Sentiment, Average Volume (45-day), TVL, Volume, and Asset Selection -- because in a week that started with macro fear and ended with risk-on euphoria, the variables that decided the fee outcome were the ones set before the news broke.",
+  "intro": "A geopolitical shock mid-week -- Strait of Hormuz closure to ceasefire -- created a classic volatility burst followed by a sharp directional move. ETH jumped 5-6% almost overnight while BTC climbed 2.9%. For LPs, the week was a stress test of two things: the Range width set before the shock, and the process underlying decisions during sentiment-driven moves. Today's stories explore Range, Market Sentiment, Average Volume (45-day), TVL, Volume, and Asset Selection -- because in a week that started with macro fear and ended with sharp risk-taking, the variables that decided the fee outcome were the ones set before the news broke.",
   "stories": [
     {
       "title": "Volatility Spike, Then Whipsaw -- How Did Your Range Hold, and Did Sentiment Warn You?",
@@ -28,7 +40,7 @@
     },
     {
       "title": "SEC Unlocks DeFi Front-Ends -- A Volume Tailwind With an Asset Selection Question Underneath",
-      "body": "The SEC ruled on April 13 that DeFi user interface providers do not need to register as broker-dealers -- a major legal unlock removing a key barrier for compliant DeFi products to go mainstream. This follows the March SEC/CFTC joint framework that gave crypto assets a formal legal taxonomy for the first time. The primary variable here is Volume. More legal clarity for front-ends means more user-facing products, more retail and institutional access, and more on-chain swaps -- which is the direct driver of LP fee income. The non-obvious second variable is Asset Selection. Regulatory clarity does not change which tokens are top-30 by market cap, but it does change which tokens are legally usable across a broader set of interfaces. Tokens previously gated behind legal uncertainty can now reach mainstream users -- which is bullish for their liquidity profile but does not automatically make them safer. The Variables Reference still grades by rank; a token moving from gated to mainstream-accessible is still rank 80 if that's where its market cap puts it. So when new tokens become available on major front-ends in the coming months, keep in mind that the Volume tailwind is real, but the safety filter has not relaxed at all. A rank-80 token is just as much rank 80 the day it shows up on a regulated mainstream interface as it was the day before -- the legal status changed, but the Asset Selection bar didn't move.",
+      "body": "The SEC ruled on April 13 that DeFi user interface providers do not need to register as broker-dealers -- a major legal unlock removing a key barrier for compliant DeFi products to go mainstream. This follows the March SEC/CFTC joint framework that gave crypto assets a formal legal taxonomy for the first time. The primary variable here is Volume. More legal clarity for front-ends means more user-facing products, more retail and institutional access, and more on-chain swaps -- which is the direct driver of LP fee income. The non-obvious second variable is Asset Selection. Regulatory clarity does not change which tokens are top-30 by market cap, but it does change which tokens are legally usable across a broader set of interfaces. Tokens previously gated behind legal uncertainty can now reach mainstream users -- which is positive for their liquidity profile but does not automatically make them safer. The Variables Reference still grades by rank; a token moving from gated to mainstream-accessible is still rank 80 if that's where its market cap puts it. So when new tokens become available on major front-ends in the coming months, keep in mind that the Volume tailwind is real, but the safety filter has not relaxed at all. A rank-80 token is just as much rank 80 the day it shows up on a regulated mainstream interface as it was the day before -- the legal status changed, but the Asset Selection bar didn't move.",
       "spark": "If a token you had been curious about LPing on suddenly became available on a regulated mainstream front-end, does that change your decision to LP, or does the asset selection rank check stay the same regardless? Where is the line for you?"
     },
     {

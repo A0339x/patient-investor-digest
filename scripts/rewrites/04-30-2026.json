@@ -4,10 +4,22 @@
   "title": "LP Mastermind\nMarket Update",
   "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
   "snapshot": [
-    {"label": "BTC", "value": "+0.5%"},
-    {"label": "ETH", "value": "-0.5%"},
-    {"label": "Volatility", "value": "Low, rangebound"},
-    {"label": "ETH Gas", "value": "~$1.50"}
+    {
+      "label": "BTC",
+      "value": "+0.5%"
+    },
+    {
+      "label": "ETH",
+      "value": "-0.5%"
+    },
+    {
+      "label": "Volatility",
+      "value": "Low, rangebound"
+    },
+    {
+      "label": "ETH Gas",
+      "value": "~$1.50"
+    }
   ],
   "intro": "The Fed held rates steady this week but with an unusually deep internal split -- neither a confident hold nor a pivot signal -- which left markets in a wait-and-see mood. BTC and ETH moved less than 1% in opposite directions, making it one of the quieter weeks in recent memory. For LPs, low-volatility stretches are where the original Range setup does most of the work, and where the quiet often means doing nothing is the right move. But quiet does not mean nothing is happening underneath. Today's stories explore Range, Average Volume (45-day), Correlation, TVL, Volume, Asset Selection, and Market Sentiment -- and what they each reveal when the market gives you space to look.",
   "stories": [
@@ -23,7 +35,7 @@
     },
     {
       "title": "A New Solana Yield Exchange Just Raised $5M -- A TVL Rotation Story",
-      "body": "Exponent, a Solana-based yield exchange (a protocol that lets users trade or lock in future yield at a fixed rate rather than accepting variable returns), raised $5 million in seed funding led by Multicoin Capital. Every new yield product pulls from the same pool of yield-seeking dollars that currently sits in LP positions. The primary variable here is TVL. When a competing strategy gets attractive enough that capital rotates out of LP pools, TVL in those pools drops -- and the LPs who stay capture a larger share of the same fee pie. The non-obvious second variable is Volume. APR is essentially Volume times fee tier divided by TVL. So a TVL drop only translates to higher APR for the LPs who stayed if Volume holds steady. When a new yield product makes headlines for raising capital, keep in mind that two things are now in motion in opposite directions: TVL on the affected LP pools may soften (which would lift APR for whoever stays), and Volume may or may not hold (the part that decides whether staying was actually rewarded). The headline reads bullish for LPs already in deep pools, but it's only bullish if both halves of the equation cooperate.",
+      "body": "Exponent, a Solana-based yield exchange (a protocol that lets users trade or lock in future yield at a fixed rate rather than accepting variable returns), raised $5 million in seed funding led by Multicoin Capital. Every new yield product pulls from the same pool of yield-seeking dollars that currently sits in LP positions. The primary variable here is TVL. When a competing strategy gets attractive enough that capital rotates out of LP pools, TVL in those pools drops -- and the LPs who stay capture a larger share of the same fee pie. The non-obvious second variable is Volume. APR is essentially Volume times fee tier divided by TVL. So a TVL drop only translates to higher APR for the LPs who stayed if Volume holds steady. When a new yield product makes headlines for raising capital, keep in mind that two things are now in motion in opposite directions: TVL on the affected LP pools may soften (which would lift APR for whoever stays), and Volume may or may not hold (the part that decides whether staying was actually rewarded). The headline reads positive for LPs already in deep pools, but it's only positive if both halves of the equation cooperate.",
       "spark": "If you imagined two scenarios on the same LP pool over the next month -- one where TVL drops but fee revenue stays steady, another where both drop together -- which is the LPs-who-stay winning scenario? Which variable is doing the heavy lifting in each case?"
     },
     {

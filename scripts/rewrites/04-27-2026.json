@@ -4,10 +4,22 @@
   "title": "LP Mastermind\nMarket Update",
   "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
   "snapshot": [
-    {"label": "BTC", "value": "-1.3%"},
-    {"label": "ETH", "value": "-2.7%"},
-    {"label": "Volatility", "value": "Mild pullback, ETH lagging BTC"},
-    {"label": "ETH Gas", "value": "~$1.20"}
+    {
+      "label": "BTC",
+      "value": "-1.3%"
+    },
+    {
+      "label": "ETH",
+      "value": "-2.7%"
+    },
+    {
+      "label": "Volatility",
+      "value": "Mild pullback, ETH lagging BTC"
+    },
+    {
+      "label": "ETH Gas",
+      "value": "~$1.20"
+    }
   ],
   "intro": "Both BTC and ETH slid into the weekend, but ETH fell roughly twice as hard as BTC -- a reminder that the two largest assets don't always move in lockstep. For LPs holding ETH-paired positions, that gap is already reshaping pool composition: the money in those pools now holds more ETH and less of the paired asset. Institutional signals are mixed -- some big buyers pausing while others are just getting started. Today's stories explore Range, Correlation, Market Sentiment, Asset Selection, Volume, TVL, and Average Volume (45-day) -- and what each one reveals when the two biggest assets stop moving together for a week.",
   "stories": [
@@ -18,7 +30,7 @@
     },
     {
       "title": "Bernstein Calls a 'Structurally Longer Bull Cycle' -- A Range Skew Decision, Filtered Through Sentiment",
-      "body": "Bernstein published a note arguing that new institutional on-ramps and sustained capital flows point to asymmetric upside for crypto. For LPs, a directional call like this raises a real Range question: a centered range earns fees symmetrically above and below price, while a Range skewed mostly above current price captures more appreciation if the bullish forecast plays out -- but earns fewer fees if price drifts sideways or dips. A skewed range is essentially a directional bet layered on top of your fee income. The non-obvious second variable is Market Sentiment. Bernstein's note is one analyst voice. The Variables Reference says to cross-check directional views against the Coin Market Cap sentiment gauge: when sentiment is in neutral or mild-greed territory, an analyst bull call is a useful complement; when sentiment is already at extreme greed, the same bull call may be a contrarian sell signal because the Variables note warns extreme greed often precedes corrections. So when an analyst publishes a bullish view, keep in mind that the value of a Range skew depends on where the sentiment gauge sits underneath. At neutral or mild-greed sentiment, the bull narrative is fresh and a skew has room to earn its keep. At extreme greed, the same skew becomes a trap -- the LP holds upside exposure right into the most likely drawdown window. Two LPs reading the same Bernstein note but checking sentiment in two different regimes are looking at two completely different trades.",
+      "body": "Bernstein published a note arguing that new institutional on-ramps and sustained capital flows point to more upside than downside for crypto. For LPs, a directional call like this raises a real Range question: a centered range earns fees symmetrically above and below price, while a Range skewed mostly above current price captures more appreciation if the forecast comes true and prices rise -- but earns fewer fees if price drifts sideways or dips. A skewed range is essentially a directional bet layered on top of your fee income. The non-obvious second variable is Market Sentiment. Bernstein's note is one analyst voice. The Variables Reference says to cross-check directional views against the Coin Market Cap sentiment gauge: when sentiment is in neutral or mild-greed territory, an analyst bull call is a useful complement; when sentiment is already at extreme greed, the same bull call may be a contrarian sell signal because the Variables note warns extreme greed often precedes corrections. So when an analyst publishes a view that prices will rise, keep in mind that the value of a Range skew depends on where the sentiment gauge sits underneath. At neutral or mild-greed sentiment, the bull narrative is fresh and a skew has room to earn its keep. At extreme greed, the same skew becomes a trap -- the LP holds upside exposure right into the most likely drawdown window. Two LPs reading the same Bernstein note but checking sentiment in two different regimes are looking at two completely different trades.",
       "spark": "If you imagined the Coin Market Cap Fear and Greed index sitting at neutral versus extreme greed on the day a major analyst published a bull call, how differently would the case for a skewed Range read in each scenario? Which variable is actually doing the work?"
     },
     {

@@ -119,10 +119,30 @@ Things to NOT do, with the article that triggered the lesson.
 
   These are not the only offending shapes — they are diagnostic of a broader pattern. Any phrase that requires the reader to mentally re-parse a noun phrase ("the X of your Y shifts toward the Z") or that uses a noun-of-noun construction where a plain verb would do is a candidate for replacement. The fix is almost always: identify the actual *mechanic* (what physically happens in the pool) and describe it in active voice with short words.
 
-- **Trader/analyst vocabulary for price direction.** Use plain English for the question "is the price going up or down?" not trader shorthand. From Gregory's 2026-05-12 markup on the same BitMine story:
-  - *"the bull case for ETH"* → *"the case for ETH increasing in price"*
+- **Trader/analyst/crypto vocabulary for price direction and market state.** Use plain English for "is price going up or down?" and "what is the market doing?" — not trader shorthand. From Gregory's 2026-05-12 markup, then expanded into a corpus-wide sweep across all 8 historical digests. Replacement model (apply this lens to any draft):
 
-  The principle: phrases like "bull case", "bullish setup", "bearish thesis" are shorthand traders use among themselves, but they make the reader work to translate. Plain restatements like "the case for ETH going up", "the case for ETH increasing in price", "reasons to expect a rally", and "reasons to expect a drawdown" describe the same thing without requiring fluency in trader vocabulary. Apply the same lens to similar shorthand ("risk-on", "risk-off", "alpha", "asymmetric upside", "thesis") when it shows up in a draft — restate in plain English describing what's actually happening or expected.
+  | Trader/analyst shorthand | Plain English |
+  |---|---|
+  | the bull case for ETH | the case for ETH increasing in price |
+  | bullish forecast | forecast that prices will rise |
+  | bullish view | view that prices will rise |
+  | public bullish calls | public statements that ETH is going up |
+  | the headline reads bullish | the headline reads positive |
+  | bearish thesis | view that prices will fall |
+  | risk-on euphoria | sharp risk-taking |
+  | risk-off move | cautious selling |
+  | asymmetric upside | more upside than downside |
+  | a clean breakout through $X | price pushing cleanly through $X |
+  | positioning for a breakout | positioning for a move higher |
+  | ahead of a potential breakdown | ahead of a potential drop |
+  | crypto winter | the long crypto downturn |
+  | crypto spring (when used as a label) | the case for prices going up (or paraphrase the underlying claim) |
+
+  **Why:** This audience is early in their LP journey. Trader shorthand makes them translate before they can absorb the actual mechanic. The variables compound through plain mechanics; jargon adds friction without adding teaching.
+
+  **How to apply:** When drafting, scan for any phrase from the left column or its cousins. The substitution isn't word-for-word — it's "what is this *actually* saying about price, sentiment, or market state?" State that in plain English. The phrasing on the right is one option; any plain restatement that names the actual situation works.
+
+  **Exception — direct quotes.** If a named person used a trader phrase (e.g., Tom Lee calling the moment a "crypto spring"), keeping the phrase *as a quoted attribution* is OK: *"Tom Lee publicly called this the start of a 'crypto spring,'"*. The quote marks signal it's their term, not the digest's voice. Don't then *use* the phrase yourself in subsequent sentences — paraphrase.
 
 ---
 
