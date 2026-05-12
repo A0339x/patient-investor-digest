@@ -157,6 +157,19 @@ Things to NOT do, with the article that triggered the lesson.
 
   **How to apply:** When you draft a sentence with a phrase like "X ecosystem" or "Y landscape" or "Z market," stop and ask: "what is the specific thing I'm pointing at?" Replace the aggregate with the concrete thing — usually a specific pool type, pair, protocol, or mechanic. Often it takes a few more words; the trade is worth it.
 
+- **Multiple levers — clarify stacking vs. alternatives.** When a story enumerates two or more variables, levers, or decisions, the prose should make clear whether picking both increases the benefit (they stack) or whether they're alternative expressions of the same conviction (pick one based on the shape of your view). The default assumption a beginner reader brings to "two levers" is that more = more — they pull both expecting doubled benefit. If that's not actually how the levers compose, say so explicitly.
+
+  **Worked example from 2026-05-12 markup on the 05-11 BitMine story.** The story originally introduced two levers (Correlation and Range skew) without saying whether they stack. Gregory's feedback: *"Some readers may think that if they pull both these levers, the benefits will stack. It's not quite the case though. It's more like one or the other."* The addition that landed:
+
+  > *These two levers are alternatives, not additions. A correlated pair is a choice about which pair you're in -- it gives full upside through both assets at once. A skewed range is a choice about how you set your range within whatever pair you pick -- it stretches the time you're earning during a move. Most LPs lean on one or the other based on the shape of their conviction. Pulling both at once is possible, but only really pays off if you're holding a more specific view -- like 'ETH is going up AND ETH will outperform BTC' -- which is a stronger bet to commit to.*
+
+  The shape of this paragraph is the model for any future "multiple levers" story:
+  1. **Name the mistake directly** — "alternatives, not additions" puts the wrong mental model and the right one side by side. The reader who came in thinking "more levers = more benefit" gets corrected upfront.
+  2. **Explain *why* they don't stack** — different levers usually operate on different decisions (pair type vs. range placement; pool selection vs. fee tier; etc.). Naming the decision layer each lever sits on makes the non-stackability concrete.
+  3. **Don't say "never stack"** — if stacking is technically possible, say what bigger view it would require. Often the cleanest framing is: stacking means committing to a more specific bet than picking one.
+
+  **How to apply:** When a draft introduces two or more "things to keep in mind" or "levers" or "decisions," ask: "would a beginner reader plausibly read this as 'pick all of them for maximum benefit'?" If yes, add the stacking/alternatives clarifier explicitly. If they genuinely DO stack cleanly, say so — that's also worth being explicit about. The danger is only when the prose leaves the question unanswered.
+
 - **Separate the general mechanism from the specific case in this story.** When a story is about a specific instance of a more general dynamic, state the general rule in general terms first, then explicitly instantiate it for THIS story. From Gregory's 2026-05-12 markup on the Sharplink rewrite: *"In this case, it's pools where ETH is one of the assets. In other cases, it might be something else."* The danger if you don't separate them: the reader hears the general rule and the specific instantiation as one fused thing, can't transport the rule to a different story next week, and the variable lesson stays local.
 
   **Worked example from this story (Sharplink, Ethereum-focused fund):**
