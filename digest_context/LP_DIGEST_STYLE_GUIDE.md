@@ -47,15 +47,30 @@ Each story follows this exact format:
 
 ## Tone
 - Practitioner-to-practitioner, not analyst-to-reader
-- Assume they know what impermanent loss, fee tiers, and concentrated liquidity are — don't over-explain
+- Audience is **early in their LP journey** — they know the basics but are still learning cause-and-effect on each variable. Define jargon inline (em-dash flanked) the first time it appears in an issue.
+- Never use the term "impermanent loss" or the abbreviation "IL". Talk about range mechanics, fee capture, price exposure, or asset composition directly.
 - Brief over comprehensive — they're busy managers, not researchers
 - Conversation-first — every story should make someone want to reply with their setup
+
+## Prose Density (the simplification rule)
+
+After drafting, every sentence has to pass the **single-pass readability test**: a reader scanning at normal pace should land on the meaning the first time. If they have to slow down or re-read, the sentence failed.
+
+Concrete sub-rules from the Three Amigos editorial call (2026-05-11):
+- **Shorter sentences, plainer words. Same concept.** Aim for sentences under ~30 words. Break long ones into two short ones. Same variable, same mechanic, same teaching — just say it in fewer, simpler words.
+- **Active voice + Anglo-Saxon verbs.** Prefer "rise", "shrink", "rotate", "earn", "capture", "sell", "buy" over Latinate noun phrases like "experience appreciation", "exhibit composition shifts", "demonstrate exposure". The mechanic is what the reader needs to feel; describe it in plain motion.
+- **Avoid noun-of-noun constructions.** "The composition of your position shifts toward the stable side" is a noun-of-noun phrase that forces the reader to mentally re-parse. "The pool keeps selling ETH and accumulating USDC" describes the same mechanic with active verbs.
+- **No analyst vocabulary.** Phrases like "directional narrative", "fuller price exposure", "asymmetric upside" sound like research notes. Plain restatement: "the bull case", "you capture the full upside", "more upside than downside."
+- **Loop learning over vocabulary loading.** The variables compound through repetition of the *mechanic*, not through accumulating dense words. A second reading should *deepen* understanding, not *unlock* it.
+
+The full pairings file (`Patient Investor Digest - Variable Pairings.md`) carries the canonical anti-pattern list and worked examples.
 
 ## What to Avoid
 - Price predictions or directional calls ("ETH looks bullish...")
 - Generic crypto market commentary not connected to LP mechanics
 - Long regulatory summaries unless they unlock/restrict on-chain activity directly
 - More than 6 stories — brevity is the point
+- The three flagged phrases from the 2026-05-11 editorial call: "fuller price exposure", "composition of your position shifts toward the stable side", "directional narrative". These are diagnostic of a broader anti-pattern — see Pairings for the full list and replacement model.
 
 ---
 
