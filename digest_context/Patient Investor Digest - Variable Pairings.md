@@ -157,6 +157,19 @@ Things to NOT do, with the article that triggered the lesson.
 
   **How to apply:** When you draft a sentence with a phrase like "X ecosystem" or "Y landscape" or "Z market," stop and ask: "what is the specific thing I'm pointing at?" Replace the aggregate with the concrete thing — usually a specific pool type, pair, protocol, or mechanic. Often it takes a few more words; the trade is worth it.
 
+- **Never reference internal editorial docs in the prose.** Phrases like *"the Variables Reference says…"*, *"the Variables note flags…"*, *"per the curriculum…"* are scaffolding for us, not content for the reader. The reader doesn't know those documents exist, and naming them creates the impression there's a separate source-of-truth they're missing. Always state the underlying claim directly. From Gregory's 2026-05-12 markup: *"Remove any reference to the variable reference. Just say [the claim] directly."*
+
+  Replacement patterns:
+  - *"The Variables Reference says to watch the Coin Market Cap Fear and Greed gauge: extreme greed precedes a correction…"* → *"The Coin Market Cap Fear and Greed gauge is the practical indicator here: extreme greed precedes a correction…"*
+  - *"The Variables Reference flags real recovery risk after a drawdown"* → *"recovery risk after a drawdown is real"*
+  - *"By the Variables Reference's market-cap-rank framework, ETH already passes"* → *"By market-cap rank, ETH already passes"*
+  - *"which the Variables note flags as the regime where…"* → *"which is the regime where…"*
+  - *"per the Variables Reference"* / *"in the Variables Reference's terms"* / *"the Variables note warns"* — all delete; restate the claim.
+
+  **Why:** A reader hearing "the Variables Reference says X" thinks "oh there's a document I haven't read." That breaks the digest's voice (which should sound like a person teaching), creates an unanswered curiosity ("where is this document?"), and adds a layer of indirection between the reader and the claim. The claim itself is the teaching; the source is irrelevant to the reader.
+
+  **How to apply:** Any time you find yourself writing "the Variables Reference…" / "the Variables note…" / "the curriculum…" / "per the source…", stop, find the actual claim, and state it directly. The Variables Reference and Variable Pairings are still consulted internally during drafting — they just don't get name-checked in the rendered prose.
+
 - **Multiple levers — clarify stacking vs. alternatives.** When a story enumerates two or more variables, levers, or decisions, the prose should make clear whether picking both increases the benefit (they stack) or whether they're alternative expressions of the same conviction (pick one based on the shape of your view). The default assumption a beginner reader brings to "two levers" is that more = more — they pull both expecting doubled benefit. If that's not actually how the levers compose, say so explicitly.
 
   **Worked example from 2026-05-12 markup on the 05-11 BitMine story.** The story originally introduced two levers (Correlation and Range skew) without saying whether they stack. Gregory's feedback: *"Some readers may think that if they pull both these levers, the benefits will stack. It's not quite the case though. It's more like one or the other."* The addition that landed:
