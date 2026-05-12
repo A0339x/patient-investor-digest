@@ -37,6 +37,34 @@ Each entry: what the article is about, which variable anchors it, why that varia
 
 ---
 
+### May 11, 2026 BitMine "crypto spring" story — first simplification pass
+
+**Article:** BitMine adds $62M ETH, treasury past 5.2M ETH, Tom Lee calls "crypto spring."
+**Issue:** 2026-05-11 (Story 1)
+**Primary variable:** Correlation
+**Secondary variable(s):** Range (skew)
+**Why this pairing:** Same pattern as the institutional-bid stories (sustained directional buying → think about pair type and range placement together). When confidence in direction is high, the two distinct levers (Correlation and Range skew) compound — and the story works as a teaching artifact for both at once.
+
+**What got fixed in this rewrite (the lesson is the WAY it got said, not WHICH variables got used):**
+
+The cron-generated version on 2026-05-11 used three phrases the team specifically flagged as too dense on the Three Amigos call:
+- *"you experience fuller price exposure"*
+- *"the composition of your position shifts toward the stable side as price rises"*
+- *"the directional narrative"*
+
+The rewrite replaced each with an active-voice plain-English equivalent that describes the actual mechanic. Sentence count went from 6 long ones (longest ~60 words) to 12 short ones (longest ~32 words), broken into 5 short paragraphs for breathing room.
+
+**Prose pattern that worked (replacement model — keep these as canonical examples):**
+- Instead of *"you experience fuller price exposure"*: *"A correlated pair (two assets that move together, like ETH and BTC) captures the full upside when the market goes up, because both sides of the pool rise together."* Mechanic + consequence in one sentence.
+- Instead of *"composition of your position shifts toward the stable side as price rises"*: *"And as price rises, the pool keeps selling ETH and accumulating USDC, so your ETH exposure shrinks even further."* Plain verbs (sells, accumulates, shrinks).
+- Instead of *"the directional narrative"*: *"whether you actually believe ETH is going up."* Direct restatement of the question the reader is being asked to think about.
+
+**Notes:**
+- Greg's framing of the goal on the call: *"I want to do more of that with the loop learning style than them having to understand what the words mean."* The variables compound through repetition + plain mechanics, not through accumulating a dense vocabulary.
+- The team praised the *content* and the *teaching pattern* — they explicitly did not want the concepts changed. Only the *prose density* needed work. The two-lever shape (Correlation + Range skew) and the variable-naming approach are working as intended.
+
+---
+
 ### May 7, 2026 digest rewrite — full-issue rebuild (5 stories)
 
 **Articles:** ETF inflows / Strategy $30B / AWS+USDC / Bitwise carry fund / Kraken+Reap stablecoin acquisition.
@@ -84,7 +112,12 @@ Each entry: what the article is about, which variable anchors it, why that varia
 
 Things to NOT do, with the article that triggered the lesson.
 
-- *(empty — populate as we go)*
+- **Analyst/jargon prose that loses the reader on first pass.** From the 2026-05-11 BitMine "crypto spring" story, the team flagged three exact phrases as too dense:
+  1. *"you experience fuller price exposure"* — abstract, sounds like a research note. Plain alternative: *"you capture the full upside"* or *"both sides of the pool rise together."*
+  2. *"the composition of your position shifts toward the stable side as price rises"* — technically correct, but unparseable in one pass. Plain alternative: *"as price rises, the pool keeps selling ETH and accumulating USDC, so your ETH exposure shrinks."*
+  3. *"the directional narrative"* — analyst-speak. Plain alternative: *"the bull case"* or *"whether you believe ETH is going up."*
+
+  These are not the only offending shapes — they are diagnostic of a broader pattern. Any phrase that requires the reader to mentally re-parse a noun phrase ("the X of your Y shifts toward the Z") or that uses a noun-of-noun construction where a plain verb would do is a candidate for replacement. The fix is almost always: identify the actual *mechanic* (what physically happens in the pool) and describe it in active voice with short words.
 
 ---
 
@@ -111,6 +144,12 @@ Corrections about *how* a variable was taught, not which variable. Tone, posture
 - **Lead with the actual news, factually, with specific numbers.** Name the protocol, name the token, name the dollar amount, name the mechanism (e.g., "cross-chain bridge exploit"). Then pivot to the LP lesson. Don't bury the event under the framing.
 - **Define jargon inline at first use,** parenthetical or em-dash flanked: `rsETH — a liquid restaking token (LRT), meaning an asset that represents ETH deposited into restaking protocols and is designed to trade near 1:1 with ETH — was drained…`. The reader learns the term without needing to leave the sentence.
 - **Look for the non-obvious second variable.** Most stories have one obvious variable (asset selection for an exploit, range for a price move). The strongest articles also surface the *counterintuitive* variable that flips the framing — e.g., an exploit feels like a "be afraid" story, but Volume turns it into a "you might be earning during the chaos" story. Two variables in opposite emotional registers teaches more than one variable explained well.
+- **Humanize. Sound like a person, not an analyst.** This is the simplification rule from the 2026-05-11 Three Amigos call. The team's feedback after seeing the May 11 cron-generated digest on screen: *"humanize it so it sounds more like you than AI. Because when you think about the standard user is going to be probably going through this really quickly. And if you have to go back, because I just went through it and then I said, okay, what does this mean again? — that's when I stopped and said, wait a minute, I need to give you that feedback."* Three concrete sub-rules:
+  - **Single-pass readability test.** If a reader has to re-read a sentence to figure out what it meant, the sentence failed. Reader pace is fast — every sentence has to land the first time.
+  - **Shorter sentences, plainer words. Same concept.** From the call: *"it can say the exact same thing and just make it shorter and more simplified."* Do not change *what* is being taught — change *how* it is being said. Aim for sentences under ~30 words; break the long ones into two short ones. Prefer Anglo-Saxon verbs ("rise", "shrink", "rotate", "earn", "capture") over Latinate noun phrases ("experience appreciation", "exhibit composition shifts", "demonstrate exposure").
+  - **Loop learning over vocabulary loading.** From Greg on the same call: *"I want to do more of that with the loop learning style than them having to understand what the words mean."* The variables compound through repetition, not through dense vocabulary. A reader should be able to absorb the variable through the *mechanic and consequence chain* without needing a glossary in their head.
+  - **Why:** Audience is busy LPs who scan the digest, not researchers who study it. A dense sentence forces them to slow down or skip — both kill the compounding-knowledge goal. Shorter sentences with plain words let the variable land, the pattern repeat, and the curriculum work. A second reading should *deepen* understanding, not *unlock* it.
+  - **How to apply:** After drafting, scan for the antipatterns logged in the Anti-patterns section (noun-of-noun phrases, analyst vocabulary, sentences over ~30 words). For any flagged phrase, ask: "what is the actual mechanic this is describing?" and rewrite using active voice. Test: read the sentence once at normal pace. If you have to slow down or re-read, simplify.
 
 ---
 

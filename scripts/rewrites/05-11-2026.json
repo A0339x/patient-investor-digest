@@ -1,0 +1,53 @@
+{
+  "id": "05-11-2026",
+  "date": "May 11, 2026",
+  "title": "LP Mastermind\nMarket Update",
+  "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+  "snapshot": [
+    {
+      "label": "BTC",
+      "value": "+0.7%"
+    },
+    {
+      "label": "ETH",
+      "value": "-0.2%"
+    },
+    {
+      "label": "Volatility",
+      "value": "Low -- ranges holding"
+    },
+    {
+      "label": "ETH Gas",
+      "value": "~$2"
+    }
+  ],
+  "intro": "BTC held above $81,800 and ETH drifted slightly negative this week -- both sitting in a quiet, sideways range with most LP positions staying intact. The dominant theme in this week's headlines is institutional capital: treasury firms accumulating ETH at scale, new yield products launching alongside massive quarterly losses, and regulators on two continents starting to shape the rules around stablecoin yield. This issue touches Correlation, Range, TVL, Asset Selection, Volume, and Average Volume -- all showing up through very different stories.",
+  "stories": [
+    {
+      "title": "Tom Lee Calls 'Crypto Spring' as Bitmine's ETH Treasury Passes 5.2 Million",
+      "body": "Bitmine Immersion Technologies added another $62 million in ETH last week, bringing its total treasury past 5.2 million ETH. Tom Lee publicly called this the start of a 'crypto spring,' which is just a way of saying the bull case for ETH now has high-profile voices behind it. When you see signals like this -- institutions buying steadily plus public bullish calls -- two levers come into play. The first is Correlation. A correlated pair (two assets that move together, like ETH and BTC) captures the full upside when the market goes up, because both sides of the pool rise together. A stablecoin-paired pool like ETH/USDC only captures half the move -- if ETH runs up 20%, your position appreciates closer to 10%, because the other half is in USDC, which stays flat. And as price rises, the pool keeps selling ETH and accumulating USDC, so your ETH exposure shrinks even further. The second is Range skew. When you feel confident the market is going up, a range with more room above the current price than below keeps the position in range longer through the move, so more of your money stays in ETH for longer. Both levers only matter if you actually believe ETH is going up -- and that belief is the question this week.",
+      "spark": "If the market keeps going up from here and you're currently in a non-correlated pair like ETH/USDC or BTC/USDC, how much of that upside do you think your pair type actually captures? Has anyone here picked a correlated pair specifically because they expected a rally, and how did it play out?"
+    },
+    {
+      "title": "Sharplink Posts $686 Million Loss, Still Launches a $125M Ethereum Yield Fund",
+      "body": "Ethereum-focused Sharplink Gaming reported a net loss of nearly $686 million this quarter, but shares rose after the company announced a $125 million Ethereum yield fund in partnership with Galaxy Digital. The signal here is not the loss -- it's that institutional capital is still actively seeking Ethereum yield products even through brutal quarterly results. When large, structured yield products like this launch and start deploying capital, keep in mind the TVL dynamic: more capital chasing the same Ethereum yield ecosystem means more competition for fees, and as pools get deeper, APR per dollar invested tends to compress. A pool that grows from $5 million to $50 million in TVL while Volume stays flat is a pool where your APR just dropped by roughly 10x, not a pool that got safer. The non-obvious second thing to keep in mind is Average Volume -- large institutional fund deployments often create single-day spikes in on-chain swap activity as capital gets sized and early positions get rebalanced, which can make APR look unusually attractive on a tool like Krystal for a day or two before it normalizes back to the pool's real earning rate. It's a really good habit, any time you see an APR that looks unusually high on a mainstream ETH pool, to pull its 45-day average and check whether that number reflects sustained Volume or a one-time deployment event.",
+      "spark": "Have you ever seen an APR on Krystal that looked too good to be true, checked the 45-day average, and found it was a single-day outlier? Did you pass on the pool or go in anyway -- and what happened to the APR a few days later?"
+    },
+    {
+      "title": "Stablecoin Yield Under Pressure on Both Sides of the Atlantic",
+      "body": "The American Bankers Association CEO sent a letter this week urging tighter limits on stablecoin rewards ahead of a key Senate committee vote, and the Bank of England Governor separately flagged a 'coming wrestle' with the US over stablecoin oversight -- specifically concerned that USD-denominated stablecoins could flood UK markets in a crisis. Two major institutions signaling caution about stablecoin yield in the same week is worth slowing down on for anyone running stablecoin pairs. The primary lens here is Asset Selection: the stablecoin on one side of your LP pair is not just a stable number -- it has a specific issuer, a regulatory profile, and a peg that can come under real stress if legislative conditions shift quickly. It's a really good habit, when you're evaluating any stablecoin pair, to think beyond the price chart and consider who issues that stablecoin, where they're domiciled, and what regulatory exposure they carry. The second thing to keep in mind is Range: a narrow Range on a stablecoin pair generates attractive APR, but the tighter you go, the more concentrated your position becomes around a specific peg -- and if that peg comes under stress from a regulatory event, your Range mechanics can't protect you from what is really an Asset Selection risk.",
+      "spark": "For the stablecoin you're currently paired with, do you know who the issuer is and whether they would be directly affected by US or UK stablecoin legislation? Has regulatory risk ever factored into which stablecoin you chose when setting up a pair?"
+    },
+    {
+      "title": "Ronin Migrates to Ethereum L2 -- What Chain Moves Mean for Volume",
+      "body": "Ronin -- the gaming blockchain that lost over $600 million to the Lazarus Group in a 2022 bridge hack -- is migrating from a standalone Ethereum sidechain to an OP Stack Layer 2 on May 12. OP Stack is the infrastructure framework that also powers Optimism and Base, meaning Ronin will now settle its transactions on Ethereum mainnet rather than running its own validator set. L2 migrations like this tend to generate meaningful on-chain Volume in the days around the cutover: bridge activity spikes, arbitrageurs respond to price dislocations on the new chain, and users moving assets all produce swap activity that can show up as fee income in mainstream ETH pools on the same day -- making it an event worth being aware of if you're actively watching pool APRs this week. The Asset Selection angle is worth keeping in mind on the flip side: RON, Ronin's native token, is a gaming chain asset sitting well outside the top 30 by market cap, which puts it in a very different risk category than the BTC and ETH pairs most of this group runs. Migration events can make a lower-ranked asset look more active than it really is on a sustained basis, and it's worth remembering that a Volume spike around an event is not the same thing as the kind of sticky, recurring Volume that produces reliable long-term fee income.",
+      "spark": "Have you ever added liquidity around a major protocol event -- a migration, a big launch, a token unlock -- expecting a volume boost? How did the actual fee income compare to what the daily APR on Krystal suggested going in?"
+    },
+    {
+      "title": "Ripple's $200M Institutional Push and What It Means for Your APR",
+      "body": "Ripple secured a $200 million financing facility from Neuberger Specialty Finance to expand its institutional prime brokerage -- the infrastructure that lets large financial players trade, lend, and custody crypto at scale. This is one of several signals this week that institutional on-ramps into the crypto ecosystem are getting wider, not narrower. For LPs, the TVL lens is the right frame here: as institutional capital finds easier paths into the ecosystem, more of it tends to concentrate in the deepest, most liquid pools -- which sounds like good news, but more capital chasing the same Volume means APR per dollar gets thinner over time. Keep in mind that a pool doubling in TVL while Volume stays flat is a pool where your APR just got cut in half, not a safer pool. The second thing to keep in mind is the shape of institutional Volume -- large players tend to trade in concentrated bursts rather than steady daily flow, which means when institutional activity picks up it can create big single-day Volume spikes that look attractive on Krystal but don't reflect the Average Volume the pool will revert to once the burst is over.",
+      "spark": "For the pools you're most active in right now, do you have a rough sense of what the TVL is and whether it has been growing recently? Does the daily APR you're seeing feel consistent day to day, or have you noticed big swings that might suggest you're catching outlier days?"
+    }
+  ],
+  "closing": "What pairs and range setups are you carrying into next week? Drop your current positions, whether you're leaning correlated or non-correlated right now, and whether the 'crypto spring' narrative is changing anything about how you're thinking about Range width or pair type."
+}
