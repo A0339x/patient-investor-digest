@@ -148,6 +148,14 @@ Things to NOT do, with the article that triggered the lesson.
 
   **Exception — direct quotes.** If a named person used a trader phrase, keeping the phrase *as a quoted attribution* is OK. The quote marks signal it's their term, not the digest's voice. Even with the quoted attribution, gloss inline on first use per issue per the house jargon-gloss rule.
 
+- **Idiomatic shorthand for a mechanic — restate as the actual math.** Phrases like *"volume has to carry the math,"* *"move the needle,"* *"do the heavy lifting,"* *"the juice is worth the squeeze,"* *"the unit economics work"* are business/builder shorthand that compress a real mechanic into an idiom. A reader who hasn't seen the idiom before can't reconstruct what's actually happening. From Gregory's 2026-05-12 markup: *"'volume has to carry the math' — what's this mean? We have to clarify what carrying the math means."* Replacement model from that fix:
+  - *"The catch is fee tier: stablecoin pools pay 0.01% to 0.05%, so volume has to carry the math."* (compressed idiom)
+  - → *"The catch is fee tier. Stablecoin pools pay only 0.01% to 0.05% per swap -- a small slice. For the position to produce meaningful fee income, that small slice has to be multiplied by a lot of swaps, which means very high volume."* (explicit mechanic)
+
+  **Why:** Idioms are local-knowledge gatekeepers. They feel efficient to the writer because the writer already knows the underlying math; they feel like a stop sign to the reader who has to translate. The audience compounds knowledge by *seeing the mechanic repeatedly* — replacing every idiom with the explicit mechanic is a deposit into that compounding.
+
+  **How to apply:** When you draft a sentence that uses a business idiom for a quantitative relationship ("carry the math," "move the needle," "make the unit economics work," "punch above its weight"), stop and ask: "what is the actual math, and what role does X play in making it work?" Then write that out in plain sentences. Usually one idiomatic phrase becomes 2-3 short sentences — and the variable lesson lands harder.
+
 - **Category shorthand that hides the concrete thing.** Phrases like *"Ethereum yield ecosystem,"* *"the DeFi landscape,"* *"crypto market structure,"* and *"the Ethereum staking economy"* are abstract aggregate nouns. They sound informative but leave the reader uncertain about what the digest is actually pointing at. From Gregory's 2026-05-12 markup on the Sharplink story: *"Does it mean Pools with ETH as one of the assets?"* — exactly the kind of question the prose should have answered before the reader had to ask. Replacement model:
   - *"the same Ethereum yield ecosystem"* → name the specific pool type (see the "separate the general mechanism from the specific case" rule below for the full pattern)
   - *"the DeFi landscape"* → name the specific protocols, pool types, or chains being discussed
