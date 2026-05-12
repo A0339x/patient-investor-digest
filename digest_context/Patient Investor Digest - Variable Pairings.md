@@ -160,6 +160,22 @@ Things to NOT do, with the article that triggered the lesson.
 
   **How to apply:** When drafting any sentence that names the APR formula, ask: "is fee tier the variable this story is teaching?" If no, use *"APR is essentially Volume divided by TVL"*. If yes, expand to the full *(Volume × fee_tier) / TVL* with the per-swap mechanic explained.
 
+- **Vague intensifiers ("is real," "is genuinely," etc.) — replace with the specific word that names what's being claimed.** From Gregory's 2026-05-12 markup: *"This is very AI written. I don't know why AI always uses 'real' instead of other verbs and adjectives, but let's find another word for that. For example, this would say 'where recovery risk after a drawdown is higher for these tokens with a higher asset selection.'"*
+
+  *"X is real"* is doing intensifier work without naming what about X is real. It's hedged, soft, and reads as AI-generated. Specific replacements depend on what the writer actually meant:
+  - *risk is real* → *risk is higher / meaningfully higher / elevated / substantial*
+  - *the opportunity is real* → *the opportunity is sustained / genuine / well-supported*
+  - *the tailwind is real* → *the tailwind is substantial / meaningful*
+  - *profit-taking is real* → *there's meaningful profit-taking / sellers are also active*
+  - *activity is real, not noise* → *activity is sustained, not noise* (compares against the right opposite)
+  - *the APR is real* → *the APR is genuinely high / the math actually works out*
+
+  **Why:** "Real" is a placeholder. It tells the reader something is being claimed but not what. Specific words (higher, sustained, substantial, elevated, genuine) tell the reader the shape of the claim — which is what teaches.
+
+  Similar AI-tic words/phrases to watch for and replace with specifics: *genuinely* (overused), *absolutely*, *fundamentally*, *in essence*, *ultimately*, *the truth is*, *actually* (when used to argue with a hypothetical reading), *clearly*, *importantly*. Each one is an intensifier looking for a noun.
+
+  **How to apply:** When drafting, search for "is real" / "are real" / "the real X." For each, ask: what's actually being claimed about X? Then write that specific word in place. If the answer is "I just meant it exists / is present," the sentence usually reads better without the intensifier at all — drop it.
+
 - **Don't show the writer's "realization" or position the prose against a counter-version.** The reader sees the final draft, not the drafting history. Phrases that argue with a hypothetical wrong version — *"most LPs only use half of it,"* *"that question is real and IS part of the variable,"* *"this is where most LPs reach for it incorrectly,"* *"in the long-horizon sense, not the short-term sense"* — read as the writer showing their work after a correction landed. They break the digest voice (which should sound like a person teaching the idea directly) and add a layer of meta-narrative the reader didn't ask for. From Gregory's 2026-05-12 markup on the 05-04 Story 1 Chart paragraph: *"This was more your own wording after you had this realization."*
 
   **Replacement pattern:** just lay out the teaching cleanly without the corrective framing.
