@@ -149,13 +149,23 @@ Things to NOT do, with the article that triggered the lesson.
   **Exception — direct quotes.** If a named person used a trader phrase, keeping the phrase *as a quoted attribution* is OK. The quote marks signal it's their term, not the digest's voice. Even with the quoted attribution, gloss inline on first use per issue per the house jargon-gloss rule.
 
 - **Category shorthand that hides the concrete thing.** Phrases like *"Ethereum yield ecosystem,"* *"the DeFi landscape,"* *"crypto market structure,"* and *"the Ethereum staking economy"* are abstract aggregate nouns. They sound informative but leave the reader uncertain about what the digest is actually pointing at. From Gregory's 2026-05-12 markup on the Sharplink story: *"Does it mean Pools with ETH as one of the assets?"* — exactly the kind of question the prose should have answered before the reader had to ask. Replacement model:
-  - *"the same Ethereum yield ecosystem"* → *"the same kinds of pools the fund is targeting -- pools where ETH is one of the assets"*
+  - *"the same Ethereum yield ecosystem"* → name the specific pool type (see the "separate the general mechanism from the specific case" rule below for the full pattern)
   - *"the DeFi landscape"* → name the specific protocols, pool types, or chains being discussed
   - *"crypto market structure"* → name the specific market dynamic (e.g., spot vs. derivatives volume, exchange concentration, on-chain vs. off-chain settlement)
 
   **Why:** Beginner readers can plausibly hear an aggregate term as several different things. A reader hearing "Ethereum yield" might think pools running on Ethereum, pools containing ETH, or ETH-denominated yield products like LSTs — three meaningfully different categories. The prose has to do the disambiguation work upfront, in the same sentence, or the variable lesson lands fuzzy.
 
   **How to apply:** When you draft a sentence with a phrase like "X ecosystem" or "Y landscape" or "Z market," stop and ask: "what is the specific thing I'm pointing at?" Replace the aggregate with the concrete thing — usually a specific pool type, pair, protocol, or mechanic. Often it takes a few more words; the trade is worth it.
+
+- **Separate the general mechanism from the specific case in this story.** When a story is about a specific instance of a more general dynamic, state the general rule in general terms first, then explicitly instantiate it for THIS story. From Gregory's 2026-05-12 markup on the Sharplink rewrite: *"In this case, it's pools where ETH is one of the assets. In other cases, it might be something else."* The danger if you don't separate them: the reader hears the general rule and the specific instantiation as one fused thing, can't transport the rule to a different story next week, and the variable lesson stays local.
+
+  **Worked example from this story (Sharplink, Ethereum-focused fund):**
+  - First draft (general rule and specific case fused): *"more money flows into the same kinds of pools the fund is targeting -- pools where ETH is one of the assets."* Reader hears: "the rule is about ETH pools." Wrong takeaway.
+  - Final (separated): *"more money flows into the same kinds of pools the fund is targeting. Sharplink's fund is Ethereum-focused, so the pools getting deeper are the ones with ETH as one of the assets."* Reader hears: "the rule is about whatever pools the fund targets. In this story, that happens to be ETH-paired pools because Sharplink is Ethereum-focused."
+
+  **Why:** The variables (TVL, Volume, Range, etc.) compound by transporting across stories. A reader who only ever sees the rule applied to ETH pools won't recognize the same rule when it shows up next month with a Solana fund and SOL-paired pools. Explicit separation is what makes the rule portable.
+
+  **How to apply:** Any time you write a sentence that says "the same kind of X" or "this type of Y" or "the pools the fund targets," ask: "does this sentence work for any fund, any chain, any asset? Or did I bake the current story's specifics into the rule?" If the latter, split into two sentences: general mechanism first, specific instantiation second, with a connector like "in this case," "for [name]'s fund," or "since [actor] is [focus]-focused."
 
 ---
 
