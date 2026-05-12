@@ -115,9 +115,14 @@ Things to NOT do, with the article that triggered the lesson.
 - **Analyst/jargon prose that loses the reader on first pass.** From the 2026-05-11 BitMine "crypto spring" story, the team flagged three exact phrases as too dense:
   1. *"you experience fuller price exposure"* — abstract, sounds like a research note. Plain alternative: *"you capture the full upside"* or *"both sides of the pool rise together."*
   2. *"the composition of your position shifts toward the stable side as price rises"* — technically correct, but unparseable in one pass. Plain alternative: *"as price rises, the pool keeps selling ETH and accumulating USDC, so your ETH exposure shrinks."*
-  3. *"the directional narrative"* — analyst-speak. Plain alternative: *"the bull case"* or *"whether you believe ETH is going up."*
+  3. *"the directional narrative"* — analyst-speak. Plain alternative: *"whether you believe ETH is going up."*
 
   These are not the only offending shapes — they are diagnostic of a broader pattern. Any phrase that requires the reader to mentally re-parse a noun phrase ("the X of your Y shifts toward the Z") or that uses a noun-of-noun construction where a plain verb would do is a candidate for replacement. The fix is almost always: identify the actual *mechanic* (what physically happens in the pool) and describe it in active voice with short words.
+
+- **Trader/analyst vocabulary for price direction.** Use plain English for the question "is the price going up or down?" not trader shorthand. From Gregory's 2026-05-12 markup on the same BitMine story:
+  - *"the bull case for ETH"* → *"the case for ETH increasing in price"*
+
+  The principle: phrases like "bull case", "bullish setup", "bearish thesis" are shorthand traders use among themselves, but they make the reader work to translate. Plain restatements like "the case for ETH going up", "the case for ETH increasing in price", "reasons to expect a rally", and "reasons to expect a drawdown" describe the same thing without requiring fluency in trader vocabulary. Apply the same lens to similar shorthand ("risk-on", "risk-off", "alpha", "asymmetric upside", "thesis") when it shows up in a draft — restate in plain English describing what's actually happening or expected.
 
 ---
 
