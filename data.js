@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "05-19-2026",
+    "date": "May 19, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "+0.0%"
+      },
+      {
+        "label": "ETH",
+        "value": "+0.6%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Sideways, macro pressure"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$2.00"
+      }
+    ],
+    "intro": "Bitcoin held flat and Ethereum gained just 0.6% this week, while $649 million in ETF outflows -- the largest single-day exit since January -- signaled that institutional money is stepping back from crypto. Rising Treasury yields and geopolitical tensions are the backdrop. This issue covers Market Sentiment, Correlation, Asset Selection, TVL, and Volume -- and how a week like this touches each one for LPs managing active range positions.",
+    "stories": [
+      {
+        "title": "Biggest ETF Outflows Since January -- What the Sentiment Shift Means for Your Pair Type",
+        "body": "Spot Bitcoin ETFs saw $649 million in net outflows Monday -- the largest single-day exit since January -- as rising Treasury yields, geopolitical tensions, and inflation fears pulled institutional capital out of crypto. The variable to check here is Market Sentiment, and right now it is pointing cautious. Keep in mind that when sentiment is this negative, a correlated pair -- two assets that move in the same direction, like BTC and ETH -- can amplify any further decline, because both sides of your pool fall together. A non-correlated pair like BTC/USDC or ETH/USDC means only one side of your position takes the hit if prices fall further.",
+        "spark": "Are you currently in any correlated pairs like BTC/ETH? Given this week's sentiment shift, how are you thinking about whether to stay in them -- or has the sideways price action actually kept you in range without needing to change anything?"
+      },
+      {
+        "title": "BTCFi Protocol Echo Exploited -- The Asset Selection Lesson in eBTC",
+        "body": "BTCFi protocol Echo was exploited this week. The attacker minted 1,000 eBTC -- a synthetic Bitcoin token issued by the Echo protocol on Monad, designed to trade near the value of native BTC -- and used it as collateral to borrow WBTC before the exploit was caught. The variable this story is really about is Asset Selection: eBTC is not Bitcoin -- it is a token issued by a specific protocol, and a pool containing eBTC carries the risk of that protocol failing, not just the risk of BTC price movement. The non-obvious second variable is Volume -- exploit events drive fast swap activity across the whole market as arbitrage bots fire and panicked holders rotate out, so LPs in mainstream pools like BTC/USDC often earn more fees on exploit days than on a typical quiet day.",
+        "spark": "Do you know whether the assets in your current pools are native (like BTC or ETH) or wrapped or derivative versions? Have you ever noticed a Volume spike in your position on a day when a major exploit hit somewhere else on-chain?"
+      },
+      {
+        "title": "Staked ETH Keeps Rising While Price Sits Still -- A Correlation Signal Worth Watching",
+        "body": "On-chain data shows that staked ETH -- ETH locked into Ethereum's proof-of-stake system in exchange for staking rewards -- keeps rising even as ETH's price barely moves and underperforms BTC this week. That divergence is worth watching through the Correlation variable. When ETH and BTC stop moving together, a BTC/ETH pair stops working as expected: the pool keeps converting BTC into the slower-moving ETH, and you accumulate the lagging asset. Keep in mind that if you are in a correlated pair right now, a divergence like this one can reduce how much upside you capture, because the two assets are no longer rising together at the same rate.",
+        "spark": "If you are running a BTC/ETH or any other correlated pair right now, how closely are the two assets actually tracking each other this week? Have you been checking Correlation before entering a new position, or is it something you revisit less often?"
+      },
+      {
+        "title": "Minnesota Banks Can Now Custody Crypto -- What Institutional Channels Mean for TVL",
+        "body": "Minnesota's governor signed a law this week allowing banks and credit unions in the state to offer crypto custody services to clients. More institutional custody channels mean more pathways for capital to enter liquidity pools. The variable to watch is TVL -- the total dollars locked in a pool. When institutional capital flows in, TVL rises in the most established pools, making them deeper and more stable. But keep in mind that APR is essentially Volume divided by TVL -- if TVL grows without a matching rise in Volume, your share of the fees shrinks.",
+        "spark": "Which of your current pools do you think would see institutional capital enter first if something like this banking law brings more money on-chain -- and have you ever seen your APR compress after TVL jumped in a pool you were already in?"
+      },
+      {
+        "title": "SEC Clears Tokenized Stocks for On-Chain Trading -- Volume Opportunity and a New Asset Selection Question",
+        "body": "The SEC is expected to issue an innovation exemption for tokenized stocks as early as this week, with NYSE and Nasdaq already cleared to move forward. Tokenized stocks -- traditional equities like individual shares, represented as crypto tokens and traded on-chain -- could drive meaningful swap Volume as traders arbitrage between on-chain prices and traditional market prices. New tradeable assets typically see high swap activity at launch, which can lift fee income in pools near those new assets. But keep in mind the Asset Selection check: a tokenized stock with no market-cap rank and no multi-year chart history is harder to evaluate for safety, so any pool containing one of these new tokens carries a different risk profile than an established pair.",
+        "spark": "Would you consider providing liquidity in a pool with a tokenized stock as one of the assets, or would you want to see a longer chart history and an established market-cap rank first -- and what would make you feel comfortable enough to enter?"
+      }
+    ],
+    "closing": "What are you watching going into next week? Drop your current setups, pairs, and range widths in the group -- especially if the sentiment shift or any of these stories is changing how you think about your current positions."
+  },
+  {
     "id": "05-11-2026",
     "date": "May 11, 2026",
     "title": "LP Mastermind\nMarket Update",
