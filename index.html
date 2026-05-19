@@ -267,6 +267,24 @@
       text-transform: uppercase; padding: 2px 8px;
       border-radius: 4px; border: 1px solid var(--border-card); color: var(--text-2);
     }
+    .copy-link {
+      margin-left: auto;
+      display: inline-flex; align-items: center; gap: 6px;
+      font-family: inherit;
+      font-size: .6rem; font-weight: 600; letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 4px;
+      border: 1px solid var(--border-card);
+      background: transparent;
+      color: var(--text-2);
+      cursor: pointer;
+      transition: color .15s ease, border-color .15s ease, background .15s ease;
+    }
+    .copy-link:hover { color: var(--gold); border-color: var(--gold-dark); background: var(--gold-glow2); }
+    .copy-link:focus-visible { outline: 1px solid var(--gold); outline-offset: 2px; }
+    .copy-link.copied { color: var(--gold); border-color: var(--gold-dark); background: var(--gold-glow2); }
+    .copy-link-icon { font-size: .7rem; line-height: 1; }
 
     /* Issue title — gradient text */
     .issue-title {
@@ -585,6 +603,10 @@ function buildIssues() {
       <div class="issue-eyebrow reveal">
         <span class="issue-date">${d.date}</span>
         <span class="issue-tag">LP Mastermind Edition</span>
+        <button class="copy-link" data-id="${d.id}" aria-label="Copy link to this digest" type="button">
+          <span class="copy-link-icon" aria-hidden="true">🔗</span>
+          <span class="copy-link-label">Copy link</span>
+        </button>
       </div>
       <h1 class="issue-title reveal" data-d="1">${titleHTML}</h1>
       <p class="issue-subtitle reveal" data-d="2">${d.subtitle}</p>
@@ -605,16 +627,60 @@ function initObservers() {
   }, { threshold: 0.07 });
   document.querySelectorAll('.reveal').forEach(el => fadeIO.observe(el));
 
-  // Active nav chip
+  // Active nav chip + URL hash + tab title sync
   const navIO = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         document.querySelectorAll('.nav-chip').forEach(c => c.classList.remove('active'));
         document.querySelector(`.nav-chip[data-id="${e.target.id}"]`)?.classList.add('active');
+        const newHash = '#' + e.target.id;
+        if (window.location.hash !== newHash) {
+          history.replaceState(null, '', newHash);
+        }
+        const d = DIGESTS.find(x => x.id === e.target.id);
+        if (d) document.title = `${d.date} — Patient Investor Digest`;
       }
     });
   }, { rootMargin: '-25% 0px -65% 0px' });
   document.querySelectorAll('.issue').forEach(s => navIO.observe(s));
+}
+
+/* ── HASH ROUTING ──────────────────────────────────────────────── */
+function scrollToHashOnLoad() {
+  const id = window.location.hash.slice(1);
+  if (!id) return;
+  const target = document.getElementById(id);
+  if (target && target.classList.contains('issue')) {
+    requestAnimationFrame(() => target.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  }
+}
+
+/* ── COPY LINK ─────────────────────────────────────────────────── */
+function initCopyLink() {
+  const container = document.getElementById('top');
+  container.addEventListener('click', async e => {
+    const btn = e.target.closest('.copy-link');
+    if (!btn) return;
+    const id = btn.dataset.id;
+    if (!id) return;
+    const url = `${window.location.origin}${window.location.pathname}#${id}`;
+    try {
+      await navigator.clipboard.writeText(url);
+    } catch {
+      const tmp = document.createElement('input');
+      tmp.value = url; document.body.appendChild(tmp);
+      tmp.select(); document.execCommand('copy'); document.body.removeChild(tmp);
+    }
+    const label = btn.querySelector('.copy-link-label');
+    const original = label.textContent;
+    label.textContent = 'Copied!';
+    btn.classList.add('copied');
+    clearTimeout(btn._copyTimer);
+    btn._copyTimer = setTimeout(() => {
+      label.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  });
 }
 
 /* ── SCROLL ────────────────────────────────────────────────────── */
@@ -636,8 +702,11 @@ function initScroll() {
 }
 
 /* ── INIT ──────────────────────────────────────────────────────── */
+document.title = 'Patient Investor Digest';
 buildNav();
 buildIssues();
+initCopyLink();
+scrollToHashOnLoad();
 requestAnimationFrame(() => { initObservers(); initScroll(); });
 </script>
 </body>
