@@ -170,7 +170,7 @@ def call_claude(prompt):
         ["claude", "-p", prompt],
         capture_output=True,
         text=True,
-        timeout=420,
+        timeout=900,
     )
     print(f"Claude returncode: {result.returncode}, stdout_len: {len(result.stdout)}")
     if result.stderr:
