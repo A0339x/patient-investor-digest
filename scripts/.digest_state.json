@@ -54,6 +54,8 @@
       "closing": "What are you watching going into next week? Drop your current setups, pairs, and range widths in the group -- especially if the sentiment shift or any of these stories is changing how you think about your current positions."
     },
     "slack_ts": "1779179479.131179",
-    "generated_at": "2026-05-19T08:31:20.298185+00:00"
-  }
+    "generated_at": "2026-05-19T08:31:20.298185+00:00",
+    "last_processed_ts": "1779184417.474209"
+  },
+  "published": true
 }
