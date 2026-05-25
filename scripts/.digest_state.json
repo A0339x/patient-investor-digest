@@ -54,6 +54,8 @@
       "closing": "What are you watching going into next week? Drop your current pairs, range widths, and whether you are running correlated or stablecoin-paired positions in the group."
     },
     "slack_ts": "1779726277.899109",
-    "generated_at": "2026-05-25T16:24:39.332171+00:00"
-  }
+    "generated_at": "2026-05-25T16:24:39.332171+00:00",
+    "last_processed_ts": "1779746406.814579"
+  },
+  "published": true
 }
