@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "05-25-2026",
+    "date": "May 25, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "+1.2%"
+      },
+      {
+        "label": "ETH",
+        "value": "+1.0%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Slow, ranging week"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$1.50"
+      }
+    ],
+    "intro": "BTC held below $78,000 for most of the week as spot ETF outflows continued for a second straight week -- a slow, ranging stretch rather than a move in either direction. For LPs, wider positions are holding well while tighter, upward-skewed ranges may be drifting out of fee-earning territory. This week touches on Market Sentiment, Volume, Asset Selection, Correlation, and Average Volume.",
+    "stories": [
+      {
+        "title": "Two Weeks of ETF Outflows -- What the Slowdown Means for Your Pair Type",
+        "body": "Spot Bitcoin ETFs shed over $1 billion in net outflows for a second straight week, with speculation around a U.S.-Iran deal adding caution to an already slow market. BTC held below $78,000. Analysts are calling it rotation -- institutions shifting between assets -- not a full exit from the space.\n\nThe variable to check here is Market Sentiment -- the fear and greed gauge on Coin Market Cap that tracks whether the market is feeling cautious or confident. A neutral or cautious reading often means price drifts sideways for a stretch. Sideways is actually decent for LPs: price stays inside ranges longer, fees accumulate, and you do not need to rebalance as often.\n\nThe second variable is Correlation. If you are in a correlated pair -- two assets that move together, like BTC and ETH -- a sideways market means neither asset is moving sharply in either direction. Your range stays intact and earns fees. That is fine. But if you entered a correlated pair expecting a strong upward move and set a tight upward-skewed range, two weeks of flat action means you may be earning less than you expected. Knowing which outcome your current setup is built for is the thing worth checking.",
+        "spark": "What is the Market Sentiment reading on Coin Market Cap right now, and does your current pair type match what the market is doing -- correlated for a move higher, or uncorrelated to protect against a drop?"
+      },
+      {
+        "title": "Squid Module Exploit: $3.2M and Two Variables in One Story",
+        "body": "A third-party module called SquidRouterModule -- a separate piece of code that plugs into Squid's cross-chain routing protocol, allowing swaps across different blockchains -- was exploited for roughly $3.2 million. Squid said its core protocol was unaffected.\n\nThe primary variable is Asset Selection. The exploit hit a third-party layer, not the core protocol -- but for anyone routing through that module, the distinction meant little in the moment. Asset Selection is the safety barrier, and it extends beyond the tokens in your pair to the routing infrastructure you use. Staying in top-30 assets on well-audited, long-standing platforms lowers the probability that this kind of exploit reaches your position. Recovery risk after a drawdown is much lower when both the asset and the platform behind it have a long track record.\n\nThe non-obvious second variable is Volume. Exploit days tend to spike on-chain swap activity: arbitrage bots fire, panicked holders rotate out, and attackers move funds through DEXes. For LPs sitting in mainstream pools like ETH/USDC or BTC/USDC that had nothing to do with Squid, that surge in swaps means higher fee income during the chaos. The same event that hurts one pool is a Volume tailwind for another.",
+        "spark": "Have you thought about the routing layer your positions use when evaluating where to LP? Does the platform or bridge your pair relies on factor into your Asset Selection decision?"
+      },
+      {
+        "title": "Strategy's $65 Billion in Bitcoin -- When Sustained Institutional Buying Changes the Correlation Question",
+        "body": "Strategy -- the company formerly known as MicroStrategy -- now holds over $65 billion in Bitcoin, built through repeated large purchases across several years. Their biggest buys have come during market dips, reflecting a sustained view that Bitcoin's price will rise over time.\n\nWhen you see sustained buying in one direction like this, two variables are worth thinking about together: Correlation and Range.\n\nCorrelation first. A correlated pair -- two assets that move together, like BTC and ETH -- lets both sides of your LP position rise at the same time when prices go up. You capture appreciation on both assets at once. In a BTC/USDC pair, half your capital stays flat (the USDC side), so a 20% rise in BTC gives you roughly 10% appreciation on the full position. In a BTC/ETH pair where both go up 20%, your whole position appreciates.\n\nRange second. Within whatever pair you pick, you can skew the range toward the upside -- setting more room above than below -- so you stay in range longer as price climbs and earn more fees during the move.\n\nKeep in mind these are alternatives more than additions. Correlation is a choice about which pair you are in. Range skew is a choice about where your range sits within that pair. You can use both at once, but that means committing to a more specific view: not just that prices will rise, but that both assets will rise together. If you only believe one of those things, pick the lever that matches your actual view.",
+        "spark": "Are you currently in a correlated pair or a paired-with-stablecoin position? What is driving that choice -- a view that prices are going up, or caution about a possible drop?"
+      },
+      {
+        "title": "Buy Crypto Through ChatGPT -- What Easier Retail Onboarding Does to Volume",
+        "body": "MoonPay's new app lets users buy Bitcoin, XRP, and Solana directly through ChatGPT just by talking to the chatbot -- no exchange account or wallet setup required. The easier it is to buy crypto, the more net buying flows into the market.\n\nThe variable this connects to is Volume -- the 24-hour buy and sell activity that drives fee income in liquidity pools. More retail buyers entering the market means more on-chain swap activity across DEXes, which translates to higher Volume and higher fee income for LPs in mainstream pools.\n\nThe non-obvious second variable is Average Volume -- the 45-day trailing average that tells you whether today's pool activity is a real signal or a one-day spike. If easier onboarding drives a burst of retail buying, the daily Volume number on Krystal that day will look elevated and the APR will look high. But if that activity normalizes after the novelty fades, the 45-day Average Volume will settle back down -- and the APR will not hold. When you see a pool with unusually high daily Volume, checking the 45-day average is what separates a sustainable fee opportunity from a one-day outlier.",
+        "spark": "When you evaluate a pool on Krystal, do you check the 45-day Average Volume, or mostly go off the daily number? What is your process for telling a real Volume signal from a spike?"
+      },
+      {
+        "title": "TrapDoor Malware and What Developer-Environment Attacks Mean for Asset Selection",
+        "body": "Researchers flagged a malware campaign called TrapDoor that planted malicious packages in npm, PyPI, and Crates.io -- the software libraries that crypto developers use to build protocols -- targeting developer environments for Aptos, Sui, and Solana. When malware gets into developer toolchains, smart contracts built with compromised tools can contain hidden vulnerabilities. For LPs, the exposure is not always visible: a pool might look normal on-chain while the underlying contracts carry risk from a compromised build environment.\n\nThe variable this story connects to is Asset Selection. Market-cap rank is a proxy for how much scrutiny, auditing, and real-world stress testing a chain and its protocols have received over time. Chains with longer track records and larger developer communities tend to have more eyes on their code -- making it harder for a malicious package to slip through undetected. When you LP on a newer chain or in a less-audited protocol, you inherit some of the risk that comes with a less mature ecosystem.\n\nA malicious package in a developer toolchain does not show up in a price chart until funds start moving. Asset Selection is the check you run before the event, not after.",
+        "spark": "When you choose where to LP, do you factor in the age and audit track record of the protocol, or mostly focus on the APR and the pair? What would make you avoid a pool with otherwise attractive fee numbers?"
+      }
+    ],
+    "closing": "What are you watching going into next week? Drop your current pairs, range widths, and whether you are running correlated or stablecoin-paired positions in the group."
+  },
+  {
     "id": "05-19-2026",
     "date": "May 19, 2026",
     "title": "LP Mastermind\nMarket Update",
