@@ -1,0 +1,113 @@
+/* ============================================================================
+   sparks.css — chat CTA + count badge rendered into each .story-spark by
+   sparks.js. Inherits the digest's token system (declared in index.html
+   :root): --gold, --bg-callout, --text-1/2, --border-hi, spacing scale.
+   ========================================================================== */
+
+/* Actions row sits beneath the spark text, inside the gold-bordered callout. */
+.spark-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3, 0.75rem);
+  margin-top: var(--sp-3, 0.75rem);
+  padding-top: var(--sp-3, 0.75rem);
+  border-top: 1px solid var(--border-hi, rgba(201, 168, 76, 0.18));
+}
+
+.spark-actions[hidden] {
+  display: none;
+}
+
+/* "Discuss in chat →" — quiet gold button, fills with gold on hover. */
+.spark-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--gold, #c9a84c);
+  text-decoration: none;
+  padding: 0.4rem 0.75rem;
+  border: 1px solid var(--gold, #c9a84c);
+  border-radius: 6px;
+  background: transparent;
+  transition:
+    background 160ms ease,
+    color 160ms ease,
+    transform 160ms ease;
+  white-space: nowrap;
+}
+
+.spark-cta:hover,
+.spark-cta:focus-visible {
+  background: var(--gold, #c9a84c);
+  color: var(--text-on-gold, #0d0b07);
+  outline: none;
+}
+
+.spark-cta:active {
+  transform: translateY(1px);
+}
+
+/* "N members chatting" — muted, with a small gold pulse dot. */
+.spark-count {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  color: var(--text-2, #888880);
+}
+
+.spark-count::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--gold, #c9a84c);
+  box-shadow: 0 0 8px 1px var(--gold-glow, rgba(201, 168, 76, 0.1));
+  flex: none;
+}
+
+/* At zero replies the dot reads as an invitation, not activity. */
+.spark-count--empty {
+  color: var(--text-2, #888880);
+  font-style: italic;
+}
+.spark-count--empty::before {
+  background: var(--gold-circuit, #3d3520);
+  box-shadow: none;
+}
+
+/* Session-expired banner — pinned strip at the very top of the page. */
+.spark-session-banner {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  padding: 0.6rem 1rem;
+  text-align: center;
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: var(--text-1, #e8e8e4);
+  background: var(--bg-callout, #1e1a10);
+  border-bottom: 1px solid var(--gold, #c9a84c);
+}
+
+.spark-session-banner a {
+  color: var(--gold, #c9a84c);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .spark-actions {
+    gap: var(--sp-2, 0.5rem);
+  }
+  .spark-cta {
+    font-size: 0.72rem;
+  }
+}

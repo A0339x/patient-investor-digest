@@ -1,0 +1,4 @@
+# Agent / tooling working dirs — never commit
+.claude/
+.wrangler/
+.DS_Store
