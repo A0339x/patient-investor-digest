@@ -1,0 +1,25 @@
+# Cloudflare Pages config for the Patient Investor Digest.
+#
+# Cloudflare Pages will read this when building the project. Functions in
+# functions/_middleware.ts run before every request — see that file for
+# the gate logic.
+#
+# Secrets (DIGEST_SHARED_SECRETS) are set via the Pages dashboard / wrangler
+# secret put, NOT here. This file is version-controlled.
+
+name = "patient-investor-digest"
+pages_build_output_dir = "."
+
+# Pin the Workers runtime feature set. Required for crypto.subtle.importKey
+# + HMAC verify to behave as expected in functions/_middleware.ts. Bumping
+# this date may change runtime behavior — test the gate after any bump.
+compatibility_date = "2024-11-12"
+
+# Public, non-secret vars. SOCIAL_URL is the back-link target on splash.html.
+# Override per-environment via the Pages dashboard.
+[vars]
+SOCIAL_URL = "https://patient-investor-demo.vercel.app"
+# Default OFF for safety. Flip to "true" via the dashboard once current
+# digest readers have been granted access via the social admin toggle.
+# Until then the middleware passes through everything (digest stays public).
+GATE_ENABLED = "false"

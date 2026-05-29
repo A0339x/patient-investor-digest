@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>The Patient Investor Digest</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #0D0B07;
+      --text: #E8E8E4;
+      --muted: #888880;
+      --gold: #C9A84C;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Inter', -apple-system, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Subtle radial glow at the top — the "single lamp lit" motif from
+       the approved Variant F mockup. */
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0; left: 50%;
+      width: 800px;
+      height: 600px;
+      transform: translateX(-50%);
+      background: radial-gradient(ellipse at center top,
+                  rgba(201, 168, 76, 0.05) 0%,
+                  rgba(201, 168, 76, 0) 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    main {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 540px;
+    }
+
+    .lamp {
+      width: 10px;
+      height: 10px;
+      background: var(--gold);
+      border-radius: 50%;
+      margin: 0 auto 32px;
+      box-shadow: 0 0 24px rgba(201, 168, 76, 0.4);
+    }
+
+    .wordmark {
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 13px;
+      letter-spacing: 0.2em;
+      margin-bottom: 96px;
+    }
+
+    h1 {
+      font-weight: 700;
+      font-size: 60px;
+      line-height: 1.1;
+      margin-bottom: 32px;
+    }
+
+    .body p {
+      font-size: 18px;
+      margin-bottom: 24px;
+    }
+
+    .body em {
+      font-style: italic;
+    }
+
+    .closing {
+      color: var(--gold);
+      font-weight: 500;
+      font-size: 16px;
+      margin: 40px 0;
+    }
+
+    a.back {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color 180ms;
+    }
+
+    a.back:hover {
+      color: var(--gold);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    a.back:focus-visible {
+      outline: 2px solid var(--gold);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* Transitional banner: addresses existing readers during rollout.
+       Remove this block + the .transitional-banner element below once
+       all current readers have been granted access via social admin. */
+    .transitional-banner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      background: rgba(13, 11, 7, 0.92);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+      padding: 14px 24px;
+      text-align: center;
+    }
+    .transitional-banner .label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .transitional-banner .body {
+      font-size: 13px;
+      color: var(--text);
+      line-height: 1.5;
+      max-width: 640px;
+      margin: 0 auto;
+    }
+    /* Reserve space at top of body so the centered content doesn't
+       crash into the fixed banner. */
+    body { padding-top: 88px; }
+
+    @media (max-width: 640px) {
+      h1 { font-size: 40px; }
+      .body p { font-size: 16px; }
+      .wordmark { letter-spacing: 0.15em; margin-bottom: 64px; }
+      .transitional-banner .body { font-size: 12px; }
+      body { padding-top: 96px; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Transitional banner. Remove this element + the .transitional-banner
+       CSS block above once all current digest readers have been granted
+       access via the social admin toggle. -->
+  <div class="transitional-banner" role="status">
+    <span class="label">Rebuilding how access works</span>
+    <p class="body">If you've been reading the Digest, your access will be back soon — Greg will reach out when it's ready.</p>
+  </div>
+
+  <main>
+    <div class="lamp" aria-hidden="true"></div>
+    <div class="wordmark">PATIENT INVESTOR DIGEST</div>
+    <h1>Hello there.</h1>
+    <div class="body">
+      <p>You've found the Digest. It hasn't unlocked for you yet, but it's waiting. Each week, a new issue ties the week's actual market news to the variables you're learning. Stories end with Sparks that open into live group conversations where members work through the trade-offs together.</p>
+      <p><em>It's the secret-agent toolkit for the mastermind. The place where the variables stop being abstract and start being how you read the market.</em></p>
+    </div>
+    <div class="closing">Stay the course. You'll unlock it as you go.</div>
+    <a class="back" href="/" id="back-link">← Back to the mastermind</a>
+  </main>
+
+  <script>
+    // Set the back-link to the social site if a hint is available.
+    // The Pages middleware injects window.__DIGEST_BACK_URL when serving
+    // splash to an authenticated-but-stale session; otherwise we leave
+    // the link as "/" so a refresh re-attempts auth.
+    (function() {
+      var hint = window.__DIGEST_BACK_URL || '';
+      if (hint) document.getElementById('back-link').href = hint;
+    })();
+  </script>
+</body>
+</html>
