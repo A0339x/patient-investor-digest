@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "06-01-2026",
+    "date": "June 01, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "-3.0%"
+      },
+      {
+        "label": "ETH",
+        "value": "-0.2%"
+      },
+      {
+        "label": "Volatility",
+        "value": "BTC sharp drop, ETH calm"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$2.00"
+      }
+    ],
+    "intro": "BTC fell 3% today while ETH barely moved -- a split that played out very differently depending on which pair you were in. Market Sentiment turned cautious after Strategy sold bitcoin, while institutional buyers kept accumulating ETH on the other side. This issue touches on Correlation, Market Sentiment, Range, Asset Selection, and Volume -- and what today's mixed signals mean for your range decisions heading into the week.",
+    "stories": [
+      {
+        "title": "BTC Down 3%, ETH Down 0.2% -- What That Gap Means for Your Pair",
+        "body": "BTC fell 3% in 24 hours while ETH dropped only 0.2%. If you are in a BTC/ETH pair, your pool has been selling ETH and accumulating BTC to stay balanced. That happens because Correlation -- the degree to which two assets move together -- is lower when one side drops fifteen times as far as the other. A wider Range gives you more room to absorb that kind of divergence; a narrower Range earns more fees when the two assets move in step, but takes you out of the pool faster when they do not.",
+        "spark": "Are you in a BTC/ETH pair right now? If so, how wide is your range -- and did today's 3% BTC drop push you close to your lower boundary or out of range entirely?"
+      },
+      {
+        "title": "Strategy Sells Bitcoin -- The Market Took Notice",
+        "body": "Strategy -- the company holding the largest known private bitcoin reserve -- sold some of its bitcoin this week, sending BTC down 3% in 24 hours. The sale resolved a $20 million Polymarket pool (a prediction market where people wager real money on real-world outcomes) that had been tracking whether Strategy would sell before May 31 -- they did. Market Sentiment -- the overall mood of buyers and sellers -- shifted toward caution. When Market Sentiment turns cautious and you are in a correlated pair (two assets that tend to move together, like BTC and ETH), both sides of your pool can fall at the same time -- which is where Correlation works against you rather than for you.",
+        "spark": "After Strategy's sale, are you thinking about moving any correlated pairs toward stable-paired positions like ETH/USDC or BTC/USDC -- or are you holding your current setup? What is shaping that call?"
+      },
+      {
+        "title": "BitMine Keeps Buying ETH -- What Sustained Institutional Buying Means for Your Setup",
+        "body": "BitMine -- Tom Lee's company -- added another 26,497 ETH this week, pushing toward its goal of owning 5% of Ethereum's total supply sometime in 2026. That is sustained one-direction buying, and it is the scenario where two variables are worth thinking about together: Correlation and Range. If you think ETH is heading higher, a correlated pair -- two assets that tend to move together, like ETH and BTC -- captures the full move because both sides go up at the same time. A skewed Range, set so more of it sits above your current entry price, keeps you in play longer as ETH rises and leaves more of your position exposed to ETH's upside. These two are alternatives, not additions: Correlation is a choice about which pair you are in; a skewed Range is a choice about how you set the range within whatever pair you already hold.",
+        "spark": "If you are watching ETH this week, which feels more relevant to your current setup -- moving to a more correlated pair, or skewing your existing range to leave more room above current ETH prices? What are you running right now?"
+      },
+      {
+        "title": "Grayscale Launches a Hyperliquid ETF -- Volume Upside, Asset Selection Risk",
+        "body": "Grayscale set a 0.29% annual fee for a new ETF -- exchange-traded fund, a traditional finance product that lets investors buy exposure through a brokerage account -- built around HYPE, the native token of the Hyperliquid decentralized exchange. ETF launches often push new money toward the underlying token, which can lift Volume in HYPE-based pools; higher Volume relative to TVL (Total Value Locked -- the total dollars sitting in a pool) means more fee income per dollar you have deployed. The non-obvious second variable is Asset Selection: HYPE is not in the top 30 crypto assets by market cap, which means higher volatility, faster price moves that can knock you out of range, and less predictable recovery after a sharp drop.",
+        "spark": "Do you use a market-cap rank cut-off for the pools you will LP into? Where is your personal line -- top 30, top 50, top 100 -- and does news like a Grayscale ETF launch ever move a token into your comfort zone?"
+      },
+      {
+        "title": "Anthropic Files for IPO Near $1 Trillion -- What AI Confidence Means for Crypto Sentiment",
+        "body": "Anthropic -- an artificial intelligence company -- confidentially filed for a US IPO this week after its valuation neared $1 trillion. That level of confidence in a technology sector is worth checking against where crypto Market Sentiment sits right now. Market Sentiment -- measured practically by the Coin Market Cap Fear and Greed gauge -- shows whether the broader market is reading AI confidence as a tailwind for crypto prices or staying cautious despite it. Keep in mind that extreme readings on either end of that gauge tend to precede a shift in the opposite direction: extreme fear has often marked a point where prices start heading back up, and extreme greed has often marked one where a drop follows.",
+        "spark": "Have you checked the Coin Market Cap Fear and Greed gauge this week? What does it read right now -- and how is that shaping the range width or pair type you are running?"
+      }
+    ],
+    "closing": "What are you watching going into the week -- are you adjusting pair types after today's BTC drop, or holding your current setups? Drop your pairs, range widths, and what is making you stay or move in the group."
+  },
+  {
     "id": "05-25-2026",
     "date": "May 25, 2026",
     "title": "LP Mastermind\nMarket Update",
