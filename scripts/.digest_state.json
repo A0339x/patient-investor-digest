@@ -54,6 +54,8 @@
       "closing": "What are you watching going into the week -- are you adjusting pair types after today's BTC drop, or holding your current setups? Drop your pairs, range widths, and what is making you stay or move in the group."
     },
     "slack_ts": "1780341870.443009",
-    "generated_at": "2026-06-01T19:24:31.388602+00:00"
-  }
+    "generated_at": "2026-06-01T19:24:31.388602+00:00",
+    "last_processed_ts": "1780593486.589529"
+  },
+  "published": true
 }
