@@ -1,5 +1,6 @@
 import json
 import os
+import re
 import subprocess
 import sys
 from datetime import datetime, timezone
@@ -165,6 +166,23 @@ Rules:
 - Return ONLY the JSON object, nothing else"""
 
 
+def _extract_json(raw):
+    """Pull the JSON object out of Claude's reply, tolerating code fences or
+    surrounding prose. The model occasionally wraps the JSON in ```json fences
+    or prefixes a sentence ("Here's the digest:"), which made a naive
+    json.loads() fail at char 0 -- the cause of the 2026-06-08 missed digest."""
+    raw = raw.strip()
+    # Prefer a fenced ```json ... ``` block if one is present anywhere.
+    m = re.search(r"```(?:json)?\s*(\{.*\})\s*```", raw, re.DOTALL)
+    if m:
+        return m.group(1)
+    # Otherwise take the outermost {...} span, ignoring any surrounding prose.
+    start, end = raw.find("{"), raw.rfind("}")
+    if start != -1 and end > start:
+        return raw[start:end + 1]
+    return raw
+
+
 def call_claude(prompt):
     result = subprocess.run(
         ["claude", "-p", prompt],
@@ -183,10 +201,13 @@ def call_claude(prompt):
     if not raw:
         print(f"Claude returned empty output. stderr: {result.stderr[:500]}")
         raise RuntimeError("Claude returned empty output")
-    if raw.startswith("```"):
-        lines = raw.split("\n")
-        raw = "\n".join(lines[1:-1] if lines[-1].startswith("```") else lines[1:])
-    return json.loads(raw)
+    try:
+        return json.loads(_extract_json(raw))
+    except json.JSONDecodeError as e:
+        # Surface the raw output so a future parse failure is diagnosable from
+        # the CI log instead of just a bare traceback.
+        print(f"Could not parse Claude output as JSON ({e}). Raw output:\n{raw[:2000]}")
+        raise
 
 
 def load_state():
