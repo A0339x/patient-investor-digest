@@ -49,6 +49,8 @@
       "closing": "What are you watching going into next week -- are you holding your current ranges through the softness, or making adjustments? Drop your pairs and range setups in the group."
     },
     "slack_ts": "1781130093.642679",
-    "generated_at": "2026-06-10T22:21:34.307817+00:00"
-  }
+    "generated_at": "2026-06-10T22:21:34.307817+00:00",
+    "last_processed_ts": "1781130151.821039"
+  },
+  "published": true
 }
