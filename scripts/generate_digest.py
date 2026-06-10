@@ -183,7 +183,9 @@ def _extract_json(raw):
     return raw
 
 
-def call_claude(prompt):
+def _run_claude(prompt):
+    """Invoke the Claude CLI once and return its stdout (stripped). Raises on a
+    non-zero exit or empty output."""
     result = subprocess.run(
         ["claude", "-p", prompt],
         capture_output=True,
@@ -201,13 +203,39 @@ def call_claude(prompt):
     if not raw:
         print(f"Claude returned empty output. stderr: {result.stderr[:500]}")
         raise RuntimeError("Claude returned empty output")
-    try:
-        return json.loads(_extract_json(raw))
-    except json.JSONDecodeError as e:
-        # Surface the raw output so a future parse failure is diagnosable from
-        # the CI log instead of just a bare traceback.
-        print(f"Could not parse Claude output as JSON ({e}). Raw output:\n{raw[:2000]}")
-        raise
+    return raw
+
+
+# Appended to the prompt on a retry when the first reply couldn't be parsed.
+_JSON_ONLY_NUDGE = (
+    "\n\nIMPORTANT: your previous reply could not be parsed as JSON. Reply with "
+    "ONLY the raw JSON object -- no markdown code fences, no commentary before or "
+    "after it. Your reply must start with { and end with }."
+)
+
+
+def call_claude(prompt):
+    """Run Claude and parse its JSON reply. If the first reply can't be parsed,
+    retry once with a stricter JSON-only instruction before giving up. The happy
+    path (first reply parses) returns immediately and is unchanged -- the retry
+    only adds a self-heal for the rare unparseable reply (the 2026-06-08 failure
+    mode that skipped that week's digest)."""
+    attempts = [prompt, prompt + _JSON_ONLY_NUDGE]
+    last_err = None
+    for i, p in enumerate(attempts):
+        if i:
+            print(f"Retrying Claude with a stricter JSON-only instruction "
+                  f"(attempt {i + 1}/{len(attempts)})...")
+        raw = _run_claude(p)
+        try:
+            return json.loads(_extract_json(raw))
+        except json.JSONDecodeError as e:
+            last_err = e
+            # Surface the raw output so the failure is diagnosable from the CI log.
+            print(f"Could not parse Claude output as JSON ({e}). Raw output:\n{raw[:2000]}")
+    raise RuntimeError(
+        f"Claude output could not be parsed as JSON after {len(attempts)} "
+        f"attempts: {last_err}")
 
 
 def load_state():
