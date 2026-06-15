@@ -54,6 +54,8 @@
       "closing": "What setups are you running heading into next week -- which pairs, how wide, and what volume signals are you tracking in the pools you are watching? Drop it in the group."
     },
     "slack_ts": "1781548149.530789",
-    "generated_at": "2026-06-15T18:29:11.466865+00:00"
-  }
+    "generated_at": "2026-06-15T18:29:11.466865+00:00",
+    "last_processed_ts": "1781548203.458189"
+  },
+  "published": true
 }
