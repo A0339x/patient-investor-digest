@@ -1,56 +1,59 @@
 {
   "pending": {
     "digest": {
-      "id": "06-10-2026",
-      "date": "June 10, 2026",
+      "id": "06-15-2026",
+      "date": "June 15, 2026",
       "title": "LP Mastermind\nMarket Update",
       "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
       "snapshot": [
         {
           "label": "BTC",
-          "value": "-1.0%"
+          "value": "+4.9%"
         },
         {
           "label": "ETH",
-          "value": "-2.4%"
+          "value": "+10.3%"
         },
         {
           "label": "Volatility",
-          "value": "Mild, trending lower"
+          "value": "Sharp single-day spike"
         },
         {
           "label": "ETH Gas",
-          "value": "~$1.80"
+          "value": "~$6.00"
         }
       ],
-      "intro": "BTC is down 1.0% and ETH is down 2.4% in the past 24 hours, with ETH leading the pullback. On-chain analytics are flagging Bitcoin demand as deeply unfavorable, and retail investors may soon be selling crypto to fund SpaceX's upcoming IPO. This week the digest touches on Asset Selection, Volume, Correlation, TVL, and The Chart -- five variables all showing up in this week's news.",
+      "intro": "ETH gained 10.3% and BTC gained 4.9% in a single session -- the kind of sharp one-day move that tests every range on the board. Correlated pairs captured more of the upside; tighter ranges on ETH likely went out of bounds mid-session. This issue covers the Range and Correlation lessons from the spike, what sustained Bitcoin buying means for pair type, and two slower-moving signals -- Average Volume and Asset Selection -- worth checking before you add liquidity this week.",
       "stories": [
         {
-          "title": "Raydium Exploit: The Risk That Asset Selection Does Not Automatically Cover",
-          "body": "Raydium -- a decentralized exchange on Solana -- had $1.34 million drained from five retired AMM pools, meaning pools running on older smart contract code the protocol stopped actively maintaining. Raydium's treasury is covering the losses, and LPs in active pools were unaffected. The Asset Selection variable passes at the asset level: Solana is a top-30 asset by market-cap rank. But this exploit came from the protocol layer -- a high-rank asset can still sit inside an unmaintained pool contract, and that is a separate risk the rank alone does not cover. The non-obvious second variable is Volume: exploit events tend to spike market-wide trading activity as bots arbitrage and holders rotate out, and since APR is essentially Volume divided by TVL, a busy exploit day can lift fee income on your unrelated ETH/USDC or BTC/USDC positions even when bad news hits somewhere else.",
-          "spark": "Which pools are you currently providing liquidity in -- and do you know whether the underlying contracts are on that protocol's current version, or an older one?"
+          "title": "ETH's 10% Move: The Week's Range Test",
+          "body": "ETH jumped 10.3% in a single session, reaching $1,829. That move was a live test of Range -- the price band you set when you entered the pool. A tight range around yesterday's price likely went out of bounds before the move finished. Wider ranges stayed active and kept earning fees through the spike, including from the heavy arbitrage and rebalancing Volume that a big single-day price move generates. The LPs who stayed in range were earning during the busiest fee window of the week.",
+          "spark": "What range width are you holding on ETH pairs right now, and did today's 10% move keep you in range -- or knock you out before you could earn on the volume?"
         },
         {
-          "title": "CryptoQuant Sees a Bitcoin Floor Near $53,600 -- The Chart and Range Together",
-          "body": "CryptoQuant -- a blockchain analytics firm -- is flagging Bitcoin demand as deeply unfavorable, with its model pointing to a potential support level near $53,600. That is about 12% below where BTC trades today at $61,188. The Chart variable asks two questions together: is the asset's long-horizon history alive, and where on that chart are you buying right now? BTC passes the long-horizon check -- it has years of two-way price action. But there is roughly 12% of downside between today's price and the model's floor, and that gap matters for Range. If you have a BTC pair running, it is a good habit to know where your lower boundary sits relative to $53,600 -- because if price moves there, the answer tells you whether you stay in range and keep earning fees, or go out of range and stop.",
-          "spark": "Where is the lower boundary on any BTC pairs you are currently running? Would a drop to $53,600 keep you in range -- or knock you out?"
+          "title": "Strategy Keeps Buying BTC: What Sustained Buying Means for Pair Type",
+          "body": "Strategy added to its Bitcoin holdings for the second straight week and expanded its USD cash reserve to $1.1 billion, while Benchmark pushed back on forced-selling fears. For LPs watching sustained one-direction buying, the variable worth thinking about is Correlation. A correlated pair -- two assets that move together, like BTC and ETH -- lets both sides of your pool rise at once when prices go up. In a BTC/USDC pair, if BTC rises 5%, only the BTC half of your position moves with it; the USDC side stays flat. In a BTC/ETH pair, both sides rise together, so your pool captures more of the overall gain.",
+          "spark": "Are you currently in any correlated pairs -- two volatile assets that tend to move together, like BTC and ETH? With both up this week, how much of that gain did your pair type actually capture?"
         },
         {
-          "title": "SpaceX IPO Could Pull Retail Out of Crypto -- Correlation Is the Variable to Watch",
-          "body": "SpaceX is reportedly setting aside 30% of its IPO shares for retail investors, and some observers expect retail holders to sell crypto positions to fund the purchase. If BTC and ETH both fall at once because of the same macro event, that is the Correlation variable at work. In a correlated pair -- two assets that move together, like a BTC/ETH LP position -- both sides fall at once and you absorb the full drop across both assets. In an uncorrelated pair like BTC/USDC, only one side moves while USDC holds steady, so roughly half the downside is cushioned by the stable side. When you expect a single event to pull from all of crypto at once, keep in mind that the pair type you are in determines how much of that drop actually reaches your position.",
-          "spark": "What pairs are you currently in -- correlated or uncorrelated? Has the recent softness changed how you are thinking about pair type heading into next week?"
+          "title": "SOL Treasury Firms Are Getting Squeezed: Asset Selection When an Asset Falls",
+          "body": "Forward Industries -- a company that holds Solana (SOL) as its primary treasury asset -- tried to acquire three rival SOL-holding firms this month and was turned down each time. The smaller firms have seen their implied values slip as SOL's price falls. This is an Asset Selection and Range lesson at the same time: even a top-10 asset by market cap falls in price. When it does, the pool keeps buying more of the falling asset and selling the stable side -- the further the drop goes, the more of the depreciating asset your position holds. A wider Range gives you more room to stay in bounds during a drop, but a sustained decline will still shift most of your position toward the falling asset.",
+          "spark": "If you are LP-ing in any SOL pools right now, how wide is your range -- and have you looked at where SOL sits on its longer-term chart relative to where you entered?"
         },
         {
-          "title": "Advisors Are Moving Toward Stablecoins -- What That Means for TVL and Asset Selection",
-          "body": "Bitwise's CIO says financial advisors are now more interested in stablecoins and tokenized assets -- real-world assets like bonds or equities wrapped into on-chain tokens -- than in Bitcoin. When that kind of capital flows into stablecoin pools, it builds TVL -- total dollars locked in those pools -- making them deeper and harder to move the APR on with new inflows. The non-obvious second variable is Asset Selection. Stablecoins vary widely in market-cap rank, and a stablecoin that loses its dollar peg stops acting stable -- it becomes a volatile asset sitting in your pair. Keep in mind that the Asset Selection check applies to both sides of your pair: the rank of the stable side matters just as much as the rank of the volatile side.",
-          "spark": "If you are running a stablecoin pair right now, do you know the market-cap rank of the stablecoin you are paired with -- and when did you last check it?"
+          "title": "SEC's NMS Proposal: Could On-Chain Volume Get a Structural Lift?",
+          "body": "The SEC last week proposed rescinding Rules 611 and 610(e) of Regulation NMS -- the rules that determine how trade orders are routed across exchanges. Benchmark called it the most consequential US crypto regulatory move of 2026. Loosening those routing rules could push more swap activity to on-chain venues like Uniswap rather than centralized exchanges -- for LPs, that is a Volume story. More on-chain swaps mean more fees flowing into pools, and because APR is essentially Volume divided by TVL, sustained on-chain Volume growth raises your earnings without any change to pool size. The non-obvious second variable is TVL: if the same shift draws institutional capital into DeFi as liquidity providers, pool sizes grow and dilute that Volume, which can pull APR back even as overall swap activity rises.",
+          "spark": "Are you tracking on-chain Volume trends in the pools you LP into beyond just today's APR -- and which pools or pairs are you watching for a sustained Volume signal?"
+        },
+        {
+          "title": "AI Tokens Rally on Decentralized AI News: This Is What Average Volume Is For",
+          "body": "Decentralized AI tokens -- crypto projects offering distributed alternatives to large centralized AI companies -- rallied sharply after US regulators reportedly restricted access to Anthropic's top AI models and Canada's Prime Minister urged diversifying away from centralized AI providers. If you see high APRs on AI token pools in Krystal today, that number is calculated from today's volume spike, not the typical day. This is what Average Volume -- the 45-day trailing average of daily swap activity -- is for: when today's volume is far above the average, the elevated APR will fall back once the news-driven trading cools. The second variable is Asset Selection: most decentralized AI tokens sit well outside the top 30 by market cap, which raises both the volatility of the position and the risk that a price drop does not recover.",
+          "spark": "Have you ever entered a pool because the APR looked strong after a news event, only to watch it fall back a few days later? What did you find when you compared the day-of volume to the 45-day average?"
         }
       ],
-      "closing": "What are you watching going into next week -- are you holding your current ranges through the softness, or making adjustments? Drop your pairs and range setups in the group."
+      "closing": "What setups are you running heading into next week -- which pairs, how wide, and what volume signals are you tracking in the pools you are watching? Drop it in the group."
     },
-    "slack_ts": "1781130093.642679",
-    "generated_at": "2026-06-10T22:21:34.307817+00:00",
-    "last_processed_ts": "1781130151.821039"
-  },
-  "published": true
+    "slack_ts": "1781548149.530789",
+    "generated_at": "2026-06-15T18:29:11.466865+00:00"
+  }
 }

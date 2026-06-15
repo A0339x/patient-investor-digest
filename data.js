@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "06-15-2026",
+    "date": "June 15, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "+4.9%"
+      },
+      {
+        "label": "ETH",
+        "value": "+10.3%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Sharp single-day spike"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$6.00"
+      }
+    ],
+    "intro": "ETH gained 10.3% and BTC gained 4.9% in a single session -- the kind of sharp one-day move that tests every range on the board. Correlated pairs captured more of the upside; tighter ranges on ETH likely went out of bounds mid-session. This issue covers the Range and Correlation lessons from the spike, what sustained Bitcoin buying means for pair type, and two slower-moving signals -- Average Volume and Asset Selection -- worth checking before you add liquidity this week.",
+    "stories": [
+      {
+        "title": "ETH's 10% Move: The Week's Range Test",
+        "body": "ETH jumped 10.3% in a single session, reaching $1,829. That move was a live test of Range -- the price band you set when you entered the pool. A tight range around yesterday's price likely went out of bounds before the move finished. Wider ranges stayed active and kept earning fees through the spike, including from the heavy arbitrage and rebalancing Volume that a big single-day price move generates. The LPs who stayed in range were earning during the busiest fee window of the week.",
+        "spark": "What range width are you holding on ETH pairs right now, and did today's 10% move keep you in range -- or knock you out before you could earn on the volume?"
+      },
+      {
+        "title": "Strategy Keeps Buying BTC: What Sustained Buying Means for Pair Type",
+        "body": "Strategy added to its Bitcoin holdings for the second straight week and expanded its USD cash reserve to $1.1 billion, while Benchmark pushed back on forced-selling fears. For LPs watching sustained one-direction buying, the variable worth thinking about is Correlation. A correlated pair -- two assets that move together, like BTC and ETH -- lets both sides of your pool rise at once when prices go up. In a BTC/USDC pair, if BTC rises 5%, only the BTC half of your position moves with it; the USDC side stays flat. In a BTC/ETH pair, both sides rise together, so your pool captures more of the overall gain.",
+        "spark": "Are you currently in any correlated pairs -- two volatile assets that tend to move together, like BTC and ETH? With both up this week, how much of that gain did your pair type actually capture?"
+      },
+      {
+        "title": "SOL Treasury Firms Are Getting Squeezed: Asset Selection When an Asset Falls",
+        "body": "Forward Industries -- a company that holds Solana (SOL) as its primary treasury asset -- tried to acquire three rival SOL-holding firms this month and was turned down each time. The smaller firms have seen their implied values slip as SOL's price falls. This is an Asset Selection and Range lesson at the same time: even a top-10 asset by market cap falls in price. When it does, the pool keeps buying more of the falling asset and selling the stable side -- the further the drop goes, the more of the depreciating asset your position holds. A wider Range gives you more room to stay in bounds during a drop, but a sustained decline will still shift most of your position toward the falling asset.",
+        "spark": "If you are LP-ing in any SOL pools right now, how wide is your range -- and have you looked at where SOL sits on its longer-term chart relative to where you entered?"
+      },
+      {
+        "title": "SEC's NMS Proposal: Could On-Chain Volume Get a Structural Lift?",
+        "body": "The SEC last week proposed rescinding Rules 611 and 610(e) of Regulation NMS -- the rules that determine how trade orders are routed across exchanges. Benchmark called it the most consequential US crypto regulatory move of 2026. Loosening those routing rules could push more swap activity to on-chain venues like Uniswap rather than centralized exchanges -- for LPs, that is a Volume story. More on-chain swaps mean more fees flowing into pools, and because APR is essentially Volume divided by TVL, sustained on-chain Volume growth raises your earnings without any change to pool size. The non-obvious second variable is TVL: if the same shift draws institutional capital into DeFi as liquidity providers, pool sizes grow and dilute that Volume, which can pull APR back even as overall swap activity rises.",
+        "spark": "Are you tracking on-chain Volume trends in the pools you LP into beyond just today's APR -- and which pools or pairs are you watching for a sustained Volume signal?"
+      },
+      {
+        "title": "AI Tokens Rally on Decentralized AI News: This Is What Average Volume Is For",
+        "body": "Decentralized AI tokens -- crypto projects offering distributed alternatives to large centralized AI companies -- rallied sharply after US regulators reportedly restricted access to Anthropic's top AI models and Canada's Prime Minister urged diversifying away from centralized AI providers. If you see high APRs on AI token pools in Krystal today, that number is calculated from today's volume spike, not the typical day. This is what Average Volume -- the 45-day trailing average of daily swap activity -- is for: when today's volume is far above the average, the elevated APR will fall back once the news-driven trading cools. The second variable is Asset Selection: most decentralized AI tokens sit well outside the top 30 by market cap, which raises both the volatility of the position and the risk that a price drop does not recover.",
+        "spark": "Have you ever entered a pool because the APR looked strong after a news event, only to watch it fall back a few days later? What did you find when you compared the day-of volume to the 45-day average?"
+      }
+    ],
+    "closing": "What setups are you running heading into next week -- which pairs, how wide, and what volume signals are you tracking in the pools you are watching? Drop it in the group."
+  },
+  {
     "id": "06-10-2026",
     "date": "June 10, 2026",
     "title": "LP Mastermind\nMarket Update",
