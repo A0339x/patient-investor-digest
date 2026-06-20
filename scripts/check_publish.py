@@ -3,6 +3,7 @@ import json
 import os
 import subprocess
 import sys
+from datetime import datetime, timezone
 
 import requests
 
@@ -153,6 +154,59 @@ def git_commit(message, include_data=False):
     os.system("git push")
 
 
+def fire_publish_webhook(digest):
+    """Tell the social app a digest just published.
+
+    The social webhook (POST /api/digest/published) creates one chat thread
+    per spark in #digest-discussion and fans out a 'new issue' notification to
+    every unlocked member. Idempotent on its side, so a retry is harmless.
+
+    Best-effort by design: the issue is ALREADY written + committed + live by
+    the time we get here, so a webhook failure must not raise. We log it (the
+    GitHub Actions run captures stdout) and move on. The webhook is also
+    re-fireable: the social side keys on digest_id, so a manual re-POST later
+    backfills the threads without duplicates.
+
+    Wired here in do_publish (the real publish), NOT generate_digest.py (the
+    pre-approval write) -- firing on the pending write would create threads for
+    issues that never ship.
+    """
+    webhook_url = os.environ.get("DIGEST_PUBLISH_WEBHOOK_URL", "").strip()
+    secret = os.environ.get("DIGEST_WEBHOOK_SECRET", "").strip()
+    if not webhook_url or not secret:
+        print(
+            "[publish-webhook] DIGEST_PUBLISH_WEBHOOK_URL / DIGEST_WEBHOOK_SECRET "
+            "not set; skipping spark fanout"
+        )
+        return
+
+    stories = digest.get("stories") or []
+    sparks = [
+        {"story_index": i, "spark_text": (s.get("spark") or "").strip()}
+        for i, s in enumerate(stories)
+        if (s.get("spark") or "").strip()
+    ]
+    payload = {
+        "digest_id": digest["id"],
+        "title": " ".join((digest.get("title") or "").split()),
+        "published_at": datetime.now(timezone.utc).isoformat(),
+        "sparks": sparks,
+    }
+    try:
+        resp = requests.post(
+            webhook_url,
+            json=payload,
+            headers={"Authorization": f"Bearer {secret}"},
+            timeout=30,
+        )
+        if resp.status_code >= 300:
+            print(f"[publish-webhook] non-2xx {resp.status_code}: {resp.text[:300]}")
+        else:
+            print(f"[publish-webhook] ok {resp.status_code}: {resp.text[:300]}")
+    except Exception as e:  # noqa: BLE001 — best-effort, never block publish
+        print(f"[publish-webhook] failed (digest already live): {e}")
+
+
 def do_publish(token, thread_ts, state, pending, intro_message=None):
     if intro_message:
         post_reply(token, thread_ts, intro_message)
@@ -160,6 +214,8 @@ def do_publish(token, thread_ts, state, pending, intro_message=None):
     state["published"] = True
     save_state(state)
     git_commit(f"Publish digest {pending['digest']['id']}", include_data=True)
+    # Issue is live + committed above. Now (and only now) fan out to chat.
+    fire_publish_webhook(pending["digest"])
     post_reply(token, thread_ts, "Done! The digest is live at https://patient-investor-digest.pages.dev/")
 
 

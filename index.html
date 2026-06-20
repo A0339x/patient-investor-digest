@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="sparks.css" />
   <style>
     /* ═══════════════════════════════════════════════════════════════
        BRAND TOKENS — The Patient Investor Mastermind
@@ -592,9 +593,10 @@ function buildIssues() {
         <div>
           <div class="story-title">${s.title}</div>
           <div class="story-body">${s.body}</div>
-          <div class="story-spark">
+          <div class="story-spark" data-digest-id="${d.id}" data-story-index="${i}">
             <div class="spark-label">◆ For the group</div>
             <div class="spark-text">${s.spark}</div>
+            <div class="spark-actions" data-spark-actions hidden></div>
           </div>
         </div>
       </div>`).join('');
@@ -709,5 +711,9 @@ initCopyLink();
 scrollToHashOnLoad();
 requestAnimationFrame(() => { initObservers(); initScroll(); });
 </script>
+<!-- Spark → chat enhancement. Deferred module: runs after the inline script
+     above has built the issues, so .story-spark[data-digest-id] elements
+     already exist in the DOM. Degrades to plain-text sparks when no JWT. -->
+<script type="module" src="sparks.js"></script>
 </body>
 </html>

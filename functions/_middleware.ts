@@ -340,35 +340,44 @@ export const onRequest: PagesFunction<Env> = async (context) => {
     return next();
   }
 
-  // Feature flag: when off, pass through everything else (no gating).
-  // Lets us deploy the middleware without locking out current readers.
-  // POST /__auth above runs regardless so members can pre-authenticate.
-  if (env.GATE_ENABLED !== "true") {
-    return next();
+  // Resolve the caller's identity from the cookie (may be absent/invalid).
+  const token = getCookie(request, COOKIE_NAME);
+  const claims = token ? await verifyToken(token, env) : null;
+
+  // Gate: when GATE_ENABLED is on, a valid cookie is required for any
+  // non-splash path. When off (passthrough rollout), content is public —
+  // but we STILL inject member context below for authenticated readers so
+  // their spark UI works before the gate flips.
+  if (env.GATE_ENABLED === "true" && !claims) {
+    return splashResponse(context, 401);
   }
 
-  // Every other path: require a valid cookie.
-  const token = getCookie(request, COOKIE_NAME);
-  if (!token) return splashResponse(context, 401);
-  const claims = await verifyToken(token, env);
-  if (!claims) return splashResponse(context, 401);
-
-  // Cookie is valid. Inject claims as a tiny script the digest page can read
-  // for the "Welcome back, [name]" strip. We DON'T inject the raw token —
-  // sparks.js calls /api/digest/discussions using cookie-based auth via a
-  // server-side proxy if needed. For v1, the name is the only thing the
-  // page needs from the JWT.
   const response = await next();
-  // Only rewrite HTML responses; leave assets alone.
+  // Only rewrite HTML responses; leave static assets alone.
   const ct = response.headers.get("Content-Type") ?? "";
-  if (!ct.startsWith("text/html")) return response;
+  if (!ct.startsWith("text/html") || !claims || !token) return response;
 
-  const safeName = String(claims.name)
+  // Cookie is valid → inject the member context the digest page needs:
+  //   1. window.__DIGEST_MEMBER__ — name/sub for the "Welcome back" strip.
+  //   2. <meta name="digest-jwt"> — the raw token, read by sparks.js to call
+  //      GET /api/digest/discussions with Authorization: Bearer (Decision 11).
+  //
+  // SECURITY: injecting the JWT into the DOM exposes it to any XSS on this
+  // page. Accepted because (a) the digest is static, author-controlled HTML
+  // with no user input, (b) the token is short-lived (1h) and read-only
+  // (digest content + counts), and (c) the cross-origin Authorization-header
+  // flow was the locked design (Decision 11). The more defensive alternative
+  // — a same-origin Pages-function proxy that reads the HttpOnly cookie — is
+  // the Phase 3 hardening path if XSS risk ever materializes.
+  const jwtAttr = token
+    .replace(/&/g, "&amp;")
+    .replace(/"/g, "&quot;")
     .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-  const inject = `<script>window.__DIGEST_MEMBER__=${JSON.stringify({ name: claims.name, sub: claims.sub })};</script>`;
-  void safeName; // reserved for future inline templating
+    .replace(/>/g, "&gt;");
+  const inject =
+    `<meta name="digest-jwt" content="${jwtAttr}">` +
+    `<script>window.__DIGEST_MEMBER__=${JSON.stringify({ name: claims.name, sub: claims.sub })};` +
+    `window.__DIGEST_CONFIG__=${JSON.stringify({ socialUrl: env.SOCIAL_URL ?? "" })};</script>`;
   const original = await response.text();
   const rewritten = original.includes("</head>")
     ? original.replace("</head>", `${inject}</head>`)

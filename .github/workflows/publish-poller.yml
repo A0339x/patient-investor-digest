@@ -47,3 +47,8 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Spark fanout to the social app on publish (Phase 2). Optional:
+          # if either is unset, check_publish.py logs + skips the fanout, so
+          # the digest still publishes normally.
+          DIGEST_PUBLISH_WEBHOOK_URL: ${{ secrets.DIGEST_PUBLISH_WEBHOOK_URL }}
+          DIGEST_WEBHOOK_SECRET: ${{ secrets.DIGEST_WEBHOOK_SECRET }}
