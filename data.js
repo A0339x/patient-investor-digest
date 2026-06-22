@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "06-22-2026",
+    "date": "June 22, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "+1.1%"
+      },
+      {
+        "label": "ETH",
+        "value": "+1.3%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Calm -- ranges held"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$1.50"
+      }
+    ],
+    "intro": "BTC and ETH each moved up about 1% this week in a calm, low-volatility session -- the kind of week where most ranges hold and fee capture runs without much rebalancing pressure. The main themes this week are safety and signals: an Ethereum Layer 2 exploit that reinforces why what is behind a token matters beyond its name, sustained institutional ETH buying that raises a question about pair type and range placement, and stablecoin regulatory news that affects how you think about the stable side of your pairs.",
+    "stories": [
+      {
+        "title": "Taiko Bridge Exploit -- The Extra Risk That Bridged Tokens Carry",
+        "body": "Taiko -- an Ethereum Layer 2, meaning a network built on top of Ethereum to process transactions faster and cheaper -- warned users to withdraw funds from its bridge after attackers exploited a flaw in its proof verification system, stealing an estimated $1.7 million. The variable is Asset Selection: any token that travels through a bridge -- software that moves assets from one network to another -- carries that bridge's risk on top of the underlying asset's risk, so checking market-cap rank is only one layer of the safety check. The non-obvious second variable is Volume -- exploit events push fast, heavy swap activity through the market as attackers exit and holders rotate out, and that activity lands across many pools, not just the one that was hit. LPs in mainstream pairs like ETH/USDC often see volume rise during these events, which means more fees on positions that had nothing to do with the exploit.",
+        "spark": "When you pick a token for one side of your pair, do you check whether it is a bridged version of something -- or do you focus mainly on the base asset's market-cap rank?"
+      },
+      {
+        "title": "BitMine Adds $92M ETH -- Correlation and Range When You Believe One Direction",
+        "body": "BitMine added $92 million in Ethereum this week, pushing its treasury to 4.7% of total ETH supply and closing in on its stated goal of 5%. Sustained, one-direction institutional buying is the case for the Correlation variable: a correlated pair -- two assets that tend to rise and fall together, like ETH and BTC -- lets both sides of the pool appreciate at once when the market goes up, so your whole position captures the move rather than just half of it. The non-obvious second variable is Range skew -- if you believe ETH has sustained buying behind it, stretching your range more toward the upside gives you more room before going out of range and stopping your fee income during the move. These two levers are alternatives, not additions: Correlation is about which pair you choose, and Range skew is about how you set the range inside that pair -- pulling both at once commits you to a more specific view, that ETH will outperform its pair partner and not just rise on its own.",
+        "spark": "If you believe ETH keeps moving upward from here, are you in a correlated pair like ETH/BTC rather than ETH/USDC -- or have you skewed your range toward the upside instead -- and which approach fits the strength of your conviction?"
+      },
+      {
+        "title": "Bank of England Loosens Stablecoin Rules -- Why the Stable Side of Your Pair Needs Its Own Safety Check",
+        "body": "The Bank of England scrapped individual holding caps for stablecoins -- tokens designed to hold a fixed value, typically $1 -- and replaced them with a 40 billion British pound per-coin issuance limit, while also allowing issuers to hold more reserves in government debt rather than cash. The variable to apply is Asset Selection: stablecoins look stable by design, but their safety depends on who issues them and what backs them -- an issuer with weak or newly restructured reserves carries more risk than one with transparent, well-established backing, even if both coins currently trade at $1. The non-obvious second variable is Range: stablecoin pairs allow very narrow ranges that earn higher fees, but the narrower the range, the faster a depeg event -- when a stablecoin drifts away from its $1 target -- pushes you out of range and stops your fee income. When reserve rules shift, the question to ask before tightening your range is whether each stablecoin in your pair still has clear, credible backing.",
+        "spark": "If you are running a position with a stablecoin on one side, do you know specifically who issues it and what backs it -- and does that knowledge affect how narrow you are willing to set your range?"
+      },
+      {
+        "title": "Strive Nears 20,000 BTC -- Treasury Headlines and the APR Spike Trap",
+        "body": "Strive, the Bitcoin treasury company founded by Vivek Ramaswamy, saw its shares jump roughly 10% after disclosing holdings approaching 20,000 BTC. Treasury announcements like this often push daily swap volume in BTC-related pools well above the typical pace -- and the platform you use to evaluate pools will calculate APR off today's elevated number, not the 45-day average. APR in a concentrated liquidity pool is roughly Volume divided by TVL: if today's volume is a spike and normalizes over the next few days, the APR you see right now will fall with it. The 45-day Average Volume is what tells you whether an APR is sustainable or a one-day outlier -- the further apart the daily and the average sit, the more likely the APR pulls back.",
+        "spark": "Have you ever entered a pool because the APR looked strong, only to watch it fall back shortly after? Did you check the 45-day average volume at the time, and how far apart was it from the daily number?"
+      },
+      {
+        "title": "NYSE Stocks Going On-Chain -- A New Volume Signal and a New Safety Question",
+        "body": "Intercontinental Exchange -- the company that operates the New York Stock Exchange -- and OKX announced a joint venture to bring NYSE tokenized equities on-chain, letting customers access traditional stocks like Apple or Tesla wrapped as blockchain tokens. For LPs, the variable to watch is Volume: every on-chain trade of a tokenized equity generates swap activity, and if tokenized stocks start trading at meaningful scale on Ethereum-based networks, that is a structural rise in the swap volume that earns fees across concentrated liquidity pools. The non-obvious second variable is Asset Selection: a tokenized stock derives its value from the underlying company, but it also carries the risk of the smart contracts and infrastructure that wrap it -- so the safety check has an extra layer beyond market-cap rank. A tokenized blue-chip name might feel familiar, but the tokenization layer introduces risks that a raw BTC or ETH position does not carry.",
+        "spark": "If tokenized equities started showing up in pool opportunities, would you treat a tokenized Apple or Tesla as top-30 safe, or would you hold it to a stricter standard because of the tokenization layer?"
+      }
+    ],
+    "closing": "What pairs are you running right now, and are you checking the 45-day average volume before sizing into a position? Drop your current setups and range widths in the group."
+  },
+  {
     "id": "06-15-2026",
     "date": "June 15, 2026",
     "title": "LP Mastermind\nMarket Update",
