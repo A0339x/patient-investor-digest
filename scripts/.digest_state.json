@@ -54,6 +54,8 @@
       "closing": "What pairs are you running right now, and are you checking the 45-day average volume before sizing into a position? Drop your current setups and range widths in the group."
     },
     "slack_ts": "1782152074.418989",
-    "generated_at": "2026-06-22T18:14:35.218229+00:00"
-  }
+    "generated_at": "2026-06-22T18:14:35.218229+00:00",
+    "last_processed_ts": "1782152125.377029"
+  },
+  "published": true
 }
