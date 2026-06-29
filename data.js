@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "06-29-2026",
+    "date": "June 29, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "+0.3%"
+      },
+      {
+        "label": "ETH",
+        "value": "+0.8%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Subdued, recovering"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$1.20"
+      }
+    ],
+    "intro": "BTC and ETH posted fractional gains today after a rough week that saw $1.79 billion leave spot Bitcoin ETF products. Last week's selling pressure likely knocked tight ranges out of position -- this week the digest covers Correlation, Range, TVL, and Asset Selection as the market tries to find its footing.",
+    "stories": [
+      {
+        "title": "Bitcoin Is Heading for a Second Straight Quarterly Loss",
+        "body": "Bitcoin is on pace for its second consecutive quarterly loss -- a rare event in BTC's history. Spot Bitcoin ETF products bled $1.79 billion in net outflows last week, steady selling pressure across multiple days, not a single-day spike. The variable this lands on is Correlation. In a pair where both assets move together -- like BTC/ETH -- both sides fall when the market trends down. You do not get the cushion of having one stable side absorbing the drop. A less correlated pair like BTC/USDC means roughly half your position stays in dollars while the other half moves with BTC. Keep in mind that Correlation works both ways: it amplifies appreciation when prices rise, but it also amplifies the drop when both assets fall together.",
+        "spark": "Are you running any correlated pairs right now -- pairs where both assets tend to move together? Given two straight quarters of declining prices, are you thinking about whether your Correlation choice still fits the market you are in?"
+      },
+      {
+        "title": "Strategy Approves a Framework to Sell Up to $1.25 Billion in Bitcoin",
+        "body": "Strategy -- the company holding over 500,000 Bitcoin on its balance sheet -- approved what it calls a Digital Credit Capital Framework this week. The framework allows Strategy to sell up to $1.25 billion in Bitcoin as part of active capital management, a shift from its previous buy-and-hold approach. For LPs, the variable this touches is Range. When a major holder can start selling at any point, BTC can move sharply without much warning. A tighter Range -- set to capture fees in a narrow price band -- is more likely to go out of range fast if large selling hits the market. Widening your Range gives you more runway to stay in position and keep earning fees through the uncertainty, even though a wider range pays a lower APR day-to-day. The non-obvious second variable is Average Volume. Strategy announcements have historically spiked trading volume across the market. If their selling drives a high-volume day, the APR Krystal shows you will be based on that spike -- not on the 45-day trailing average. It is worth checking average volume before adjusting a position based on what looks like a high-APR opportunity.",
+        "spark": "What range widths are you running on any BTC pairs right now? Given that a major holder could sell at any time, are you leaning wider for resilience, or staying tight and expecting to rebalance when needed?"
+      },
+      {
+        "title": "Bitmine Adds $43 Million in ETH Through the Dip, Treasury Hits 5.7 Million Coins",
+        "body": "Bitmine Immersion Technologies added 27,084 ETH last week -- about $43 million at current prices -- bringing its total Ethereum treasury to 5.7 million coins worth roughly $8.9 billion. The company kept buying through what its chairman Tom Lee called a challenging weekly price slide. The first variable this touches is TVL -- total value locked, meaning the total dollars sitting in a liquidity pool. Sustained institutional buying of ETH deepens ETH-paired pools over time. A deeper pool can absorb new LP inflows without the APR collapsing the way it would in a shallow pool. The second variable is Correlation. If you are watching institutional buyers accumulate ETH through a price slide and believe that buying pressure will eventually push prices back up, keep in mind that a correlated pair -- two assets that tend to move together -- captures the full appreciation on both sides when prices rise. That is how Correlation works in an upward market: when both assets go up together, you earn more than you would with only one side moving.",
+        "spark": "Are you in any ETH-paired positions right now? How are you thinking about Correlation -- does your current pair give you full exposure to an ETH price recovery, or only partial?"
+      },
+      {
+        "title": "BlackRock's Aladdin Platform Now Supports Ethena's Synthetic Dollar, USDe",
+        "body": "BlackRock's Aladdin is an institutional portfolio management system that runs risk analytics on trillions of dollars in assets for large investment firms. This week, Aladdin added deeper support for Ethena's USDe stablecoin, making it more accessible to institutional money managers. USDe is a synthetic dollar -- meaning it does not hold actual US dollars in a bank to keep its value at $1.00. Instead, it uses derivatives positions to stay pegged to the dollar. The variable here is Asset Selection. When you LP into a stablecoin pair, the stablecoin itself has an asset selection rank and a risk profile, just like the volatile asset on the other side. USDC and USDT carry different risk profiles than a newer synthetic dollar like USDe, which depends on a derivatives mechanism to hold its peg. The second variable is Range. Stablecoin pairs are typically set with tight ranges because the assumption is the stablecoin stays near $1.00. If USDe's peg moves more than a few percent under stress, a tight range goes out instantly and you stop earning fees. The narrower you set your range on a stablecoin pair, the more that peg stability matters.",
+        "spark": "If you are in any stablecoin pairs right now, have you checked the asset selection rank of the stablecoin side? Would you LP with USDe, and how does the synthetic-dollar risk change how you would set your range compared to a USDC pair?"
+      },
+      {
+        "title": "Prediction Markets Are Moving On-Chain -- and Volume Goes With Them",
+        "body": "Bernstein analysts say prediction markets are heading toward a wave of mergers and acquisitions. Prediction markets are online platforms where people bet real money on outcomes like elections, sports results, and economic data. DraftKings launched its own on-chain prediction platform, DKeX, this week, moving that trading activity directly onto a blockchain. Every time a large platform moves real-money trading on-chain, the total daily swap volume across the ecosystem tends to rise. The variable this touches is Volume. When new platforms bring trading on-chain structurally, that is different from a one-day spike -- it is a larger base of daily buy and sell activity that supports APR across pools more broadly. The non-obvious second variable is Asset Selection. Prediction market tokens -- coins tied to the platforms themselves -- tend to rank lower on the market cap list because they are newer and smaller. Lower rank means more volatility and a higher probability that something goes wrong. The volume tailwind from platform growth is worth keeping in mind. The Asset Selection risk in the specific tokens is worth checking before going into one of those pools.",
+        "spark": "Has anyone looked at prediction market pools for LP opportunities? If so, how did you think about the Asset Selection risk on the lower-market-cap token side -- and did the volume make it worth it?"
+      }
+    ],
+    "closing": "What are you watching heading into next week -- are you staying in your current pairs and ranges, or is the sustained quarterly selling pressure making you rethink your Correlation and Range choices? Drop your setups in the group."
+  },
+  {
     "id": "06-22-2026",
     "date": "June 22, 2026",
     "title": "LP Mastermind\nMarket Update",
