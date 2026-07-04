@@ -551,6 +551,7 @@
 <button id="scroll-top" aria-label="Scroll to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <script src="data.js"></script>
+<script src="group.js"></script>
 <script>
 
 
@@ -593,7 +594,7 @@ function buildIssues() {
         <div>
           <div class="story-title">${s.title}</div>
           <div class="story-body">${s.body}</div>
-          <div class="story-spark">
+          <div class="story-spark" data-digest="${d.id}" data-story="${i}">
             <div class="spark-label">◆ For the group</div>
             <div class="spark-text">${s.spark}</div>
           </div>
@@ -614,7 +615,7 @@ function buildIssues() {
       <div class="glance reveal" data-d="3">${glanceHTML}</div>
       <p class="issue-intro reveal" data-d="4">${d.intro}</p>
       <div class="stories">${storiesHTML}</div>
-      <div class="issue-closing reveal">${d.closing}</div>`;
+      <div class="issue-closing reveal" data-digest="${d.id}" data-story="-1">${d.closing}</div>`;
 
     container.appendChild(sec);
   });
@@ -709,6 +710,9 @@ buildIssues();
 initCopyLink();
 scrollToHashOnLoad();
 requestAnimationFrame(() => { initObservers(); initScroll(); });
+// Hydrate the "For the group" discussion widgets (members only; no-op for
+// public readers). Runs after buildIssues so every spark + closing is in the DOM.
+if (window.PIGroup) PIGroup.init();
 </script>
 </body>
 </html>
