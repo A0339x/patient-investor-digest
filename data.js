@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "07-06-2026",
+    "date": "July 06, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "+1.8%"
+      },
+      {
+        "label": "ETH",
+        "value": "+1.4%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Choppy, watching for a turn"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$0.95"
+      }
+    ],
+    "intro": "This week's stories span the extremes -- a multi-year Ethereum protocol overhaul on one end, and a possible market bottom forming on the other. Along the way we'll touch Range, Correlation, TVL, Volume against its 45-day average, and Market Sentiment, while BTC and ETH sit up modestly and gas stays cheap. None of this calls for an overnight change to your setup, but each story gives you a specific angle to think through before your next rebalance.",
+    "stories": [
+      {
+        "title": "Ethereum's Multi-Year Diet Plan -- What It Means for Rebalancing Costs",
+        "body": "Vitalik Buterin outlined a plan to shrink Ethereum's stored data close to zero. It relies on ZK proofs -- cryptographic proofs that let the network verify a computation without re-running it -- and shifts balance-tracking work onto validators directly. The rollout spans three to four years and touches nearly every core piece of the protocol. Nothing changes for your gas costs this week, but the goal is a cheaper network to run swaps and rebalances on over time. Range width today is still about volatility and fees, but if gas keeps falling over the next few years, narrower ranges that need frequent rebalancing get relatively cheaper to maintain.",
+        "spark": "If gas costs on Ethereum kept dropping over the next few years, would that change how narrow you're willing to set a range, or does fee capture matter more to you than rebalancing frequency right now?"
+      },
+      {
+        "title": "BitMine's ETH Treasury Nears 5% of Total Supply",
+        "body": "BitMine added 42,197 ETH (about $74 million) last week, pushing its total holdings past 5.7 million ETH -- north of 5% of all ETH that exists. Chairman Tom Lee is tying ETH's strength to the odds that the Clarity Act -- a bill that would set clearer US crypto rules -- passes. Sustained buying like this is the case for Correlation: a correlated pair, where both assets move together like ETH and BTC, captures the full upside because both sides of the pool rise at once. Skewing your range toward ETH in an ETH/USDC pool leans into the same belief a different way. These are alternatives, not additions -- stacking both only pays off if your view is more specific, like ETH rising and beating BTC.",
+        "spark": "Are you running any correlated pairs right now, or would you rather skew a range if you think ETH keeps climbing? What would change your mind either way?"
+      },
+      {
+        "title": "AVAX One Loses Its Treasury Chief -- What a Leadership Gap Means for Pool Depth",
+        "body": "AVAX One, the roughly $550 million Avalanche treasury vehicle backed by SkyBridge founder Anthony Scaramucci, is searching for a new CEO after the leader who built its treasury strategy stepped down. That leaves an open question about whether the planned capital keeps flowing into Avalanche or stalls until new leadership is in place. This is a TVL story: a deeper pool absorbs new deposits and withdrawals without much APR movement. A pause in a planned $550 million allocation is worth watching if you run AVAX pairs. AVAX still sits comfortably inside crypto's top 30 by market cap, so Asset Selection isn't the concern here -- the concern is whether the capital behind it shows up.",
+        "spark": "If you hold an AVAX pair, would news like this make you check TVL trends before adding more liquidity, or would you wait for a new CEO announcement first?"
+      },
+      {
+        "title": "Strategy Sells $216M in Bitcoin to Fund Dividends",
+        "body": "Strategy, the largest corporate Bitcoin holder, sold $216 million of its BTC to cover preferred dividend payments under what it calls its BTC Monetization Program, while also reporting an $8.3 billion quarterly loss. A scheduled seller like this adds steady buy-and-sell volume to BTC pairs -- a known program of sales can lift volume on BTC/stablecoin pools even though the news itself reads as negative for Strategy. The catch is telling a one-time sale from a recurring pattern: if these sales keep happening under the program, it's worth checking whether the 45-day average volume on a BTC pool is climbing alongside today's number, which would mean the higher volume is sticking, not reverting. If today's volume spikes far above that average, expect it to fade back down and take the APR with it.",
+        "spark": "Have you looked at whether your BTC pool's daily volume is tracking its 45-day average lately, or running hot above it?"
+      },
+      {
+        "title": "ETF Flows Flip Positive -- Is a Bottom Forming?",
+        "body": "Bitcoin ETF flows turned positive over the holiday weekend after weeks of outflows, and several market watchers are pointing to a rare cluster of signals suggesting a bottom may be forming. Extreme pessimism that suddenly reverses is exactly the kind of turn to watch on the Coin Market Cap Fear and Greed gauge -- a 0 to 100 sentiment score built from volatility and momentum data. Extreme fear on that gauge often comes right before a move back up. If sentiment really is turning, range width is worth thinking through before rebalancing -- a turn usually brings a burst of volatility first, and a range that's too narrow going into that burst can get knocked out fast. Wider ranges hold through fast back-and-forth swings; narrower ones capture more fees but only if the turn is calmer than it looks right now.",
+        "spark": "If you think a bottom might be forming, are you widening your ranges to ride out the swings, or narrowing to capture fees on the way back up?"
+      }
+    ],
+    "closing": "What ranges and pairs are you watching heading into next week? Drop your setups and rebalancing plans in the group."
+  },
+  {
     "id": "06-29-2026",
     "date": "June 29, 2026",
     "title": "LP Mastermind\nMarket Update",

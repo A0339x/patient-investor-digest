@@ -1,61 +1,59 @@
 {
   "pending": {
     "digest": {
-      "id": "06-29-2026",
-      "date": "June 29, 2026",
+      "id": "07-06-2026",
+      "date": "July 06, 2026",
       "title": "LP Mastermind\nMarket Update",
       "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
       "snapshot": [
         {
           "label": "BTC",
-          "value": "+0.3%"
+          "value": "+1.8%"
         },
         {
           "label": "ETH",
-          "value": "+0.8%"
+          "value": "+1.4%"
         },
         {
           "label": "Volatility",
-          "value": "Subdued, recovering"
+          "value": "Choppy, watching for a turn"
         },
         {
           "label": "ETH Gas",
-          "value": "~$1.20"
+          "value": "~$0.95"
         }
       ],
-      "intro": "BTC and ETH posted fractional gains today after a rough week that saw $1.79 billion leave spot Bitcoin ETF products. Last week's selling pressure likely knocked tight ranges out of position -- this week the digest covers Correlation, Range, TVL, and Asset Selection as the market tries to find its footing.",
+      "intro": "This week's stories span the extremes -- a multi-year Ethereum protocol overhaul on one end, and a possible market bottom forming on the other. Along the way we'll touch Range, Correlation, TVL, Volume against its 45-day average, and Market Sentiment, while BTC and ETH sit up modestly and gas stays cheap. None of this calls for an overnight change to your setup, but each story gives you a specific angle to think through before your next rebalance.",
       "stories": [
         {
-          "title": "Bitcoin Is Heading for a Second Straight Quarterly Loss",
-          "body": "Bitcoin is on pace for its second consecutive quarterly loss -- a rare event in BTC's history. Spot Bitcoin ETF products bled $1.79 billion in net outflows last week, steady selling pressure across multiple days, not a single-day spike. The variable this lands on is Correlation. In a pair where both assets move together -- like BTC/ETH -- both sides fall when the market trends down. You do not get the cushion of having one stable side absorbing the drop. A less correlated pair like BTC/USDC means roughly half your position stays in dollars while the other half moves with BTC. Keep in mind that Correlation works both ways: it amplifies appreciation when prices rise, but it also amplifies the drop when both assets fall together.",
-          "spark": "Are you running any correlated pairs right now -- pairs where both assets tend to move together? Given two straight quarters of declining prices, are you thinking about whether your Correlation choice still fits the market you are in?"
+          "title": "Ethereum's Multi-Year Diet Plan -- What It Means for Rebalancing Costs",
+          "body": "Vitalik Buterin outlined a plan to shrink Ethereum's stored data close to zero. It relies on ZK proofs -- cryptographic proofs that let the network verify a computation without re-running it -- and shifts balance-tracking work onto validators directly. The rollout spans three to four years and touches nearly every core piece of the protocol. Nothing changes for your gas costs this week, but the goal is a cheaper network to run swaps and rebalances on over time. Range width today is still about volatility and fees, but if gas keeps falling over the next few years, narrower ranges that need frequent rebalancing get relatively cheaper to maintain.",
+          "spark": "If gas costs on Ethereum kept dropping over the next few years, would that change how narrow you're willing to set a range, or does fee capture matter more to you than rebalancing frequency right now?"
         },
         {
-          "title": "Strategy Approves a Framework to Sell Up to $1.25 Billion in Bitcoin",
-          "body": "Strategy -- the company holding over 500,000 Bitcoin on its balance sheet -- approved what it calls a Digital Credit Capital Framework this week. The framework allows Strategy to sell up to $1.25 billion in Bitcoin as part of active capital management, a shift from its previous buy-and-hold approach. For LPs, the variable this touches is Range. When a major holder can start selling at any point, BTC can move sharply without much warning. A tighter Range -- set to capture fees in a narrow price band -- is more likely to go out of range fast if large selling hits the market. Widening your Range gives you more runway to stay in position and keep earning fees through the uncertainty, even though a wider range pays a lower APR day-to-day. The non-obvious second variable is Average Volume. Strategy announcements have historically spiked trading volume across the market. If their selling drives a high-volume day, the APR Krystal shows you will be based on that spike -- not on the 45-day trailing average. It is worth checking average volume before adjusting a position based on what looks like a high-APR opportunity.",
-          "spark": "What range widths are you running on any BTC pairs right now? Given that a major holder could sell at any time, are you leaning wider for resilience, or staying tight and expecting to rebalance when needed?"
+          "title": "BitMine's ETH Treasury Nears 5% of Total Supply",
+          "body": "BitMine added 42,197 ETH (about $74 million) last week, pushing its total holdings past 5.7 million ETH -- north of 5% of all ETH that exists. Chairman Tom Lee is tying ETH's strength to the odds that the Clarity Act -- a bill that would set clearer US crypto rules -- passes. Sustained buying like this is the case for Correlation: a correlated pair, where both assets move together like ETH and BTC, captures the full upside because both sides of the pool rise at once. Skewing your range toward ETH in an ETH/USDC pool leans into the same belief a different way. These are alternatives, not additions -- stacking both only pays off if your view is more specific, like ETH rising and beating BTC.",
+          "spark": "Are you running any correlated pairs right now, or would you rather skew a range if you think ETH keeps climbing? What would change your mind either way?"
         },
         {
-          "title": "Bitmine Adds $43 Million in ETH Through the Dip, Treasury Hits 5.7 Million Coins",
-          "body": "Bitmine Immersion Technologies added 27,084 ETH last week -- about $43 million at current prices -- bringing its total Ethereum treasury to 5.7 million coins worth roughly $8.9 billion. The company kept buying through what its chairman Tom Lee called a challenging weekly price slide. The first variable this touches is TVL -- total value locked, meaning the total dollars sitting in a liquidity pool. Sustained institutional buying of ETH deepens ETH-paired pools over time. A deeper pool can absorb new LP inflows without the APR collapsing the way it would in a shallow pool. The second variable is Correlation. If you are watching institutional buyers accumulate ETH through a price slide and believe that buying pressure will eventually push prices back up, keep in mind that a correlated pair -- two assets that tend to move together -- captures the full appreciation on both sides when prices rise. That is how Correlation works in an upward market: when both assets go up together, you earn more than you would with only one side moving.",
-          "spark": "Are you in any ETH-paired positions right now? How are you thinking about Correlation -- does your current pair give you full exposure to an ETH price recovery, or only partial?"
+          "title": "AVAX One Loses Its Treasury Chief -- What a Leadership Gap Means for Pool Depth",
+          "body": "AVAX One, the roughly $550 million Avalanche treasury vehicle backed by SkyBridge founder Anthony Scaramucci, is searching for a new CEO after the leader who built its treasury strategy stepped down. That leaves an open question about whether the planned capital keeps flowing into Avalanche or stalls until new leadership is in place. This is a TVL story: a deeper pool absorbs new deposits and withdrawals without much APR movement. A pause in a planned $550 million allocation is worth watching if you run AVAX pairs. AVAX still sits comfortably inside crypto's top 30 by market cap, so Asset Selection isn't the concern here -- the concern is whether the capital behind it shows up.",
+          "spark": "If you hold an AVAX pair, would news like this make you check TVL trends before adding more liquidity, or would you wait for a new CEO announcement first?"
         },
         {
-          "title": "BlackRock's Aladdin Platform Now Supports Ethena's Synthetic Dollar, USDe",
-          "body": "BlackRock's Aladdin is an institutional portfolio management system that runs risk analytics on trillions of dollars in assets for large investment firms. This week, Aladdin added deeper support for Ethena's USDe stablecoin, making it more accessible to institutional money managers. USDe is a synthetic dollar -- meaning it does not hold actual US dollars in a bank to keep its value at $1.00. Instead, it uses derivatives positions to stay pegged to the dollar. The variable here is Asset Selection. When you LP into a stablecoin pair, the stablecoin itself has an asset selection rank and a risk profile, just like the volatile asset on the other side. USDC and USDT carry different risk profiles than a newer synthetic dollar like USDe, which depends on a derivatives mechanism to hold its peg. The second variable is Range. Stablecoin pairs are typically set with tight ranges because the assumption is the stablecoin stays near $1.00. If USDe's peg moves more than a few percent under stress, a tight range goes out instantly and you stop earning fees. The narrower you set your range on a stablecoin pair, the more that peg stability matters.",
-          "spark": "If you are in any stablecoin pairs right now, have you checked the asset selection rank of the stablecoin side? Would you LP with USDe, and how does the synthetic-dollar risk change how you would set your range compared to a USDC pair?"
+          "title": "Strategy Sells $216M in Bitcoin to Fund Dividends",
+          "body": "Strategy, the largest corporate Bitcoin holder, sold $216 million of its BTC to cover preferred dividend payments under what it calls its BTC Monetization Program, while also reporting an $8.3 billion quarterly loss. A scheduled seller like this adds steady buy-and-sell volume to BTC pairs -- a known program of sales can lift volume on BTC/stablecoin pools even though the news itself reads as negative for Strategy. The catch is telling a one-time sale from a recurring pattern: if these sales keep happening under the program, it's worth checking whether the 45-day average volume on a BTC pool is climbing alongside today's number, which would mean the higher volume is sticking, not reverting. If today's volume spikes far above that average, expect it to fade back down and take the APR with it.",
+          "spark": "Have you looked at whether your BTC pool's daily volume is tracking its 45-day average lately, or running hot above it?"
         },
         {
-          "title": "Prediction Markets Are Moving On-Chain -- and Volume Goes With Them",
-          "body": "Bernstein analysts say prediction markets are heading toward a wave of mergers and acquisitions. Prediction markets are online platforms where people bet real money on outcomes like elections, sports results, and economic data. DraftKings launched its own on-chain prediction platform, DKeX, this week, moving that trading activity directly onto a blockchain. Every time a large platform moves real-money trading on-chain, the total daily swap volume across the ecosystem tends to rise. The variable this touches is Volume. When new platforms bring trading on-chain structurally, that is different from a one-day spike -- it is a larger base of daily buy and sell activity that supports APR across pools more broadly. The non-obvious second variable is Asset Selection. Prediction market tokens -- coins tied to the platforms themselves -- tend to rank lower on the market cap list because they are newer and smaller. Lower rank means more volatility and a higher probability that something goes wrong. The volume tailwind from platform growth is worth keeping in mind. The Asset Selection risk in the specific tokens is worth checking before going into one of those pools.",
-          "spark": "Has anyone looked at prediction market pools for LP opportunities? If so, how did you think about the Asset Selection risk on the lower-market-cap token side -- and did the volume make it worth it?"
+          "title": "ETF Flows Flip Positive -- Is a Bottom Forming?",
+          "body": "Bitcoin ETF flows turned positive over the holiday weekend after weeks of outflows, and several market watchers are pointing to a rare cluster of signals suggesting a bottom may be forming. Extreme pessimism that suddenly reverses is exactly the kind of turn to watch on the Coin Market Cap Fear and Greed gauge -- a 0 to 100 sentiment score built from volatility and momentum data. Extreme fear on that gauge often comes right before a move back up. If sentiment really is turning, range width is worth thinking through before rebalancing -- a turn usually brings a burst of volatility first, and a range that's too narrow going into that burst can get knocked out fast. Wider ranges hold through fast back-and-forth swings; narrower ones capture more fees but only if the turn is calmer than it looks right now.",
+          "spark": "If you think a bottom might be forming, are you widening your ranges to ride out the swings, or narrowing to capture fees on the way back up?"
         }
       ],
-      "closing": "What are you watching heading into next week -- are you staying in your current pairs and ranges, or is the sustained quarterly selling pressure making you rethink your Correlation and Range choices? Drop your setups in the group."
+      "closing": "What ranges and pairs are you watching heading into next week? Drop your setups and rebalancing plans in the group."
     },
-    "slack_ts": "1782752192.170719",
-    "generated_at": "2026-06-29T16:56:32.963574+00:00",
-    "last_processed_ts": "1782752262.308589"
-  },
-  "published": true
+    "slack_ts": "1783356691.163559",
+    "generated_at": "2026-07-06T16:51:33.017090+00:00"
+  }
 }
