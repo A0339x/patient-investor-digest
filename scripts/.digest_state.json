@@ -54,6 +54,8 @@
       "closing": "What ranges and pairs are you watching heading into next week? Drop your setups and rebalancing plans in the group."
     },
     "slack_ts": "1783356691.163559",
-    "generated_at": "2026-07-06T16:51:33.017090+00:00"
-  }
+    "generated_at": "2026-07-06T16:51:33.017090+00:00",
+    "last_processed_ts": "1783374286.646659"
+  },
+  "published": true
 }
