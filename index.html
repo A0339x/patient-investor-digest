@@ -6,7 +6,7 @@
   <title>Patient Investor Digest — LP Intelligence</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     /* ═══════════════════════════════════════════════════════════════
        BRAND TOKENS — The Patient Investor Mastermind
@@ -105,7 +105,8 @@
       display: block;
       flex-shrink: 0;
     }
-    .brand-text { font-size: .875rem; font-weight: 700; letter-spacing: -.02em; white-space: nowrap; }
+    .brand-text { font-family: 'Playfair Display', Georgia, serif; font-size: 1.02rem; font-weight: 400; letter-spacing: .025em; white-space: nowrap; }
+    .brand-text em { font-style: normal; color: var(--gold); }
     .brand-divider { width: 1px; height: 13px; background: var(--border-card); }
     .brand-sub {
       font-size: .62rem; font-weight: 600; letter-spacing: .1em;
@@ -481,10 +482,10 @@
 
   <div class="header-inner">
     <a class="brand" href="#top">
-      <img class="brand-drop" src="logo.png" alt="Patient Investor logo" />
-      <span class="brand-text">Patient Investor Digest</span>
+      <!-- Ecosystem-canonical wordmark — same corner as the members platform. -->
+      <span class="brand-text">Patient Investor <em>Mastermind</em></span>
       <span class="brand-divider"></span>
-      <span class="brand-sub">LP Intelligence</span>
+      <span class="brand-sub">Digest &middot; LP Intelligence</span>
     </a>
     <nav class="issue-nav" id="issue-nav" aria-label="Jump to issue">
       <span class="nav-label">Issues</span>
