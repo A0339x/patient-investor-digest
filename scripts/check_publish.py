@@ -3,6 +3,9 @@ import json
 import os
 import subprocess
 import sys
+import urllib.error
+import urllib.request
+from datetime import datetime, timezone
 
 import requests
 
@@ -153,6 +156,50 @@ def git_commit(message, include_data=False):
     os.system("git push")
 
 
+def notify_social_publish(digest):
+    """Tell the social platform a new issue is live so it can post to
+    #announcements and fan out digest_new_issue bell notifications.
+
+    FAIL-SOFT: publishing must never break because the announcement failed.
+    If the env vars are unset or the POST fails for any reason, we log a
+    warning and return. The platform endpoint is itself idempotent, so a
+    later manual re-run is safe.
+    """
+    webhook_url = os.environ.get("DIGEST_PUBLISH_WEBHOOK_URL", "")
+    secret = os.environ.get("DIGEST_WEBHOOK_SECRET", "")
+    if not webhook_url or not secret:
+        print("notify_social_publish: DIGEST_PUBLISH_WEBHOOK_URL / "
+              "DIGEST_WEBHOOK_SECRET not set, skipping announcement.")
+        return
+
+    title = (digest.get("title") or "").replace("\n", " ").strip()
+    payload = json.dumps({
+        "digest_id": digest["id"],
+        "title": title,
+        "published_at": datetime.now(timezone.utc).isoformat(),
+    }).encode("utf-8")
+
+    req = urllib.request.Request(
+        webhook_url,
+        data=payload,
+        headers={
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {secret}",
+        },
+        method="POST",
+    )
+    try:
+        with urllib.request.urlopen(req, timeout=30) as resp:
+            print(f"notify_social_publish: {resp.status} for digest "
+                  f"{digest['id']}")
+    except urllib.error.HTTPError as e:
+        print(f"WARNING notify_social_publish: HTTP {e.code} — "
+              f"{e.read()[:200]!r} (continuing; publish already live)")
+    except Exception as e:
+        print(f"WARNING notify_social_publish: {type(e).__name__}: {e} "
+              "(continuing; publish already live)")
+
+
 def do_publish(token, thread_ts, state, pending, intro_message=None):
     if intro_message:
         post_reply(token, thread_ts, intro_message)
@@ -160,6 +207,8 @@ def do_publish(token, thread_ts, state, pending, intro_message=None):
     state["published"] = True
     save_state(state)
     git_commit(f"Publish digest {pending['digest']['id']}", include_data=True)
+    # Fire the social-platform announcement AFTER the push succeeds. Fail-soft.
+    notify_social_publish(pending["digest"])
     post_reply(token, thread_ts, "Done! The digest is live at https://patient-investor-digest.pages.dev/")
 
 
