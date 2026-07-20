@@ -1,61 +1,54 @@
 {
   "pending": {
     "digest": {
-      "id": "07-06-2026",
-      "date": "July 06, 2026",
+      "id": "07-20-2026",
+      "date": "July 20, 2026",
       "title": "LP Mastermind\nMarket Update",
       "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
       "snapshot": [
         {
           "label": "BTC",
-          "value": "+1.8%"
+          "value": "+1.0%"
         },
         {
           "label": "ETH",
-          "value": "+1.4%"
+          "value": "+0.9%"
         },
         {
           "label": "Volatility",
-          "value": "Choppy, watching for a turn"
+          "value": "Calm, tight ranges held"
         },
         {
           "label": "ETH Gas",
-          "value": "~$0.95"
+          "value": "~$1.35"
         }
       ],
-      "intro": "This week's stories span the extremes -- a multi-year Ethereum protocol overhaul on one end, and a possible market bottom forming on the other. Along the way we'll touch Range, Correlation, TVL, Volume against its 45-day average, and Market Sentiment, while BTC and ETH sit up modestly and gas stays cheap. None of this calls for an overnight change to your setup, but each story gives you a specific angle to think through before your next rebalance.",
+      "intro": "Price barely moved this week -- BTC and ETH are both up about 1%, and that calm is worth noticing as much as any single headline. Institutional buying, a bridge exploit, and a European regulator's warning on stablecoins all touch different variables this week: Correlation and Range on the buying side, Asset Selection and Market Sentiment on the caution side. None of it demands a big move, but each story is a chance to check your setups against the variables behind them.",
       "stories": [
         {
-          "title": "Ethereum's Multi-Year Diet Plan -- What It Means for Rebalancing Costs",
-          "body": "Vitalik Buterin outlined a plan to shrink Ethereum's stored data close to zero. It relies on ZK proofs -- cryptographic proofs that let the network verify a computation without re-running it -- and shifts balance-tracking work onto validators directly. The rollout spans three to four years and touches nearly every core piece of the protocol. Nothing changes for your gas costs this week, but the goal is a cheaper network to run swaps and rebalances on over time. Range width today is still about volatility and fees, but if gas keeps falling over the next few years, narrower ranges that need frequent rebalancing get relatively cheaper to maintain.",
-          "spark": "If gas costs on Ethereum kept dropping over the next few years, would that change how narrow you're willing to set a range, or does fee capture matter more to you than rebalancing frequency right now?"
+          "title": "Bitmine's ETH Stash Keeps Growing -- Here's the Two Ways LPs Can Lean Into That",
+          "body": "Bitmine, the crypto treasury company chaired by Tom Lee, expanded its ether holdings to 5.78 million ETH this week and repurchased 5.5 million of its own shares under a $4 billion buyback program. That's sustained, one-direction buying from a large holder, the kind of steady demand that matters for Correlation and Range. A correlated pair -- two assets that move together, like ETH and BTC -- captures the full upside when both climb together, while a skewed range, set with more room above the current price, gives you more exposure to the asset you expect to rise. These two levers are alternatives, not additions: picking a correlated pair is a choice about which pool you're in, skewing your range is a choice about how you set up inside whatever pool you pick, and pulling both only makes sense if you're holding a stronger view, like ETH rising and outperforming BTC.",
+          "spark": "Are you running any correlated pairs right now, and if so, is your range skewed to lean into the move, or centered to stay neutral?"
         },
         {
-          "title": "BitMine's ETH Treasury Nears 5% of Total Supply",
-          "body": "BitMine added 42,197 ETH (about $74 million) last week, pushing its total holdings past 5.7 million ETH -- north of 5% of all ETH that exists. Chairman Tom Lee is tying ETH's strength to the odds that the Clarity Act -- a bill that would set clearer US crypto rules -- passes. Sustained buying like this is the case for Correlation: a correlated pair, where both assets move together like ETH and BTC, captures the full upside because both sides of the pool rise at once. Skewing your range toward ETH in an ETH/USDC pool leans into the same belief a different way. These are alternatives, not additions -- stacking both only pays off if your view is more specific, like ETH rising and beating BTC.",
-          "spark": "Are you running any correlated pairs right now, or would you rather skew a range if you think ETH keeps climbing? What would change your mind either way?"
+          "title": "Strategy Buys Zero Bitcoin, Builds a $3.2 Billion Cash Pile Instead",
+          "body": "Strategy, the largest corporate holder of bitcoin, sold $263.5 million of its own MSTR shares this week and added no new bitcoin to its stash, instead building a cash reserve now past $3.2 billion. That's notable because Strategy has been one of the market's most consistent buyers for years, so a pause from the biggest known buyer reads differently than a pause from an average trader. A pause like this is a good prompt to check the Coin Market Cap Fear and Greed gauge before deciding how wide to set a new range -- extreme greed after a long climb tends to precede a correction, and a big buyer sitting on cash instead of adding to its position points the same direction. That doesn't mean panic and widen everything, but it's worth asking whether a tight range set for a continued climb still matches what the market's own biggest buyer is doing with its cash.",
+          "spark": "Have you checked the Fear and Greed gauge this week? Would seeing extreme greed change how wide you'd set a brand new range right now?"
         },
         {
-          "title": "AVAX One Loses Its Treasury Chief -- What a Leadership Gap Means for Pool Depth",
-          "body": "AVAX One, the roughly $550 million Avalanche treasury vehicle backed by SkyBridge founder Anthony Scaramucci, is searching for a new CEO after the leader who built its treasury strategy stepped down. That leaves an open question about whether the planned capital keeps flowing into Avalanche or stalls until new leadership is in place. This is a TVL story: a deeper pool absorbs new deposits and withdrawals without much APR movement. A pause in a planned $550 million allocation is worth watching if you run AVAX pairs. AVAX still sits comfortably inside crypto's top 30 by market cap, so Asset Selection isn't the concern here -- the concern is whether the capital behind it shows up.",
-          "spark": "If you hold an AVAX pair, would news like this make you check TVL trends before adding more liquidity, or would you wait for a new CEO announcement first?"
+          "title": "Allbridge Drained for $1.65M -- a Bridge Exploit Story With a Silver Lining Elsewhere",
+          "body": "Allbridge, a cross-chain bridge protocol -- software that lets you move assets like USDC between blockchains such as Solana and Ethereum -- paused its service this week after an attacker used a flash loan, a loan borrowed and repaid within a single blockchain transaction that lets someone briefly control a huge sum with none of their own money on the line, to distort its Solana stablecoin pools and move $1.65 million in proceeds over to Ethereum. This is an Asset Selection lesson: a bridged stablecoin carries the risk of the bridge protocol moving it, not just the risk of the stablecoin itself, so a pool built around a bridged asset carries a layer of risk a pool of the native asset doesn't. The non-obvious second variable is Volume -- when an exploit like this hits, arbitrage bots and panicked holders swap fast, and that activity often shows up as a Volume spike on completely unrelated, mainstream pools like ETH/USDC or BTC/USDC. If you're LPing in the more established pools, a chaotic day like this one elsewhere in the market can be a genuine fee tailwind rather than something to worry about.",
+          "spark": "If you saw a bridge exploit headline like this one, would you check your pools' 24-hour Volume against the 45-day average to see if the chaos is showing up as extra fees for you?"
         },
         {
-          "title": "Strategy Sells $216M in Bitcoin to Fund Dividends",
-          "body": "Strategy, the largest corporate Bitcoin holder, sold $216 million of its BTC to cover preferred dividend payments under what it calls its BTC Monetization Program, while also reporting an $8.3 billion quarterly loss. A scheduled seller like this adds steady buy-and-sell volume to BTC pairs -- a known program of sales can lift volume on BTC/stablecoin pools even though the news itself reads as negative for Strategy. The catch is telling a one-time sale from a recurring pattern: if these sales keep happening under the program, it's worth checking whether the 45-day average volume on a BTC pool is climbing alongside today's number, which would mean the higher volume is sticking, not reverting. If today's volume spikes far above that average, expect it to fade back down and take the APR with it.",
-          "spark": "Have you looked at whether your BTC pool's daily volume is tracking its 45-day average lately, or running hot above it?"
-        },
-        {
-          "title": "ETF Flows Flip Positive -- Is a Bottom Forming?",
-          "body": "Bitcoin ETF flows turned positive over the holiday weekend after weeks of outflows, and several market watchers are pointing to a rare cluster of signals suggesting a bottom may be forming. Extreme pessimism that suddenly reverses is exactly the kind of turn to watch on the Coin Market Cap Fear and Greed gauge -- a 0 to 100 sentiment score built from volatility and momentum data. Extreme fear on that gauge often comes right before a move back up. If sentiment really is turning, range width is worth thinking through before rebalancing -- a turn usually brings a burst of volatility first, and a range that's too narrow going into that burst can get knocked out fast. Wider ranges hold through fast back-and-forth swings; narrower ones capture more fees but only if the turn is calmer than it looks right now.",
-          "spark": "If you think a bottom might be forming, are you widening your ranges to ride out the swings, or narrowing to capture fees on the way back up?"
+          "title": "ECB Warns Stablecoins Could Drain Bank Deposits -- What That Means for Narrow Stablecoin Ranges",
+          "body": "European Central Bank board member Piero Cipollone warned this week that stablecoins could pull deposits out of the traditional banking system, and floated a digital euro as the structural fix. Nothing changes for LPs overnight, but it's a reminder for Asset Selection: the stablecoins you pair against aren't risk-free just because they're pegged to a dollar, and regulatory pressure like this tends to show up first in the rank and backing of smaller, less established stablecoins. This matters for Range too -- a narrow range on a stablecoin pair only pays off if the peg holds, and the tighter you go, the less room you have before a wobble in the peg pushes you out of range or leaves you holding the side that's losing its peg. Before narrowing a stablecoin pair for extra fee capture, it's worth checking that both sides sit high enough in market-cap rank that a regulatory headline like this one wouldn't be the thing that breaks the peg.",
+          "spark": "For any stablecoin pairs you're running, do you know the market-cap rank and backing of both sides well enough to trust a narrow range on them?"
         }
       ],
-      "closing": "What ranges and pairs are you watching heading into next week? Drop your setups and rebalancing plans in the group."
+      "closing": "What are you watching going into next week? Drop your current setups, pairs, and range thoughts in the group."
     },
-    "slack_ts": "1783356691.163559",
-    "generated_at": "2026-07-06T16:51:33.017090+00:00",
-    "last_processed_ts": "1783374286.646659"
-  },
-  "published": true
+    "slack_ts": "1784562476.048199",
+    "generated_at": "2026-07-20T15:47:57.518086+00:00"
+  }
 }

@@ -3,6 +3,54 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "07-20-2026",
+    "date": "July 20, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "+1.0%"
+      },
+      {
+        "label": "ETH",
+        "value": "+0.9%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Calm, tight ranges held"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$1.35"
+      }
+    ],
+    "intro": "Price barely moved this week -- BTC and ETH are both up about 1%, and that calm is worth noticing as much as any single headline. Institutional buying, a bridge exploit, and a European regulator's warning on stablecoins all touch different variables this week: Correlation and Range on the buying side, Asset Selection and Market Sentiment on the caution side. None of it demands a big move, but each story is a chance to check your setups against the variables behind them.",
+    "stories": [
+      {
+        "title": "Bitmine's ETH Stash Keeps Growing -- Here's the Two Ways LPs Can Lean Into That",
+        "body": "Bitmine, the crypto treasury company chaired by Tom Lee, expanded its ether holdings to 5.78 million ETH this week and repurchased 5.5 million of its own shares under a $4 billion buyback program. That's sustained, one-direction buying from a large holder, the kind of steady demand that matters for Correlation and Range. A correlated pair -- two assets that move together, like ETH and BTC -- captures the full upside when both climb together, while a skewed range, set with more room above the current price, gives you more exposure to the asset you expect to rise. These two levers are alternatives, not additions: picking a correlated pair is a choice about which pool you're in, skewing your range is a choice about how you set up inside whatever pool you pick, and pulling both only makes sense if you're holding a stronger view, like ETH rising and outperforming BTC.",
+        "spark": "Are you running any correlated pairs right now, and if so, is your range skewed to lean into the move, or centered to stay neutral?"
+      },
+      {
+        "title": "Strategy Buys Zero Bitcoin, Builds a $3.2 Billion Cash Pile Instead",
+        "body": "Strategy, the largest corporate holder of bitcoin, sold $263.5 million of its own MSTR shares this week and added no new bitcoin to its stash, instead building a cash reserve now past $3.2 billion. That's notable because Strategy has been one of the market's most consistent buyers for years, so a pause from the biggest known buyer reads differently than a pause from an average trader. A pause like this is a good prompt to check the Coin Market Cap Fear and Greed gauge before deciding how wide to set a new range -- extreme greed after a long climb tends to precede a correction, and a big buyer sitting on cash instead of adding to its position points the same direction. That doesn't mean panic and widen everything, but it's worth asking whether a tight range set for a continued climb still matches what the market's own biggest buyer is doing with its cash.",
+        "spark": "Have you checked the Fear and Greed gauge this week? Would seeing extreme greed change how wide you'd set a brand new range right now?"
+      },
+      {
+        "title": "Allbridge Drained for $1.65M -- a Bridge Exploit Story With a Silver Lining Elsewhere",
+        "body": "Allbridge, a cross-chain bridge protocol -- software that lets you move assets like USDC between blockchains such as Solana and Ethereum -- paused its service this week after an attacker used a flash loan, a loan borrowed and repaid within a single blockchain transaction that lets someone briefly control a huge sum with none of their own money on the line, to distort its Solana stablecoin pools and move $1.65 million in proceeds over to Ethereum. This is an Asset Selection lesson: a bridged stablecoin carries the risk of the bridge protocol moving it, not just the risk of the stablecoin itself, so a pool built around a bridged asset carries a layer of risk a pool of the native asset doesn't. The non-obvious second variable is Volume -- when an exploit like this hits, arbitrage bots and panicked holders swap fast, and that activity often shows up as a Volume spike on completely unrelated, mainstream pools like ETH/USDC or BTC/USDC. If you're LPing in the more established pools, a chaotic day like this one elsewhere in the market can be a genuine fee tailwind rather than something to worry about.",
+        "spark": "If you saw a bridge exploit headline like this one, would you check your pools' 24-hour Volume against the 45-day average to see if the chaos is showing up as extra fees for you?"
+      },
+      {
+        "title": "ECB Warns Stablecoins Could Drain Bank Deposits -- What That Means for Narrow Stablecoin Ranges",
+        "body": "European Central Bank board member Piero Cipollone warned this week that stablecoins could pull deposits out of the traditional banking system, and floated a digital euro as the structural fix. Nothing changes for LPs overnight, but it's a reminder for Asset Selection: the stablecoins you pair against aren't risk-free just because they're pegged to a dollar, and regulatory pressure like this tends to show up first in the rank and backing of smaller, less established stablecoins. This matters for Range too -- a narrow range on a stablecoin pair only pays off if the peg holds, and the tighter you go, the less room you have before a wobble in the peg pushes you out of range or leaves you holding the side that's losing its peg. Before narrowing a stablecoin pair for extra fee capture, it's worth checking that both sides sit high enough in market-cap rank that a regulatory headline like this one wouldn't be the thing that breaks the peg.",
+        "spark": "For any stablecoin pairs you're running, do you know the market-cap rank and backing of both sides well enough to trust a narrow range on them?"
+      }
+    ],
+    "closing": "What are you watching going into next week? Drop your current setups, pairs, and range thoughts in the group."
+  },
+  {
     "id": "07-06-2026",
     "date": "July 06, 2026",
     "title": "LP Mastermind\nMarket Update",
