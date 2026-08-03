@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "08-03-2026",
+    "date": "August 03, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "+1.1%"
+      },
+      {
+        "label": "ETH",
+        "value": "+0.4%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Calm, narrow ranges holding"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$0.95"
+      }
+    ],
+    "intro": "Prices barely moved this week, but the stories underneath them didn't. A treasury company kept buying ETH, a well-known BTC holder trimmed a position, a hardware wallet hack rattled self-custody, and regulators may move faster than Congress. This issue touches Correlation, Range, Volume, Average Volume, Asset Selection, Market Sentiment, and TVL -- worth reading slow even in a quiet week.",
+    "stories": [
+      {
+        "title": "Tom Lee's Bitmine Keeps Buying ETH -- Two Ways to Lean Into It",
+        "body": "Bitmine added another 10,399 ETH last week, pushing its total holdings toward 5.8 million ETH as it works toward owning 5% of all ETH in circulation. Chairman Tom Lee points to ETH outperforming the Nasdaq 100 in July as proof this buying is sustained, not a short-lived pop. Sustained buying like this puts two separate levers on the table. One is Range skew: shifting more of your range above the current price gives you more room to catch ETH's climb, and keeps more of your position in ETH for longer as price rises. The other is Correlation: picking a pair like ETH/BTC, where both sides tend to move together, means you capture the full move in both assets instead of watching half your capital sit parked in a stablecoin while price runs. These are alternatives, not additions -- skewing changes how you sit within a pair you already picked, while a correlated pair changes which pair you're in, and pulling both levers at once really only pays off if you hold a more specific view, like believing ETH will keep outperforming BTC too, not just that ETH is going up.",
+        "spark": "Are you running any ETH pairs skewed toward more upside right now, or sitting in a correlated pair like ETH/BTC to catch the full move? What made you choose one over the other?"
+      },
+      {
+        "title": "Strategy Trims 1,638 BTC -- Don't Let the Headline Fool You",
+        "body": "Michael Saylor's Strategy sold 1,638 BTC for roughly $105 million last week, putting half the proceeds toward preferred dividend payments and the other half into an $81 million stock buyback. The sale brings Strategy's total holdings to 842,138 BTC -- still about 4% of all the bitcoin that will ever exist, worth roughly $53 billion. A sale like this from a well-known holder can nudge exchange volume up for a day or two, but $105 million against a $53 billion position is a rounding error, not a shift in conviction. If a pool you're in shows a sudden APR jump tied to a headline like this, it's worth checking the 45-day Average Volume before assuming it's the new normal -- a one-day bump from a single seller almost always reverts. Asset Selection is untouched here too: BTC stays the top-ranked asset in the market no matter who trims a position, which is exactly why market-cap rank, not one holder's activity, is the safety check worth watching.",
+        "spark": "Next time a headline about a big holder buying or selling crosses your feed, do you check the 45-day Average Volume on your pools before deciding it matters, or does the headline itself change how you feel about your position?"
+      },
+      {
+        "title": "Coldcard Hardware Wallet Losses Near $114 Million -- What It Does and Doesn't Mean for Pool Money",
+        "body": "Losses tied to a wave of Coldcard hardware wallet compromises are approaching $114 million. Galaxy Research says a fourth wave of thefts looks likely. Small bitcoin transfers -- under 1 BTC -- have spiked to levels not seen since right after the FTX collapse, a sign holders are rushing to move funds to safety. That kind of panic-driven movement often bumps Volume across exchanges and on-chain pools too, even ones with nothing to do with the hack -- the same pattern seen after past exploits, where LPs sitting in unrelated pairs pick up extra fees during the chaos. This is a self-custody attack on hardware wallets, a different risk category from a pool exploit -- money sitting in a Uniswap pool isn't exposed to a compromised signing device. Coin Market Cap's Fear and Greed gauge -- the practical read on Market Sentiment -- is worth a glance here: extreme fear spreading from an event like this has tended to precede a turn back the other way, which is one more reason a narrow range set in the middle of a scare can get knocked out fast.",
+        "spark": "If a security scare like this bumped volume in your pools this week, did you notice it in the pool itself or only after checking the numbers? Would a moment of extreme fear push you to widen a range or hold steady?"
+      },
+      {
+        "title": "American Bitcoin Tops 8,000 BTC -- Treasury Exposure Isn't the Same as Holding BTC",
+        "body": "American Bitcoin, the mining and treasury company linked to Eric Trump, grew its reserve to 8,002 BTC after mining a record 932 BTC in the second quarter. Revenue climbed 8% to $67 million, so the growth is coming from real mining output, not just from buying BTC on the open market. Here's the Asset Selection lesson: owning a stake in a company that holds BTC is not the same as holding BTC itself. The company carries its own operating risk, debt, and management decisions on top of whatever BTC price does -- similar to how a liquid staking token inherits the risk of the protocol issuing it, not just the risk of the asset underneath. If you're ever LPing with something that represents BTC exposure through a company or fund rather than BTC itself, that extra layer of risk is worth knowing about before treating it as interchangeable with the real thing.",
+        "spark": "Have you ever LPed with a wrapped or company-backed version of an asset instead of the asset itself? Did you check what extra risk that wrapper adds on top of the underlying coin's rank?"
+      },
+      {
+        "title": "Clarity Act Uncertainty Could Mean More Rulemaking, Not Less",
+        "body": "Bernstein says that if the Clarity Act -- the bill meant to set clear federal rules for crypto -- fails to pass this year, the SEC and CFTC will likely move faster on their own rulemaking instead. Agency rules can shift with a new administration, while a law passed by Congress is harder to undo. For LPs, this isn't about picking a side on the bill. It means regulatory uncertainty can keep institutional capital on the sidelines longer, which can slow how fast new money flows into pools -- slower TVL growth. It's also a case for wider ranges: when a surprise ruling can move price faster than ordinary news does, more room in your range keeps you earning fees through the swing instead of getting knocked out of it.",
+        "spark": "Has regulatory uncertainty made you widen any of your ranges lately, or are you holding steady until there's more clarity? What would make you tighten back up?"
+      }
+    ],
+    "closing": "What are you watching going into next week? Drop your current pairs, range widths, and any moves you made in response to this week's news in the group."
+  },
+  {
     "id": "07-27-2026",
     "date": "July 27, 2026",
     "title": "LP Mastermind\nMarket Update",

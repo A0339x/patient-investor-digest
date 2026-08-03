@@ -1,61 +1,59 @@
 {
   "pending": {
     "digest": {
-      "id": "07-27-2026",
-      "date": "July 27, 2026",
+      "id": "08-03-2026",
+      "date": "August 03, 2026",
       "title": "LP Mastermind\nMarket Update",
       "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
       "snapshot": [
         {
           "label": "BTC",
-          "value": "-0.1%"
+          "value": "+1.1%"
         },
         {
           "label": "ETH",
-          "value": "+1.0%"
+          "value": "+0.4%"
         },
         {
           "label": "Volatility",
-          "value": "Calm, narrow range holding"
+          "value": "Calm, narrow ranges holding"
         },
         {
           "label": "ETH Gas",
-          "value": "~$0.45"
+          "value": "~$0.95"
         }
       ],
-      "intro": "BTC sat almost flat this week while ETH inched higher, and the more interesting story is happening underneath that calm. Institutional buyers are pulling BTC and ETH in different directions, a validator shakeup at Lido echoes the same depth lesson we use for pools, and a stablecoin patent deal is a reminder that not every dollar-pegged token is the same pick. This issue touches Correlation, Range, TVL, Asset Selection, and Volume alongside its 45-day average.",
+      "intro": "Prices barely moved this week, but the stories underneath them didn't. A treasury company kept buying ETH, a well-known BTC holder trimmed a position, a hardware wallet hack rattled self-custody, and regulators may move faster than Congress. This issue touches Correlation, Range, Volume, Average Volume, Asset Selection, Market Sentiment, and TVL -- worth reading slow even in a quiet week.",
       "stories": [
         {
-          "title": "ETH and BTC Are Pulling Apart -- Does Your Correlated Pair Still Hold?",
-          "body": "Bitmine now holds 5.79 million ETH -- close to 4.8% of all ETH in existence -- after adding roughly 10,000 more tokens this week and repurchasing 6.1 million of its own shares under its buyback program. At the same time, Strategy skipped its Bitcoin purchase for a fifth straight week, choosing instead to add $525 million to cash reserves, while ETH is also pulling in more new ETF money than BTC right now. If you're running a correlated pair -- two assets that move together, like BTC and ETH -- keep in mind that correlation only pays off when both sides are actually getting pushed the same amount. When one side has an aggressive buyer and the other has a hesitant one, the two assets can drift apart even inside a pool built assuming they move as a unit. There's a second lever worth thinking through here: Range. If you expect ETH's stronger demand to continue, skewing an ETH/USDC range so more liquidity sits above the current price gives you more exposure to ETH specifically as it climbs. Keep in mind these two levers work differently -- a correlated pair is a choice about which assets you hold together, a skewed range is a choice about where your liquidity sits inside one pair -- and pulling both only makes sense if you hold the stronger, more specific view that ETH rises and outpaces BTC.",
-          "spark": "If you're in a BTC/ETH pair right now, have you noticed one side pulling away from the other? Would you rather stay correlated, or think about skewing your range toward the asset getting the stronger buying?"
+          "title": "Tom Lee's Bitmine Keeps Buying ETH -- Two Ways to Lean Into It",
+          "body": "Bitmine added another 10,399 ETH last week, pushing its total holdings toward 5.8 million ETH as it works toward owning 5% of all ETH in circulation. Chairman Tom Lee points to ETH outperforming the Nasdaq 100 in July as proof this buying is sustained, not a short-lived pop. Sustained buying like this puts two separate levers on the table. One is Range skew: shifting more of your range above the current price gives you more room to catch ETH's climb, and keeps more of your position in ETH for longer as price rises. The other is Correlation: picking a pair like ETH/BTC, where both sides tend to move together, means you capture the full move in both assets instead of watching half your capital sit parked in a stablecoin while price runs. These are alternatives, not additions -- skewing changes how you sit within a pair you already picked, while a correlated pair changes which pair you're in, and pulling both levers at once really only pays off if you hold a more specific view, like believing ETH will keep outperforming BTC too, not just that ETH is going up.",
+          "spark": "Are you running any ETH pairs skewed toward more upside right now, or sitting in a correlated pair like ETH/BTC to catch the full move? What made you choose one over the other?"
         },
         {
-          "title": "Lido Consolidates $16 Billion in Staked ETH -- The Same Depth Lesson Applies to Pools",
-          "body": "Lido, the largest Ethereum staking protocol, has started moving more than 8 million ETH -- worth roughly $16 billion -- onto Ethereum's newer, larger validators, the computers that stake ETH and help run the network, as part of a rollout called Curated Module v2. Fewer, bigger validators are more efficient to run and harder to disrupt, which is the same logic behind TVL in a pool: a $50 million pool barely notices a large deposit or withdrawal, while a $500,000 pool gets pushed around by the same amount of money. The non-obvious second variable here is Asset Selection. If you're providing liquidity in a pool that holds stETH -- Lido's liquid staking token, meaning a token that represents ETH staked through Lido and is designed to trade near 1:1 with ETH -- keep in mind you're holding exposure to Lido's protocol on top of ETH itself, and a deeper, well-run protocol like Lido lowers that layer of risk without erasing it.",
-          "spark": "For any stETH or other liquid-staking-token pair you're running, do you think about the issuing protocol's track record the same way you'd think about a pool's TVL?"
+          "title": "Strategy Trims 1,638 BTC -- Don't Let the Headline Fool You",
+          "body": "Michael Saylor's Strategy sold 1,638 BTC for roughly $105 million last week, putting half the proceeds toward preferred dividend payments and the other half into an $81 million stock buyback. The sale brings Strategy's total holdings to 842,138 BTC -- still about 4% of all the bitcoin that will ever exist, worth roughly $53 billion. A sale like this from a well-known holder can nudge exchange volume up for a day or two, but $105 million against a $53 billion position is a rounding error, not a shift in conviction. If a pool you're in shows a sudden APR jump tied to a headline like this, it's worth checking the 45-day Average Volume before assuming it's the new normal -- a one-day bump from a single seller almost always reverts. Asset Selection is untouched here too: BTC stays the top-ranked asset in the market no matter who trims a position, which is exactly why market-cap rank, not one holder's activity, is the safety check worth watching.",
+          "spark": "Next time a headline about a big holder buying or selling crosses your feed, do you check the 45-day Average Volume on your pools before deciding it matters, or does the headline itself change how you feel about your position?"
         },
         {
-          "title": "Circle Becomes the Biggest US Blockchain Patent Holder -- What That Means for Your Stablecoin Pick",
-          "body": "Circle, the company behind the USDC stablecoin, acquired IBM's blockchain patent portfolio -- more than 680 patent families and nearly 1,000 issued patents -- making Circle the largest blockchain patent holder in the US. IBM, notably, is still backing a stablecoin that competes directly with USDC. This is an Asset Selection story: pairing a pool with a stablecoin means picking a specific issuer with its own legal standing and reserves, not just 'a dollar,' and a deeper, more established issuer like Circle is the safer pick by that measure. The non-obvious second variable is Volume -- as stablecoin competition plays out, trading volume can rotate between USDC pairs and rival stablecoin pairs depending on which one gains ground, so a pool that looks quiet today could pick up or lose fee-generating activity as that competition shifts.",
-          "spark": "Do you know which stablecoin issuer sits on the other side of your pairs, and would a new competitor or legal dispute change how comfortable you are holding it?"
+          "title": "Coldcard Hardware Wallet Losses Near $114 Million -- What It Does and Doesn't Mean for Pool Money",
+          "body": "Losses tied to a wave of Coldcard hardware wallet compromises are approaching $114 million. Galaxy Research says a fourth wave of thefts looks likely. Small bitcoin transfers -- under 1 BTC -- have spiked to levels not seen since right after the FTX collapse, a sign holders are rushing to move funds to safety. That kind of panic-driven movement often bumps Volume across exchanges and on-chain pools too, even ones with nothing to do with the hack -- the same pattern seen after past exploits, where LPs sitting in unrelated pairs pick up extra fees during the chaos. This is a self-custody attack on hardware wallets, a different risk category from a pool exploit -- money sitting in a Uniswap pool isn't exposed to a compromised signing device. Coin Market Cap's Fear and Greed gauge -- the practical read on Market Sentiment -- is worth a glance here: extreme fear spreading from an event like this has tended to precede a turn back the other way, which is one more reason a narrow range set in the middle of a scare can get knocked out fast.",
+          "spark": "If a security scare like this bumped volume in your pools this week, did you notice it in the pool itself or only after checking the numbers? Would a moment of extreme fear push you to widen a range or hold steady?"
         },
         {
-          "title": "Tokenized Stocks Jump 5x on Robinhood Chain -- Don't Chase the Outlier",
-          "body": "Trading volume for tokenized stocks -- stocks represented as tokens that trade on-chain -- jumped roughly 5x on Robinhood Chain this week. A sudden spike like that is exactly what Average Volume, the 45-day trailing number, is built to catch. Looking only at today's number on Krystal, a 5x jump can make a pool's APR look far higher than it will hold up to be, since APR is essentially Volume divided by TVL and today's Volume is the outlier, not the norm. Pulling the 45-day average up next to today's number tells you whether this is a new, sticky level of activity or a one-day spike that reverts once the excitement fades, and whether the APR you're seeing today is one you can actually count on next week.",
-          "spark": "Next time a pool shows a huge APR right after a headline like this one, would checking the 45-day average change your read on whether that yield sticks around?"
+          "title": "American Bitcoin Tops 8,000 BTC -- Treasury Exposure Isn't the Same as Holding BTC",
+          "body": "American Bitcoin, the mining and treasury company linked to Eric Trump, grew its reserve to 8,002 BTC after mining a record 932 BTC in the second quarter. Revenue climbed 8% to $67 million, so the growth is coming from real mining output, not just from buying BTC on the open market. Here's the Asset Selection lesson: owning a stake in a company that holds BTC is not the same as holding BTC itself. The company carries its own operating risk, debt, and management decisions on top of whatever BTC price does -- similar to how a liquid staking token inherits the risk of the protocol issuing it, not just the risk of the asset underneath. If you're ever LPing with something that represents BTC exposure through a company or fund rather than BTC itself, that extra layer of risk is worth knowing about before treating it as interchangeable with the real thing.",
+          "spark": "Have you ever LPed with a wrapped or company-backed version of an asset instead of the asset itself? Did you check what extra risk that wrapper adds on top of the underlying coin's rank?"
         },
         {
-          "title": "Ondo Launches a New Execution Network -- Where Does It Sit on Your Safety Checklist?",
-          "body": "Ondo launched a new execution network -- infrastructure that processes transactions for its products -- which its CEO calls the 'evolution' of the earlier Ondo Chain effort, and which now underpins a new product called Ondo Perps. Launches like this tend to draw a burst of trading volume and hype as people test the new venue, worth keeping in mind for Volume since a fresh venue's early activity isn't the same as demand that lasts. If a new ONDO pair shows up because of this launch, Asset Selection is the variable to think through first: Ondo currently sits outside the top 30 by market cap, more in the 'exploring' band than the safest one, which means more room for a sharp move in either direction.",
-          "spark": "If you saw a new ONDO pool with a big APR right after this launch, how would you weigh the Asset Selection risk of a sub-top-30 token against the fee opportunity?"
+          "title": "Clarity Act Uncertainty Could Mean More Rulemaking, Not Less",
+          "body": "Bernstein says that if the Clarity Act -- the bill meant to set clear federal rules for crypto -- fails to pass this year, the SEC and CFTC will likely move faster on their own rulemaking instead. Agency rules can shift with a new administration, while a law passed by Congress is harder to undo. For LPs, this isn't about picking a side on the bill. It means regulatory uncertainty can keep institutional capital on the sidelines longer, which can slow how fast new money flows into pools -- slower TVL growth. It's also a case for wider ranges: when a surprise ruling can move price faster than ordinary news does, more room in your range keeps you earning fees through the swing instead of getting knocked out of it.",
+          "spark": "Has regulatory uncertainty made you widen any of your ranges lately, or are you holding steady until there's more clarity? What would make you tighten back up?"
         }
       ],
-      "closing": "What are you watching heading into next week -- any correlated pairs you're rethinking, or new pools you're sizing up against Asset Selection? Drop your setups and range thoughts in the group."
+      "closing": "What are you watching going into next week? Drop your current pairs, range widths, and any moves you made in response to this week's news in the group."
     },
-    "slack_ts": "1785168907.491459",
-    "generated_at": "2026-07-27T16:15:08.891867+00:00",
-    "last_processed_ts": "1785190665.504489"
-  },
-  "published": true
+    "slack_ts": "1785774010.562249",
+    "generated_at": "2026-08-03T16:20:11.426252+00:00"
+  }
 }
