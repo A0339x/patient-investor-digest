@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "08-10-2026",
+    "date": "August 10, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "-0.6%"
+      },
+      {
+        "label": "ETH",
+        "value": "-1.4%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Quiet -- small pullback, ranges holding"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$1.35"
+      }
+    ],
+    "intro": "This week's stories cover five different signals -- ETF inflows, a whale adding to its ETH pile, a mega-holder trimming Bitcoin, a rough month for hacks, and a decade-long price call on Chainlink. Between them we'll touch Range, Correlation, Average Volume, Asset Selection, and The Chart -- the same variables showing up in slightly different clothes each time. None of this is a signal to change anything overnight; it's a chance to practice running the variables against real news.",
+    "stories": [
+      {
+        "title": "ETF Money Comes Back -- What Sustained Buying Means for Your Range",
+        "body": "Spot Bitcoin ETFs pulled in $854 million over five days, the strongest weekly inflow since May, and Ether ETF inflows were even bigger once you weigh them against ETH's smaller market cap. Steady one-direction buying like this is exactly when Range is worth thinking about -- if you expect the climb to continue, you can skew your range so more of it sits above the current price, giving you more room to capture the move before you rotate out of range. The non-obvious second lever is Correlation: a correlated pair -- two assets that tend to move together, like ETH and BTC -- lets both sides of your position rise at once, so you capture more of the move than a pair like ETH/USDC where only half your money is in the asset that's climbing. These two levers are alternatives, not additions -- skewing your range changes where you sit within a pair, while picking a correlated pair changes which pair you're in, and stacking both only makes sense if you hold a stronger view, like 'ETH goes up AND outperforms BTC.'",
+        "spark": "Are you skewing any ranges upward right now, or sitting in correlated pairs to catch this inflow trend? What's your pair and range width?"
+      },
+      {
+        "title": "Bitmine's ETH Pile Tops 5.81 Million -- Reading Sustained Whale Buying",
+        "body": "Bitmine added 7,391 ETH last week, pushing its total Ethereum holdings to 5.81 million ETH, worth roughly $11 billion, and it's held 4.8% of ETH's total supply for five straight weeks. When one buyer keeps adding at this size and pace, that's sustained directional demand -- the same setup where Range skew and Correlation both become worth thinking about, since a wider allocation on the upside of your range or a correlated pair both let you capture more of a move that a large, repeat buyer keeps pushing along. Keep in mind that Bitmine buying doesn't guarantee price keeps climbing -- it's a signal of demand, not a forecast, so treat it as one more data point alongside what your own range and pair are already telling you.",
+        "spark": "If a large holder keeps buying ETH week after week like Bitmine, does that change how wide or narrow you'd set an ETH-paired range?"
+      },
+      {
+        "title": "Strategy Sells $109M in Bitcoin -- Don't Let a Big Trade Fool Your APR",
+        "body": "Michael Saylor's Strategy sold 1,690 BTC, about $109 million, to fund a buyback of its own STRC shares, even as its cash reserve grew to $4.65 billion -- a trade six times the size of the buyback itself. A sale that size can spike a day's trading volume well above a pool's usual level, and Krystal only shows you today's number, so it's worth checking the 45-day average volume before trusting whatever APR shows up in a Bitcoin pool this week. If today's volume sits far above that average, the APR you're seeing is probably inflated and will drop back down once volume reverts -- that's exactly the outlier the average is there to catch. None of this touches Bitcoin's asset selection profile -- Strategy trimming a position doesn't change BTC's market cap rank, so the safety case for BTC pairs stays right where it was.",
+        "spark": "Next time a mega-holder trade hits the news, do you check the 45-day average before trusting the APR a pool is showing, or does the daily number get you first?"
+      },
+      {
+        "title": "$110M Lost to Hacks in July -- Chaos Days Are Still Fee Days",
+        "body": "Crypto lost roughly $110 million to hacks in July, according to Immunefi, though the firm noted its audit competitions are catching more bugs before launch than traditional single-firm audits do. Asset Selection is the direct lesson here: a token deep in an exploit is usually a smaller, lower-rank project, and it's a good habit to check where both sides of a pair sit by market cap rank before adding liquidity, since the top 30 carries a meaningfully lower probability of this kind of loss. The non-obvious second variable is Volume -- when an exploit hits, panicked holders and arbitrage bots move fast, and that activity often shows up as a volume spike across the wider market, not just the hacked token. If you're LPing in a mainstream pool like ETH/USDC or BTC/USDC, a bad week for one project elsewhere can still turn into a good week of fee income for you.",
+        "spark": "When a hack hits the news, do you check whether either side of your current pairs sits outside the top 30, or do you only think about it after the fact?"
+      },
+      {
+        "title": "Standard Chartered's $200 Chainlink Call -- What The Chart Actually Asks",
+        "body": "Standard Chartered initiated coverage on Chainlink (LINK) with a $200 price target by the end of 2030, arguing the token underpins the rails for a $4 trillion tokenized-asset market, alongside similar long-term targets for Uniswap, Aave, and Morpho. A forecast like this is a good moment to run The Chart variable instead of just reacting to the headline. First, has LINK's chart shown ups and downs throughout its lifetime, the kind of shape that says the asset is alive, rather than one long slide in a single direction? Second, where does today's price sit relative to LINK's previous all-time high -- buying near a prior top leaves less room for upside than buying well below it, and a beaten-down price on a chart that's only ever gone one way is just as weak a setup as a healthy chart bought at the wrong point on it.",
+        "spark": "Next time you're adding liquidity to a LINK pair on a long-term forecast like this, where does LINK's price sit relative to its all-time high, and does its chart show real ups and downs or mostly one direction?"
+      }
+    ],
+    "closing": "What are you watching heading into next week -- any ranges you're skewing, pairs you're rotating into, or rank checks you're running before adding liquidity? Drop your setups in the group."
+  },
+  {
     "id": "08-03-2026",
     "date": "August 03, 2026",
     "title": "LP Mastermind\nMarket Update",

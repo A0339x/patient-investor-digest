@@ -1,59 +1,59 @@
 {
   "pending": {
     "digest": {
-      "id": "08-03-2026",
-      "date": "August 03, 2026",
+      "id": "08-10-2026",
+      "date": "August 10, 2026",
       "title": "LP Mastermind\nMarket Update",
       "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
       "snapshot": [
         {
           "label": "BTC",
-          "value": "+1.1%"
+          "value": "-0.6%"
         },
         {
           "label": "ETH",
-          "value": "+0.4%"
+          "value": "-1.4%"
         },
         {
           "label": "Volatility",
-          "value": "Calm, narrow ranges holding"
+          "value": "Quiet -- small pullback, ranges holding"
         },
         {
           "label": "ETH Gas",
-          "value": "~$0.95"
+          "value": "~$1.35"
         }
       ],
-      "intro": "Prices barely moved this week, but the stories underneath them didn't. A treasury company kept buying ETH, a well-known BTC holder trimmed a position, a hardware wallet hack rattled self-custody, and regulators may move faster than Congress. This issue touches Correlation, Range, Volume, Average Volume, Asset Selection, Market Sentiment, and TVL -- worth reading slow even in a quiet week.",
+      "intro": "This week's stories cover five different signals -- ETF inflows, a whale adding to its ETH pile, a mega-holder trimming Bitcoin, a rough month for hacks, and a decade-long price call on Chainlink. Between them we'll touch Range, Correlation, Average Volume, Asset Selection, and The Chart -- the same variables showing up in slightly different clothes each time. None of this is a signal to change anything overnight; it's a chance to practice running the variables against real news.",
       "stories": [
         {
-          "title": "Tom Lee's Bitmine Keeps Buying ETH -- Two Ways to Lean Into It",
-          "body": "Bitmine added another 10,399 ETH last week, pushing its total holdings toward 5.8 million ETH as it works toward owning 5% of all ETH in circulation. Chairman Tom Lee points to ETH outperforming the Nasdaq 100 in July as proof this buying is sustained, not a short-lived pop. Sustained buying like this puts two separate levers on the table. One is Range skew: shifting more of your range above the current price gives you more room to catch ETH's climb, and keeps more of your position in ETH for longer as price rises. The other is Correlation: picking a pair like ETH/BTC, where both sides tend to move together, means you capture the full move in both assets instead of watching half your capital sit parked in a stablecoin while price runs. These are alternatives, not additions -- skewing changes how you sit within a pair you already picked, while a correlated pair changes which pair you're in, and pulling both levers at once really only pays off if you hold a more specific view, like believing ETH will keep outperforming BTC too, not just that ETH is going up.",
-          "spark": "Are you running any ETH pairs skewed toward more upside right now, or sitting in a correlated pair like ETH/BTC to catch the full move? What made you choose one over the other?"
+          "title": "ETF Money Comes Back -- What Sustained Buying Means for Your Range",
+          "body": "Spot Bitcoin ETFs pulled in $854 million over five days, the strongest weekly inflow since May, and Ether ETF inflows were even bigger once you weigh them against ETH's smaller market cap. Steady one-direction buying like this is exactly when Range is worth thinking about -- if you expect the climb to continue, you can skew your range so more of it sits above the current price, giving you more room to capture the move before you rotate out of range. The non-obvious second lever is Correlation: a correlated pair -- two assets that tend to move together, like ETH and BTC -- lets both sides of your position rise at once, so you capture more of the move than a pair like ETH/USDC where only half your money is in the asset that's climbing. These two levers are alternatives, not additions -- skewing your range changes where you sit within a pair, while picking a correlated pair changes which pair you're in, and stacking both only makes sense if you hold a stronger view, like 'ETH goes up AND outperforms BTC.'",
+          "spark": "Are you skewing any ranges upward right now, or sitting in correlated pairs to catch this inflow trend? What's your pair and range width?"
         },
         {
-          "title": "Strategy Trims 1,638 BTC -- Don't Let the Headline Fool You",
-          "body": "Michael Saylor's Strategy sold 1,638 BTC for roughly $105 million last week, putting half the proceeds toward preferred dividend payments and the other half into an $81 million stock buyback. The sale brings Strategy's total holdings to 842,138 BTC -- still about 4% of all the bitcoin that will ever exist, worth roughly $53 billion. A sale like this from a well-known holder can nudge exchange volume up for a day or two, but $105 million against a $53 billion position is a rounding error, not a shift in conviction. If a pool you're in shows a sudden APR jump tied to a headline like this, it's worth checking the 45-day Average Volume before assuming it's the new normal -- a one-day bump from a single seller almost always reverts. Asset Selection is untouched here too: BTC stays the top-ranked asset in the market no matter who trims a position, which is exactly why market-cap rank, not one holder's activity, is the safety check worth watching.",
-          "spark": "Next time a headline about a big holder buying or selling crosses your feed, do you check the 45-day Average Volume on your pools before deciding it matters, or does the headline itself change how you feel about your position?"
+          "title": "Bitmine's ETH Pile Tops 5.81 Million -- Reading Sustained Whale Buying",
+          "body": "Bitmine added 7,391 ETH last week, pushing its total Ethereum holdings to 5.81 million ETH, worth roughly $11 billion, and it's held 4.8% of ETH's total supply for five straight weeks. When one buyer keeps adding at this size and pace, that's sustained directional demand -- the same setup where Range skew and Correlation both become worth thinking about, since a wider allocation on the upside of your range or a correlated pair both let you capture more of a move that a large, repeat buyer keeps pushing along. Keep in mind that Bitmine buying doesn't guarantee price keeps climbing -- it's a signal of demand, not a forecast, so treat it as one more data point alongside what your own range and pair are already telling you.",
+          "spark": "If a large holder keeps buying ETH week after week like Bitmine, does that change how wide or narrow you'd set an ETH-paired range?"
         },
         {
-          "title": "Coldcard Hardware Wallet Losses Near $114 Million -- What It Does and Doesn't Mean for Pool Money",
-          "body": "Losses tied to a wave of Coldcard hardware wallet compromises are approaching $114 million. Galaxy Research says a fourth wave of thefts looks likely. Small bitcoin transfers -- under 1 BTC -- have spiked to levels not seen since right after the FTX collapse, a sign holders are rushing to move funds to safety. That kind of panic-driven movement often bumps Volume across exchanges and on-chain pools too, even ones with nothing to do with the hack -- the same pattern seen after past exploits, where LPs sitting in unrelated pairs pick up extra fees during the chaos. This is a self-custody attack on hardware wallets, a different risk category from a pool exploit -- money sitting in a Uniswap pool isn't exposed to a compromised signing device. Coin Market Cap's Fear and Greed gauge -- the practical read on Market Sentiment -- is worth a glance here: extreme fear spreading from an event like this has tended to precede a turn back the other way, which is one more reason a narrow range set in the middle of a scare can get knocked out fast.",
-          "spark": "If a security scare like this bumped volume in your pools this week, did you notice it in the pool itself or only after checking the numbers? Would a moment of extreme fear push you to widen a range or hold steady?"
+          "title": "Strategy Sells $109M in Bitcoin -- Don't Let a Big Trade Fool Your APR",
+          "body": "Michael Saylor's Strategy sold 1,690 BTC, about $109 million, to fund a buyback of its own STRC shares, even as its cash reserve grew to $4.65 billion -- a trade six times the size of the buyback itself. A sale that size can spike a day's trading volume well above a pool's usual level, and Krystal only shows you today's number, so it's worth checking the 45-day average volume before trusting whatever APR shows up in a Bitcoin pool this week. If today's volume sits far above that average, the APR you're seeing is probably inflated and will drop back down once volume reverts -- that's exactly the outlier the average is there to catch. None of this touches Bitcoin's asset selection profile -- Strategy trimming a position doesn't change BTC's market cap rank, so the safety case for BTC pairs stays right where it was.",
+          "spark": "Next time a mega-holder trade hits the news, do you check the 45-day average before trusting the APR a pool is showing, or does the daily number get you first?"
         },
         {
-          "title": "American Bitcoin Tops 8,000 BTC -- Treasury Exposure Isn't the Same as Holding BTC",
-          "body": "American Bitcoin, the mining and treasury company linked to Eric Trump, grew its reserve to 8,002 BTC after mining a record 932 BTC in the second quarter. Revenue climbed 8% to $67 million, so the growth is coming from real mining output, not just from buying BTC on the open market. Here's the Asset Selection lesson: owning a stake in a company that holds BTC is not the same as holding BTC itself. The company carries its own operating risk, debt, and management decisions on top of whatever BTC price does -- similar to how a liquid staking token inherits the risk of the protocol issuing it, not just the risk of the asset underneath. If you're ever LPing with something that represents BTC exposure through a company or fund rather than BTC itself, that extra layer of risk is worth knowing about before treating it as interchangeable with the real thing.",
-          "spark": "Have you ever LPed with a wrapped or company-backed version of an asset instead of the asset itself? Did you check what extra risk that wrapper adds on top of the underlying coin's rank?"
+          "title": "$110M Lost to Hacks in July -- Chaos Days Are Still Fee Days",
+          "body": "Crypto lost roughly $110 million to hacks in July, according to Immunefi, though the firm noted its audit competitions are catching more bugs before launch than traditional single-firm audits do. Asset Selection is the direct lesson here: a token deep in an exploit is usually a smaller, lower-rank project, and it's a good habit to check where both sides of a pair sit by market cap rank before adding liquidity, since the top 30 carries a meaningfully lower probability of this kind of loss. The non-obvious second variable is Volume -- when an exploit hits, panicked holders and arbitrage bots move fast, and that activity often shows up as a volume spike across the wider market, not just the hacked token. If you're LPing in a mainstream pool like ETH/USDC or BTC/USDC, a bad week for one project elsewhere can still turn into a good week of fee income for you.",
+          "spark": "When a hack hits the news, do you check whether either side of your current pairs sits outside the top 30, or do you only think about it after the fact?"
         },
         {
-          "title": "Clarity Act Uncertainty Could Mean More Rulemaking, Not Less",
-          "body": "Bernstein says that if the Clarity Act -- the bill meant to set clear federal rules for crypto -- fails to pass this year, the SEC and CFTC will likely move faster on their own rulemaking instead. Agency rules can shift with a new administration, while a law passed by Congress is harder to undo. For LPs, this isn't about picking a side on the bill. It means regulatory uncertainty can keep institutional capital on the sidelines longer, which can slow how fast new money flows into pools -- slower TVL growth. It's also a case for wider ranges: when a surprise ruling can move price faster than ordinary news does, more room in your range keeps you earning fees through the swing instead of getting knocked out of it.",
-          "spark": "Has regulatory uncertainty made you widen any of your ranges lately, or are you holding steady until there's more clarity? What would make you tighten back up?"
+          "title": "Standard Chartered's $200 Chainlink Call -- What The Chart Actually Asks",
+          "body": "Standard Chartered initiated coverage on Chainlink (LINK) with a $200 price target by the end of 2030, arguing the token underpins the rails for a $4 trillion tokenized-asset market, alongside similar long-term targets for Uniswap, Aave, and Morpho. A forecast like this is a good moment to run The Chart variable instead of just reacting to the headline. First, has LINK's chart shown ups and downs throughout its lifetime, the kind of shape that says the asset is alive, rather than one long slide in a single direction? Second, where does today's price sit relative to LINK's previous all-time high -- buying near a prior top leaves less room for upside than buying well below it, and a beaten-down price on a chart that's only ever gone one way is just as weak a setup as a healthy chart bought at the wrong point on it.",
+          "spark": "Next time you're adding liquidity to a LINK pair on a long-term forecast like this, where does LINK's price sit relative to its all-time high, and does its chart show real ups and downs or mostly one direction?"
         }
       ],
-      "closing": "What are you watching going into next week? Drop your current pairs, range widths, and any moves you made in response to this week's news in the group."
+      "closing": "What are you watching heading into next week -- any ranges you're skewing, pairs you're rotating into, or rank checks you're running before adding liquidity? Drop your setups in the group."
     },
-    "slack_ts": "1785774010.562249",
-    "generated_at": "2026-08-03T16:20:11.426252+00:00"
+    "slack_ts": "1786373666.523109",
+    "generated_at": "2026-08-10T14:54:28.483677+00:00"
   }
 }
