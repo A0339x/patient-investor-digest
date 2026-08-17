@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "08-17-2026",
+    "date": "August 17, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "+1.0%"
+      },
+      {
+        "label": "ETH",
+        "value": "+1.0%"
+      },
+      {
+        "label": "Volatility",
+        "value": "calm, tight grind"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$0.35"
+      }
+    ],
+    "intro": "BTC and ETH both sat close to flat this week, up about 1% each -- a quiet week on the surface, but several large holders made moves underneath it worth learning from. This issue works through Correlation, Range, Average Volume, Asset Selection, and Market Sentiment using this week's institutional and regulatory headlines instead of hypothetical examples. None of these stories require you to change anything today -- they're a chance to practice the same variable-reasoning you'd apply to your own positions.",
+    "stories": [
+      {
+        "title": "Bitmine's $11 Billion ETH Pile Keeps Growing",
+        "body": "Bitmine added 9,926 ETH last week, taking its total holdings to roughly 5.82 million ETH -- worth close to $11 billion -- while also buying back 20.8 million of its own shares since July. That is sustained, one-direction buying from a single large holder, week after week. When you see that kind of steady demand, keep in mind there are two separate levers: a correlated pair, like ETH paired with BTC instead of a stablecoin, captures the full move on both sides as they rise together, while a skewed range, weighted above the current price, keeps more of your ETH exposure alive further into the move before it converts to the paired asset. These are alternatives, not additions -- a correlated pair changes which pool you're in, skewing changes how you set the range once you're there, and stacking both only makes sense if your conviction is specific enough to bet on both moves happening at once.",
+        "spark": "Are you running any ETH pairs against BTC instead of a stablecoin right now, or is your range skewed to catch more upside if ETH keeps climbing? What made you pick one lever over the other?"
+      },
+      {
+        "title": "Paul Tudor Jones Swaps Options for Spot BTC",
+        "body": "Paul Tudor Jones' macro fund raised its stake in BlackRock's spot Bitcoin ETF by 18.9% to 688,529 shares, worth about $22.9 million, while sharply cutting its call options position in the same period. Options are a bet on a sharp price move by a set date; buying spot instead is a bet on holding through a steadier climb without needing a big jump to pay off. When large holders rotate out of options and into spot, it can point to lower expected near-term price swings rather than a spike. That matters for Range width: a calmer expected stretch is when a narrower range earns more without kicking you out as often, while a rotation back into options later would be a cue to widen out and expect sharper moves.",
+        "spark": "If you read this as a signal that price swings are cooling, would you narrow any of your current ranges this week -- and which pair would you test it on first?"
+      },
+      {
+        "title": "Strategy Paused Bitcoin Buying -- Here's the Number to Check Before You Read Into It",
+        "body": "Strategy sold $334 million in MSTR shares this week but made zero Bitcoin purchases or sales, letting its USD reserve build to $4.8 billion. The company still holds about 4% of all Bitcoin that will ever exist, worth roughly $53.4 billion, so this is a pause in buying, not a change in position. It's tempting to read 'biggest BTC buyer stops buying' as a reason on-chain volume is about to fall off, but that's exactly what Average Volume, the 45-day trailing average, exists to check. Krystal only shows today's volume; if today's number still sits close to the 45-day average, the pause hasn't shown up in the pools yet, and if it's meaningfully below average, that's the signal to expect the APR on your BTC pairs to compress -- not the headline by itself.",
+        "spark": "Have you checked the 45-day average volume on your BTC pairs recently, or have you been going off today's number on Krystal?"
+      },
+      {
+        "title": "Bitpanda's First MiCA Fine Is a Reminder: Asset Selection Doesn't Cover the Platform",
+        "body": "Austria's financial regulator fined crypto broker Bitpanda 70,000 euros, about $81,000, for failures in its white paper and marketing disclosures -- the first published penalty under the EU's new MiCA framework, the bloc's crypto licensing and disclosure rulebook. It's worth being precise about what this kind of news does and doesn't tell you: Asset Selection is about the market-cap rank of the token itself, not the broker or exchange you access it through. A top-30 asset is still a top-30 asset if the platform selling it gets fined for paperwork problems; the risk this fine points to sits with Bitpanda as a company, not with the coins it lists. It's a good moment to remember that providing liquidity directly on Uniswap sidesteps this particular risk, since you're never handing custody of your assets to a broker in the first place.",
+        "spark": "Do you hold any assets on centralized brokers or exchanges right now that you could compare against holding the same assets in a self-custodied LP position?"
+      },
+      {
+        "title": "Trump Meets Crypto CEOs This Week While the Clarity Act Stalls",
+        "body": "Trump is set to meet with crypto and prediction market CEOs this week, while progress on the Clarity Act -- the bill meant to set clear federal rules for crypto -- has stalled and the SEC has pushed back its latest rulemaking timeline. Meetings like this tend to produce fast headlines, and headlines around regulatory clarity, or the lack of it, can move price sharply in either direction within hours. That's a Range question: when a specific event with an unclear outcome sits on the calendar, keep in mind that a wider range costs some APR now but keeps you collecting fees if news swings price hard either way, while a narrow range only earns more if the week stays quiet. Checking Market Sentiment, the Fear and Greed gauge on Coin Market Cap, heading into the meeting is also worth doing, since a reading sitting in extreme territory tends to precede a reversal -- exactly the kind of move a tight range would not survive.",
+        "spark": "Given an uncertain event like this sitting on the calendar, would you widen any tight ranges ahead of time, or are you comfortable holding narrow through it?"
+      }
+    ],
+    "closing": "What's on your radar heading into next week -- any range or pair changes because of what we covered? Drop your setups in the group."
+  },
+  {
     "id": "08-10-2026",
     "date": "August 10, 2026",
     "title": "LP Mastermind\nMarket Update",
