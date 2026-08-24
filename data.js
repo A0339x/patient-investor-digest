@@ -3,6 +3,54 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "08-24-2026",
+    "date": "August 24, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "+2.6%"
+      },
+      {
+        "label": "ETH",
+        "value": "+2.7%"
+      },
+      {
+        "label": "Volatility",
+        "value": "High -- biggest weekly candle on record"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$1.10"
+      }
+    ],
+    "intro": "Bitcoin and Ether are both up around 2.6-2.7% today after bitcoin closed its biggest weekly candle on record, and this week's stories all lead back to the same question: is this the kind of move you want to ride with Correlation and a skewed Range, or the kind where Market Sentiment and Volume argue for caution? A steady bitcoin buyer going quiet, a Fed speech on deck, and a stablecoin supply rebound each touch a different lever on your position this week.",
+    "stories": [
+      {
+        "title": "BitMine's Ether Stack Keeps Growing -- Correlation or Skew?",
+        "body": "BitMine added another 32,447 ETH this week, pushing its total crypto and cash holdings to $14.9 billion and its share of Ethereum's circulating supply past 4.8%. Chairman Tom Lee called the move in ETH 'overdue,' meaning he thinks the price was due for a rise after lagging behind bitcoin. When you see sustained buying like this from a large holder, there are two separate levers worth thinking about: one, Correlation -- picking a correlated pair (two assets that move together, like ETH and BTC) means both sides of your pool rise together, so you capture the full upside instead of just half of it; two, Range -- skewing your range so more of it sits above the current price gives you more room to hold ETH exposure as it climbs, which means more appreciation if you're right. These are alternatives, not additions -- pulling both only makes sense if you hold a more specific view, like 'ETH goes up AND outperforms BTC.'",
+        "spark": "Are you running any correlated ETH/BTC or ETH/stablecoin pairs right now -- and is your range centered or skewed toward one side?"
+      },
+      {
+        "title": "Strategy Pauses Bitcoin Buying, Builds a $1.6B Cash Pool",
+        "body": "Strategy sold $2 billion of its own stock this week but, for the first time in a while, did not use the proceeds to buy more bitcoin. Instead the company set aside $1.6 billion in a new 'USD Cash' pool, even though it still holds close to 4% of all the bitcoin that will ever exist. Strategy's buying has been one of the steady sources of demand pushing bitcoin higher, so pausing it right after bitcoin's biggest weekly candle on record is worth noticing. This is where Market Sentiment comes in: it's a good habit to check Coin Market Cap's Fear and Greed gauge, since extreme greed tends to come right before a pullback, and that would argue for a wider Range instead of a narrow one built for a straight line higher.",
+        "spark": "With one of the market's steadiest buyers on pause, are you leaning toward wider ranges to ride out possible chop, or holding tight ranges for now? What width are you running?"
+      },
+      {
+        "title": "Jackson Hole Looms -- Set Your Range for a Binary Week",
+        "body": "Bitcoin is testing $80,000 heading into new Fed Chair Kevin Warsh's first Jackson Hole keynote on Friday, with futures now pricing a 36% chance of a September rate hike. A Fed speech that shifts those odds meaningfully in either direction tends to produce a fast, sharp price move -- exactly the kind of move that can knock a narrow Range out of position in minutes. If you're running a tight range for the extra fee income, keep in mind that a surprise from Warsh could push price through it before you have a chance to react. Volume around Fed events tends to spike, so pools can earn well that day, but only for LPs who are still inside their range when it happens.",
+        "spark": "Are you widening your range ahead of Friday's speech, or holding your current width through the volatility? What width are you running today?"
+      },
+      {
+        "title": "Circle's USDC Supply Is Rebounding -- What It Means for Stablecoin Pool Fees",
+        "body": "Bernstein says Circle -- the company behind the USDC stablecoin -- can keep growing even without the Clarity Act, a piece of stablecoin legislation that hasn't passed, because USDC supply is rebounding and stablecoin swap volume keeps expanding. The analysts see 59% upside for Circle's stock on that thesis. For LPs, more USDC in circulation only helps if it turns into more swaps: stablecoin pools have a fee tier of just 0.01% to 0.05% -- a tiny slice of every trade -- so that small slice has to be multiplied by a lot of buy and sell volume before a stablecoin pair produces meaningful fee income. USDC already sits inside the top 30 assets by market cap, so the Asset Selection side of a USDC pair is about as safe as this space gets; Volume is what will decide whether the fees actually show up.",
+        "spark": "For anyone in a USDC stablecoin pair, how does this week's volume compare to your pool's 45-day average -- and has your fee income moved with it?"
+      }
+    ],
+    "closing": "What's your setup heading into Jackson Hole -- wide ranges for safety or tight ranges for fees? Drop your pairs and range widths in the group."
+  },
+  {
     "id": "08-17-2026",
     "date": "August 17, 2026",
     "title": "LP Mastermind\nMarket Update",
