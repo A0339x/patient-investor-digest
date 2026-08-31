@@ -1,54 +1,59 @@
 {
   "pending": {
     "digest": {
-      "id": "08-24-2026",
-      "date": "August 24, 2026",
+      "id": "08-31-2026",
+      "date": "August 31, 2026",
       "title": "LP Mastermind\nMarket Update",
       "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
       "snapshot": [
         {
           "label": "BTC",
-          "value": "+2.6%"
+          "value": "-0.2%"
         },
         {
           "label": "ETH",
-          "value": "+2.7%"
+          "value": "-1.5%"
         },
         {
           "label": "Volatility",
-          "value": "High -- biggest weekly candle on record"
+          "value": "Calm prints, geopolitical risk underneath"
         },
         {
           "label": "ETH Gas",
-          "value": "~$1.10"
+          "value": "~$0.15"
         }
       ],
-      "intro": "Bitcoin and Ether are both up around 2.6-2.7% today after bitcoin closed its biggest weekly candle on record, and this week's stories all lead back to the same question: is this the kind of move you want to ride with Correlation and a skewed Range, or the kind where Market Sentiment and Volume argue for caution? A steady bitcoin buyer going quiet, a Fed speech on deck, and a stablecoin supply rebound each touch a different lever on your position this week.",
+      "intro": "This week's headlines lean institutional -- corporate treasuries kept buying Bitcoin and ether, Wall Street infrastructure moved toward tokenized securities, and Bitcoin shrugged off a geopolitical shock to hold near its best month since 2017. We'll walk through Asset Selection and Correlation in the treasury-buying stories, Range and The Chart in the Bitcoin story, and TVL and Volume in the infrastructure and regulatory stories.",
       "stories": [
         {
-          "title": "BitMine's Ether Stack Keeps Growing -- Correlation or Skew?",
-          "body": "BitMine added another 32,447 ETH this week, pushing its total crypto and cash holdings to $14.9 billion and its share of Ethereum's circulating supply past 4.8%. Chairman Tom Lee called the move in ETH 'overdue,' meaning he thinks the price was due for a rise after lagging behind bitcoin. When you see sustained buying like this from a large holder, there are two separate levers worth thinking about: one, Correlation -- picking a correlated pair (two assets that move together, like ETH and BTC) means both sides of your pool rise together, so you capture the full upside instead of just half of it; two, Range -- skewing your range so more of it sits above the current price gives you more room to hold ETH exposure as it climbs, which means more appreciation if you're right. These are alternatives, not additions -- pulling both only makes sense if you hold a more specific view, like 'ETH goes up AND outperforms BTC.'",
-          "spark": "Are you running any correlated ETH/BTC or ETH/stablecoin pairs right now -- and is your range centered or skewed toward one side?"
+          "title": "Corporate Bitcoin Treasuries Keep Buying -- What Sustained Accumulation Means for Your Pairs",
+          "body": "Strategy bought another 4,603 BTC for $369.7 million this week, pushing its total holdings to 845,050 BTC worth over $66 billion. Strive also became the fifth-largest public bitcoin treasury after an 1,800 BTC purchase, and TD Cowen now expects Strive to hold 27,156 BTC by the end of 2026. This is Asset Selection playing out at the corporate level -- big public companies keep choosing Bitcoin because of its market cap rank near the very top of crypto, the same safety filter LPs use when picking pool assets. When you see this kind of sustained one-direction buying across multiple companies, it also touches Correlation: if you believe more of this buying is coming, a correlated pair like BTC/ETH captures the full move on both sides of your pool, instead of just half.",
+          "spark": "When you see multiple companies buying the same asset week after week, does that change how you'd set up a pair -- more correlated, or still cautious? What does your current BTC pair look like?"
         },
         {
-          "title": "Strategy Pauses Bitcoin Buying, Builds a $1.6B Cash Pool",
-          "body": "Strategy sold $2 billion of its own stock this week but, for the first time in a while, did not use the proceeds to buy more bitcoin. Instead the company set aside $1.6 billion in a new 'USD Cash' pool, even though it still holds close to 4% of all the bitcoin that will ever exist. Strategy's buying has been one of the steady sources of demand pushing bitcoin higher, so pausing it right after bitcoin's biggest weekly candle on record is worth noticing. This is where Market Sentiment comes in: it's a good habit to check Coin Market Cap's Fear and Greed gauge, since extreme greed tends to come right before a pullback, and that would argue for a wider Range instead of a narrow one built for a straight line higher.",
-          "spark": "With one of the market's steadiest buyers on pause, are you leaning toward wider ranges to ride out possible chop, or holding tight ranges for now? What width are you running?"
+          "title": "Bitmine's $131M ETH Buy -- Two Levers for When You Feel Confident About Direction",
+          "body": "Tom Lee's Bitmine bought 53,501 ETH this week for about $131 million, its largest Ethereum purchase since June, pushing its treasury to 5.9 million ETH -- about 4.9% of all ETH that exists. Lee called ether the best performing macro asset and says the market is entering crypto spring -- the period when crypto starts climbing again after crypto winter, the long stretch when prices stay down, like the temperatures in winter. When you feel confident an asset is heading up, keep in mind there are two separate levers. Skewing your Range so more of it sits above the current price means more of your liquidity sits in the rising asset, so you capture more of the climb. Choosing a correlated pair like ETH/BTC means both assets tend to move together, so as the market rises, both sides of your pool rise with it instead of just one. These two levers are alternatives, not additions -- skewing is about where you place liquidity inside a pair, while picking a correlated pair is about which pair you're in. Pulling both only pays off if you hold a more specific view, like believing ETH will rise and also outperform BTC.",
+          "spark": "If you believe ETH is heading into a stretch of rising prices, which lever feels more natural to you right now -- skewing your range higher, or moving into a correlated pair? Why?"
         },
         {
-          "title": "Jackson Hole Looms -- Set Your Range for a Binary Week",
-          "body": "Bitcoin is testing $80,000 heading into new Fed Chair Kevin Warsh's first Jackson Hole keynote on Friday, with futures now pricing a 36% chance of a September rate hike. A Fed speech that shifts those odds meaningfully in either direction tends to produce a fast, sharp price move -- exactly the kind of move that can knock a narrow Range out of position in minutes. If you're running a tight range for the extra fee income, keep in mind that a surprise from Warsh could push price through it before you have a chance to react. Volume around Fed events tends to spike, so pools can earn well that day, but only for LPs who are still inside their range when it happens.",
-          "spark": "Are you widening your range ahead of Friday's speech, or holding your current width through the volatility? What width are you running today?"
+          "title": "Bitcoin's Best Month Since 2017 -- Even With Iran Strikes Rattling Stocks",
+          "body": "Bitcoin held above $78,000 this week even as US strikes on Iran rattled stocks, a hawkish Federal Reserve weighed on markets, and oil prices climbed. Despite that combination of shocks, Bitcoin is on track for its best month since 2017. That combination is a Range lesson: when market-moving news hits and price still holds steady, it tells you whether your current range is wide enough to survive sudden shocks, not just everyday noise. It's also worth checking The Chart here -- a strong month like this means price sits closer to a recent high than a recent low, which is a different setup than buying right after a drop, since the closer you are to a recent top, the more of the downside sits in front of you rather than behind you.",
+          "spark": "Think about your widest range right now -- would it have held through a sudden geopolitical shock like this one? Where is your current range sitting relative to recent highs?"
         },
         {
-          "title": "Circle's USDC Supply Is Rebounding -- What It Means for Stablecoin Pool Fees",
-          "body": "Bernstein says Circle -- the company behind the USDC stablecoin -- can keep growing even without the Clarity Act, a piece of stablecoin legislation that hasn't passed, because USDC supply is rebounding and stablecoin swap volume keeps expanding. The analysts see 59% upside for Circle's stock on that thesis. For LPs, more USDC in circulation only helps if it turns into more swaps: stablecoin pools have a fee tier of just 0.01% to 0.05% -- a tiny slice of every trade -- so that small slice has to be multiplied by a lot of buy and sell volume before a stablecoin pair produces meaningful fee income. USDC already sits inside the top 30 assets by market cap, so the Asset Selection side of a USDC pair is about as safe as this space gets; Volume is what will decide whether the fees actually show up.",
-          "spark": "For anyone in a USDC stablecoin pair, how does this week's volume compare to your pool's 45-day average -- and has your fee income moved with it?"
+          "title": "NYSE's Parent Backs Tokenized Securities Infrastructure -- Why TVL Watchers Should Take Note",
+          "body": "Intercontinental Exchange (ICE), which owns the New York Stock Exchange, is partnering with tZERO to build infrastructure for tokenized securities, and will also invest in tZERO's latest funding round. Tokenized securities are stocks or bonds represented as tokens that can move and settle on a blockchain. This is a TVL story in the making: when large financial institutions build the pipes for outside assets to move on-chain, it is often a precursor to deeper pools and more capital sitting in on-chain markets over time, even if the effect isn't immediate this week. It's also an Asset Selection reminder: if tokenized securities eventually show up as pool pairs, keep in mind they inherit the market cap rank and track record of the underlying company and the platform issuing the token, not just the ticker symbol.",
+          "spark": "If tokenized stocks or bonds eventually show up as pool pairs on Uniswap, what would you want to check before treating them like any other asset?"
+        },
+        {
+          "title": "Regulators Push to Bring the $90 Trillion Perps Market Onshore",
+          "body": "Former SEC and CFTC officials are urging regulators to take a lighter touch on crypto perpetual futures -- perps, futures contracts with no expiration date, common on offshore exchanges -- so more of that trading activity moves onshore in the US. They estimate the offshore perps market at roughly $90 trillion, currently sitting mostly outside close regulatory reach. This connects to Volume: if a meaningful slice of that trading activity eventually migrates to regulated, on-chain venues, it could add meaningful swap volume to the pools LPs already provide liquidity to, not just to the derivatives side. Keep in mind this is still an early policy conversation, not a done deal -- worth watching, but not something to range around yet.",
+          "spark": "If perps trading volume started moving onchain, would you expect it to show up in the pools you're already in, or in new pools entirely? What would you look for first?"
         }
       ],
-      "closing": "What's your setup heading into Jackson Hole -- wide ranges for safety or tight ranges for fees? Drop your pairs and range widths in the group."
+      "closing": "Drop your current pairs and range setups in the group -- especially if you're thinking about leaning into correlated positions or skewed ranges given this week's buying trend."
     },
-    "slack_ts": "1787582196.845679",
-    "generated_at": "2026-08-24T14:36:37.622673+00:00"
+    "slack_ts": "1788198625.191299",
+    "generated_at": "2026-08-31T17:50:26.076461+00:00"
   }
 }

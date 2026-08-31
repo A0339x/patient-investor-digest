@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "08-31-2026",
+    "date": "August 31, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "-0.2%"
+      },
+      {
+        "label": "ETH",
+        "value": "-1.5%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Calm prints, geopolitical risk underneath"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$0.15"
+      }
+    ],
+    "intro": "This week's headlines lean institutional -- corporate treasuries kept buying Bitcoin and ether, Wall Street infrastructure moved toward tokenized securities, and Bitcoin shrugged off a geopolitical shock to hold near its best month since 2017. We'll walk through Asset Selection and Correlation in the treasury-buying stories, Range and The Chart in the Bitcoin story, and TVL and Volume in the infrastructure and regulatory stories.",
+    "stories": [
+      {
+        "title": "Corporate Bitcoin Treasuries Keep Buying -- What Sustained Accumulation Means for Your Pairs",
+        "body": "Strategy bought another 4,603 BTC for $369.7 million this week, pushing its total holdings to 845,050 BTC worth over $66 billion. Strive also became the fifth-largest public bitcoin treasury after an 1,800 BTC purchase, and TD Cowen now expects Strive to hold 27,156 BTC by the end of 2026. This is Asset Selection playing out at the corporate level -- big public companies keep choosing Bitcoin because of its market cap rank near the very top of crypto, the same safety filter LPs use when picking pool assets. When you see this kind of sustained one-direction buying across multiple companies, it also touches Correlation: if you believe more of this buying is coming, a correlated pair like BTC/ETH captures the full move on both sides of your pool, instead of just half.",
+        "spark": "When you see multiple companies buying the same asset week after week, does that change how you'd set up a pair -- more correlated, or still cautious? What does your current BTC pair look like?"
+      },
+      {
+        "title": "Bitmine's $131M ETH Buy -- Two Levers for When You Feel Confident About Direction",
+        "body": "Tom Lee's Bitmine bought 53,501 ETH this week for about $131 million, its largest Ethereum purchase since June, pushing its treasury to 5.9 million ETH -- about 4.9% of all ETH that exists. Lee called ether the best performing macro asset and says the market is entering crypto spring -- the period when crypto starts climbing again after crypto winter, the long stretch when prices stay down, like the temperatures in winter. When you feel confident an asset is heading up, keep in mind there are two separate levers. Skewing your Range so more of it sits above the current price means more of your liquidity sits in the rising asset, so you capture more of the climb. Choosing a correlated pair like ETH/BTC means both assets tend to move together, so as the market rises, both sides of your pool rise with it instead of just one. These two levers are alternatives, not additions -- skewing is about where you place liquidity inside a pair, while picking a correlated pair is about which pair you're in. Pulling both only pays off if you hold a more specific view, like believing ETH will rise and also outperform BTC.",
+        "spark": "If you believe ETH is heading into a stretch of rising prices, which lever feels more natural to you right now -- skewing your range higher, or moving into a correlated pair? Why?"
+      },
+      {
+        "title": "Bitcoin's Best Month Since 2017 -- Even With Iran Strikes Rattling Stocks",
+        "body": "Bitcoin held above $78,000 this week even as US strikes on Iran rattled stocks, a hawkish Federal Reserve weighed on markets, and oil prices climbed. Despite that combination of shocks, Bitcoin is on track for its best month since 2017. That combination is a Range lesson: when market-moving news hits and price still holds steady, it tells you whether your current range is wide enough to survive sudden shocks, not just everyday noise. It's also worth checking The Chart here -- a strong month like this means price sits closer to a recent high than a recent low, which is a different setup than buying right after a drop, since the closer you are to a recent top, the more of the downside sits in front of you rather than behind you.",
+        "spark": "Think about your widest range right now -- would it have held through a sudden geopolitical shock like this one? Where is your current range sitting relative to recent highs?"
+      },
+      {
+        "title": "NYSE's Parent Backs Tokenized Securities Infrastructure -- Why TVL Watchers Should Take Note",
+        "body": "Intercontinental Exchange (ICE), which owns the New York Stock Exchange, is partnering with tZERO to build infrastructure for tokenized securities, and will also invest in tZERO's latest funding round. Tokenized securities are stocks or bonds represented as tokens that can move and settle on a blockchain. This is a TVL story in the making: when large financial institutions build the pipes for outside assets to move on-chain, it is often a precursor to deeper pools and more capital sitting in on-chain markets over time, even if the effect isn't immediate this week. It's also an Asset Selection reminder: if tokenized securities eventually show up as pool pairs, keep in mind they inherit the market cap rank and track record of the underlying company and the platform issuing the token, not just the ticker symbol.",
+        "spark": "If tokenized stocks or bonds eventually show up as pool pairs on Uniswap, what would you want to check before treating them like any other asset?"
+      },
+      {
+        "title": "Regulators Push to Bring the $90 Trillion Perps Market Onshore",
+        "body": "Former SEC and CFTC officials are urging regulators to take a lighter touch on crypto perpetual futures -- perps, futures contracts with no expiration date, common on offshore exchanges -- so more of that trading activity moves onshore in the US. They estimate the offshore perps market at roughly $90 trillion, currently sitting mostly outside close regulatory reach. This connects to Volume: if a meaningful slice of that trading activity eventually migrates to regulated, on-chain venues, it could add meaningful swap volume to the pools LPs already provide liquidity to, not just to the derivatives side. Keep in mind this is still an early policy conversation, not a done deal -- worth watching, but not something to range around yet.",
+        "spark": "If perps trading volume started moving onchain, would you expect it to show up in the pools you're already in, or in new pools entirely? What would you look for first?"
+      }
+    ],
+    "closing": "Drop your current pairs and range setups in the group -- especially if you're thinking about leaning into correlated positions or skewed ranges given this week's buying trend."
+  },
+  {
     "id": "08-24-2026",
     "date": "August 24, 2026",
     "title": "LP Mastermind\nMarket Update",
