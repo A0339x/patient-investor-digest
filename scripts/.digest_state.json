@@ -1,59 +1,59 @@
 {
   "pending": {
     "digest": {
-      "id": "08-31-2026",
-      "date": "August 31, 2026",
+      "id": "09-07-2026",
+      "date": "September 07, 2026",
       "title": "LP Mastermind\nMarket Update",
       "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
       "snapshot": [
         {
           "label": "BTC",
-          "value": "+0.2%"
+          "value": "-1.0%"
         },
         {
           "label": "ETH",
-          "value": "-0.8%"
+          "value": "-0.2%"
         },
         {
           "label": "Volatility",
-          "value": "Steady on the day, noisy macro backdrop"
+          "value": "Calm, but CPI print looms"
         },
         {
           "label": "ETH Gas",
           "value": "~$1.10"
         }
       ],
-      "intro": "Bitcoin quietly closed out its best month since 2017 even with fresh Iran strikes and a hawkish Fed in the headlines this week. This issue touches almost the whole toolkit -- Range and Market Sentiment, Volume and Average Volume, Correlation, and Asset Selection -- across five very different stories.",
+      "intro": "Prices barely moved this week, but the calm is sitting on top of a live fuse -- a CPI print due any day now, with September rate hike odds back up around 60%. Underneath that, a bridge exploit, a chain shutting down, and steady institutional buying all show up as separate stories but teach the same handful of variables. This issue touches Range, Asset Selection, Volume, Average Volume (45-day), and Correlation.",
       "stories": [
         {
-          "title": "Bitcoin's Best Month Since 2017, With Real Noise Underneath",
-          "body": "Bitcoin held above $78,000 this week even as fresh US strikes on Iran rattled stocks and pushed oil prices higher, and a hawkish Federal Reserve kept rate-cut hopes in check. Despite all that, Bitcoin is on track for its best month since 2017. That combination -- calm price action sitting on top of real geopolitical and macro noise -- is exactly the setup where Range width matters most. A narrow range would have captured strong fees while price stayed put, but any Fed surprise or escalation headline could still knock a tight position out of range fast. The Coin Market Cap Fear and Greed gauge is worth checking too: a month this strong tends to push sentiment toward greed, and extreme greed has historically been closer to a correction than a continuation. If the gauge is creeping toward extreme greed, that's worth weighing before setting your range any wider toward the upside.",
-          "spark": "Where does the Fear and Greed gauge sit right now, and has that changed how wide you're setting your ranges this week?"
+          "title": "Bitcoin Holds Near $80K With a CPI Print Looming -- What That Means for Your Range Width",
+          "body": "Bitcoin is sitting near $80,000 even though odds of a September Fed rate hike jumped back to around 60% after Friday's jobs report, and inflation data lands later this week. A scheduled data release like CPI is exactly the kind of event that can send price snapping hard in one direction within minutes. That's a Range question: a tight range set today could get pushed out of bounds the moment the print hits, while a wider range gives up some fee income now in exchange for staying active through the move. Keep in mind that ahead of a known event like this, giving your range extra room is one way to trade a bit of yield for a lot less rebalancing.",
+          "spark": "Are you planning to widen any ranges ahead of this week's CPI print, or are you comfortable holding tight ranges through the volatility?"
         },
         {
-          "title": "Hyperliquid's Path Onshore Could Mean New On-Chain Volume",
-          "body": "Hyperliquid, one of the largest on-chain perpetual futures exchanges, is reportedly in talks with Kraken's parent company Payward to route its perpetuals trading through Payward's US-regulated exchange, Bitnomial -- Hyperliquid's first real path into the US market. Former SEC and CFTC officials are separately pushing regulators to take a lighter touch on crypto derivatives so more of this trading can move onshore. If that deal closes, a slice of perpetuals volume that currently trades offshore could start flowing through US-accessible venues, and some of that activity tends to spill into spot swaps and on-chain pools as traders hedge and rebalance. Keep Average Volume (45-day) in mind before chasing any pool that lights up around this news. Krystal only shows today's volume, so a launch-week spike in a Hyperliquid-related pool can look like a huge APR opportunity. Pulling the 45-day average first tells you whether that spike is a new normal or just noise that reverts once the headlines fade.",
-          "spark": "If a Hyperliquid-related pool shows a huge APR this week, what would you check before adding liquidity -- and has checking the 45-day average ever changed your mind on a pool that looked too good?"
+          "title": "Liquid Network Attacker Returns Most of the Funds -- But Keeps 600 BTC, and That's an Asset Selection Lesson",
+          "body": "An attacker who exploited a bug in Blockstream's Liquid Network returned 3,400 BTC after the bridge nodes were patched, but kept roughly 598.5 BTC. Liquid Network is a sidechain -- a separate blockchain pegged to Bitcoin -- and BTC that moves onto it becomes a wrapped token called L-BTC, which depends on the bridge's code staying secure, not just on Bitcoin's own security. That's Asset Selection at work: a wrapped or bridged version of an asset carries the bridge's risk stacked on top of whatever risk the underlying asset already carries. The other side of the story is Volume -- exploit news like this often triggers a short burst of extra swapping across completely unrelated BTC and ETH pools as traders reposition, which can mean a meaningful fee bump for LPs who had nothing to do with the exploit.",
+          "spark": "If you're paired with any wrapped or bridged version of BTC or ETH, how long has that bridge been live, and does that change how you'd size the position?"
         },
         {
-          "title": "Strive's Bitcoin Treasury Keeps Growing",
-          "body": "Strive just added 1,800 Bitcoin and became the fifth-largest public company holding Bitcoin on its balance sheet. TD Cowen now expects Strive to end 2026 with 27,156 BTC, nearly 4,300 more than the firm previously forecast. That's another company committing to sustained, large-scale Bitcoin buying, layered on top of buying we've already seen from other treasury companies this year. When you see this kind of sustained buying, keep in mind there are two different levers, and they're alternatives, not additions. One is a correlated pair -- two assets that move together, like BTC and ETH. If you believe Bitcoin keeps climbing and expect Ethereum to move with it, a correlated pair lets both sides of your pool rise together, so you capture the full move instead of only half of it. The other is skewing your range -- setting more of your range above the current price if you expect Bitcoin to keep climbing, which gives you more exposure to the upside within whatever pair you're already in. Pulling both levers only makes sense if you hold a more specific view, like believing Bitcoin keeps climbing AND that it outperforms ETH along the way -- that's a bigger bet to commit to.",
-          "spark": "Given the pace of treasury buying this year, are you leaning toward a correlated pair, a skewed range, or neither right now -- and why?"
+          "title": "Harmony Wants to Shut Down and Move ONE to Ethereum -- Deadline Is September 10",
+          "body": "Harmony's team is proposing to shut down its ONE blockchain, citing competitive pressure from AI, and wants to move the ONE token over to Ethereum while the company pivots into AI video. They're telling users to exit any smart contracts built on Harmony before September 10. If you're providing liquidity anywhere near ONE or another Harmony-native asset, this is an Asset Selection situation: a token whose home chain is winding down can lose its pools, its liquidity, and its price support all at once, no matter where it currently sits by market-cap rank. It's worth checking this week whether any positions touch ONE or Harmony-native assets, since the deadline is just a few days out.",
+          "spark": "Does anyone have exposure to ONE or other Harmony-based pools, and what's the plan before September 10?"
         },
         {
-          "title": "XRP ETFs Hit Nine Straight Days of Inflows",
-          "body": "Spot XRP ETFs have pulled in money for nine straight days, adding up to $1.6 billion in net inflows since launch -- even as XRP's price has cooled off during that stretch. Steady, one-direction buying like this is the classic setup for thinking about Range. If you're running an XRP pair and believe the buying pressure continues even though price has cooled, skewing your range higher gives you more room to capture the move if it resumes. The non-obvious second variable here is Correlation. If you want fuller exposure to a renewed XRP move rather than half of it, an XRP pair against an asset that tends to move the same direction as XRP captures more of the upside than an XRP/USDC pair, where the stable side sitting still cuts your gains in half.",
-          "spark": "With nine straight days of inflows but price cooling, do you read that as XRP about to catch up to the buying, or as buying pressure fading -- and how would that change your range?"
+          "title": "Chainlink Hits an 8-Month High on a SWIFT Deal -- Check the 45-Day Average Before You Trust the APR",
+          "body": "Chainlink (LINK) hit an eight-month high after Bottomline, a top-three SWIFT services provider that moves $16 trillion a year, announced it's using Chainlink to connect more than 600 banks to blockchain settlement. News like this tends to spike daily volume in LINK pools well above normal, and Krystal only shows today's number next to today's APR. That's exactly when Average Volume (45-day) earns its keep -- pulling up the 45-day average tells you whether this is the start of a sustained new baseline or a one-day spike that will revert, taking the APR back down with it. If the 45-day average is still well below today's volume, the APR quoted right now is likely higher than what the position will actually earn over time.",
+          "spark": "If you're looking at LINK pools this week, what does the 45-day average volume look like next to today's number?"
         },
         {
-          "title": "Sberbank's $46 Billion in Crypto Trading, and Its Choice of Assets",
-          "body": "Russia's Sberbank says it's already seeing $46 billion in crypto trading volume, and a deputy chairman told state media that figure could reach 4 trillion rubles in its first year. The bank is also preparing to offer loans backed by Ethereum and USDT once regulators sign off. It's worth noticing which assets a major bank chose for its lending product. Sberbank didn't pick some obscure token -- it picked Ethereum, a top-5 asset by market cap, and USDT, the largest stablecoin, the same market-cap-rank thinking behind Asset Selection playing out at bank scale. The other side of this is Volume. $46 billion in trading activity from a single bank is a large number, and if any share of that starts touching on-chain markets as the lending product rolls out, that's added swap activity moving through Ethereum and stablecoin pools -- more volume relative to TVL is what pushes APR up, so this is worth watching as a potential tailwind for ETH and USDT pairs down the line, even if it hasn't shown up yet.",
-          "spark": "If Sberbank's ETH and USDT-backed loans go live, would you expect that volume to show up in the pools you're watching -- and how would you tell the difference between a real shift and a short-lived spike?"
+          "title": "Capital B's Biggest BTC Buy in a Year -- Two Separate Levers if You Share the Conviction",
+          "body": "Capital B bought $29 million of bitcoin, its largest single purchase in a year, bringing total holdings to 3,521 BTC. Sustained buying like this from a large holder is the kind of one-direction demand that raises the odds of a continued move up, and when you believe price is headed one way, there are two separate levers worth thinking through, not one combined lever. The first is skewing your range so more of it sits above the current price, giving more room to capture upside before the position rotates entirely into the stable asset. The second is choosing a correlated pair, like BTC paired with ETH instead of BTC paired with USDC, so that when BTC rises, the other asset is likely rising too instead of sitting flat -- meaning both sides of the position gain instead of just one. These aren't additive: pulling both usually only makes sense with a more specific view, like believing BTC will outperform ETH specifically, since that's a stronger bet than just believing crypto broadly goes up.",
+          "spark": "If you're feeling confident about BTC's direction this week, are you leaning toward skewing your range, choosing a correlated pair, or holding steady?"
         }
       ],
-      "closing": "What are you watching going into next week? Drop your current setups, pairs, and range thoughts in the group."
+      "closing": "What's everyone watching going into the CPI print -- range widths, pairs, or positions you're keeping an eye on? Drop your setups in the group."
     },
-    "slack_ts": "1788205762.724419",
-    "generated_at": "2026-08-31T19:49:24.551407+00:00"
+    "slack_ts": "1788805983.326549",
+    "generated_at": "2026-09-07T18:33:04.242530+00:00"
   }
 }

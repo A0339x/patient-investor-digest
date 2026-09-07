@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "09-07-2026",
+    "date": "September 07, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "-1.0%"
+      },
+      {
+        "label": "ETH",
+        "value": "-0.2%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Calm, but CPI print looms"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$1.10"
+      }
+    ],
+    "intro": "Prices barely moved this week, but the calm is sitting on top of a live fuse -- a CPI print due any day now, with September rate hike odds back up around 60%. Underneath that, a bridge exploit, a chain shutting down, and steady institutional buying all show up as separate stories but teach the same handful of variables. This issue touches Range, Asset Selection, Volume, Average Volume (45-day), and Correlation.",
+    "stories": [
+      {
+        "title": "Bitcoin Holds Near $80K With a CPI Print Looming -- What That Means for Your Range Width",
+        "body": "Bitcoin is sitting near $80,000 even though odds of a September Fed rate hike jumped back to around 60% after Friday's jobs report, and inflation data lands later this week. A scheduled data release like CPI is exactly the kind of event that can send price snapping hard in one direction within minutes. That's a Range question: a tight range set today could get pushed out of bounds the moment the print hits, while a wider range gives up some fee income now in exchange for staying active through the move. Keep in mind that ahead of a known event like this, giving your range extra room is one way to trade a bit of yield for a lot less rebalancing.",
+        "spark": "Are you planning to widen any ranges ahead of this week's CPI print, or are you comfortable holding tight ranges through the volatility?"
+      },
+      {
+        "title": "Liquid Network Attacker Returns Most of the Funds -- But Keeps 600 BTC, and That's an Asset Selection Lesson",
+        "body": "An attacker who exploited a bug in Blockstream's Liquid Network returned 3,400 BTC after the bridge nodes were patched, but kept roughly 598.5 BTC. Liquid Network is a sidechain -- a separate blockchain pegged to Bitcoin -- and BTC that moves onto it becomes a wrapped token called L-BTC, which depends on the bridge's code staying secure, not just on Bitcoin's own security. That's Asset Selection at work: a wrapped or bridged version of an asset carries the bridge's risk stacked on top of whatever risk the underlying asset already carries. The other side of the story is Volume -- exploit news like this often triggers a short burst of extra swapping across completely unrelated BTC and ETH pools as traders reposition, which can mean a meaningful fee bump for LPs who had nothing to do with the exploit.",
+        "spark": "If you're paired with any wrapped or bridged version of BTC or ETH, how long has that bridge been live, and does that change how you'd size the position?"
+      },
+      {
+        "title": "Harmony Wants to Shut Down and Move ONE to Ethereum -- Deadline Is September 10",
+        "body": "Harmony's team is proposing to shut down its ONE blockchain, citing competitive pressure from AI, and wants to move the ONE token over to Ethereum while the company pivots into AI video. They're telling users to exit any smart contracts built on Harmony before September 10. If you're providing liquidity anywhere near ONE or another Harmony-native asset, this is an Asset Selection situation: a token whose home chain is winding down can lose its pools, its liquidity, and its price support all at once, no matter where it currently sits by market-cap rank. It's worth checking this week whether any positions touch ONE or Harmony-native assets, since the deadline is just a few days out.",
+        "spark": "Does anyone have exposure to ONE or other Harmony-based pools, and what's the plan before September 10?"
+      },
+      {
+        "title": "Chainlink Hits an 8-Month High on a SWIFT Deal -- Check the 45-Day Average Before You Trust the APR",
+        "body": "Chainlink (LINK) hit an eight-month high after Bottomline, a top-three SWIFT services provider that moves $16 trillion a year, announced it's using Chainlink to connect more than 600 banks to blockchain settlement. News like this tends to spike daily volume in LINK pools well above normal, and Krystal only shows today's number next to today's APR. That's exactly when Average Volume (45-day) earns its keep -- pulling up the 45-day average tells you whether this is the start of a sustained new baseline or a one-day spike that will revert, taking the APR back down with it. If the 45-day average is still well below today's volume, the APR quoted right now is likely higher than what the position will actually earn over time.",
+        "spark": "If you're looking at LINK pools this week, what does the 45-day average volume look like next to today's number?"
+      },
+      {
+        "title": "Capital B's Biggest BTC Buy in a Year -- Two Separate Levers if You Share the Conviction",
+        "body": "Capital B bought $29 million of bitcoin, its largest single purchase in a year, bringing total holdings to 3,521 BTC. Sustained buying like this from a large holder is the kind of one-direction demand that raises the odds of a continued move up, and when you believe price is headed one way, there are two separate levers worth thinking through, not one combined lever. The first is skewing your range so more of it sits above the current price, giving more room to capture upside before the position rotates entirely into the stable asset. The second is choosing a correlated pair, like BTC paired with ETH instead of BTC paired with USDC, so that when BTC rises, the other asset is likely rising too instead of sitting flat -- meaning both sides of the position gain instead of just one. These aren't additive: pulling both usually only makes sense with a more specific view, like believing BTC will outperform ETH specifically, since that's a stronger bet than just believing crypto broadly goes up.",
+        "spark": "If you're feeling confident about BTC's direction this week, are you leaning toward skewing your range, choosing a correlated pair, or holding steady?"
+      }
+    ],
+    "closing": "What's everyone watching going into the CPI print -- range widths, pairs, or positions you're keeping an eye on? Drop your setups in the group."
+  },
+  {
     "id": "08-31-2026",
     "date": "August 31, 2026",
     "title": "LP Mastermind\nMarket Update",
