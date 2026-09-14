@@ -1,59 +1,59 @@
 {
   "pending": {
     "digest": {
-      "id": "09-07-2026",
-      "date": "September 07, 2026",
+      "id": "09-14-2026",
+      "date": "September 14, 2026",
       "title": "LP Mastermind\nMarket Update",
       "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
       "snapshot": [
         {
           "label": "BTC",
-          "value": "-1.0%"
+          "value": "+1.9%"
         },
         {
           "label": "ETH",
-          "value": "-0.2%"
+          "value": "+0.9%"
         },
         {
           "label": "Volatility",
-          "value": "Calm, but CPI print looms"
+          "value": "Calm, but two catalysts loom"
         },
         {
           "label": "ETH Gas",
-          "value": "~$1.10"
+          "value": "~$1.15"
         }
       ],
-      "intro": "Prices barely moved this week, but the calm is sitting on top of a live fuse -- a CPI print due any day now, with September rate hike odds back up around 60%. Underneath that, a bridge exploit, a chain shutting down, and steady institutional buying all show up as separate stories but teach the same handful of variables. This issue touches Range, Asset Selection, Volume, Average Volume (45-day), and Correlation.",
+      "intro": "BTC and ETH both held gains this week, up 1.9% and 0.9%, while big holders kept adding to their stacks even as some of that buying pace cools. The bigger story for range-setters is what's coming next: the Senate's Clarity Act vote lands Tuesday and the Fed's rate decision follows Wednesday, back-to-back events that can move price fast in either direction. This issue touches Correlation, Range, TVL, Volume, Average Volume, and Asset Selection -- worth reading with your current pairs in mind.",
       "stories": [
         {
-          "title": "Bitcoin Holds Near $80K With a CPI Print Looming -- What That Means for Your Range Width",
-          "body": "Bitcoin is sitting near $80,000 even though odds of a September Fed rate hike jumped back to around 60% after Friday's jobs report, and inflation data lands later this week. A scheduled data release like CPI is exactly the kind of event that can send price snapping hard in one direction within minutes. That's a Range question: a tight range set today could get pushed out of bounds the moment the print hits, while a wider range gives up some fee income now in exchange for staying active through the move. Keep in mind that ahead of a known event like this, giving your range extra room is one way to trade a bit of yield for a lot less rebalancing.",
-          "spark": "Are you planning to widen any ranges ahead of this week's CPI print, or are you comfortable holding tight ranges through the volatility?"
+          "title": "Bitmine Closes In On 6 Million ETH -- What Sustained Buying Means For Your Range",
+          "body": "Bitmine added another 27,180 ETH this week, about $68 million, pushing its total holdings to nearly 6 million ETH as it chases a goal of owning 5% of all ETH in existence. Advisor Tom DeMark expects a sharp price move in the coming weeks. When you see this kind of sustained one-direction buying, you have two separate ways to lean into it: skew your Range higher so more of your liquidity sits on the ETH side and captures more of any move up, or hold a Correlated pair like ETH/BTC where both assets rise together and you capture the full move on both sides. These are alternatives, not stacking moves -- picking both only makes sense if you hold a more specific view, like believing ETH will outperform BTC specifically.",
+          "spark": "Are you skewing your Range, picking a Correlated pair, or sitting tight through this buying wave? What's your current ETH pair and Range width?"
         },
         {
-          "title": "Liquid Network Attacker Returns Most of the Funds -- But Keeps 600 BTC, and That's an Asset Selection Lesson",
-          "body": "An attacker who exploited a bug in Blockstream's Liquid Network returned 3,400 BTC after the bridge nodes were patched, but kept roughly 598.5 BTC. Liquid Network is a sidechain -- a separate blockchain pegged to Bitcoin -- and BTC that moves onto it becomes a wrapped token called L-BTC, which depends on the bridge's code staying secure, not just on Bitcoin's own security. That's Asset Selection at work: a wrapped or bridged version of an asset carries the bridge's risk stacked on top of whatever risk the underlying asset already carries. The other side of the story is Volume -- exploit news like this often triggers a short burst of extra swapping across completely unrelated BTC and ETH pools as traders reposition, which can mean a meaningful fee bump for LPs who had nothing to do with the exploit.",
-          "spark": "If you're paired with any wrapped or bridged version of BTC or ETH, how long has that bridge been live, and does that change how you'd size the position?"
+          "title": "Two Catalysts, One Week -- Clarity Act Vote Tuesday, FOMC Wednesday",
+          "body": "The Senate is set to vote on the Clarity Act Tuesday after Trump backed tougher ethics provisions to win over holdout lawmakers, though a bipartisan group of 17 state attorneys general led by New York's Letitia James is pushing for a no vote. The Fed's rate decision lands the very next day. Two market-moving events back to back is exactly the setup where a wider Range earns its keep -- a surprise on either the vote or the rate call can push price through a narrow Range fast, and rebalancing costs eat into any extra fees a tight Range would have earned. If you're running narrow Ranges for the higher APR right now, this is a fair week to ask whether the extra fee capture is worth going out of Range twice in two days.",
+          "spark": "Are you widening any Ranges ahead of Tuesday and Wednesday, or holding tight through both events? What made that call for you?"
         },
         {
-          "title": "Harmony Wants to Shut Down and Move ONE to Ethereum -- Deadline Is September 10",
-          "body": "Harmony's team is proposing to shut down its ONE blockchain, citing competitive pressure from AI, and wants to move the ONE token over to Ethereum while the company pivots into AI video. They're telling users to exit any smart contracts built on Harmony before September 10. If you're providing liquidity anywhere near ONE or another Harmony-native asset, this is an Asset Selection situation: a token whose home chain is winding down can lose its pools, its liquidity, and its price support all at once, no matter where it currently sits by market-cap rank. It's worth checking this week whether any positions touch ONE or Harmony-native assets, since the deadline is just a few days out.",
-          "spark": "Does anyone have exposure to ONE or other Harmony-based pools, and what's the plan before September 10?"
+          "title": "Strive Slows Its Pace, Strategy Freezes Its Stack -- Reading A Cooling Buying Rate",
+          "body": "Strive bought just $36.6 million of BTC this week to cross 25,000 BTC total, a slowdown from the roughly $109 million it spent on 1,375 BTC the week before. Strategy, the largest corporate BTC holder, left its 845,050 BTC untouched for a second straight week and bought back only $139 million of its preferred stock, down from $176 million the prior week. A slowdown like this in steady institutional demand is part of what has kept BTC/USDC pools trading in a fairly narrow band, and if it keeps cooling, BTC Volume is more likely to come from short-term traders instead, which tends to mean sharper, less predictable swings. Worth checking your pool's Average Volume over the last 45 days against today's number before assuming today's APR is the new normal.",
+          "spark": "Have you checked your BTC pool's 45-day Average Volume against today's number recently? Does today look like the new normal or an outlier?"
         },
         {
-          "title": "Chainlink Hits an 8-Month High on a SWIFT Deal -- Check the 45-Day Average Before You Trust the APR",
-          "body": "Chainlink (LINK) hit an eight-month high after Bottomline, a top-three SWIFT services provider that moves $16 trillion a year, announced it's using Chainlink to connect more than 600 banks to blockchain settlement. News like this tends to spike daily volume in LINK pools well above normal, and Krystal only shows today's number next to today's APR. That's exactly when Average Volume (45-day) earns its keep -- pulling up the 45-day average tells you whether this is the start of a sustained new baseline or a one-day spike that will revert, taking the APR back down with it. If the 45-day average is still well below today's volume, the APR quoted right now is likely higher than what the position will actually earn over time.",
-          "spark": "If you're looking at LINK pools this week, what does the 45-day average volume look like next to today's number?"
+          "title": "DeFi Development Corp Builds A $300 Million War Chest For Solana",
+          "body": "DeFi Development Corp grew its Solana treasury to 2.39 million SOL and set up a $300 million at-the-market offering -- a way to raise cash by selling new shares gradually into the market -- to fund a new perpetual preferred stock called CHAD, meaning stock that pays a fixed dividend forever and never has to be repaid. That's a large, steady source of capital likely to keep flowing into SOL over time. More capital chasing SOL positions tends to deepen TVL in SOL pools, and deeper TVL is what lets a pool absorb new deposits without the APR collapsing. SOL still sits inside the top 10 by market cap, so the Asset Selection safety barrier holds here, but this is one company's treasury strategy funded by newly issued stock, not a broad organic demand shift, so keep Asset Selection in mind before chasing SOL pools on this headline alone.",
+          "spark": "If you're in a SOL pool, has TVL noticeably deepened this week? Would you rotate into a SOL pair on treasury news alone, or wait to see Volume follow first?"
         },
         {
-          "title": "Capital B's Biggest BTC Buy in a Year -- Two Separate Levers if You Share the Conviction",
-          "body": "Capital B bought $29 million of bitcoin, its largest single purchase in a year, bringing total holdings to 3,521 BTC. Sustained buying like this from a large holder is the kind of one-direction demand that raises the odds of a continued move up, and when you believe price is headed one way, there are two separate levers worth thinking through, not one combined lever. The first is skewing your range so more of it sits above the current price, giving more room to capture upside before the position rotates entirely into the stable asset. The second is choosing a correlated pair, like BTC paired with ETH instead of BTC paired with USDC, so that when BTC rises, the other asset is likely rising too instead of sitting flat -- meaning both sides of the position gain instead of just one. These aren't additive: pulling both usually only makes sense with a more specific view, like believing BTC will outperform ETH specifically, since that's a stronger bet than just believing crypto broadly goes up.",
-          "spark": "If you're feeling confident about BTC's direction this week, are you leaning toward skewing your range, choosing a correlated pair, or holding steady?"
+          "title": "MetaMask Adds Scam Protections -- A Reminder On Where Your Safety Really Starts",
+          "body": "MetaMask rolled out new wallet-level protections that flag suspicious transfers and block transactions that don't match what they preview to the user, aimed at catching scams before you sign a malicious transaction. That's a genuinely useful extra layer, especially if you're exploring smaller pools outside the top 30. But a wallet warning is a backstop, not your first line of defense -- Asset Selection, sticking to tokens ranked inside the top 30 or top 100 by market cap, is what keeps the odds of a bad outcome low in the first place. A wallet popup can catch a phishing attempt; it can't tell you whether the token in a new pool is a well-run project or one designed to scam holders and disappear.",
+          "spark": "Do you rely on wallet-level warnings when exploring newer pools, or lean entirely on Asset Selection as your filter? Has a wallet warning ever caught something for you?"
         }
       ],
-      "closing": "What's everyone watching going into the CPI print -- range widths, pairs, or positions you're keeping an eye on? Drop your setups in the group."
+      "closing": "What are you watching going into next week? Drop your current setups, pairs, and Range thoughts in the group."
     },
-    "slack_ts": "1788805983.326549",
-    "generated_at": "2026-09-07T18:33:04.242530+00:00"
+    "slack_ts": "1789405561.663679",
+    "generated_at": "2026-09-14T17:06:03.471117+00:00"
   }
 }

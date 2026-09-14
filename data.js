@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "09-14-2026",
+    "date": "September 14, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "+1.9%"
+      },
+      {
+        "label": "ETH",
+        "value": "+0.9%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Calm, but two catalysts loom"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$1.15"
+      }
+    ],
+    "intro": "BTC and ETH both held gains this week, up 1.9% and 0.9%, while big holders kept adding to their stacks even as some of that buying pace cools. The bigger story for range-setters is what's coming next: the Senate's Clarity Act vote lands Tuesday and the Fed's rate decision follows Wednesday, back-to-back events that can move price fast in either direction. This issue touches Correlation, Range, TVL, Volume, Average Volume, and Asset Selection -- worth reading with your current pairs in mind.",
+    "stories": [
+      {
+        "title": "Bitmine Closes In On 6 Million ETH -- What Sustained Buying Means For Your Range",
+        "body": "Bitmine added another 27,180 ETH this week, about $68 million, pushing its total holdings to nearly 6 million ETH as it chases a goal of owning 5% of all ETH in existence. Advisor Tom DeMark expects a sharp price move in the coming weeks. When you see this kind of sustained one-direction buying, you have two separate ways to lean into it: skew your Range higher so more of your liquidity sits on the ETH side and captures more of any move up, or hold a Correlated pair like ETH/BTC where both assets rise together and you capture the full move on both sides. These are alternatives, not stacking moves -- picking both only makes sense if you hold a more specific view, like believing ETH will outperform BTC specifically.",
+        "spark": "Are you skewing your Range, picking a Correlated pair, or sitting tight through this buying wave? What's your current ETH pair and Range width?"
+      },
+      {
+        "title": "Two Catalysts, One Week -- Clarity Act Vote Tuesday, FOMC Wednesday",
+        "body": "The Senate is set to vote on the Clarity Act Tuesday after Trump backed tougher ethics provisions to win over holdout lawmakers, though a bipartisan group of 17 state attorneys general led by New York's Letitia James is pushing for a no vote. The Fed's rate decision lands the very next day. Two market-moving events back to back is exactly the setup where a wider Range earns its keep -- a surprise on either the vote or the rate call can push price through a narrow Range fast, and rebalancing costs eat into any extra fees a tight Range would have earned. If you're running narrow Ranges for the higher APR right now, this is a fair week to ask whether the extra fee capture is worth going out of Range twice in two days.",
+        "spark": "Are you widening any Ranges ahead of Tuesday and Wednesday, or holding tight through both events? What made that call for you?"
+      },
+      {
+        "title": "Strive Slows Its Pace, Strategy Freezes Its Stack -- Reading A Cooling Buying Rate",
+        "body": "Strive bought just $36.6 million of BTC this week to cross 25,000 BTC total, a slowdown from the roughly $109 million it spent on 1,375 BTC the week before. Strategy, the largest corporate BTC holder, left its 845,050 BTC untouched for a second straight week and bought back only $139 million of its preferred stock, down from $176 million the prior week. A slowdown like this in steady institutional demand is part of what has kept BTC/USDC pools trading in a fairly narrow band, and if it keeps cooling, BTC Volume is more likely to come from short-term traders instead, which tends to mean sharper, less predictable swings. Worth checking your pool's Average Volume over the last 45 days against today's number before assuming today's APR is the new normal.",
+        "spark": "Have you checked your BTC pool's 45-day Average Volume against today's number recently? Does today look like the new normal or an outlier?"
+      },
+      {
+        "title": "DeFi Development Corp Builds A $300 Million War Chest For Solana",
+        "body": "DeFi Development Corp grew its Solana treasury to 2.39 million SOL and set up a $300 million at-the-market offering -- a way to raise cash by selling new shares gradually into the market -- to fund a new perpetual preferred stock called CHAD, meaning stock that pays a fixed dividend forever and never has to be repaid. That's a large, steady source of capital likely to keep flowing into SOL over time. More capital chasing SOL positions tends to deepen TVL in SOL pools, and deeper TVL is what lets a pool absorb new deposits without the APR collapsing. SOL still sits inside the top 10 by market cap, so the Asset Selection safety barrier holds here, but this is one company's treasury strategy funded by newly issued stock, not a broad organic demand shift, so keep Asset Selection in mind before chasing SOL pools on this headline alone.",
+        "spark": "If you're in a SOL pool, has TVL noticeably deepened this week? Would you rotate into a SOL pair on treasury news alone, or wait to see Volume follow first?"
+      },
+      {
+        "title": "MetaMask Adds Scam Protections -- A Reminder On Where Your Safety Really Starts",
+        "body": "MetaMask rolled out new wallet-level protections that flag suspicious transfers and block transactions that don't match what they preview to the user, aimed at catching scams before you sign a malicious transaction. That's a genuinely useful extra layer, especially if you're exploring smaller pools outside the top 30. But a wallet warning is a backstop, not your first line of defense -- Asset Selection, sticking to tokens ranked inside the top 30 or top 100 by market cap, is what keeps the odds of a bad outcome low in the first place. A wallet popup can catch a phishing attempt; it can't tell you whether the token in a new pool is a well-run project or one designed to scam holders and disappear.",
+        "spark": "Do you rely on wallet-level warnings when exploring newer pools, or lean entirely on Asset Selection as your filter? Has a wallet warning ever caught something for you?"
+      }
+    ],
+    "closing": "What are you watching going into next week? Drop your current setups, pairs, and Range thoughts in the group."
+  },
+  {
     "id": "09-07-2026",
     "date": "September 07, 2026",
     "title": "LP Mastermind\nMarket Update",
