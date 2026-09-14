@@ -8,52 +8,52 @@
       "snapshot": [
         {
           "label": "BTC",
-          "value": "+1.9%"
+          "value": "+2.4%"
         },
         {
           "label": "ETH",
-          "value": "+0.9%"
+          "value": "+1.2%"
         },
         {
           "label": "Volatility",
-          "value": "Calm, but two catalysts loom"
+          "value": "Modest and steady -- most ranges likely held"
         },
         {
           "label": "ETH Gas",
-          "value": "~$1.15"
+          "value": "~$0.90"
         }
       ],
-      "intro": "BTC and ETH both held gains this week, up 1.9% and 0.9%, while big holders kept adding to their stacks even as some of that buying pace cools. The bigger story for range-setters is what's coming next: the Senate's Clarity Act vote lands Tuesday and the Fed's rate decision follows Wednesday, back-to-back events that can move price fast in either direction. This issue touches Correlation, Range, TVL, Volume, Average Volume, and Asset Selection -- worth reading with your current pairs in mind.",
+      "intro": "Bitcoin and Ether both climbed modestly this week, even as AI-slowdown worries knocked chip stocks around -- a sign crypto isn't just tracking tech sentiment right now. Institutional money kept moving, but not all in the same direction: heavy ETH buying from one player, a full ETH and BTC exit from another. This issue touches Correlation, Range, Average Volume, Asset Selection, Volume, and TVL, which is worth reading closely with a Clarity Act Senate vote coming up.",
       "stories": [
         {
-          "title": "Bitmine Closes In On 6 Million ETH -- What Sustained Buying Means For Your Range",
-          "body": "Bitmine added another 27,180 ETH this week, about $68 million, pushing its total holdings to nearly 6 million ETH as it chases a goal of owning 5% of all ETH in existence. Advisor Tom DeMark expects a sharp price move in the coming weeks. When you see this kind of sustained one-direction buying, you have two separate ways to lean into it: skew your Range higher so more of your liquidity sits on the ETH side and captures more of any move up, or hold a Correlated pair like ETH/BTC where both assets rise together and you capture the full move on both sides. These are alternatives, not stacking moves -- picking both only makes sense if you hold a more specific view, like believing ETH will outperform BTC specifically.",
-          "spark": "Are you skewing your Range, picking a Correlated pair, or sitting tight through this buying wave? What's your current ETH pair and Range width?"
+          "title": "Bitmine's ETH Pile Keeps Growing -- What Sustained Buying Means for Your Range",
+          "body": "Bitmine added 27,180 ETH this week, about $68 million, pushing its holdings toward 6 million ETH as it chases a stated goal of owning 5% of all ETH in existence. Adviser Tom DeMark says he expects a sharp move in the coming weeks. When you see buying like this and believe price is headed higher, keep in mind there are two separate ways to lean into that view. One is picking a correlated pair -- two assets that move together, like ETH and BTC -- so both sides of your pool rise together instead of just one. The other is skewing your range higher within whatever pair you already hold, giving you more room on the ETH side so a move up captures more upside. These two levers are alternatives, not additions -- picking a correlated pair is a decision about which pool you're in, while skewing is a decision about how you set up within it. Pulling both only makes sense if you hold a more specific view, like ETH going up and outperforming BTC at the same time.",
+          "spark": "If you think Bitmine and other institutional buyers are right about ETH's direction, which lever are you more likely to pull this week -- a correlated pair or a skewed range? What's stopping you from doing both?"
         },
         {
-          "title": "Two Catalysts, One Week -- Clarity Act Vote Tuesday, FOMC Wednesday",
-          "body": "The Senate is set to vote on the Clarity Act Tuesday after Trump backed tougher ethics provisions to win over holdout lawmakers, though a bipartisan group of 17 state attorneys general led by New York's Letitia James is pushing for a no vote. The Fed's rate decision lands the very next day. Two market-moving events back to back is exactly the setup where a wider Range earns its keep -- a surprise on either the vote or the rate call can push price through a narrow Range fast, and rebalancing costs eat into any extra fees a tight Range would have earned. If you're running narrow Ranges for the higher APR right now, this is a fair week to ask whether the extra fee capture is worth going out of Range twice in two days.",
-          "spark": "Are you widening any Ranges ahead of Tuesday and Wednesday, or holding tight through both events? What made that call for you?"
+          "title": "Two Big BTC Buyers Slow Down -- Don't Let the Headline Set Your APR Expectations",
+          "body": "Strive crossed 25,000 BTC this week with a $36.6 million purchase, a much smaller buy than the 1,375 BTC ($109 million) it picked up the week before. Strategy, the largest corporate BTC holder, left its 845,050 BTC stack untouched for a second straight week. Headlines like these can make institutional demand feel like it's drying up, but that news happens off-chain -- it doesn't tell you what's actually trading through your BTC pools. The real check is Average Volume (45-day) -- the trailing average of daily pool volume, which shows whether this week's on-chain activity is normal or an outlier worth reacting to.",
+          "spark": "Next time a big institutional buying headline crosses your feed, do you check the pool's Average Volume before adjusting your range, or does the headline itself change your plan?"
         },
         {
-          "title": "Strive Slows Its Pace, Strategy Freezes Its Stack -- Reading A Cooling Buying Rate",
-          "body": "Strive bought just $36.6 million of BTC this week to cross 25,000 BTC total, a slowdown from the roughly $109 million it spent on 1,375 BTC the week before. Strategy, the largest corporate BTC holder, left its 845,050 BTC untouched for a second straight week and bought back only $139 million of its preferred stock, down from $176 million the prior week. A slowdown like this in steady institutional demand is part of what has kept BTC/USDC pools trading in a fairly narrow band, and if it keeps cooling, BTC Volume is more likely to come from short-term traders instead, which tends to mean sharper, less predictable swings. Worth checking your pool's Average Volume over the last 45 days against today's number before assuming today's APR is the new normal.",
-          "spark": "Have you checked your BTC pool's 45-day Average Volume against today's number recently? Does today look like the new normal or an outlier?"
+          "title": "Canaan Exits Its Entire ETH Position -- A Reminder That Selling Isn't Always About the Asset",
+          "body": "Canaan, a Bitcoin mining hardware maker, sold its entire ETH position and 54 BTC this week, using part of the proceeds to buy back 13.6 million of its own shares. That's a company-specific balance sheet decision, not a signal that ETH or BTC got riskier -- both stay comfortably inside the top 30 by market cap, the safety barrier behind Asset Selection. What it does create is a burst of swap volume: a sale this size has to route through pools and exchanges, and that extra activity often shows up as higher Volume wherever Canaan traded, even briefly. For LPs sitting in unrelated BTC or ETH pools, a large corporate sell-off like this can be a short fee-earning window rather than something to fear.",
+          "spark": "Have you ever noticed a fee spike in one of your pools right after a big sale or transfer hit the news? Would you widen or narrow your range if you expected a one-time volume spike like this?"
         },
         {
-          "title": "DeFi Development Corp Builds A $300 Million War Chest For Solana",
-          "body": "DeFi Development Corp grew its Solana treasury to 2.39 million SOL and set up a $300 million at-the-market offering -- a way to raise cash by selling new shares gradually into the market -- to fund a new perpetual preferred stock called CHAD, meaning stock that pays a fixed dividend forever and never has to be repaid. That's a large, steady source of capital likely to keep flowing into SOL over time. More capital chasing SOL positions tends to deepen TVL in SOL pools, and deeper TVL is what lets a pool absorb new deposits without the APR collapsing. SOL still sits inside the top 10 by market cap, so the Asset Selection safety barrier holds here, but this is one company's treasury strategy funded by newly issued stock, not a broad organic demand shift, so keep Asset Selection in mind before chasing SOL pools on this headline alone.",
-          "spark": "If you're in a SOL pool, has TVL noticeably deepened this week? Would you rotate into a SOL pair on treasury news alone, or wait to see Volume follow first?"
+          "title": "Clarity Act Heads to a Senate Vote -- Why This Might Be a Week to Widen, Not Narrow",
+          "body": "A bipartisan group of 17 state attorneys general, led by New York's Letitia James, is pushing the Senate to vote down the Clarity Act -- the crypto market structure bill moving through Congress. Bernstein analysts say the market hasn't priced in a surprise outcome either way, so a vote that breaks from expectations could move prices sharply. A dated event like this, where you don't know which way it breaks, is exactly when Range earns its keep -- a wider range costs some APR now but keeps you collecting fees through the swing instead of sitting out of range. Coin Market Cap's Fear and Greed gauge is worth checking too, since sentiment already stretched toward extreme fear or extreme greed tends to make a surprise hit harder.",
+          "spark": "Do you widen your ranges ahead of known event risk like a Senate vote, or only react after price actually moves? What would make you skew instead of just widen here?"
         },
         {
-          "title": "MetaMask Adds Scam Protections -- A Reminder On Where Your Safety Really Starts",
-          "body": "MetaMask rolled out new wallet-level protections that flag suspicious transfers and block transactions that don't match what they preview to the user, aimed at catching scams before you sign a malicious transaction. That's a genuinely useful extra layer, especially if you're exploring smaller pools outside the top 30. But a wallet warning is a backstop, not your first line of defense -- Asset Selection, sticking to tokens ranked inside the top 30 or top 100 by market cap, is what keeps the odds of a bad outcome low in the first place. A wallet popup can catch a phishing attempt; it can't tell you whether the token in a new pool is a well-run project or one designed to scam holders and disappear.",
-          "spark": "Do you rely on wallet-level warnings when exploring newer pools, or lean entirely on Asset Selection as your filter? Has a wallet warning ever caught something for you?"
+          "title": "A Solana Treasury Company Just Set Up a $300 Million Buying Machine",
+          "body": "DeFi Development Corp grew its Solana treasury to 2.39 million SOL and set up a $300 million at-the-market offering for a new preferred stock, called CHAD, to fund more buying. SOL sits comfortably inside the top 10 by market cap, so it passes the Asset Selection safety barrier most LPs use as a baseline filter. Sustained buying like this tends to deepen the pools SOL trades in over time, and that's what TVL measures -- a $50 million pool barely moves on new inflows, while a $500,000 pool gets its APR flushed by the same deposit. If you're running SOL pairs, it's worth checking current pool TVL now, since today's APR may not hold once more capital shows up.",
+          "spark": "If SOL pool TVL keeps growing from treasury-company buying, would you rather stay in a narrower range for higher fees now, or widen early anticipating deeper, calmer pools later?"
         }
       ],
-      "closing": "What are you watching going into next week? Drop your current setups, pairs, and Range thoughts in the group."
+      "closing": "What are you watching going into next week -- widening for the Clarity Act vote, leaning into ETH's momentum, or something else entirely? Drop your setups and range thoughts in the group."
     },
-    "slack_ts": "1789405561.663679",
-    "generated_at": "2026-09-14T17:06:03.471117+00:00"
+    "slack_ts": "1789412448.543129",
+    "generated_at": "2026-09-14T19:00:50.329835+00:00"
   }
 }
