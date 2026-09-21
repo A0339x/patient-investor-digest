@@ -3,6 +3,54 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "09-21-2026",
+    "date": "September 21, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "+6.2%"
+      },
+      {
+        "label": "ETH",
+        "value": "+4.9%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Sharp overnight spike"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$2.15"
+      }
+    ],
+    "intro": "Bitcoin and Ethereum both jumped hard in the last 24 hours -- BTC up 6.2%, ETH up 4.9% -- while corporate treasuries kept adding to their piles and one AI-linked token posted one of the biggest runs of the year. This issue touches Range, Correlation, TVL, Average Volume, and The Chart, most of the variables in one sitting. If your ranges are still sized for a calmer week, this is worth reading closely.",
+    "stories": [
+      {
+        "title": "BTC and ETH Both Pop Overnight -- Did Your Range Survive?",
+        "body": "Bitcoin jumped 6.2% and Ethereum jumped 4.9% in a single 24-hour stretch, the kind of fast move that pushes tight ranges out of bounds quickly. If your range was set for a calmer week, a move this size can flip a position from earning fees to sitting on one side of the pool, doing nothing until price comes back. The two assets moved together here, which is the mechanic behind Correlation -- when BTC and ETH rise as a pair, a correlated position, like a BTC/ETH pool instead of BTC/USDC, captures the full move on both sides at once rather than only half of it.",
+        "spark": "Did this move push any of your positions out of range? What width are you running right now, and would you widen it heading into a week that already started this volatile?"
+      },
+      {
+        "title": "Strategy Adds 950 More Bitcoin -- What Big, Steady Buying Means for Pool APR",
+        "body": "Strategy bought another 950 bitcoin for about $76 million this week, bringing its total holdings to 846,000 BTC -- worth roughly $72 billion and about 4% of all the bitcoin that will ever exist. News like this tends to pull more capital into BTC-paired pools too, as traders and LPs chase the same story. More capital sitting in a pool is exactly what TVL measures, and a bigger TVL needs matching Volume to keep APR where it was -- if deposits grow faster than trading activity, APR gets diluted even while the price action looks exciting. It's a good habit to compare a pool's 45-day Average Volume to today's volume before assuming a hot headline means a hot pool.",
+        "spark": "Have you noticed TVL growing in any of your BTC pairs lately without a matching jump in volume? How do you check whether a pool's APR reflects real trading activity or just a wave of new deposits?"
+      },
+      {
+        "title": "Bitmine Nears 5% of All ETH -- The Case for Correlated Pairs, Unpacked",
+        "body": "Bitmine bought another 27,562 ETH this week, pushing its total investment to $17.1 billion and its stake toward 5% of all the ether that will ever exist. Chairman Tom Lee said the 'crypto bull market is underway' -- meaning he expects prices to keep climbing for a sustained stretch, not just a short bounce. When you see this kind of sustained, one-direction buying and share the view that price is heading up, there are two separate levers worth thinking about, and they do not stack the way they might seem to. The first is skewing your range so you hold more room on the upside -- more of your range sitting above the current price means more of your position rides the move instead of getting sold off into USDC along the way. The second is choosing a correlated pair, like ETH paired with BTC instead of ETH paired with USDC -- both assets tend to rise together, so you capture the full move on both sides instead of watching half your position sit in a stablecoin doing nothing. These are alternatives, not additions: skew shapes your range within a pair, while Correlation picks which pair you're in to begin with. Pulling both only really pays off if you hold a more specific view, like believing ETH will not just rise but outperform BTC while it does.",
+        "spark": "If you believe ETH keeps climbing from here, which lever are you leaning on -- a skewed range within your current pair, or moving into a correlated pair like ETH/BTC? What's your reasoning?"
+      },
+      {
+        "title": "VVV Hits a Record $34, Up 3,000% This Year -- A Live Case for The Chart",
+        "body": "Venice (VVV), an AI-focused privacy token, has run from under a dollar to a record $34 in 2026, a gain of roughly 3,000%. That kind of chart is exactly the situation The Chart variable is built for: before buying into hype, check where on the chart you would actually be buying. A token sitting at its all-time high has most of its downside still in front of it and little room left to run before it's simply matching its own record, the opposite of buying low with room to recover if price pulls back. VVV also sits well outside the top 100 assets by market cap, which brings in the other variable here, Asset Selection -- a token this far down the rank list carries meaningfully higher risk of a sharp, lasting drawdown than a top-30 asset would, even with a chart this exciting.",
+        "spark": "If a token you're watching just put up a 3,000% run and is sitting at its all-time high, how do you weigh the chart timing against the appreciation you might be leaving on the table by waiting?"
+      }
+    ],
+    "closing": "What are you watching going into next week? Drop your current setups, pairs, and range thoughts in the group."
+  },
+  {
     "id": "09-14-2026",
     "date": "September 14, 2026",
     "title": "LP Mastermind\nMarket Update",

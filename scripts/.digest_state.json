@@ -1,59 +1,54 @@
 {
   "pending": {
     "digest": {
-      "id": "09-14-2026",
-      "date": "September 14, 2026",
+      "id": "09-21-2026",
+      "date": "September 21, 2026",
       "title": "LP Mastermind\nMarket Update",
       "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
       "snapshot": [
         {
           "label": "BTC",
-          "value": "+2.4%"
+          "value": "+6.2%"
         },
         {
           "label": "ETH",
-          "value": "+1.2%"
+          "value": "+4.9%"
         },
         {
           "label": "Volatility",
-          "value": "Modest and steady -- most ranges likely held"
+          "value": "Sharp overnight spike"
         },
         {
           "label": "ETH Gas",
-          "value": "~$0.90"
+          "value": "~$2.15"
         }
       ],
-      "intro": "Bitcoin and Ether both climbed modestly this week, even as AI-slowdown worries knocked chip stocks around -- a sign crypto isn't just tracking tech sentiment right now. Institutional money kept moving, but not all in the same direction: heavy ETH buying from one player, a full ETH and BTC exit from another. This issue touches Correlation, Range, Average Volume, Asset Selection, Volume, and TVL, which is worth reading closely with a Clarity Act Senate vote coming up.",
+      "intro": "Bitcoin and Ethereum both jumped hard in the last 24 hours -- BTC up 6.2%, ETH up 4.9% -- while corporate treasuries kept adding to their piles and one AI-linked token posted one of the biggest runs of the year. This issue touches Range, Correlation, TVL, Average Volume, and The Chart, most of the variables in one sitting. If your ranges are still sized for a calmer week, this is worth reading closely.",
       "stories": [
         {
-          "title": "Bitmine's ETH Pile Keeps Growing -- What Sustained Buying Means for Your Range",
-          "body": "Bitmine added 27,180 ETH this week, about $68 million, pushing its holdings toward 6 million ETH as it chases a stated goal of owning 5% of all ETH in existence. Adviser Tom DeMark says he expects a sharp move in the coming weeks. When you see buying like this and believe price is headed higher, keep in mind there are two separate ways to lean into that view. One is picking a correlated pair -- two assets that move together, like ETH and BTC -- so both sides of your pool rise together instead of just one. The other is skewing your range higher within whatever pair you already hold, giving you more room on the ETH side so a move up captures more upside. These two levers are alternatives, not additions -- picking a correlated pair is a decision about which pool you're in, while skewing is a decision about how you set up within it. Pulling both only makes sense if you hold a more specific view, like ETH going up and outperforming BTC at the same time.",
-          "spark": "If you think Bitmine and other institutional buyers are right about ETH's direction, which lever are you more likely to pull this week -- a correlated pair or a skewed range? What's stopping you from doing both?"
+          "title": "BTC and ETH Both Pop Overnight -- Did Your Range Survive?",
+          "body": "Bitcoin jumped 6.2% and Ethereum jumped 4.9% in a single 24-hour stretch, the kind of fast move that pushes tight ranges out of bounds quickly. If your range was set for a calmer week, a move this size can flip a position from earning fees to sitting on one side of the pool, doing nothing until price comes back. The two assets moved together here, which is the mechanic behind Correlation -- when BTC and ETH rise as a pair, a correlated position, like a BTC/ETH pool instead of BTC/USDC, captures the full move on both sides at once rather than only half of it.",
+          "spark": "Did this move push any of your positions out of range? What width are you running right now, and would you widen it heading into a week that already started this volatile?"
         },
         {
-          "title": "Two Big BTC Buyers Slow Down -- Don't Let the Headline Set Your APR Expectations",
-          "body": "Strive crossed 25,000 BTC this week with a $36.6 million purchase, a much smaller buy than the 1,375 BTC ($109 million) it picked up the week before. Strategy, the largest corporate BTC holder, left its 845,050 BTC stack untouched for a second straight week. Headlines like these can make institutional demand feel like it's drying up, but that news happens off-chain -- it doesn't tell you what's actually trading through your BTC pools. The real check is Average Volume (45-day) -- the trailing average of daily pool volume, which shows whether this week's on-chain activity is normal or an outlier worth reacting to.",
-          "spark": "Next time a big institutional buying headline crosses your feed, do you check the pool's Average Volume before adjusting your range, or does the headline itself change your plan?"
+          "title": "Strategy Adds 950 More Bitcoin -- What Big, Steady Buying Means for Pool APR",
+          "body": "Strategy bought another 950 bitcoin for about $76 million this week, bringing its total holdings to 846,000 BTC -- worth roughly $72 billion and about 4% of all the bitcoin that will ever exist. News like this tends to pull more capital into BTC-paired pools too, as traders and LPs chase the same story. More capital sitting in a pool is exactly what TVL measures, and a bigger TVL needs matching Volume to keep APR where it was -- if deposits grow faster than trading activity, APR gets diluted even while the price action looks exciting. It's a good habit to compare a pool's 45-day Average Volume to today's volume before assuming a hot headline means a hot pool.",
+          "spark": "Have you noticed TVL growing in any of your BTC pairs lately without a matching jump in volume? How do you check whether a pool's APR reflects real trading activity or just a wave of new deposits?"
         },
         {
-          "title": "Canaan Exits Its Entire ETH Position -- A Reminder That Selling Isn't Always About the Asset",
-          "body": "Canaan, a Bitcoin mining hardware maker, sold its entire ETH position and 54 BTC this week, using part of the proceeds to buy back 13.6 million of its own shares. That's a company-specific balance sheet decision, not a signal that ETH or BTC got riskier -- both stay comfortably inside the top 30 by market cap, the safety barrier behind Asset Selection. What it does create is a burst of swap volume: a sale this size has to route through pools and exchanges, and that extra activity often shows up as higher Volume wherever Canaan traded, even briefly. For LPs sitting in unrelated BTC or ETH pools, a large corporate sell-off like this can be a short fee-earning window rather than something to fear.",
-          "spark": "Have you ever noticed a fee spike in one of your pools right after a big sale or transfer hit the news? Would you widen or narrow your range if you expected a one-time volume spike like this?"
+          "title": "Bitmine Nears 5% of All ETH -- The Case for Correlated Pairs, Unpacked",
+          "body": "Bitmine bought another 27,562 ETH this week, pushing its total investment to $17.1 billion and its stake toward 5% of all the ether that will ever exist. Chairman Tom Lee said the 'crypto bull market is underway' -- meaning he expects prices to keep climbing for a sustained stretch, not just a short bounce. When you see this kind of sustained, one-direction buying and share the view that price is heading up, there are two separate levers worth thinking about, and they do not stack the way they might seem to. The first is skewing your range so you hold more room on the upside -- more of your range sitting above the current price means more of your position rides the move instead of getting sold off into USDC along the way. The second is choosing a correlated pair, like ETH paired with BTC instead of ETH paired with USDC -- both assets tend to rise together, so you capture the full move on both sides instead of watching half your position sit in a stablecoin doing nothing. These are alternatives, not additions: skew shapes your range within a pair, while Correlation picks which pair you're in to begin with. Pulling both only really pays off if you hold a more specific view, like believing ETH will not just rise but outperform BTC while it does.",
+          "spark": "If you believe ETH keeps climbing from here, which lever are you leaning on -- a skewed range within your current pair, or moving into a correlated pair like ETH/BTC? What's your reasoning?"
         },
         {
-          "title": "Clarity Act Heads to a Senate Vote -- Why This Might Be a Week to Widen, Not Narrow",
-          "body": "A bipartisan group of 17 state attorneys general, led by New York's Letitia James, is pushing the Senate to vote down the Clarity Act -- the crypto market structure bill moving through Congress. Bernstein analysts say the market hasn't priced in a surprise outcome either way, so a vote that breaks from expectations could move prices sharply. A dated event like this, where you don't know which way it breaks, is exactly when Range earns its keep -- a wider range costs some APR now but keeps you collecting fees through the swing instead of sitting out of range. Coin Market Cap's Fear and Greed gauge is worth checking too, since sentiment already stretched toward extreme fear or extreme greed tends to make a surprise hit harder.",
-          "spark": "Do you widen your ranges ahead of known event risk like a Senate vote, or only react after price actually moves? What would make you skew instead of just widen here?"
-        },
-        {
-          "title": "A Solana Treasury Company Just Set Up a $300 Million Buying Machine",
-          "body": "DeFi Development Corp grew its Solana treasury to 2.39 million SOL and set up a $300 million at-the-market offering for a new preferred stock, called CHAD, to fund more buying. SOL sits comfortably inside the top 10 by market cap, so it passes the Asset Selection safety barrier most LPs use as a baseline filter. Sustained buying like this tends to deepen the pools SOL trades in over time, and that's what TVL measures -- a $50 million pool barely moves on new inflows, while a $500,000 pool gets its APR flushed by the same deposit. If you're running SOL pairs, it's worth checking current pool TVL now, since today's APR may not hold once more capital shows up.",
-          "spark": "If SOL pool TVL keeps growing from treasury-company buying, would you rather stay in a narrower range for higher fees now, or widen early anticipating deeper, calmer pools later?"
+          "title": "VVV Hits a Record $34, Up 3,000% This Year -- A Live Case for The Chart",
+          "body": "Venice (VVV), an AI-focused privacy token, has run from under a dollar to a record $34 in 2026, a gain of roughly 3,000%. That kind of chart is exactly the situation The Chart variable is built for: before buying into hype, check where on the chart you would actually be buying. A token sitting at its all-time high has most of its downside still in front of it and little room left to run before it's simply matching its own record, the opposite of buying low with room to recover if price pulls back. VVV also sits well outside the top 100 assets by market cap, which brings in the other variable here, Asset Selection -- a token this far down the rank list carries meaningfully higher risk of a sharp, lasting drawdown than a top-30 asset would, even with a chart this exciting.",
+          "spark": "If a token you're watching just put up a 3,000% run and is sitting at its all-time high, how do you weigh the chart timing against the appreciation you might be leaving on the table by waiting?"
         }
       ],
-      "closing": "What are you watching going into next week -- widening for the Clarity Act vote, leaning into ETH's momentum, or something else entirely? Drop your setups and range thoughts in the group."
+      "closing": "What are you watching going into next week? Drop your current setups, pairs, and range thoughts in the group."
     },
-    "slack_ts": "1789412448.543129",
-    "generated_at": "2026-09-14T19:00:50.329835+00:00"
+    "slack_ts": "1790017310.333829",
+    "generated_at": "2026-09-21T19:01:51.385224+00:00"
   }
 }
