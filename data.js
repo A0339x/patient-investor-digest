@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "09-28-2026",
+    "date": "September 28, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "-1.5% (24h)"
+      },
+      {
+        "label": "ETH",
+        "value": "-0.5% (24h)"
+      },
+      {
+        "label": "Volatility",
+        "value": "Mild drift lower, headline-heavy"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$0.15"
+      }
+    ],
+    "intro": "Prices drifted lower today, with BTC near $83,465 and ETH near $2,680, but the headlines were louder than the charts. A big exchange hack, a Senate report on Tether, and a bank moving into stablecoin payments all touch the same few variables: Asset Selection, Volume, Average Volume, TVL, Correlation, and Range. Each story below is a small chance to see how those variables work together.",
+    "stories": [
+      {
+        "title": "Bitget Loses $388 Million -- Who Was Exposed, and Who Might Earn?",
+        "body": "Bitget CEO Gracy Chen says the attacker sent two small test transfers half an hour before draining $388 million from the exchange. Bitget is a centralized exchange -- a company that holds customer funds on its own platform. Only the money sitting on that platform was at risk. This is Asset Selection at work: big, top-30 assets held in your own wallet and pools were not the target. Now the second variable. Hacks tend to bring a burst of swaps as bots arbitrage price gaps and nervous holders rotate out. That pushes 24-hour Volume above normal, and Krystal only shows today's number, so the APR on a pool can look far better than it will next week. Keep in mind that checking the 45-day Average Volume tells you whether today is the outlier. If Average is well below Daily, the volume will likely fall back and the APR will fall with it.",
+        "spark": "Next time you open a pool on Krystal after a big headline, compare its Daily Volume to its 45-day Average Volume. What gap did you find, and did it change how you thought about the APR?"
+      },
+      {
+        "title": "Senate Report Puts Tether at the Center of Iran's Shadow Banking",
+        "body": "A new Senate investigation says Tether's USDT -- a stablecoin, meaning a token built to hold a steady $1 price -- has become central to Iran's shadow banking system. USDT ranks near the top of the market, so it passes the Asset Selection test on size. Rank measures size, though, not how much regulatory attention a coin is drawing. Here is where Range comes in. Stablecoin pairs like USDT/USDC often use very narrow ranges, because the two prices barely move and a tight range earns more fees. But narrow ranges only earn while the peg holds. If USDT slips even a little under $1, price can leave a tight range, and your position ends up holding all of the weaker coin. When you hold a narrow stablecoin range, keep in mind that the tighter you go, the less room a scare has to play out before you are out of range. A wider range earns less but gives the peg more room to wobble and come back.",
+        "spark": "If you run a stablecoin pair today, how wide is your range, and what price on USDT would push you out of it? Is that gap wide enough for a headline-driven wobble?"
+      },
+      {
+        "title": "Citi Expands Its Coinbase Partnership for Stablecoin Business Payments",
+        "body": "Citi is widening its partnership with Coinbase to connect traditional bank payments with stablecoins for business customers. Business payments repeat every day, so this is the kind of steady flow that can lift baseline Volume in stablecoin pools over time. APR is essentially Volume divided by TVL, so more Volume alone is good news for LPs. The second variable pulls the other way. If more capital moves into stablecoin pools to chase that flow, TVL rises too, and a bigger TVL splits the same fees across more depositors. That is the tension to keep in mind: steady demand for swaps is a tailwind, and new deposits are a headwind. A deep pool can absorb new inflows without the APR collapsing, while a small pool feels every new dollar. So the pool's TVL is worth watching alongside its Volume.",
+        "spark": "Pick one stablecoin pool you follow. Over the past few weeks, has its TVL been climbing faster than its Volume, or the other way around?"
+      },
+      {
+        "title": "Strive Buys $94.5 Million of Bitcoin, Holdings Reach 27,462 BTC",
+        "body": "Strive bought 1,107 BTC for $94.5 million last week, lifting its total to 27,462 BTC. About 85% of the money came from SATA, its preferred stock -- a type of share that pays holders a fixed income and is sold to fund purchases like this. Steady buying by a large holder is a reason some LPs feel confident about where BTC is heading, even on a day when price slipped 1.5%. If you feel that confidence, keep in mind two different choices. One is Correlation. A BTC/ETH pair (two assets that tend to move together) captures the full move if both rise 10%, while a BTC/USDC pair only captures about half, because half your money sits in USDC. The other is Range skew -- placing more of your range above today's price so you hold more BTC as it climbs. These are alternatives, not additions. Correlation is a choice about which pair you hold. Skew is a choice about how you set the range inside that pair. Using both only pays off if you hold a more specific view, like BTC rising and outperforming ETH. And if your view flips to a drop, a correlated pair drops with the market, while an uncorrelated one cushions the fall.",
+        "spark": "Which pair are you in right now, and is it correlated or not? If your view on the next month is 'up,' does that pair match it?"
+      },
+      {
+        "title": "Chainlink Lets Institutions Add Their Own Bridge Checks, Five Months After the Kelp Hack",
+        "body": "Chainlink's CCIP 2.0 lets banks run their own security checks on cross-chain transfers. A bridge is a tool that moves tokens from one blockchain to another, and the $292 million Kelp hack five months ago hit a rival setup. That hack showed Asset Selection at its clearest. People holding the hacked token were hurt, while people in the normal version of the same asset were fine. A bridged token carries the rank of the asset it copies and also the risk of the bridge behind it. The second variable is TVL. Bridged versions of tokens often sit in thin pools, where a modest trade can push price away from the original. A deep pool with a top-30 asset on both sides has far less of this problem. Better bridge checks may lower the risk over time, but they do not change the question worth asking each time you add liquidity: which version of this token am I holding, and who backs it?",
+        "spark": "Look at the last pool you entered. Do you know whether each token in it is the native version or a bridged one, and how deep is the pool's TVL?"
+      }
+    ],
+    "closing": "What are you watching going into next week? Drop your current pairs, range widths, and the Volume or TVL numbers you are checking in the group."
+  },
+  {
     "id": "09-21-2026",
     "date": "September 21, 2026",
     "title": "LP Mastermind\nMarket Update",
