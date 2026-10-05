@@ -3,6 +3,59 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "10-05-2026",
+    "date": "October 05, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "-0.0%"
+      },
+      {
+        "label": "ETH",
+        "value": "+0.4%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Calm, ranging"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$0.10"
+      }
+    ],
+    "intro": "Prices are flat, with BTC near $85,800 and ETH near $2,714, but the headlines are busy. Regulators loosened some rules and tightened others, and big treasuries keep buying. This issue touches Volume, Average Volume, Correlation, Range, TVL and Asset Selection.",
+    "stories": [
+      {
+        "title": "Treasury Drops Its Mixer and Self-Custody Wallet Rules",
+        "body": "FinCEN (the U.S. Treasury's financial crimes unit) withdrew two proposals. One would have tracked transactions from self-custodial wallets, meaning wallets you control yourself. The other would have labeled crypto mixing a primary money laundering concern. Both would have added friction to on-chain activity, so removing them can support Volume, the 24-hour buys and sells that decide how much a pool pays its LPs. APR is essentially Volume divided by TVL, so more swaps into the same pool depth means more fees per dollar. Keep in mind that a policy headline rarely lifts Volume overnight. A good habit is to check the 45-day Average Volume next to today's number. If today sits near the average, the APR you see is sticky. If today is far above it, the APR will likely fall back.",
+        "spark": "When you look at a pool on Krystal, do you compare today's Volume to the 45-day Average Volume before you decide? Share one pool where the two numbers were far apart."
+      },
+      {
+        "title": "SEC Clears 3x Leveraged Bitcoin and Ethereum Funds",
+        "body": "The SEC approved a Cboe rule that lets six Volatility Shares funds list on a U.S. exchange. These funds triple the daily moves of Bitcoin, Ethereum, gold, silver, oil and natural gas. A leveraged fund -- one that uses borrowed money or derivatives to multiply daily price moves -- has to buy into rallies and sell into drops to keep its target. That can make big days bigger. For LPs, bigger swings mean a tight Range is more likely to get knocked out. They can also bring spikes in Volume. When Volume jumps far above Average Volume, Krystal shows an APR based only on that one hot day. If you LP into that number, you risk earning much less once Volume settles back down. That is the outlier at work.",
+        "spark": "If a spike day pushed your ETH/USDC range out of bounds, would you widen the range or rebalance? What did the Average Volume look like when you made the call?"
+      },
+      {
+        "title": "Strive Buys 2,000 BTC and Nears 30,000 Total",
+        "body": "Strive added 2,000 bitcoin, its biggest purchase since June. Its holdings are now close to 30,000 BTC, and it is closing in on MARA, another large public company that holds bitcoin. When you feel confident that a steady buyer is lifting the market, keep in mind there are two levers. One is Correlation. A BTC/ETH pair holds two assets that move together, so if both rise 20% you capture the full 20%, plus fees. A BTC/USDC pair only nets about half that move, because half your money sits in USDC. The other lever is Range. You can skew your range toward the upside so more of your position stays in BTC as price rises. These two levers are alternatives, not additions. Correlation is a choice about which pair you hold. Skew is a choice about how you set the range inside that pair. Using both only pays off if your view is more specific, like 'BTC rises AND BTC beats ETH.'",
+        "spark": "Which pair would you pick if you expected BTC to rise, and why: BTC/ETH or a skewed BTC/USDC? How wide is the range you would set?"
+      },
+      {
+        "title": "CFTC Proposes Rules for Leveraged Retail Crypto Trading",
+        "body": "The CFTC opened rulemaking on leveraged and margined retail crypto trading. It proposed Regulation CTX and CAM, plus a new type of exchange called a crypto asset market. Margined trading means you put up a small deposit to control a larger position. If regulated venues make leveraged trading easier for U.S. retail traders, some of that activity could land on exchanges instead of on-chain pools. That would be a headwind for Volume on DEXs (decentralized exchanges like Uniswap). Keep in mind that these are proposals, and the final shape could change. The TVL side matters too. If pool depth stays the same while Volume drifts lower, APR falls. If TVL grows while Volume stays flat, APR falls as well. Both paths push the same ratio down.",
+        "spark": "Which of your positions would feel the biggest APR drop if Volume fell 30% while TVL stayed the same? Walk through the math with one pool you hold."
+      },
+      {
+        "title": "DeFi Development Holds 2.56 Million SOL as NAV Per Share Doubles",
+        "body": "DeFi Development (DFDV) says preliminary Q3 estimates show net asset value (NAV) per share more than doubled. NAV per share is the value of the company's holdings divided by its share count. Its Solana treasury grew to 2.56 million SOL. This is a good moment to run Asset Selection on any SOL pair you hold or consider. Asset Selection is the market-cap rank of an asset, and a lower number is safer. The top 30 is the safe zone, and SOL sits well inside it. Treasury buying like this does not change that rank test, but the other side of the pair still needs the same check. Keep in mind that a top-30 asset paired with a token past rank 100 carries the risk of the weaker side. The Chart is the second check. A healthy chart shows highs and lows across the asset's lifetime, and price sits well below its top.",
+        "spark": "Look at the SOL pair you hold or watch. What is the market-cap rank of the other asset, and where does price sit compared to its previous high?"
+      }
+    ],
+    "closing": "What are you watching going into next week? Share your current pairs, range widths, and the one variable you checked first."
+  },
+  {
     "id": "09-28-2026",
     "date": "September 28, 2026",
     "title": "LP Mastermind\nMarket Update",
