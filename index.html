@@ -602,6 +602,9 @@
 let ISSUES = [];
 // Platform origin for the featured-spark links; set by init().
 let SOCIAL_URL = '';
+// Whether the platform's weekly-spark pages are open to members. Until they
+// are, issues render exactly as before (every story keeps its discussion widget).
+let SPARK_LIVE = false;
 
 /* ── HELPERS ───────────────────────────────────────────────────── */
 function esc(str) {
@@ -657,7 +660,7 @@ function buildIssues() {
         <div class="glance-value">${s.value}</div>
       </div>`).join('');
 
-    const f = d.featured && Array.isArray(d.featured.choices) ? d.featured : null;
+    const f = SPARK_LIVE && d.featured && Array.isArray(d.featured.choices) ? d.featured : null;
     const featuredIdx = f ? f.storyIndex : -1;
 
     // The featured story's spark has no data-digest/data-story, so group.js
@@ -820,6 +823,7 @@ async function init() {
     fetchJSON('/api/session', 3000),
   ]);
   const held = (state && Array.isArray(state.held)) ? state.held : [];
+  SPARK_LIVE = !!(state && state.sparkLive === true);
   const now = Date.now();
   ISSUES = DIGESTS.filter(d => isVisible(d, held, now));
   SOCIAL_URL = ((session && session.socialUrl) || document.querySelector('.back-to-hub').href).replace(/\/$/, '');
