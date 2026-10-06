@@ -6,6 +6,9 @@ import sys
 
 import requests
 
+from digest_rules import FEATURED_MISSING, validate_digest
+from platform_notify import stage_issue
+
 SLACK_CHANNEL_ID = "C0ATN065QQ3"
 STATE_FILE = "scripts/.digest_state.json"
 DATA_FILE = "data.js"
@@ -68,7 +71,7 @@ def build_thread_context(messages, latest_ts):
 def process_message(digest, thread_context, latest_message):
     prompt = f"""You are Gregory's editorial collaborator for the Patient Investor LP Mastermind digest, working with him inside a Slack thread. You have full creative and analytical latitude -- discuss, brainstorm, explain, critique, rewrite, or just chat. Respond like a sharp colleague, not a form-filling bot.
 
-The Mastermind audience is early-stage LPs running concentrated liquidity on Uniswap V3/V4. They know how to rebalance and understand the basics, but they're still learning the deeper cause-and-effect -- why a skewed range captures more appreciation than a centered one, when widening beats rebalancing, how range width affects fee capture in volatile pairs. Treat this digest as a teaching tool, not a power-user newsletter: plain language, define jargon inline the first time it appears, prefer concrete examples over abstractions. Spark questions should invite reflection, not veteran debate. Do NOT mention "impermanent loss" or "IL" -- talk about range mechanics, fee capture, price exposure, or asset composition directly instead.
+The Mastermind audience is early-stage LPs running concentrated liquidity on Uniswap V3/V4. They know how to rebalance and understand the basics, but they're still learning the deeper cause-and-effect -- why a skewed range captures more appreciation than a centered one, when widening beats rebalancing, how range width affects fee capture in volatile pairs. Treat this digest as a teaching tool, not a power-user newsletter: plain language, define jargon inline the first time it appears, prefer concrete examples over abstractions. Spark questions should invite reflection, not veteran debate. The digest may carry a "featured" object (storyIndex, question, choices, variable, workedAnswer) -- the one tap-to-answer spark; keep its shape (2-4 choices of 48 characters or fewer, question 220 or fewer, variable one of TVL, Volume, Average Volume, Asset Selection, Correlation, Range, no "it depends" choice, workedAnswer never declares a winner) and keep storyIndex pointing at the right story if you reorder anything. Do NOT mention "impermanent loss" or "IL" -- talk about range mechanics, fee capture, price exposure, or asset composition directly instead.
 
 Current digest (JSON):
 {json.dumps(digest, indent=2)}
@@ -89,10 +92,10 @@ Respond by returning ONLY a JSON object with this shape (no markdown fencing, no
 
 Field guidance:
 - "reply" is always required. Put anything you want to say to Gregory here. This could be: answering a question, the complete digest formatted for readability, a critique, a suggestion, small talk, a single sentence -- whatever fits the request.
-- "revised_digest" is ONLY populated when you're making an actual edit to the digest. When you do revise, apply only the change Gregory asked for (same id and date; leave other fields untouched unless he asked otherwise). Return the complete digest object. When no edit is intended, set this to null.
+- "revised_digest" is ONLY populated when you're making an actual edit to the digest. When you do revise, apply only the change Gregory asked for (same id, date and publishAt; leave other fields untouched unless he asked otherwise). Return the complete digest object. When no edit is intended, set this to null.
 - "publish" is true ONLY when Gregory has clearly indicated he wants the current digest pushed to the site now (e.g. "publish", "ship it", "push to the site", "looks good let's go live"). Otherwise false.
 
-Slack formatting for "reply": use *bold*, _italic_, and bullets with •. No markdown headers (#). Use -- instead of em dashes. Straight quotes only. Readable, conversational, no boilerplate. When Gregory asks to see the full article, format it nicely with the title, date, snapshot, intro, every story (title/body/spark), and closing -- make it pleasant to read in Slack.
+Slack formatting for "reply": use *bold*, _italic_, and bullets with •. No markdown headers (#). Use -- instead of em dashes. Straight quotes only. Readable, conversational, no boilerplate. When Gregory asks to see the full article, format it nicely with the title, date, snapshot, intro, every story (title/body/spark), the featured spark, and closing -- make it pleasant to read in Slack.
 
 Digest field rules (when revising): use -- instead of em dashes, straight quotes only, no markdown inside values."""
 
@@ -150,7 +153,7 @@ def git_commit(message, include_data=False):
     os.system(f"git add {files}")
     os.system(f'git commit -m "{message}"')
     os.system("git pull --rebase")
-    os.system("git push")
+    return os.system("git push") == 0
 
 
 def do_publish(token, thread_ts, state, pending, intro_message=None):
@@ -159,8 +162,32 @@ def do_publish(token, thread_ts, state, pending, intro_message=None):
     write_data_js(pending["digest"])
     state["published"] = True
     save_state(state)
-    git_commit(f"Publish digest {pending['digest']['id']}", include_data=True)
+    pushed = git_commit(f"Publish digest {pending['digest']['id']}", include_data=True)
+    if pushed:
+        # Keep the platform's staged copy in step with Slack-requested edits. Fail-soft.
+        stage_issue(pending["digest"])
+    else:
+        print("Warning: git push failed; not telling the platform about the edits.",
+              file=sys.stderr)
     post_reply(token, thread_ts, "Done! The digest is live at https://patient-investor-digest.pages.dev/")
+
+
+# Fields a revision may never change: the issue's identity and its go-live time.
+_LOCKED_FIELDS = ("id", "date", "publishAt")
+
+
+def check_revision(original, revised):
+    """Re-apply the locked fields from `original` onto `revised` (the model may
+    drop or alter them), then validate. Returns the list of problems. An issue
+    that never had a featured spark (older issues, or one that shipped without
+    it) stays editable: a still-absent featured block is not a problem there."""
+    for key in _LOCKED_FIELDS:
+        if key in original:
+            revised[key] = original[key]
+    problems = validate_digest(revised)
+    if not original.get("featured") and not revised.get("featured"):
+        problems = [p for p in problems if p != FEATURED_MISSING]
+    return problems
 
 
 def get_new_replies(token, state):
@@ -263,12 +290,24 @@ def mode_run():
         if reply_text:
             post_reply(token, thread_ts, reply_text)
 
+        revision_rejected = False
         if isinstance(revised, dict) and "stories" in revised:
-            pending["digest"] = revised
-            save_state(state)
-            post_reply(token, thread_ts, "_Digest updated. Reply *publish* when you're ready to ship it._")
+            problems = check_revision(pending["digest"], revised)
+            if problems:
+                revision_rejected = True
+                bullets = "\n".join(f"• {p}" for p in problems)
+                post_reply(token, thread_ts,
+                           f"_That revision wasn't applied -- it failed these checks:_\n{bullets}\n"
+                           "_The digest is unchanged. Ask again and I'll fix them._")
+            else:
+                pending["digest"] = revised
+                save_state(state)
+                post_reply(token, thread_ts, "_Digest updated. Reply *publish* when you're ready to ship it._")
 
-        if should_publish:
+        if should_publish and revision_rejected:
+            # Don't push the stale digest in the same breath as a rejected edit.
+            post_reply(token, thread_ts, "_Not publishing yet -- fix the revision first, then say *publish*._")
+        elif should_publish:
             # reply_text already posted above; don't duplicate it
             do_publish(token, thread_ts, state, pending)
             return

@@ -8,6 +8,15 @@ from datetime import datetime, timezone
 import feedparser
 import requests
 
+from digest_rules import (
+    VARIABLES,
+    is_featured_problem,
+    publish_at_iso,
+    target_issue,
+    validate_digest,
+)
+from platform_notify import stage_issue
+
 RSS_FEEDS = [
     "https://www.theblock.co/rss.xml",
     "https://decrypt.co/feed",
@@ -45,26 +54,72 @@ def load_editorial_context():
     return out
 
 
+COINGECKO = "https://api.coingecko.com/api/v3"
+
+
+def _fetch_prices_7d():
+    """7-day change via /coins/markets. Raises if either coin or its 7d field is
+    missing so the caller can fall back to the 24h endpoint."""
+    resp = requests.get(
+        f"{COINGECKO}/coins/markets",
+        params={"vs_currency": "usd", "ids": "bitcoin,ethereum", "price_change_percentage": "7d"},
+        timeout=10,
+    )
+    resp.raise_for_status()
+    rows = {r["id"]: r for r in resp.json()}
+    btc, eth = rows["bitcoin"], rows["ethereum"]
+    out = {
+        "btc_price": btc["current_price"],
+        "btc_change": btc["price_change_percentage_7d_in_currency"],
+        "eth_price": eth["current_price"],
+        "eth_change": eth["price_change_percentage_7d_in_currency"],
+        "window": "7d",
+    }
+    if out["btc_change"] is None or out["eth_change"] is None:
+        raise KeyError("price_change_percentage_7d_in_currency")
+    return out
+
+
+def _fetch_prices_24h():
+    resp = requests.get(
+        f"{COINGECKO}/simple/price",
+        params={"ids": "bitcoin,ethereum", "vs_currencies": "usd", "include_24hr_change": "true"},
+        timeout=10,
+    )
+    resp.raise_for_status()
+    data = resp.json()
+    btc = data["bitcoin"]
+    eth = data["ethereum"]
+    return {
+        "btc_price": btc["usd"],
+        "btc_change": btc["usd_24h_change"],
+        "eth_price": eth["usd"],
+        "eth_change": eth["usd_24h_change"],
+        "window": "24h",
+    }
+
+
 def fetch_prices():
+    """Weekly issue, so prefer the 7-day change; fall back to 24h (labeled as
+    such in the prompt) and finally to N/A rather than failing the run."""
     try:
-        resp = requests.get(
-            "https://api.coingecko.com/api/v3/simple/price",
-            params={"ids": "bitcoin,ethereum", "vs_currencies": "usd", "include_24hr_change": "true"},
-            timeout=10,
-        )
-        resp.raise_for_status()
-        data = resp.json()
-        btc = data["bitcoin"]
-        eth = data["ethereum"]
-        return {
-            "btc_price": btc["usd"],
-            "btc_change": btc["usd_24h_change"],
-            "eth_price": eth["usd"],
-            "eth_change": eth["usd_24h_change"],
-        }
+        return _fetch_prices_7d()
+    except Exception as e:
+        print(f"Warning: could not fetch 7d prices ({e}); falling back to 24h", file=sys.stderr)
+    try:
+        return _fetch_prices_24h()
     except Exception as e:
         print(f"Warning: could not fetch prices: {e}", file=sys.stderr)
-        return {"btc_price": "N/A", "btc_change": 0, "eth_price": "N/A", "eth_change": 0}
+        return {"btc_price": "N/A", "btc_change": 0, "eth_price": "N/A", "eth_change": 0, "window": "N/A"}
+
+
+def _fmt_price_line(label, price, change, window):
+    """One 'BTC: $85,800 (+1.2% 7d)' line; tolerates the N/A fallback values."""
+    if isinstance(price, (int, float)):
+        price_str = f"${price:,}"
+        sign = "+" if change >= 0 else ""
+        return f"{label}: {price_str} ({sign}{change:.1f}% {window})"
+    return f"{label}: price unavailable"
 
 
 def fetch_rss_headlines():
@@ -82,11 +137,20 @@ def fetch_rss_headlines():
 
 
 def build_prompt(today, today_id, prices, articles, context):
+    """`today` / `today_id` are the TARGET Monday's date strings (the issue is
+    drafted shortly before it goes live), not the wall-clock day of the run."""
     articles_text = "\n".join(
         f"- [{a['source']}] {a['title']}: {a['summary']}" for a in articles
     )
-    btc_sign = "+" if prices["btc_change"] >= 0 else ""
-    eth_sign = "+" if prices["eth_change"] >= 0 else ""
+    window = prices.get("window", "24h")
+    btc_line = _fmt_price_line("BTC", prices["btc_price"], prices["btc_change"], window)
+    eth_line = _fmt_price_line("ETH", prices["eth_price"], prices["eth_change"], window)
+    variables_list = ", ".join(VARIABLES)
+    if window == "N/A":
+        price_note = "Price data is unavailable this week; describe the snapshot qualitatively rather than inventing numbers."
+    else:
+        price_note = (f"The percentage changes above are {window} changes. The BTC and ETH snapshot "
+                      f"values must be these {window} changes -- do not describe them as daily moves.")
 
     editorial_block = f"""=== EDITORIAL CONTEXT (treat as authoritative) ===
 
@@ -116,10 +180,11 @@ framing notes that apply to every article. Match the voice in the examples.
 === END EDITORIAL CONTEXT ===
 """
 
-    return f"""Today is {today}.
+    return f"""This issue is dated {today} and goes live that Monday at 9:00am Pacific. You are drafting it just before then.
 
-BTC: ${prices['btc_price']:,} ({btc_sign}{prices['btc_change']:.1f}% 24h)
-ETH: ${prices['eth_price']:,} ({eth_sign}{prices['eth_change']:.1f}% 24h)
+{btc_line}
+{eth_line}
+{price_note}
 
 Recent crypto news headlines:
 {articles_text}
@@ -154,15 +219,31 @@ Required structure (use the exact id and date values shown below -- do not chang
       "spark": "Discussion question for the LP group"
     }}
   ],
+  "featured": {{
+    "storyIndex": 0,
+    "question": "The featured spark question",
+    "choices": ["Option A", "Option B"],
+    "variable": "Range",
+    "workedAnswer": "One way to think about it"
+  }},
   "closing": "1-2 sentence closing prompt to the group"
 }}
+
+The "featured" object is this week's one spark that members answer with a single tap on a companion page, so it is written differently from the ordinary story sparks:
+- storyIndex is the 0-based index of the story in "stories" that the featured spark belongs to. Exactly one story is featured; every other story keeps an ordinary discussion spark exactly as described above.
+- The featured spark must be a real decision between named options a thoughtful beginner could weigh (for example: "skew the range or move to a correlated pair?"). If no story this week supports a decision like that, make it a "go look at one of your pools and report which bucket it falls in" question instead, with the buckets as the choices, and attach it to the story that fits best.
+- question: 220 characters or fewer. It must be understandable WITHOUT reading the story: one clause of context, then the decision.
+- choices: 2 to 4 options, each 48 characters or fewer, mutually exclusive. Do NOT add an "it depends" or "other" choice -- the platform adds that itself.
+- variable: exactly one of {variables_list}. This is the variable the decision mostly turns on.
+- workedAnswer: 3-5 sentences, framed as one way to think about it. It names what the decision depends on using the six-variable vocabulary, and it does NOT declare any one choice the winner. No buy or sell instruction and no price prediction.
+- Everything in "featured" obeys the same style rules below (no "impermanent loss" or "IL", -- instead of em dashes, straight quotes, no markdown).
 
 Rules:
 - Include 4-5 stories drawn from the headlines above, focused on what matters for LP range management
 - Use -- instead of em dashes
 - Use straight quotes only
 - No markdown in any values
-- Fill in the snapshot values using the price data provided; estimate gas if not available
+- Fill in the snapshot values using the price data provided (the {window} changes); estimate gas if not available
 - Return ONLY the JSON object, nothing else"""
 
 
@@ -238,6 +319,53 @@ def call_claude(prompt):
         f"attempts: {last_err}")
 
 
+# Appended when a parsed reply fails validate_digest(); the problem list follows.
+_FIX_NUDGE = (
+    "\n\nIMPORTANT: your previous reply was valid JSON but failed these checks. "
+    "Return the full corrected JSON object with every problem fixed and nothing else "
+    "changed for the worse:\n{problems}"
+)
+
+MAX_FIX_RETRIES = 2
+
+
+def _stamp(digest, issue):
+    """Force the fields the model must never decide: id, date and publishAt."""
+    date_obj, issue_id, date_str = issue
+    if isinstance(digest, dict):
+        digest["id"] = issue_id
+        digest["date"] = date_str
+        digest["publishAt"] = publish_at_iso(date_obj)
+    return digest
+
+
+def generate_validated(prompt, issue):
+    """call_claude() + validate_digest(), retrying up to MAX_FIX_RETRIES more
+    times with the problem list appended. If only the featured spark is still
+    broken afterwards, ship the issue without it; any other leftover problem
+    raises so the run fails loudly."""
+    problems = []
+    for attempt in range(MAX_FIX_RETRIES + 1):
+        p = prompt
+        if problems:
+            print(f"Retrying Claude to fix {len(problems)} problem(s) "
+                  f"(retry {attempt}/{MAX_FIX_RETRIES})...")
+            p = prompt + _FIX_NUDGE.format(problems="\n".join(f"- {x}" for x in problems))
+        digest = _stamp(call_claude(p), issue)
+        problems = validate_digest(digest)
+        if not problems:
+            return digest
+        print("Validation problems:\n" + "\n".join(f"- {x}" for x in problems))
+
+    if all(is_featured_problem(x) for x in problems):
+        print("Warning: featured spark still invalid after retries; shipping without it.",
+              file=sys.stderr)
+        digest.pop("featured", None)
+        return digest
+    raise RuntimeError("Digest failed validation after retries:\n"
+                       + "\n".join(f"- {x}" for x in problems))
+
+
 def load_state():
     if os.path.exists(STATE_FILE):
         with open(STATE_FILE) as f:
@@ -252,6 +380,21 @@ def save_state(state):
 
 
 SLACK_CHANNEL_ID = "C0ATN065QQ3"
+
+# Slack copy -- adjust the wording here.
+SLACK_ROOT_FOOTER = (
+    "_Goes live on its own Monday at 9:00am Pacific. Full article is in the thread below. "
+    "Reply in the thread if you want changes, then say *publish* to push your edits._"
+)
+# Placeholders: {story} 1-based story number, {question}, {choices} (bullet
+# lines), {variable}, {answer}.
+SLACK_FEATURED_TEMPLATE = (
+    "*Featured spark* (story {story})\n"
+    "{question}\n"
+    "{choices}\n"
+    "_Variable: {variable}_\n\n"
+    "*One way to think about it:* {answer}"
+)
 
 
 def _post_slack(token, text, thread_ts=None):
@@ -271,6 +414,20 @@ def _post_slack(token, text, thread_ts=None):
     return data["ts"]
 
 
+def format_featured_slack(digest):
+    """Slack text for the featured spark, or None when the issue has none."""
+    f = digest.get("featured")
+    if not isinstance(f, dict):
+        return None
+    return SLACK_FEATURED_TEMPLATE.format(
+        story=f.get("storyIndex", 0) + 1,
+        question=f.get("question", ""),
+        choices="\n".join(f"• {c}" for c in f.get("choices", [])),
+        variable=f.get("variable", ""),
+        answer=f.get("workedAnswer", ""),
+    )
+
+
 def send_to_slack(digest, token):
     # Thread root: short, always under the size limit, contains the publish prompt.
     snapshot_lines = "\n".join(
@@ -283,7 +440,7 @@ def send_to_slack(digest, token):
         f"_{digest['subtitle']}_\n\n"
         f"{snapshot_block}"
         f"{digest['intro']}\n\n"
-        f"_Full article is in the thread below. Reply in the thread with *publish* when you're ready to ship, or ask me anything there._"
+        f"{SLACK_ROOT_FOOTER}"
     )
     thread_ts = _post_slack(token, root_text)
 
@@ -291,6 +448,11 @@ def send_to_slack(digest, token):
     for s in digest.get("stories", []):
         story_text = f"*{s['title']}*\n{s['body']}\n_Spark: {s['spark']}_"
         _post_slack(token, story_text, thread_ts=thread_ts)
+
+    # Featured spark (the tap-to-answer one), when the issue has it.
+    featured_text = format_featured_slack(digest)
+    if featured_text:
+        _post_slack(token, featured_text, thread_ts=thread_ts)
 
     # Closing as the final threaded reply.
     if digest.get("closing"):
@@ -327,14 +489,25 @@ def git_commit(message):
     os.system(f"git add {DATA_FILE} {STATE_FILE}")
     os.system(f'git commit -m "{message}"')
     os.system("git pull --rebase")
-    os.system("git push")
+    return os.system("git push") == 0
+
+
+def _force():
+    return os.environ.get("DIGEST_FORCE", "").strip().lower() in ("1", "true")
 
 
 def main():
     now = datetime.now(timezone.utc)
-    today = now.strftime("%B %d, %Y")
-    today_id = now.strftime("%m-%d-%Y")
+    issue = target_issue(now)
+    _, today_id, today = issue
     print(f"Generating digest for {today} (id: {today_id})...")
+
+    # The cron fires several times before publish (GitHub can delay or drop
+    # runs); once the issue exists the rest are no-ops.
+    if not _force() and any(d.get("id") == today_id for d in read_existing_digests()):
+        print(f"Issue {today_id} already exists in {DATA_FILE}; nothing to do "
+              "(set DIGEST_FORCE=1 to regenerate).")
+        return
 
     prices = fetch_prices()
     articles = fetch_rss_headlines()
@@ -346,8 +519,9 @@ def main():
 
     prompt = build_prompt(today, today_id, prices, articles, context)
     print("Calling Claude...")
-    digest = call_claude(prompt)
-    print(f"Generated digest: {digest['id']}")
+    digest = generate_validated(prompt, issue)
+    print(f"Generated digest: {digest['id']} (publishAt {digest['publishAt']}, "
+          f"featured: {'yes' if digest.get('featured') else 'no'})")
 
     slack_token = os.environ.get("SLACK_BOT_TOKEN", "")
     ts = None
@@ -367,7 +541,13 @@ def main():
     save_state(state)
 
     write_data_js(digest)
-    git_commit(f"Add digest {digest['id']} (pending publish approval)")
+    pushed = git_commit(f"Add digest {digest['id']} (pending publish approval)")
+    if pushed:
+        # Tell the members platform now so it can notify at 9am. Fail-soft.
+        stage_issue(digest)
+    else:
+        print("Warning: git push failed; not telling the platform about the issue.",
+              file=sys.stderr)
     print("Done.")
 
 
