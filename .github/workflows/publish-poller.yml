@@ -47,3 +47,5 @@ jobs:
           CLAUDE_CODE_OAUTH_TOKEN: ${{ secrets.CLAUDE_CODE_OAUTH_TOKEN }}
           SLACK_BOT_TOKEN: ${{ secrets.SLACK_BOT_TOKEN }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DIGEST_STAGE_WEBHOOK_URL: ${{ secrets.DIGEST_STAGE_WEBHOOK_URL }}
+          DIGEST_WEBHOOK_SECRET: ${{ secrets.DIGEST_WEBHOOK_SECRET }}
