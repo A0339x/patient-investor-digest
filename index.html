@@ -661,7 +661,9 @@ function buildIssues() {
       </div>`).join('');
 
     const f = SPARK_LIVE && d.featured && Array.isArray(d.featured.choices) ? d.featured : null;
-    const featuredIdx = f ? f.storyIndex : -1;
+    // A member-question spark has storyIndex null: it matches no story, so every
+    // story keeps its discussion widget.
+    const featuredIdx = f && Number.isInteger(f.storyIndex) ? f.storyIndex : -1;
 
     // The featured story's spark has no data-digest/data-story, so group.js
     // (which hydrates ".story-spark[data-digest]") leaves it alone; a link to the
@@ -690,7 +692,7 @@ function buildIssues() {
     const sparkUrl = `${SOCIAL_URL}/spark/${encodeURIComponent(d.id)}`;
     const featuredHTML = f ? `
       <div class="featured reveal" id="${esc(d.id)}-spark" data-d="5">
-        <div class="featured-label">◆ This week's spark</div>
+        <div class="featured-label">◆ This week's spark${f.fromMember === true ? ' · from a member' : ''}</div>
         <p class="featured-question">${esc(f.question)}</p>
         <div class="featured-choices">
           ${f.choices.map((c, i) => `<a class="featured-choice" href="${esc(sparkUrl)}?c=${i}">${esc(c)}</a>`).join('')}

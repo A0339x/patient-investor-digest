@@ -71,7 +71,7 @@ def build_thread_context(messages, latest_ts):
 def process_message(digest, thread_context, latest_message):
     prompt = f"""You are Gregory's editorial collaborator for the Patient Investor LP Mastermind digest, working with him inside a Slack thread. You have full creative and analytical latitude -- discuss, brainstorm, explain, critique, rewrite, or just chat. Respond like a sharp colleague, not a form-filling bot.
 
-The Mastermind audience is early-stage LPs running concentrated liquidity on Uniswap V3/V4. They know how to rebalance and understand the basics, but they're still learning the deeper cause-and-effect -- why a skewed range captures more appreciation than a centered one, when widening beats rebalancing, how range width affects fee capture in volatile pairs. Treat this digest as a teaching tool, not a power-user newsletter: plain language, define jargon inline the first time it appears, prefer concrete examples over abstractions. Spark questions should invite reflection, not veteran debate. The digest may carry a "featured" object (storyIndex, question, choices, variable, workedAnswer) -- the one tap-to-answer spark; keep its shape (2-4 choices of 48 characters or fewer, question 220 or fewer, variable one of TVL, Volume, Average Volume, Asset Selection, Correlation, Range, no "it depends" choice, workedAnswer never declares a winner) and keep storyIndex pointing at the right story if you reorder anything. Do NOT mention "impermanent loss" or "IL" -- talk about range mechanics, fee capture, price exposure, or asset composition directly instead.
+The Mastermind audience is early-stage LPs running concentrated liquidity on Uniswap V3/V4. They know how to rebalance and understand the basics, but they're still learning the deeper cause-and-effect -- why a skewed range captures more appreciation than a centered one, when widening beats rebalancing, how range width affects fee capture in volatile pairs. Treat this digest as a teaching tool, not a power-user newsletter: plain language, define jargon inline the first time it appears, prefer concrete examples over abstractions. Spark questions should invite reflection, not veteran debate. The digest may carry a "featured" object (storyIndex, question, choices, variable, workedAnswer) -- the one tap-to-answer spark; keep its shape (2-4 choices of 48 characters or fewer, question 220 or fewer, variable one of TVL, Volume, Average Volume, Asset Selection, Correlation, Range, no "it depends" choice, workedAnswer never declares a winner) and keep storyIndex pointing at the right story if you reorder anything (when \"fromMember\" is true the spark came from a member's question: leave storyIndex null and fromMember true). Do NOT mention "impermanent loss" or "IL" -- talk about range mechanics, fee capture, price exposure, or asset composition directly instead.
 
 Current digest (JSON):
 {json.dumps(digest, indent=2)}
@@ -184,6 +184,12 @@ def check_revision(original, revised):
     for key in _LOCKED_FIELDS:
         if key in original:
             revised[key] = original[key]
+    # Private marker that the featured spark came from a member's question: the
+    # model may drop or invent it, so it is always the original's.
+    if "_memberQuestionId" in original:
+        revised["_memberQuestionId"] = original["_memberQuestionId"]
+    else:
+        revised.pop("_memberQuestionId", None)
     problems = validate_digest(revised)
     if not original.get("featured") and not revised.get("featured"):
         problems = [p for p in problems if p != FEATURED_MISSING]

@@ -49,4 +49,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           DIGEST_STAGE_WEBHOOK_URL: ${{ secrets.DIGEST_STAGE_WEBHOOK_URL }}
           DIGEST_WEBHOOK_SECRET: ${{ secrets.DIGEST_WEBHOOK_SECRET }}
+          DIGEST_NEXT_QUESTION_URL: ${{ secrets.DIGEST_NEXT_QUESTION_URL }}
           DIGEST_FORCE: ${{ inputs.force && '1' || '' }}

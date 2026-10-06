@@ -15,6 +15,7 @@ VARIABLES = ["TVL", "Volume", "Average Volume", "Asset Selection", "Correlation"
 REQUIRED_KEYS = ["id", "date", "title", "subtitle", "snapshot", "intro", "stories", "closing"]
 QUESTION_MAX = 220
 CHOICE_MAX = 48
+SKIPPED_MAX = 300
 
 # Standalone "IL" is case-sensitive on purpose ("il" appears inside real words
 # and names); "impermanent loss" is matched case-insensitively.
@@ -65,9 +66,18 @@ def _validate_featured(f, story_count):
     if not isinstance(f, dict):
         return [FEATURED_MISSING]
     out = []
+    from_member = f.get("fromMember")
+    if "fromMember" in f and not isinstance(from_member, bool):
+        out.append("featured.fromMember: must be true or false")
+    skipped = f.get("memberQuestionSkipped")
+    if "memberQuestionSkipped" in f and (not isinstance(skipped, str) or len(skipped) > SKIPPED_MAX):
+        out.append(f"featured.memberQuestionSkipped: must be a string of {SKIPPED_MAX} chars or fewer")
     idx = f.get("storyIndex")
-    if isinstance(idx, bool) or not isinstance(idx, int) or not 0 <= idx < story_count:
-        out.append(f"featured.storyIndex: must be an integer from 0 to {story_count - 1}")
+    if idx is None and from_member is True:
+        pass  # a member's question is not tied to any story
+    elif isinstance(idx, bool) or not isinstance(idx, int) or not 0 <= idx < story_count:
+        suffix = " (null only when fromMember is true)" if idx is None else ""
+        out.append(f"featured.storyIndex: must be an integer from 0 to {story_count - 1}{suffix}")
     q = f.get("question")
     if not _nonempty_str(q):
         out.append("featured.question: missing or empty")
