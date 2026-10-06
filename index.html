@@ -377,6 +377,47 @@
     .spark-text { font-size: .875rem; color: var(--text-1); line-height: 1.7; }
 
     /* ═══════════════════════════════════════════════════════════════
+       FEATURED SPARK — tap-to-answer block between intro and stories
+    ═══════════════════════════════════════════════════════════════ */
+    .featured {
+      margin: var(--sp-8) 0 0;
+      padding: var(--sp-6);
+      background: var(--bg-card); border: 1px solid var(--border-hi);
+      border-radius: 12px;
+      scroll-margin-top: 80px;
+    }
+    .featured-label {
+      font-size: .6rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: .12em; color: var(--gold); margin-bottom: var(--sp-3);
+    }
+    .featured-question {
+      font-size: 1.05rem; font-weight: 600; line-height: 1.55;
+      letter-spacing: -.01em; color: var(--text-1); margin-bottom: var(--sp-4);
+    }
+    .featured-choices { display: flex; flex-wrap: wrap; gap: var(--sp-2); }
+    .featured-choice {
+      display: inline-flex; align-items: center; justify-content: center;
+      min-height: 44px; padding: var(--sp-2) var(--sp-4);
+      border-radius: 8px; border: 1px solid var(--gold-dark);
+      background: var(--gold-glow2); color: var(--gold);
+      font-size: .875rem; font-weight: 500; line-height: 1.35;
+      text-align: center; text-decoration: none;
+      transition: color .2s var(--ease), border-color .2s var(--ease), background .2s var(--ease);
+    }
+    .featured-choice:hover { background: var(--gold-glow); border-color: var(--gold); color: var(--gold-bright); }
+    .featured-choice:focus-visible { outline: 1px solid var(--gold); outline-offset: 2px; }
+    .featured-choice.quiet { border-color: var(--border-card); background: transparent; color: var(--text-2); }
+    .featured-choice.quiet:hover { color: var(--text-1); border-color: var(--gold-dark); }
+    .featured-note { font-size: .75rem; color: var(--text-2); margin-top: var(--sp-3); }
+
+    /* Link line that replaces the discussion widget on the featured story */
+    .spark-answer-link {
+      display: inline-block; margin-top: var(--sp-3);
+      font-size: .8rem; font-weight: 500; color: var(--gold); text-decoration: none;
+    }
+    .spark-answer-link:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+    /* ═══════════════════════════════════════════════════════════════
        CLOSING
     ═══════════════════════════════════════════════════════════════ */
     .issue-closing {
@@ -439,6 +480,8 @@
       .brand-divider, .brand-sub, .nav-label { display: none; }
       .story { grid-template-columns: 1fr; }
       .story-num { font-size: 1.1rem; margin-bottom: 6px; opacity: .12; }
+      .featured { padding: var(--sp-4); }
+      .featured-choices { flex-direction: column; }
       .glance { grid-template-columns: repeat(2, 1fr); }
       .glance-item:nth-child(2) { border-right: none; }
       .glance-item:nth-child(1),
@@ -545,7 +588,7 @@
   </svg>
 
   <strong>Patient Investor Digest</strong><br>
-  LP Mastermind Edition &nbsp;·&nbsp; Published every Monday &amp; Thursday<br>
+  LP Mastermind Edition &nbsp;·&nbsp; Published every Monday<br>
   Concentrated liquidity intelligence for serious LPs.
 </footer>
 
@@ -554,12 +597,37 @@
 <script src="data.js"></script>
 <script src="group.js"></script>
 <script>
+// Issues actually shown: DIGESTS minus anything not yet live or on the platform's
+// held list. Set once by init(); every render/lookup below reads this, not DIGESTS.
+let ISSUES = [];
+// Platform origin for the featured-spark links; set by init().
+let SOCIAL_URL = '';
 
+/* ── HELPERS ───────────────────────────────────────────────────── */
+function esc(str) {
+  return String(str).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+}
+
+// GET json with a hard timeout; resolves null on any failure (fail-open).
+function fetchJSON(url, ms) {
+  const ctl = new AbortController();
+  const timer = setTimeout(() => ctl.abort(), ms);
+  return fetch(url, { credentials: 'same-origin', signal: ctl.signal })
+    .then(r => (r.ok ? r.json() : null))
+    .catch(() => null)
+    .finally(() => clearTimeout(timer));
+}
+
+// Visible = no publishAt, or its time has passed; and not on the held list.
+function isVisible(d, held, now) {
+  if (held.includes(d.id)) return false;
+  return !d.publishAt || Date.parse(d.publishAt) <= now;
+}
 
 /* ── BUILD NAV ─────────────────────────────────────────────────── */
 function buildNav() {
   const nav = document.getElementById('issue-nav');
-  DIGESTS.forEach((d, i) => {
+  ISSUES.forEach((d, i) => {
     const a = document.createElement('a');
     a.href = '#' + d.id;
     a.className = 'nav-chip' + (i === 0 ? ' active' : '');
@@ -576,7 +644,7 @@ function buildNav() {
 /* ── BUILD ISSUES ──────────────────────────────────────────────── */
 function buildIssues() {
   const container = document.getElementById('top');
-  DIGESTS.forEach((d, idx) => {
+  ISSUES.forEach((d, idx) => {
     const sec = document.createElement('section');
     sec.className = 'issue ' + (idx === 0 ? 'latest' : 'older');
     sec.id = d.id;
@@ -589,18 +657,44 @@ function buildIssues() {
         <div class="glance-value">${s.value}</div>
       </div>`).join('');
 
+    const f = d.featured && Array.isArray(d.featured.choices) ? d.featured : null;
+    const featuredIdx = f ? f.storyIndex : -1;
+
+    // The featured story's spark has no data-digest/data-story, so group.js
+    // (which hydrates ".story-spark[data-digest]") leaves it alone; a link to the
+    // featured block stands in for the discussion widget.
     const storiesHTML = d.stories.map((s, i) => `
       <div class="story reveal" data-d="${Math.min(i+1,5)}">
         <div class="story-num">0${i+1}</div>
         <div>
           <div class="story-title">${s.title}</div>
           <div class="story-body">${s.body}</div>
+          ${i === featuredIdx ? `
+          <div class="story-spark">
+            <div class="spark-label">◆ For the group</div>
+            <div class="spark-text">${s.spark}</div>
+            <a class="spark-answer-link" href="#${esc(d.id)}-spark" data-spark-target="${esc(d.id)}-spark">Answer this week's spark ↑</a>
+          </div>` : `
           <div class="story-spark" data-digest="${d.id}" data-story="${i}">
             <div class="spark-label">◆ For the group</div>
             <div class="spark-text">${s.spark}</div>
-          </div>
+          </div>`}
         </div>
       </div>`).join('');
+
+    // Question/choices come from the model; unlike the fields above they are
+    // escaped, and each choice is a plain same-tab link to the platform.
+    const sparkUrl = `${SOCIAL_URL}/spark/${encodeURIComponent(d.id)}`;
+    const featuredHTML = f ? `
+      <div class="featured reveal" id="${esc(d.id)}-spark" data-d="5">
+        <div class="featured-label">◆ This week's spark</div>
+        <p class="featured-question">${esc(f.question)}</p>
+        <div class="featured-choices">
+          ${f.choices.map((c, i) => `<a class="featured-choice" href="${esc(sparkUrl)}?c=${i}">${esc(c)}</a>`).join('')}
+          <a class="featured-choice quiet" href="${esc(sparkUrl)}?c=d">It depends</a>
+        </div>
+        <p class="featured-note">Tap your answer to see how the group split.</p>
+      </div>` : '';
 
     sec.innerHTML = `
       <div class="issue-eyebrow reveal">
@@ -615,6 +709,7 @@ function buildIssues() {
       <p class="issue-subtitle reveal" data-d="2">${d.subtitle}</p>
       <div class="glance reveal" data-d="3">${glanceHTML}</div>
       <p class="issue-intro reveal" data-d="4">${d.intro}</p>
+      ${featuredHTML}
       <div class="stories">${storiesHTML}</div>
       <div class="issue-closing reveal" data-digest="${d.id}" data-story="-1">${d.closing}</div>`;
 
@@ -640,7 +735,7 @@ function initObservers() {
         if (window.location.hash !== newHash) {
           history.replaceState(null, '', newHash);
         }
-        const d = DIGESTS.find(x => x.id === e.target.id);
+        const d = ISSUES.find(x => x.id === e.target.id);
         if (d) document.title = `${d.date} — Patient Investor Digest`;
       }
     });
@@ -704,16 +799,42 @@ function initScroll() {
   }, { passive: true });
 }
 
+/* ── SPARK LINK ────────────────────────────────────────────────── */
+// "Answer this week's spark ↑" on the featured story scrolls up to its block.
+function initSparkLinks() {
+  document.getElementById('top').addEventListener('click', e => {
+    const a = e.target.closest('[data-spark-target]');
+    if (!a) return;
+    e.preventDefault();
+    document.getElementById(a.dataset.sparkTarget)?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+}
+
 /* ── INIT ──────────────────────────────────────────────────────── */
-document.title = 'Patient Investor Digest';
-buildNav();
-buildIssues();
-initCopyLink();
-scrollToHashOnLoad();
-requestAnimationFrame(() => { initObservers(); initScroll(); });
-// Hydrate the "For the group" discussion widgets (members only; no-op for
-// public readers). Runs after buildIssues so every spark + closing is in the DOM.
-if (window.PIGroup) PIGroup.init();
+async function init() {
+  document.title = 'Patient Investor Digest';
+  // Held list + platform origin, both fail-open (a static host or an outage
+  // just means nothing is held and we fall back to the header's hub link).
+  const [state, session] = await Promise.all([
+    fetchJSON('/api/state', 3000),
+    fetchJSON('/api/session', 3000),
+  ]);
+  const held = (state && Array.isArray(state.held)) ? state.held : [];
+  const now = Date.now();
+  ISSUES = DIGESTS.filter(d => isVisible(d, held, now));
+  SOCIAL_URL = ((session && session.socialUrl) || document.querySelector('.back-to-hub').href).replace(/\/$/, '');
+
+  buildNav();
+  buildIssues();
+  initCopyLink();
+  initSparkLinks();
+  scrollToHashOnLoad();
+  requestAnimationFrame(() => { initObservers(); initScroll(); });
+  // Hydrate the "For the group" discussion widgets (members only; no-op for
+  // public readers). Runs after buildIssues so every spark + closing is in the DOM.
+  if (window.PIGroup) PIGroup.init();
+}
+init();
 </script>
 </body>
 </html>
