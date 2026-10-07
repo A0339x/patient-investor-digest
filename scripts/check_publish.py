@@ -169,7 +169,7 @@ def do_publish(token, thread_ts, state, pending, intro_message=None):
     else:
         print("Warning: git push failed; not telling the platform about the edits.",
               file=sys.stderr)
-    post_reply(token, thread_ts, "Done! The digest is live at https://patient-investor-digest.pages.dev/")
+    post_reply(token, thread_ts, "Done! The digest is live at https://members.gregoryesman.com/spark")
 
 
 # Fields a revision may never change: the issue's identity and its go-live time.

@@ -21,6 +21,8 @@
 // =============================================================================
 
 const COOKIE_NAME = "digest_session";
+/** Where the Digest lives now. */
+const DIGEST_HOME = "https://members.gregoryesman.com";
 const EXPECTED_ISSUER = "social.patient-investor";
 
 type Env = {
@@ -308,6 +310,17 @@ function SPLASH_HTML(socialUrl: string): string {
 export const onRequest: PagesFunction<Env> = async (context) => {
   const { request, env, next } = context;
   const url = new URL(request.url);
+
+  // The Digest moved onto the members platform on 2026-10-07: every issue, the
+  // weekly spark and the group discussion now live there. Every page view is
+  // sent on. /api/* stays for anything still calling it, and POST /__auth
+  // (below) still completes an old hand-off before landing on this redirect.
+  if ((request.method === "GET" || request.method === "HEAD") && !url.pathname.startsWith("/api/")) {
+    return new Response(null, {
+      status: 302,
+      headers: { Location: `${DIGEST_HOME}/spark`, "Cache-Control": "no-store" },
+    });
+  }
 
   // POST /__auth — token handshake from the social side. Extract token from
   // application/x-www-form-urlencoded body, validate, set cookie, redirect.

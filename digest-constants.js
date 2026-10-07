@@ -12,7 +12,7 @@
 // Replaced at deploy time if NEXT_PUBLIC_SOCIAL_URL changes. The digest reads
 // this from window.__DIGEST_CONFIG (injected by Pages middleware) at runtime;
 // the constant below is the fallback for local dev.
-export const SOCIAL_URL_FALLBACK = "https://patient-investor-demo.vercel.app";
+export const SOCIAL_URL_FALLBACK = "https://members.gregoryesman.com";
 
 // Slug for the chat channel that hosts spark threads.
 export const DIGEST_CHANNEL_SLUG = "digest-discussion";
