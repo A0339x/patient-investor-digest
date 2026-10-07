@@ -78,7 +78,7 @@ def build_payload(digest):
         "publish_at": digest.get("publishAt"),
         "snapshot": digest.get("snapshot", []),
         "stories": [
-            {"index": i, "title": s.get("title", ""), "spark": s.get("spark", "")}
+            {"index": i, "title": s.get("title", ""), "body": s.get("body", ""), "spark": s.get("spark", "")}
             for i, s in enumerate(digest.get("stories", []))
         ],
         "closing": digest.get("closing", ""),

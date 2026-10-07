@@ -361,7 +361,7 @@ class Payload(unittest.TestCase):
         self.assertEqual(p["digest_id"], "10-12-2026")
         self.assertEqual(p["title"], "LP Mastermind Market Update")
         self.assertEqual(p["publish_at"], "2026-10-12T09:00:00-07:00")
-        self.assertEqual(p["stories"][1], {"index": 1, "title": "Story 1", "spark": "What would you change?"})
+        self.assertEqual(p["stories"][1], {"index": 1, "title": "Story 1", "body": "Body text.", "spark": "What would you change?"})
         self.assertEqual(p["featured"]["variable"], "Range")
 
     def test_payload_generator_source(self):
