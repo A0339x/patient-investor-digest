@@ -3,6 +3,67 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "10-12-2026",
+    "date": "October 12, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "-1.9%"
+      },
+      {
+        "label": "ETH",
+        "value": "-5.0%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Choppy, tilted lower"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$0.10"
+      }
+    ],
+    "intro": "Prices slid over the past seven days, with ETH falling more than twice as far as BTC. This week's stories touch four of our variables: Correlation, Average Volume, Asset Selection, and TVL. Each one shows up in a different corner of the news, and each changes what happens to a range when price keeps moving.",
+    "stories": [
+      {
+        "title": "ETF Money Is Leaving -- Which Pair Type Fits a Slide?",
+        "body": "Bitcoin ETFs -- funds that hold bitcoin and trade like stocks -- have seen $386.3 million in net outflows through the first seven trading days of October. Ethereum funds have now posted nine straight days of losses, and Solana funds are also in the red for the month. Over the same seven days, ETH fell 5.0% and BTC fell 1.9%. This is a Correlation story. A BTC/ETH pair is a correlated pair -- two assets that tend to move together -- so both sides of the pool fall at once, and you take the full drop. An ETH/USDC pair with a centered range holds roughly half its value in USDC, so a 20% drop in ETH costs closer to 10%. Range matters too. If your range is $2,300 to $2,900 and ETH falls to $2,200, the pool has sold all its USDC and bought ETH the whole way down. You now hold 100% ETH, the asset that is falling. A wider range delays that moment, while a narrower one earns more fees but reaches it faster. When money is leaving the market, it's a good habit to ask which pair type and which range width match the drop you are bracing for.",
+        "spark": "ETH fell 5.0% this week while ETFs saw outflows. For a position that limits exposure to a further drop, which setup fits your thinking best?"
+      },
+      {
+        "title": "One Wallet Moved ETH Prices -- Was That Volume Worth Trusting?",
+        "body": "A trader made $1.28 million on Papertrade, a new exchange offering 1,000x leverage -- borrowing to multiply a bet a thousand times -- by moving Hyperliquid's ETH prices. The same wallet later lost $450,000 when 30 short positions were liquidated on Saturday night. A liquidation is a forced closing of a position, and each one adds more buying and selling to the market. This is an Average Volume story. Krystal shows only today's volume, and it calculates APR from that one number. A day full of forced closes and one wallet's trades can push volume far above the 45-day average. When that happens, the average tells you today is the outlier, and volume usually falls back toward normal. APR falls with it. If you LP into a pool because of a one-day APR spike, keep in mind that you may be paying for a day that will not repeat. TVL is the second variable. A shallow pool is easier for one trader to push around, while a deep pool absorbs the same trades and barely moves.",
+        "spark": "Next time you open Krystal, what is the gap between a pool's daily volume and its 45-day average, and what does that gap tell you about its APR?"
+      },
+      {
+        "title": "A Decade-Old XRP Bug Gets Patched -- What Does Asset Selection Protect You From?",
+        "body": "The XRP Ledger patched an overflow bug -- a number grows past the size the software can store and wraps around to a wrong result -- in its payment engine. The bug could have let an attacker mint about 18 trillion spendable XRP in one transaction. The headline says could have, and the fix is now in. This is an Asset Selection story. Assets near the top of the market-cap rank get scrutinized by many developers and researchers, so bugs like this tend to get found and fixed. A newer token with a small team and few reviewers has far fewer eyes on its code. Keep in mind that a high rank lowers the odds of something going wrong. It does not remove them. Pairing a top-ranked asset with a stablecoin also keeps about half the position in dollars if something unexpected hits the other side. Your two assets together set your risk. A top-30 asset paired with an unproven one is only as safe as the weaker side.",
+        "spark": "Look at the two assets in your largest position. What is each one's market-cap rank on Coin Market Cap, and which side is the weaker link?"
+      },
+      {
+        "title": "Tokenized Stocks Trade at Night -- Where Does That Leave Pool Depth?",
+        "body": "An IMF analysis found that more than half of tokenized stock trading happens outside U.S. market hours. A tokenized stock is a token on a blockchain that tracks the price of a company's share. The market is roughly $2.3 billion, and it is more volatile and less liquid than traditional equities. This is a Volume and TVL story. Trading at night and on weekends means pools can earn fees when stock exchanges are closed. Less liquid means the pools hold less money, so TVL is low. APR is essentially Volume divided by TVL, so a small pool with steady volume can show a high APR. The catch is that the same shallow pool lets one large trade move price a lot. A narrow range in a thin pool can get knocked out quickly. Compared with the top 30 coins, $2.3 billion across the whole category is small. That affects Asset Selection as well. A wider range gives more room for the sharp moves a thin pool tends to produce.",
+        "spark": "If a pool had a high APR but only a small amount of TVL, how wide would you set the range, and what makes you choose that width?"
+      }
+    ],
+    "featured": {
+      "storyIndex": 0,
+      "fromMember": false,
+      "question": "ETH fell 5.0% this week while ETFs saw outflows. For a position that limits exposure to a further drop, which setup fits your thinking best?",
+      "choices": [
+        "Correlated pair, like BTC/ETH",
+        "Uncorrelated pair, like ETH/USDC",
+        "Same pair, wider range"
+      ],
+      "variable": "Range",
+      "workedAnswer": "One way to think about it starts with Correlation. In a correlated pair like BTC/ETH, both sides can fall together, so the full drop lands on the position. In ETH/USDC, roughly half the value sits in dollars, so a 20% drop in ETH costs closer to 10%. A wider range on the same pair keeps you in range longer, but it earns a lower APR. A narrow range earns more fees and reaches 100% ETH sooner if price falls through the bottom. What the decision depends on is how far you expect the drop to run, how much fee income you are willing to give up, and how comfortable you are holding all ETH."
+    },
+    "closing": "Which of these four variables did you check first this week, and did it change a range you were already running? Drop your pairs and range widths in the group.",
+    "publishAt": "2026-10-12T09:00:00-07:00"
+  },
+  {
     "id": "10-05-2026",
     "date": "October 05, 2026",
     "title": "LP Mastermind\nMarket Update",
