@@ -1,67 +1,67 @@
 {
   "pending": {
     "digest": {
-      "id": "10-12-2026",
-      "date": "October 12, 2026",
+      "id": "10-19-2026",
+      "date": "October 19, 2026",
       "title": "LP Mastermind\nMarket Update",
       "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
       "snapshot": [
         {
           "label": "BTC",
-          "value": "-1.9%"
+          "value": "-1.0%"
         },
         {
           "label": "ETH",
-          "value": "-5.0%"
+          "value": "-4.6%"
         },
         {
           "label": "Volatility",
-          "value": "Choppy, tilted lower"
+          "value": "Mild drift lower, ETH weaker than BTC"
         },
         {
           "label": "ETH Gas",
           "value": "~$0.10"
         }
       ],
-      "intro": "Prices slid over the past seven days, with ETH falling more than twice as far as BTC. This week's stories touch four of our variables: Correlation, Average Volume, Asset Selection, and TVL. Each one shows up in a different corner of the news, and each changes what happens to a range when price keeps moving.",
+      "intro": "BTC slipped 1.0% over seven days while ETH fell 4.6%, a gentle slide rather than a sharp spike. Ranges that were centered on prices from a week ago mostly held, but ETH-heavy positions drifted toward the lower edge. This issue touches Asset Selection, Volume, Correlation, Average Volume and TVL, with the featured question on Correlation.",
       "stories": [
         {
-          "title": "ETF Money Is Leaving -- Which Pair Type Fits a Slide?",
-          "body": "Bitcoin ETFs -- funds that hold bitcoin and trade like stocks -- have seen $386.3 million in net outflows through the first seven trading days of October. Ethereum funds have now posted nine straight days of losses, and Solana funds are also in the red for the month. Over the same seven days, ETH fell 5.0% and BTC fell 1.9%. This is a Correlation story. A BTC/ETH pair is a correlated pair -- two assets that tend to move together -- so both sides of the pool fall at once, and you take the full drop. An ETH/USDC pair with a centered range holds roughly half its value in USDC, so a 20% drop in ETH costs closer to 10%. Range matters too. If your range is $2,300 to $2,900 and ETH falls to $2,200, the pool has sold all its USDC and bought ETH the whole way down. You now hold 100% ETH, the asset that is falling. A wider range delays that moment, while a narrower one earns more fees but reaches it faster. When money is leaving the market, it's a good habit to ask which pair type and which range width match the drop you are bracing for.",
-          "spark": "ETH fell 5.0% this week while ETFs saw outflows. For a position that limits exposure to a further drop, which setup fits your thinking best?"
+          "title": "Cysic Bridge Attack Shows Why Asset Selection Is a Safety Barrier",
+          "body": "Cysic suspended its bridge -- the contract that moves tokens from one blockchain to another -- after an attacker minted 10 million CYS tokens, meaning created them out of thin air. The attacker then moved about $727,000 of proceeds to Ethereum through Mayan, deBridge and SWFT's Bridgers. Only people holding CYS were exposed. Pools like ETH/USDC and BTC/USDC were untouched. That is Asset Selection at work: market-cap rank is our safety barrier, and a token far down the list carries much more of this kind of risk than a top-30 asset. The non-obvious second variable is Volume. When stolen tokens get sold and bots race to arbitrage the mess, swap activity rises, and pools on large assets can earn extra fees on days like that. Keep in mind that a one-day jump usually fades, so Average Volume, the trailing 45-day average, is the number that shows whether it will last.",
+          "spark": "Open one of your current pools and look up the market-cap rank of both assets. Which side ranks lowest, and how does that change how much of your position you would want sitting in it?"
         },
         {
-          "title": "One Wallet Moved ETH Prices -- Was That Volume Worth Trusting?",
-          "body": "A trader made $1.28 million on Papertrade, a new exchange offering 1,000x leverage -- borrowing to multiply a bet a thousand times -- by moving Hyperliquid's ETH prices. The same wallet later lost $450,000 when 30 short positions were liquidated on Saturday night. A liquidation is a forced closing of a position, and each one adds more buying and selling to the market. This is an Average Volume story. Krystal shows only today's volume, and it calculates APR from that one number. A day full of forced closes and one wallet's trades can push volume far above the 45-day average. When that happens, the average tells you today is the outlier, and volume usually falls back toward normal. APR falls with it. If you LP into a pool because of a one-day APR spike, keep in mind that you may be paying for a day that will not repeat. TVL is the second variable. A shallow pool is easier for one trader to push around, while a deep pool absorbs the same trades and barely moves.",
-          "spark": "Next time you open Krystal, what is the gap between a pool's daily volume and its 45-day average, and what does that gap tell you about its APR?"
+          "title": "ETF Outflows and a Weaker ETH Put Correlation in Focus",
+          "body": "Bitcoin ETFs -- funds that let investors hold Bitcoin through a regular brokerage account -- lost a net $228.6 million this week, after a $681.1 million drain the week before. That is nearly $1 billion over two weeks, and October is deep in the red. Over seven days BTC fell 1.0% while ETH fell 4.6%, so the two did not fall by the same amount. This is the Correlation variable in action. In a pair like BTC/ETH, both sides can fall together, so you take the full drop. In a pair like ETH/USDC, a range that is 50% on each side holds half stablecoins, so a 20% drop in ETH costs you only about 10%. The second variable is Market Sentiment. Checking the fear and greed reading on Coin Market Cap tells you whether the crowd is cautious or euphoric. Extreme fear has often come before a turn higher, so a negative reading is a cue to think through both outcomes rather than a signal in itself.",
+          "spark": "Bitcoin ETFs saw outflows two weeks running and ETH fell 4.6% this week. If you worry the dip could continue, which setup do you lean toward for a new position?"
         },
         {
-          "title": "A Decade-Old XRP Bug Gets Patched -- What Does Asset Selection Protect You From?",
-          "body": "The XRP Ledger patched an overflow bug -- a number grows past the size the software can store and wraps around to a wrong result -- in its payment engine. The bug could have let an attacker mint about 18 trillion spendable XRP in one transaction. The headline says could have, and the fix is now in. This is an Asset Selection story. Assets near the top of the market-cap rank get scrutinized by many developers and researchers, so bugs like this tend to get found and fixed. A newer token with a small team and few reviewers has far fewer eyes on its code. Keep in mind that a high rank lowers the odds of something going wrong. It does not remove them. Pairing a top-ranked asset with a stablecoin also keeps about half the position in dollars if something unexpected hits the other side. Your two assets together set your risk. A top-30 asset paired with an unproven one is only as safe as the weaker side.",
-          "spark": "Look at the two assets in your largest position. What is each one's market-cap rank on Coin Market Cap, and which side is the weaker link?"
+          "title": "Bank Deposit Rates Can Slow Stablecoin Growth, and That Feeds Volume",
+          "body": "A Bank for International Settlements working paper found that stablecoin growth slows when U.S. banks raise deposit rates, with Circle's USDC the most sensitive. Stablecoins are the dollar-pegged tokens that sit on one side of most pools. When they grow, more dollars are available to trade and to deposit. When they stall, less fresh money arrives. APR is essentially Volume divided by TVL, so both variables feel this. Slower stablecoin inflows can mean fewer new deposits chasing the same fees, which helps TVL stay put, but it can also mean less trading. Keep in mind that this is one paper's finding, not a forecast. It is a useful reminder that a USDC pair's yield depends on what bank rates are doing in the background. The second variable is Asset Selection. Both USDC and its competitors rank high, but if you LP into a lower-ranked stablecoin to chase a better APR, you take on depeg risk, which is the chance the peg breaks.",
+          "spark": "Look at one stablecoin pool you hold or watch. Is its APR coming mostly from high Volume or from low TVL, and how would you tell which one is driving it?"
         },
         {
-          "title": "Tokenized Stocks Trade at Night -- Where Does That Leave Pool Depth?",
-          "body": "An IMF analysis found that more than half of tokenized stock trading happens outside U.S. market hours. A tokenized stock is a token on a blockchain that tracks the price of a company's share. The market is roughly $2.3 billion, and it is more volatile and less liquid than traditional equities. This is a Volume and TVL story. Trading at night and on weekends means pools can earn fees when stock exchanges are closed. Less liquid means the pools hold less money, so TVL is low. APR is essentially Volume divided by TVL, so a small pool with steady volume can show a high APR. The catch is that the same shallow pool lets one large trade move price a lot. A narrow range in a thin pool can get knocked out quickly. Compared with the top 30 coins, $2.3 billion across the whole category is small. That affects Asset Selection as well. A wider range gives more room for the sharp moves a thin pool tends to produce.",
-          "spark": "If a pool had a high APR but only a small amount of TVL, how wide would you set the range, and what makes you choose that width?"
+          "title": "Nine Companies Object to Tokenized Trading of Their Shares",
+          "body": "CoreWeave, Broadcom, Verizon and six other companies are objecting to tokenized trading of their shares on OKXICE. A tokenized share is a crypto token designed to track a stock's price. Applied Optoelectronics told the WSJ it was unsure how tokenization would affect its stock price, liquidity and volatility. For LPs, the lesson is about new markets that open with a splash. A brand-new pool often shows huge daily Volume and a very high APR in its first days. Average Volume is the outlier detector here. A pool with only a few days of history cannot give a trustworthy average, and when daily Volume sits far above the average, it tends to fall back toward it, and the APR falls with it. The second variable is Asset Selection. A tokenized stock is a wrapper that depends on whoever issues it, so it carries the issuer's risk on top of the stock's, and it has no market-cap rank to check.",
+          "spark": "When you spot a pool with a very high APR, how many days of Volume history do you want to see before you trust it, and what would you compare it against?"
         }
       ],
       "featured": {
-        "storyIndex": 0,
+        "storyIndex": 1,
         "fromMember": false,
-        "question": "ETH fell 5.0% this week while ETFs saw outflows. For a position that limits exposure to a further drop, which setup fits your thinking best?",
+        "question": "Bitcoin ETFs saw outflows two weeks running and ETH fell 4.6% this week. If you worry the dip could continue, which setup do you lean toward for a new position?",
         "choices": [
-          "Correlated pair, like BTC/ETH",
-          "Uncorrelated pair, like ETH/USDC",
-          "Same pair, wider range"
+          "Correlated pair like BTC/ETH",
+          "Uncorrelated pair like ETH/USDC",
+          "Keep the pair, widen the range"
         ],
-        "variable": "Range",
-        "workedAnswer": "One way to think about it starts with Correlation. In a correlated pair like BTC/ETH, both sides can fall together, so the full drop lands on the position. In ETH/USDC, roughly half the value sits in dollars, so a 20% drop in ETH costs closer to 10%. A wider range on the same pair keeps you in range longer, but it earns a lower APR. A narrow range earns more fees and reaches 100% ETH sooner if price falls through the bottom. What the decision depends on is how far you expect the drop to run, how much fee income you are willing to give up, and how comfortable you are holding all ETH."
+        "variable": "Correlation",
+        "workedAnswer": "One way to think about it is to ask how much of the drop you want to carry. A correlated pair like BTC/ETH moves both assets together, so a fall in the market shows up on both sides and you capture the full move down, just as you would the full move up. A pair with a stablecoin holds part of your money in dollars, so a fall in the other asset is softened. A wider range keeps you earning fees for longer but earns a lower APR. Your answer depends on how confident you are about direction, how the Market Sentiment reading looks on Coin Market Cap, and whether the assets on each side rank high on Asset Selection."
       },
-      "closing": "Which of these four variables did you check first this week, and did it change a range you were already running? Drop your pairs and range widths in the group.",
-      "publishAt": "2026-10-12T09:00:00-07:00"
+      "closing": "What are you watching going into next week? Drop your current pairs, range widths and anything you changed after this week's slide in the group.",
+      "publishAt": "2026-10-19T09:00:00-07:00"
     },
-    "slack_ts": "1791788607.980719",
-    "generated_at": "2026-10-12T07:03:29.720198+00:00"
+    "slack_ts": "1792389109.046409",
+    "generated_at": "2026-10-19T05:51:49.986738+00:00"
   }
 }
