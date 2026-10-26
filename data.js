@@ -3,6 +3,72 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "10-26-2026",
+    "date": "October 26, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "-3.0%"
+      },
+      {
+        "label": "ETH",
+        "value": "-4.3%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Brief flush, then steadier"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$0.10"
+      }
+    ],
+    "intro": "Prices slipped over the past seven days, and one sharp four-hour flush briefly pushed BTC under $80,000. This issue touches Range, Volume, Average Volume, Asset Selection, Market Sentiment and The Chart. Each story asks the same question: what would this have done to a position you were holding?",
+    "stories": [
+      {
+        "title": "A Four-Hour Flush Tests Tight Ranges",
+        "body": "Crypto longs lost $404 million in four hours as bitcoin briefly slipped below $80,000. A long is a bet that price will rise, and a liquidation is when an exchange force-closes that bet because the trader ran out of margin. Forced selling creates a burst of swaps, so Volume jumps for a few hours. Suppose your BTC/USDC range was $80,500 to $84,000. The dip would have pushed you out of range, and your position would have become all BTC while price sat below it. A wider range, say $76,000 to $86,000, would have kept earning through the whole move at a lower APR. Keep in mind that Krystal shows today's Volume only. A spike like this one can make APR look higher than it will be once Volume settles back toward its 45-day Average Volume.",
+        "spark": "If your BTC/USDC range was tight this week, did the dip below $80,000 knock you out of range? What width would have kept you in without giving up too much APR?"
+      },
+      {
+        "title": "CoinDCX and Keystone Breaches: Where Your Assets Sit Matters",
+        "body": "CoinDCX confirmed a $16 million loss from retired wallets, days after its CEO called the breach reports a \"false alarm.\" Separately, customers say a breach at hardware wallet maker Keystone exposed data the company said it would delete. Both are failures of a company, not of the coins themselves. This is Asset Selection at work. A top-30 asset by market-cap rank can still be hurt if you hold it on a weak platform. Likewise, a hack that hits one version of a token leaves the original untouched, as the recent bridge hack showed with the fake version of Ethereum. When you're adding liquidity, it's a really good habit to ask two questions. How high does each asset rank? And what company or contract sits between you and it?",
+        "spark": "For your current positions, which assets sit in the top 30, and where are they held or bridged from? Has any of that changed your comfort with a pair?"
+      },
+      {
+        "title": "ETF Flows Flip Twice in One Week",
+        "body": "Spot Bitcoin ETFs -- funds that hold actual bitcoin and trade like stocks -- lost $773 million on Thursday and Friday after three days of net inflows. Even so, the week closed with about $301 million in net inflows, ending a two-week losing streak. October is still in the red overall. Mixed signals like these are a good moment to check Market Sentiment on Coin Market Cap. A neutral reading often means price drifts sideways, and sideways price is when a tighter range can earn more because price keeps crossing the same band. Extreme fear or extreme greed point the other way: fear often comes before a turn higher, and greed often comes before a correction. When sentiment sits in the middle, keep in mind that a tighter range only pays while price stays inside it.",
+        "spark": "What is Coin Market Cap showing for Market Sentiment right now, and how does it compare with the range width you're running today?"
+      },
+      {
+        "title": "Argentine Judge Clears Milei in the LIBRA Case",
+        "body": "An Argentine judge cleared President Javier Milei and 10 others in the LIBRA case. The 60-page ruling found that his post promoting the token did not, by itself, establish fraud. The ruling is about criminal intent. It does not change what LIBRA's price did after the hype. This is a good place to use The Chart variable, which asks two questions. Is the long-term chart alive, with highs and lows in both directions? And where is price sitting compared with its previous high? A token that spiked on a celebrity post and then fell is usually a chart with more downside than upside. Keep in mind that a pool in a hyped, low-ranked token can show a very high APR. That APR comes from a burst of Volume that tends to fade back toward its average.",
+        "spark": "Next time you see a pool with a very high APR, what do you check first on the chart, and how far below the previous high does price need to be before you'd consider it?"
+      },
+      {
+        "title": "Twenty-Two Companies Object to Tokenized Stocks",
+        "body": "Wells Fargo, Cisco, Marvell, Arm, Moderna and Intuit joined the list of companies objecting to having their shares traded on the planned OKX-ICE tokenized stock venue. That makes 22 objectors. A tokenized stock is a blockchain token meant to track a company's share price. If these tokens do reach on-chain pools, they would start with little TVL, so even modest inflows or outflows could swing the APR a lot. They also don't fit the crypto market-cap rank that Asset Selection relies on. A token that depends on a company's cooperation can lose its footing when that company objects. So for any new asset type, it's worth asking how deep the pool is and what backs the token before thinking about range width.",
+        "spark": "If a tokenized stock pool launched tomorrow with $300K of TVL, what would you want to see in its Volume and Average Volume before deciding whether the APR looks trustworthy?"
+      }
+    ],
+    "featured": {
+      "storyIndex": 0,
+      "fromMember": false,
+      "question": "BTC dipped under $80,000 for a few hours, then steadied. For a BTC/USDC position next week, which range setup fits a week like that one best?",
+      "choices": [
+        "Narrow range, higher APR but more rebalancing",
+        "Wider range, lower APR but stays in range",
+        "Skew range toward more room below price"
+      ],
+      "variable": "Range",
+      "workedAnswer": "One way to think about it: the choice turns on Range width and how much you trust your support and resistance levels. A narrow range earns a higher APR only while price stays inside it, so a quick flush like this one can push you out and leave you holding all BTC. A wider range stays in place through the dip and earns a lower APR. A skewed range puts more room below price, which helps if you expect another dip and costs you upside if price climbs instead. Checking Market Sentiment and the 45-day Average Volume can tell you whether the recent Volume looks like a one-day spike or something sustained."
+    },
+    "closing": "What are you watching going into next week? Share your current pairs, range widths, and how the dip below $80,000 treated your positions.",
+    "publishAt": "2026-10-26T09:00:00-07:00"
+  },
+  {
     "id": "10-19-2026",
     "date": "October 19, 2026",
     "title": "LP Mastermind\nMarket Update",
