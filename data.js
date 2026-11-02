@@ -3,6 +3,72 @@
 // Manual additions: follow the same object structure and add to the top.
 const DIGESTS = [
   {
+    "id": "11-02-2026",
+    "date": "November 02, 2026",
+    "title": "LP Mastermind\nMarket Update",
+    "subtitle": "What moved this week, what it means for your ranges, and what's worth talking about.",
+    "snapshot": [
+      {
+        "label": "BTC",
+        "value": "-2.6%"
+      },
+      {
+        "label": "ETH",
+        "value": "-1.8%"
+      },
+      {
+        "label": "Volatility",
+        "value": "Hack shock, then cautious drift"
+      },
+      {
+        "label": "ETH Gas",
+        "value": "~$0.10"
+      }
+    ],
+    "intro": "A record exchange hack dominated the week, and prices slipped a little over seven days while money moved fast behind the scenes. This issue touches Asset Selection, Correlation, Volume, Average Volume and TVL. Each one shows up in a different part of the Binance story.",
+    "stories": [
+      {
+        "title": "The $6.4 Billion Binance Hack: Which Assets Were Actually at Risk?",
+        "body": "Attackers tied to North Korea drained roughly $6.4 billion from Binance, the world's largest crypto exchange, making it the biggest crypto theft on record. The money came out of the exchange's custody, not out of Bitcoin, Ethereum or the pools that trade them. That is the Asset Selection lesson: the coins on your two sides of a pool are only as exposed as the place they are held. Keep in mind that a top-30 asset in a pool on Uniswap is a different exposure from the same asset sitting on a single exchange. Volume is the second variable here. Big shocks send traders rushing to swap, and that activity can raise fees in mainstream pools that had nothing to do with the hack.",
+        "spark": "Look at one of your open positions. Do you know where each of the two assets ranks by market cap, and does anything about that change how you feel after this week?"
+      },
+      {
+        "title": "Bitcoin ETFs Lose $643 Million in One Day",
+        "body": "US spot bitcoin ETFs -- funds that hold actual bitcoin and trade like stocks -- shed $643.2 million on Friday. That was their largest one-day outflow since June 25, and October ended with roughly $516 million in net outflows. Market Sentiment on Coin Market Cap is the quick check here. When sentiment turns negative, prices tend to drift lower. Correlation is the variable that decides how that drift hits you. In a BTC/ETH pair (two assets that move together), both sides fall at once, so you take the full drop. In a BTC/USDC pair, only the BTC half falls, so a 20% drop in BTC costs you roughly 10%. If you feel the market is turning cautious, keep in mind that a pair with Correlation near 0 can cushion the fall.",
+        "spark": "Which of your positions are in correlated pairs, and how would each one behave if both assets fell 20% together?"
+      },
+      {
+        "title": "Stolen Funds Hop Across Bridges, and Volume Spikes Follow",
+        "body": "Analysts say North Korean hackers laundered about $242 million of the stolen Binance funds through Tron, a blockchain that is popular for moving stablecoins. Bridges -- apps that move tokens from one blockchain to another -- carried about $140 million of it off Tron. Relay handled the most at $48 million, and the others were THORChain, Chainflip and Symbiosis. Laundering means lots of swaps in a short window, and some of that activity can reach on-chain pools. Here is where Average Volume matters. Krystal only shows today's Volume. If today's number sits far above the 45-day average, it is the outlier, and the APR (essentially Volume divided by TVL) will fall when Volume settles back. When Average is below Daily, the high APR on screen is probably temporary.",
+        "spark": "Next time a pool shows an eye-catching APR, what do you see when you compare its daily Volume to its 45-day average?"
+      },
+      {
+        "title": "A Dozen DeFi Websites Hijacked Through One Domain Registrar",
+        "body": "Hackers took over about a dozen DeFi websites and stole roughly $138,000. All twelve domains were registered with Name.com, which suggests the registrar itself was compromised. A domain hijack means the web address now points to a fake copy of the site. Users who connect their wallets there sign transactions that send funds to the attacker. The smart contracts underneath were never touched. Asset Selection protects you from weak coins, but it does not protect you from a fake front end. Keep in mind that a deep pool (high TVL) can be just as exposed to this as a small one. A good habit is to use a bookmarked link when you add or remove liquidity, rather than a link from a search result or a message.",
+        "spark": "How do you reach the apps where your liquidity sits: bookmarks, search results, or links from other people?"
+      },
+      {
+        "title": "Binance Loses $3.64 Billion in Withdrawals and Keeps Standing",
+        "body": "After reopening withdrawals, Binance saw $3.64 billion in net outflows. That equals 2.1% of its $171 billion in assets, and withdrawal volume has slowed after an initial spike. A big base absorbs a big outflow without breaking. That is the same logic as TVL in a pool. A $400K outflow from a $500K pool empties most of it and wrecks the APR. The same $400K leaving a $50M pool barely registers. Where this money lands next is not clear from the news, so it is not a signal about any one pool. It is a good reminder to use TVL as your first safety filter, since deeper pools stay steadier when money moves quickly.",
+        "spark": "What is the smallest TVL you would accept for a pool before adding liquidity, and why that number?"
+      }
+    ],
+    "featured": {
+      "storyIndex": 1,
+      "fromMember": false,
+      "question": "Bitcoin ETFs just saw their biggest outflow day in four months. For a pair that holds BTC, would you keep a BTC/ETH pair that moves together or use a BTC/USDC pair?",
+      "choices": [
+        "Keep the correlated BTC/ETH pair",
+        "Move to a BTC/USDC pair",
+        "Split between the two types"
+      ],
+      "variable": "Correlation",
+      "workedAnswer": "One way to think about it is to start with how you read Market Sentiment. A correlated BTC/ETH pair amplifies a move in either direction, because both sides rise or fall together. A BTC/USDC pair has a Correlation near 0, so only the BTC half carries the price move. If BTC fell 20%, the second pair would lose roughly half as much. The right fit depends on how confident you are in the direction and how much price swing you want to carry. Range width then adds a second layer to that choice."
+    },
+    "closing": "What are you watching going into next week? Drop your current pairs, range widths and how you check where your liquidity links come from.",
+    "publishAt": "2026-11-02T09:00:00-08:00"
+  },
+  {
     "id": "10-26-2026",
     "date": "October 26, 2026",
     "title": "LP Mastermind\nMarket Update",
