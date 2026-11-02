@@ -11,7 +11,7 @@ const EXPECTED_ISSUER = "social.patient-investor";
 
 // Fallback keeps the proxies working even if SOCIAL_URL isn't set on the Pages
 // project. The social app's canonical prod origin.
-const SOCIAL_URL_FALLBACK = "https://members.gregoryesman.com";
+const SOCIAL_URL_FALLBACK = "https://members.patientinvestor.io";
 
 export type GroupEnv = {
   DIGEST_SHARED_SECRETS?: string;

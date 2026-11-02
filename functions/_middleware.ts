@@ -22,7 +22,7 @@
 
 const COOKIE_NAME = "digest_session";
 /** Where the Digest lives now. */
-const DIGEST_HOME = "https://members.gregoryesman.com";
+const DIGEST_HOME = "https://members.patientinvestor.io";
 const EXPECTED_ISSUER = "social.patient-investor";
 
 type Env = {
